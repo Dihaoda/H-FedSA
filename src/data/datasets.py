@@ -314,7 +314,7 @@ class HFImageClassificationDataset(Dataset):
 
 def build_federated_data(config: dict) -> FederatedData:
     dataset_cfg = config["dataset"]
-    fed_cfg = config["federated"]
+    fed_cfg = _federated_config_with_performance(config)
     seed = int(config["seed"])
     rng = np.random.default_rng(seed)
 
@@ -383,6 +383,7 @@ def build_federated_data(config: dict) -> FederatedData:
                         external_shift_dataset,
                         unseen_data_fraction,
                         client_seed,
+                        align_labels=bool(unseen_shift_cfg.get("align_labels", True)),
                     )
                 )
             else:
@@ -416,6 +417,19 @@ def build_federated_data(config: dict) -> FederatedData:
         unseen_clients=unseen_clients,
         unseen_shift_type=unseen_shift_type,
     )
+    if external_shift_dataset is not None:
+        external_targets = _extract_targets(external_shift_dataset)
+        metadata["external_shift_dataset"] = {
+            "variant": getattr(external_shift_dataset, "dataset_variant", external_shift_dataset.__class__.__name__),
+            "source_repository": getattr(external_shift_dataset, "source_repository", "NA"),
+            "pool_size": len(external_shift_dataset),
+            "label_min": int(external_targets.min()),
+            "label_max": int(external_targets.max()),
+            "label_alignment_enabled": bool(unseen_shift_cfg.get("align_labels", True)),
+            "label_fallback_count": int(
+                sum(getattr(dataset, "label_fallback_count", 0) for dataset in client_datasets)
+            ),
+        }
 
     first_image, _ = train_dataset[0]
     return FederatedData(
@@ -431,6 +445,16 @@ def build_federated_data(config: dict) -> FederatedData:
         dataset_source=source,
         metadata=metadata,
     )
+
+
+def _federated_config_with_performance(config: dict) -> dict:
+    """Merge global DataLoader performance settings into the federated view."""
+
+    fed_cfg = dict(config["federated"])
+    dataloader_cfg = dict(config.get("performance", {}))
+    dataloader_cfg.update(fed_cfg.get("dataloader", {}))
+    fed_cfg["dataloader"] = dataloader_cfg
+    return fed_cfg
 
 
 def _load_dataset(dataset_cfg: dict, fed_cfg: dict, rng: np.random.Generator, seed: int) -> tuple[Dataset, Dataset, int, str]:

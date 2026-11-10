@@ -7,6 +7,7 @@ from src.data.datasets import (
     ExternalShiftedSubset,
     MappedImageFolderDataset,
     _build_external_shift_dataset,
+    _federated_config_with_performance,
 )
 
 
@@ -79,4 +80,17 @@ def test_mapped_imagefolder_supports_explicit_cross_dataset_labels(tmp_path) -> 
     image, label = dataset[0]
     assert tuple(image.shape) == (3, 16, 16)
     assert label in {3, 14}
+
+
+def test_global_performance_settings_feed_dataloader_configuration() -> None:
+    merged = _federated_config_with_performance(
+        {
+            "federated": {"num_workers": 0, "dataloader": {"client_num_workers": 3}},
+            "performance": {"num_workers": 2, "pin_memory": True, "persistent_workers": True},
+        }
+    )
+
+    assert merged["dataloader"]["num_workers"] == 2
+    assert merged["dataloader"]["client_num_workers"] == 3
+    assert merged["dataloader"]["pin_memory"] is True
 
