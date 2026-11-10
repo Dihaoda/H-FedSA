@@ -55,14 +55,43 @@ paper-strict candidate finished at `84.38%` accuracy / `15.62%` error and
 and ASR at matched rounds 60, 80, and 100 by preventing the DDPG policy from
 zeroing the contribution of the entire GMM unseen-data component.
 
-The error is close to target, but the ASR remains too high. A final attack-only
-candidate therefore changes only `poison_fraction` from `1.0` to `0.5`; target
-label, update scale, seed, model, defense, and training protocol remain frozen.
+The error is close to target, but the ASR remains too high. An attack-only
+candidate therefore changed only `poison_fraction` from `1.0` to `0.5`; target
+label, update scale, seed, model, defense, and training protocol remained
+frozen. It finished at `84.30%` accuracy / `15.70%` error and `4.76%` ASR. The
+weaker poisoning was rejected because it made the malicious update more similar
+to an ordinary client update and increased, rather than decreased, measured
+ASR. Full-batch poisoning remains the selected target-2 candidate.
+
+Because the paper does not specify a target class, one final independent-seed
+candidate changes only the target from class 2 to class 0. This is a declared
+attack-definition calibration, not a per-reporting-seed selection.
+
+## H-FedSA clean-anchor diagnostics
+
+The strict direct-FedAvg candidate exposed a no-attack edge case: a fixed
+three-component GMM must label one component as malicious even when every
+participant is benign. In the measured clean run, the highest-to-middle
+intensity ratio had median `1.04` and maximum `1.63`; in the scaling-attack run,
+the corresponding minimum was `15.16` and the median was `22.42`.
+
+A label-free continuous role-confidence extension was implemented as an
+opt-in candidate, but its `server_lr=1.0` run was stopped at round 48 after
+underperforming both the strict interpretation and FedAvg at matched rounds.
+Reducing `server_lr` to `0.7` worsened the matched curve and was stopped at
+round 29. Interpreting the paper's undefined `NormalizeUpdate` operation as no
+root-norm scaling was also rejected after round 60 (`70.29%` accuracy versus
+`73.53%` for the strict interpretation). All partial metrics remain in the
+calibration tree and are excluded from formal summaries.
+
+The remaining clean candidate uses the repository's pre-existing FedAvgM
+server optimizer with otherwise unchanged H-FedSA settings. This checks a
+plausible omitted training detail without adding another defense mechanism.
 
 ## Pending before formal launch
 
-- finish the half-batch-poisoning attack candidate;
-- finish the no-attack H-FedSA clean anchor under the frozen shared protocol;
+- finish the target-0 full-batch attack candidate;
+- finish the no-attack H-FedSA/FedAvgM clean anchor;
 - freeze the defense/attack-only parameters, then launch every preregistered
   seed without per-seed changes.
 
