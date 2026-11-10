@@ -18,6 +18,12 @@ code and are not stored as pre-filled measurements.
 - the 39-dimensional DDPG state (GMM means, full covariances, validation loss,
   validation-loss change, and previous beta).
 
+The paper's Scaling row reports both model error and backdoor ASR. The manifest
+therefore uses the `backdoor_scaling` implementation (trigger poisoning plus
+model-update scaling) and maps it to the paper target key `scaling`. The plain
+`scaling` implementation is a label-flip/update-scaling stress test and is not
+used for this Table II row.
+
 The paper specifies a lightweight two-convolution/two-fully-connected network
 but does not report BatchNorm or all optimizer hyperparameters. This manifest
 therefore disables BatchNorm (so running-statistic buffers cannot dominate the
