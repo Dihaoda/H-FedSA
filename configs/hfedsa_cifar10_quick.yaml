@@ -1,0 +1,46 @@
+experiment_name: hfedsa_cifar10_quick
+seed: 42
+device: auto
+
+dataset:
+  name: cifar10
+  data_dir: data
+  download: false
+  quick_dev: true
+  use_synthetic_fallback: true
+  synthetic_samples: 1200
+  train_subset: 900
+  test_subset: 300
+  num_classes: 10
+
+federated:
+  num_clients: 20
+  clients_per_round: 5
+  rounds: 3
+  local_epochs: 1
+  batch_size: 32
+  learning_rate: 0.02
+  malicious_ratio: 0.2
+  unseen_ratio: 0.1
+  root_size: 80
+
+attack:
+  type: label_flip
+  scale_factor: 5.0
+
+defenses:
+  - fedavg
+  - hfedsa_static
+
+hfedsa:
+  beta_explore: 0.35
+  malicious_penalty: 0.8
+  detection_threshold: 0.5
+  gmm_reg_covar: 0.000001
+
+fltrust:
+  min_trust_score: 0.0
+
+output_dir: results/quick_dev
+log_dir: logs
+
