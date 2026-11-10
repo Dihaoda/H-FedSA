@@ -27,12 +27,12 @@ datasets/
 
 # Local logs and generated outputs
 logs/
-results/**/checkpoints/
-results/**/final_model_*.pt
-results/**/metrics.csv
-results/**/summary.json
-results/**/config.yaml
+results/*
+!results/README.md
+!results/published/
+!results/published/**
 
 # Temporary files
 *.tmp
 *.temp
+
