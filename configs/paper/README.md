@@ -73,3 +73,12 @@ python -m src.main \
   --output_dir results/smoke/cifar10_c
 ```
 
+## Independent attack calibration
+
+`../calibration/cifar10_iid_hfedsa_ddpg_backdoor_seed31415.yaml` evaluates the
+historical target-label-2/scale-8 backdoor candidate with the current 39-state,
+paper-formula implementation. It uses the independent calibration seed `31415`
+and retains the paper-default unseen-client shift. Its results are explicitly
+excluded from formal summaries; after this one calibration run, the selected
+attack parameters are frozen before seeds `2026` through `2030` are launched.
+

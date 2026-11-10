@@ -50,3 +50,20 @@ def test_cifar10_clean_manifest_is_fixed_before_multiseed_runs() -> None:
     assert config["performance"]["client_num_workers"] == 0
     assert config["performance"]["eval_num_workers"] == 2
 
+
+def test_attack_calibration_is_independent_and_not_formal() -> None:
+    config = load_config(
+        Path("configs/calibration/cifar10_iid_hfedsa_ddpg_backdoor_seed31415.yaml")
+    )
+
+    validate_config(config)
+    assert config["seed"] == 31415
+    assert config["federated"]["unseen_ratio"] == 0.1
+    assert config["federated"]["unseen_data_fraction"] == 0.4
+    assert config["attack"]["type"] == "backdoor_scaling"
+    assert config["attack"]["target_label"] == 2
+    assert config["attack"]["scale_factor"] == 8.0
+    assert config["attack"]["poison_fraction"] == 1.0
+    assert config["reporting"]["run_class"] == "calibration"
+    assert config["reporting"]["excluded_from_formal_summary"] is True
+
