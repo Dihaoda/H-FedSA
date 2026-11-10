@@ -22,6 +22,15 @@ gap is `+0.60` percentage points. Direct FedAvg was preferred over the closer
 FedAvgM candidates because the paper presents FedAvg as its non-defensive
 baseline and its H-FedSA algorithms do not specify a server-momentum term.
 
+## Completed formal FedAvg anchor
+
+After the shared protocol was frozen, every preregistered seed (`2026` through
+`2030`) was run without per-seed parameter changes. The measured final error was
+`15.088 +/- 0.360%` (sample standard deviation), a mean gap of `+0.088`
+percentage points from Table II(d). The portable summary and per-run provenance
+are published at
+`results/published/cifar10_iid_clean_fedavg_5seeds.json`.
+
 ## Completed clean candidates
 
 | Candidate | Final accuracy | Final error | Gap to 15.0 | Decision |
