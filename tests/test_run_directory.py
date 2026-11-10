@@ -1,3 +1,4 @@
+import csv
 from datetime import datetime
 
 from src.federated.trainer import FederatedExperiment
@@ -33,4 +34,31 @@ def test_log_paths_include_seed_and_microseconds(tmp_path) -> None:
 
     assert first != second
     assert first.name == "collision_test_seed2026_20261110_010203_000004.log"
+
+
+def test_partial_metrics_checkpoint_is_atomic_and_method_scoped(tmp_path) -> None:
+    experiment = FederatedExperiment.__new__(FederatedExperiment)
+    experiment.run_dir = tmp_path
+    rows = [
+        {
+            "round": 10,
+            "method": "hfedsa_ddpg",
+            "dataset": "cifar10",
+            "attack_type": "backdoor_scaling",
+            "seed": 31415,
+            "accuracy": 50.0,
+            "error_rate": 50.0,
+            "attack_success_rate": 2.0,
+        }
+    ]
+
+    experiment._write_metrics_checkpoint("hfedsa/ddpg", rows)
+
+    checkpoint = tmp_path / "metrics_partial_hfedsa_ddpg.csv"
+    assert checkpoint.is_file()
+    assert not (tmp_path / "metrics_partial_hfedsa_ddpg.csv.tmp").exists()
+    with checkpoint.open(encoding="utf-8", newline="") as stream:
+        saved = list(csv.DictReader(stream))
+    assert saved[0]["round"] == "10"
+    assert saved[0]["attack_success_rate"] == "2.0"
 

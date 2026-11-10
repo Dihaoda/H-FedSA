@@ -147,6 +147,7 @@ class FederatedExperiment:
         eval_every = max(1, int(fed_cfg.get("eval_every", self.config.get("evaluation", {}).get("eval_every", 1))))
         eval_last_k = max(1, int(fed_cfg.get("eval_last_k", self.config.get("evaluation", {}).get("eval_last_k", 5))))
         log_every = max(1, int(fed_cfg.get("log_every", self.config.get("logging", {}).get("round_log_every", 1))))
+        checkpoint_every = max(0, int(self.config.get("reporting", {}).get("checkpoint_every", 10)))
         final_accuracy = 0.0
         best_accuracy = 0.0
         last_train_eval: dict[str, float] | None = None
@@ -377,15 +378,20 @@ class FederatedExperiment:
                     aggregated_delta_norm,
                     server_optimizer_summary.get("server_update_norm", "NA"),
                 )
+            if checkpoint_every and (
+                (round_idx + 1) % checkpoint_every == 0 or round_idx + 1 == rounds
+            ):
+                self._write_metrics_checkpoint(defense.name, rows)
             if (round_idx + 1) % log_every == 0 or round_idx == 0 or round_idx + 1 == rounds:
                 self.logger.info(
-                    "%s round %d/%d | lr %.5f | train %.2f | test %.2f | agg_delta %.4f",
+                    "%s round %d/%d | lr %.5f | train %.2f | test %.2f | asr %s | agg_delta %.4f",
                     defense.name,
                     round_idx + 1,
                     rounds,
                     learning_rate,
                     train_eval["accuracy"],
                     final_accuracy,
+                    self._format_optional_metric(attack_success_rate),
                     aggregated_delta_norm,
                 )
 
@@ -1071,6 +1077,18 @@ class FederatedExperiment:
         if not rows:
             return
         metrics_path = self.run_dir / "metrics.csv"
+        self._write_metric_rows(metrics_path, rows)
+        self.logger.info("Saved metrics: %s", metrics_path)
+
+    def _write_metrics_checkpoint(self, defense_name: str, rows: list[dict]) -> None:
+        if not rows:
+            return
+        safe_defense = defense_name.replace("/", "_").replace("\\", "_")
+        checkpoint_path = self.run_dir / f"metrics_partial_{safe_defense}.csv"
+        self._write_metric_rows(checkpoint_path, rows)
+
+    @staticmethod
+    def _write_metric_rows(path: Path, rows: list[dict]) -> None:
         fieldnames = [
             "round",
             "method",
@@ -1105,11 +1123,19 @@ class FederatedExperiment:
             "detection_fpr",
             "detection_overall_fpr",
         ]
-        with metrics_path.open("w", newline="", encoding="utf-8") as f:
+        temporary_path = path.with_name(f"{path.name}.tmp")
+        with temporary_path.open("w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(rows)
-        self.logger.info("Saved metrics: %s", metrics_path)
+        temporary_path.replace(path)
+
+    @staticmethod
+    def _format_optional_metric(value: object) -> str:
+        try:
+            return f"{float(value):.2f}"
+        except (TypeError, ValueError):
+            return "NA"
 
     def _write_summary(self, summaries: dict[str, dict]) -> None:
         summary_path = self.run_dir / "summary.json"

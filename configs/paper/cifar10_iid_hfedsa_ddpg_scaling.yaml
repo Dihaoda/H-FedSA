@@ -112,6 +112,7 @@ diagnostics:
 
 reporting:
   run_class: formal_measured
+  checkpoint_every: 10
   paper_attack_key: scaling
   paper_target_file: configs/paper/targets/table_ii_cifar10_iid.yaml
   preregistered_seeds: [2026, 2027, 2028, 2029, 2030]
