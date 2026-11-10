@@ -1000,8 +1000,13 @@ class FederatedExperiment:
             "replay_size",
             "predicted_malicious_mean_weight",
             "malicious_weighted_contribution",
+            "security_signal",
+            "security_signal_source",
             "aggregated_update_norm",
             "aggregated_norm_spike",
+            "validation_loss",
+            "validation_accuracy",
+            "validation_loss_improvement",
         ]
         with trace_path.open("w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
