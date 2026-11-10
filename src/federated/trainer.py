@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
+import platform
 import shutil
+import subprocess
 import time
 from collections import OrderedDict
 from datetime import datetime
@@ -1072,6 +1075,8 @@ class FederatedExperiment:
             "server_optimizer": self.config.get("federated", {}).get("server_optimizer", "fedavg"),
             "server_lr": float(self.config.get("federated", {}).get("server_lr", self.config.get("federated", {}).get("server_learning_rate", 1.0))),
             "aggregation_weighting": self.config.get("federated", {}).get("aggregation_weighting", "uniform"),
+            "reporting": self.config.get("reporting", {}),
+            "provenance": self._runtime_provenance(),
             "cli_overrides": self.config.get("_cli_overrides", []),
             "final_config": self.config,
             "runtime_seconds": runtime_seconds,
@@ -1081,6 +1086,40 @@ class FederatedExperiment:
         with path.open("w", encoding="utf-8") as f:
             json.dump(run_summary, f, indent=2)
         self.logger.info("Saved run summary: %s", path)
+
+    def _runtime_provenance(self) -> dict:
+        serialized_config = json.dumps(self.config, sort_keys=True, default=str).encode("utf-8")
+        provenance = {
+            "config_sha256": hashlib.sha256(serialized_config).hexdigest(),
+            "python": platform.python_version(),
+            "platform": platform.platform(),
+            "torch": torch.__version__,
+            "cuda_runtime": torch.version.cuda or "NA",
+            "cuda_available": torch.cuda.is_available(),
+            "gpu": torch.cuda.get_device_name(self.device) if self.device.type == "cuda" else "NA",
+            "git_commit": "NA",
+            "git_dirty": "NA",
+        }
+        try:
+            commit = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=3,
+            )
+            status = subprocess.run(
+                ["git", "status", "--porcelain"],
+                check=True,
+                capture_output=True,
+                text=True,
+                timeout=3,
+            )
+            provenance["git_commit"] = commit.stdout.strip()
+            provenance["git_dirty"] = bool(status.stdout.strip())
+        except (OSError, subprocess.SubprocessError):
+            pass
+        return provenance
 
     def _write_hfedsa_diagnostic_summary(self) -> None:
         diagnostic_files = sorted(self.run_dir.glob("client_diagnostics_*_round_*.csv"))
