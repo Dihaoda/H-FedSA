@@ -4,6 +4,7 @@ from dataclasses import dataclass
 
 import numpy as np
 import torch
+from sklearn.mixture import GaussianMixture
 
 from src.federated.tensor_ops import StateDict, average_updates, flatten_update
 
@@ -14,6 +15,10 @@ class HFedSAConfig:
     malicious_penalty: float = 0.8
     detection_threshold: float = 0.5
     gmm_reg_covar: float = 1e-6
+    gmm_covariance_type: str = "full"
+    gmm_max_iter: int = 100
+    gmm_n_init: int = 3
+    gmm_random_state: int = 0
     weight_ema_enabled: bool = False
     weight_ema_momentum: float = 0.8
     posterior_clip_enabled: bool = False
@@ -37,8 +42,9 @@ class HFedSAConfig:
     ddpg_beta_decay_rounds: int = 100
     beta_mode: str = "static"
     normalization_mode: str = "none"
-    formula_mode: str = "current"
-    cluster_role_strategy: str = "current"
+    feature_mode: str = "paper"
+    formula_mode: str = "paper"
+    cluster_role_strategy: str = "intensity_order"
     malicious_hard_gate_enabled: bool = False
     malicious_hard_gate_threshold: float = 0.9
     ddpg_security_penalty: float = 0.2
@@ -63,6 +69,7 @@ class HFedSAStatic:
         self._previous_test_accuracy: float | None = None
         self.last_gmm_means = np.zeros((3, 3), dtype=float)
         self.last_gmm_variances = np.ones((3, 3), dtype=float)
+        self.last_gmm_covariances = np.stack([np.eye(3, dtype=float) for _ in range(3)])
 
     def aggregate(
         self,
@@ -311,9 +318,13 @@ class HFedSAStatic:
                 cosine = torch.nn.functional.cosine_similarity(root_flat, client_flat, dim=0).item()
             l1_norm = torch.linalg.norm(client_flat, ord=1).item()
             normalized_sparsity = l1_norm / (sqrt_dim * client_norm + 1e-12)
-            direction_distance = 1.0 - cosine
-            intensity = np.log((client_norm + 1e-12) / (root_norm + 1e-12))
-            raw_row = np.asarray([direction_distance, intensity, normalized_sparsity], dtype=np.float64)
+            if self.config.feature_mode.lower() == "paper":
+                direction_feature = cosine
+                intensity = client_norm
+            else:
+                direction_feature = 1.0 - cosine
+                intensity = np.log((client_norm + 1e-12) / (root_norm + 1e-12))
+            raw_row = np.asarray([direction_feature, intensity, normalized_sparsity], dtype=np.float64)
             nan_flags.append(bool(np.isnan(raw_row).any()))
             inf_flags.append(bool(np.isinf(raw_row).any()))
             feature_rows.append(raw_row.tolist())
@@ -468,15 +479,16 @@ class HFedSAStatic:
 
         normalized = (features - features.mean(axis=0)) / (features.std(axis=0) + 1e-8)
         try:
-            raw_posteriors, centers, variances = self._diagonal_gmm(normalized, n_components=3, reg_covar=self.config.gmm_reg_covar)
-        except FloatingPointError:
-            self.last_fallback_reason = "diagonal_gmm_numerical_failure"
+            raw_posteriors, centers, covariances = self._fit_probabilistic_model(normalized)
+        except (FloatingPointError, ValueError, np.linalg.LinAlgError):
+            self.last_fallback_reason = "gmm_numerical_failure"
             return self._uniform_benign_posteriors(len(features)), {"benign": 0, "unseen": 1, "malicious": 2}
         if not np.isfinite(raw_posteriors).all() or not np.isfinite(centers).all():
-            self.last_fallback_reason = "diagonal_gmm_non_finite_output"
+            self.last_fallback_reason = "gmm_non_finite_output"
             return self._uniform_benign_posteriors(len(features)), {"benign": 0, "unseen": 1, "malicious": 2}
         self.last_gmm_means = centers.copy()
-        self.last_gmm_variances = variances.copy()
+        self.last_gmm_covariances = covariances.copy()
+        self.last_gmm_variances = np.stack([np.diag(covariance) for covariance in covariances])
 
         benign_cluster, malicious_cluster = self._assign_cluster_roles(centers)
         if malicious_cluster == benign_cluster:
@@ -492,6 +504,12 @@ class HFedSAStatic:
 
     def _assign_cluster_roles(self, centers: np.ndarray) -> tuple[int, int]:
         strategy = self.config.cluster_role_strategy.lower()
+        if strategy in {"paper", "intensity", "intensity_order"}:
+            malicious_cluster = int(np.argmax(centers[:, 1]))
+            unseen_cluster = int(np.argmin(centers[:, 1]))
+            benign_candidates = [idx for idx in range(len(centers)) if idx not in {malicious_cluster, unseen_cluster}]
+            benign_cluster = benign_candidates[0] if benign_candidates else int(np.argmax(centers[:, 0]))
+            return benign_cluster, malicious_cluster
         if strategy == "composite_sparsity":
             malicious_score = 1.5 * centers[:, 2] + 0.35 * centers[:, 0] + 0.15 * np.abs(centers[:, 1])
             malicious_cluster = int(np.argmax(malicious_score))
@@ -504,6 +522,43 @@ class HFedSAStatic:
         benign_cluster = int(np.argmin(centers[:, 0] + 0.25 * np.abs(centers[:, 1])))
         malicious_cluster = int(np.argmax(centers[:, 0] + 0.5 * np.abs(centers[:, 1])))
         return benign_cluster, malicious_cluster
+
+    def _fit_probabilistic_model(self, x: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        covariance_type = self.config.gmm_covariance_type.lower()
+        if covariance_type in {"legacy", "legacy_diagonal"}:
+            responsibilities, means, variances = self._diagonal_gmm(
+                x,
+                n_components=3,
+                reg_covar=self.config.gmm_reg_covar,
+                max_iter=self.config.gmm_max_iter,
+            )
+            covariances = np.stack([np.diag(variance) for variance in variances])
+            return responsibilities, means, covariances
+
+        if covariance_type not in {"full", "tied", "diag", "spherical"}:
+            raise ValueError(f"Unsupported GMM covariance type: {self.config.gmm_covariance_type}")
+        model = GaussianMixture(
+            n_components=3,
+            covariance_type=covariance_type,
+            reg_covar=self.config.gmm_reg_covar,
+            max_iter=self.config.gmm_max_iter,
+            n_init=self.config.gmm_n_init,
+            random_state=self.config.gmm_random_state,
+        )
+        model.fit(x)
+        responsibilities = model.predict_proba(x)
+        covariances = self._expand_covariances(model.covariances_, covariance_type, x.shape[1])
+        return responsibilities, model.means_, covariances
+
+    @staticmethod
+    def _expand_covariances(covariances: np.ndarray, covariance_type: str, dimension: int) -> np.ndarray:
+        if covariance_type == "full":
+            return np.asarray(covariances, dtype=float)
+        if covariance_type == "tied":
+            return np.stack([np.asarray(covariances, dtype=float) for _ in range(3)])
+        if covariance_type == "diag":
+            return np.stack([np.diag(row) for row in np.asarray(covariances, dtype=float)])
+        return np.stack([np.eye(dimension, dtype=float) * value for value in np.asarray(covariances, dtype=float)])
 
     def _uniform_benign_posteriors(self, count: int) -> np.ndarray:
         posteriors = np.zeros((count, 3), dtype=np.float64)
@@ -553,3 +608,4 @@ class HFedSAStatic:
         state = np.concatenate([np.asarray(piece, dtype=float).reshape(-1) for piece in pieces])
         self.last_beta_trace["state_vector"] = state.tolist() if self.last_beta_trace else state.tolist()
         return state
+
