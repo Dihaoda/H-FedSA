@@ -407,6 +407,7 @@ class FederatedExperiment:
             "final_accuracy": final_accuracy,
             "final_error_rate": 100.0 - final_accuracy,
             "best_accuracy": best_accuracy,
+            "final_attack_success_rate": last_attack_success_rate,
             "attack_type": attack_type,
             "scaling_factor": scale_factor,
         }
