@@ -19,8 +19,8 @@ venv/
 Thumbs.db
 
 # Datasets and model artifacts
-data/
-datasets/
+/data
+/datasets
 *.pt
 *.pth
 *.ckpt
