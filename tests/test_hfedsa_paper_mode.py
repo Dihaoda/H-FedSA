@@ -1,8 +1,10 @@
 from collections import OrderedDict
 
 import numpy as np
+import pytest
 import torch
 
+from src.defenses.ddpg_beta_agent import DDPGBetaAgent, DDPGBetaConfig
 from src.defenses.hfedsa import HFedSAConfig, HFedSAStatic
 
 
@@ -53,4 +55,25 @@ def test_paper_cluster_roles_follow_intensity_order() -> None:
 
     assert benign == 0
     assert malicious == 2
+
+
+def test_paper_ddpg_state_has_expected_statistics() -> None:
+    defense = HFedSAStatic(HFedSAConfig(beta_mode="ddpg"))
+    defense.last_gmm_means = np.arange(9, dtype=float).reshape(3, 3)
+    defense.last_gmm_covariances = np.arange(27, dtype=float).reshape(3, 3, 3)
+    defense._previous_validation_loss = 0.75
+    defense._last_validation_delta = 0.1
+    defense.last_beta_trace = {"beta_explore": 0.2}
+
+    state = defense._ddpg_state_vector()
+
+    assert state.shape == (39,)
+    np.testing.assert_allclose(state[-3:], [0.75, 0.1, 0.2])
+
+
+def test_ddpg_rejects_silent_state_truncation() -> None:
+    agent = DDPGBetaAgent(DDPGBetaConfig(state_dim=39), seed=0)
+
+    with pytest.raises(ValueError, match="state_dim=39"):
+        agent.select_beta(np.zeros(24, dtype=float), train=False)
 
