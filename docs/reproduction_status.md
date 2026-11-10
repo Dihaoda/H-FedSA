@@ -19,7 +19,7 @@ has been reproduced.
 | Stanford Cars + CompCars | Implemented and unit-tested | Requires a curated make/model label map; real-data smoke pending |
 | FedAvg, FLTrust, RFA | Implemented | Formal comparison manifests and multi-seed runs pending |
 | SafeFL-compatible SignGuard, MSGuard | Implemented and smoke-tested | SafeFL rule ambiguity and MSGuard artifact limitations are documented |
-| Label flip, scaling, backdoor scaling | Implemented | Protocol-level validation still required per paper table |
+| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID H-FedSA scaling formally measured | Five fixed-seed result: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR |
 | Krum-targeted, Trim-targeted, PoiSAFL | Implemented and smoke-tested | PoiSAFL is an explicitly documented synchronous adaptation |
 | Full paper tables | Pending | No smoke or synthetic output is accepted as a measured paper result |
 
@@ -37,3 +37,8 @@ Curated measured summaries may be added under `results/published/` only with
 the resolved configuration, seed list, raw run locations, and aggregation
 method. Generated run directories remain ignored by Git.
 
+The completed H-FedSA-DDPG scaling summary is
+`results/published/cifar10_iid_hfedsa_ddpg_scaling_5seeds.json`. Its ASR mean
+differs from Table II(d) by `+0.276` percentage points, inside the paper's
+reported ASR standard deviation; its error mean differs by `+0.570` points and
+is therefore recorded as a remaining reproduction gap.

@@ -80,6 +80,17 @@ it brought error inside the paper's reported error standard deviation and
 reduced ASR by `0.69` points relative to target 2. No further target classes
 will be searched.
 
+## Completed formal H-FedSA scaling result
+
+The frozen target-0 protocol was then run for every preregistered seed (`2026`
+through `2030`) without per-seed parameter changes. The measured final error was
+`15.770 +/- 0.317%`, a mean gap of `+0.570` percentage points from the Table
+II(d) H-FedSA target. The measured ASR was `1.476 +/- 0.172%`, a mean gap of
+`+0.276` points and therefore within the paper's reported `1.2 +/- 0.3%` ASR
+range. All values are final-round measurements; no best checkpoint or favorable
+seed was selected. The portable summary and per-run provenance are published at
+`results/published/cifar10_iid_hfedsa_ddpg_scaling_5seeds.json`.
+
 ## H-FedSA clean-anchor diagnostics
 
 The strict direct-FedAvg candidate exposed a no-attack edge case: a fixed
@@ -109,9 +120,7 @@ before calibration was stopped. No clean H-FedSA candidate has therefore been
 promoted to formal results. This unresolved gap is retained explicitly rather
 than substituting a target value or selecting a favorable partial checkpoint.
 
-## Pending before formal launch
+## Remaining reproduction gap
 
-- finish the five preregistered target-0 formal attack runs;
 - investigate the clean H-FedSA gap only if an additional implementation detail
   or author-provided hyperparameter becomes available.
-
