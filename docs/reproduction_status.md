@@ -21,6 +21,10 @@ has been reproduced.
 | Krum-targeted, Trim-targeted, PoiSAFL | Pending | Not yet implemented |
 | Full paper tables | Pending | No smoke or synthetic output is accepted as a measured paper result |
 
+The CIFAR-10 Table II(d) values and five fixed reporting seeds are recorded in
+`configs/paper/targets/table_ii_cifar10_iid.yaml`. This target manifest is used
+to calculate measured gaps; it is never copied into run-generated metrics.
+
 Curated measured summaries may be added under `results/published/` only with
 the resolved configuration, seed list, raw run locations, and aggregation
 method. Generated run directories remain ignored by Git.
