@@ -97,14 +97,21 @@ root-norm scaling was also rejected after round 60 (`70.29%` accuracy versus
 `73.53%` for the strict interpretation). All partial metrics remain in the
 calibration tree and are excluded from formal summaries.
 
-The remaining clean candidate uses the repository's pre-existing FedAvgM
-server optimizer with otherwise unchanged H-FedSA settings. This checks a
-plausible omitted training detail without adding another defense mechanism.
+The repository's pre-existing FedAvgM server optimizer was also checked with
+otherwise unchanged H-FedSA settings. It reached only `68.06%` at round 60,
+versus `73.53%` for the strict direct-update interpretation, and was stopped.
+Increasing local epochs from 5 to 8 caused large aggregation norms and was
+stopped at round 80. The intermediate 6-epoch candidate reached `74.09%` at
+round 100, below the strict candidate's `76.71%`, and was also stopped.
+
+The strict 5-epoch clean H-FedSA candidate itself reached `81.53%` at round 192
+before calibration was stopped. No clean H-FedSA candidate has therefore been
+promoted to formal results. This unresolved gap is retained explicitly rather
+than substituting a target value or selecting a favorable partial checkpoint.
 
 ## Pending before formal launch
 
 - finish the five preregistered target-0 formal attack runs;
-- finish the no-attack H-FedSA/FedAvgM clean anchor;
-- freeze the defense/attack-only parameters, then launch every preregistered
-  seed without per-seed changes.
+- investigate the clean H-FedSA gap only if an additional implementation detail
+  or author-provided hyperparameter becomes available.
 
