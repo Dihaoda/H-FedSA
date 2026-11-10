@@ -14,6 +14,9 @@ FIELDS = [
     "accuracy",
     "error_rate",
     "attack_success_rate",
+    "detection_tpr",
+    "detection_fpr",
+    "detection_overall_fpr",
 ]
 
 
@@ -32,6 +35,9 @@ def _write_metrics(path, seed: int, final_error: float) -> None:
                 "accuracy": 50.0,
                 "error_rate": 50.0,
                 "attack_success_rate": "NA",
+                "detection_tpr": 0.5,
+                "detection_fpr": 0.25,
+                "detection_overall_fpr": 0.1,
             }
         )
         writer.writerow(
@@ -44,6 +50,9 @@ def _write_metrics(path, seed: int, final_error: float) -> None:
                 "accuracy": 100.0 - final_error,
                 "error_rate": final_error,
                 "attack_success_rate": "NA",
+                "detection_tpr": 0.8,
+                "detection_fpr": 0.2,
+                "detection_overall_fpr": 0.05,
             }
         )
 
@@ -59,6 +68,9 @@ def test_summary_uses_every_seed_and_only_final_round(tmp_path) -> None:
     assert summary["rounds"] == [250, 250]
     assert summary["error_rate"]["mean"] == pytest.approx(15.0)
     assert summary["error_rate"]["sample_std"] == pytest.approx(0.2828427)
+    assert summary["detection_tpr"]["mean"] == pytest.approx(0.8)
+    assert summary["detection_fpr"]["mean"] == pytest.approx(0.2)
+    assert summary["detection_overall_fpr"]["mean"] == pytest.approx(0.05)
     assert compared["error_mean_gap"] == pytest.approx(0.0)
     assert compared["complete"] is False
 

@@ -52,6 +52,9 @@ def summarize_final_rows(rows: Iterable[dict[str, str]]) -> list[dict]:
         error_rates = [_number(row.get("error_rate")) for row in group]
         accuracies = [_number(row.get("accuracy", row.get("test_accuracy"))) for row in group]
         attack_success_rates = [_number(row.get("attack_success_rate")) for row in group]
+        detection_tpr = [_number(row.get("detection_tpr")) for row in group]
+        detection_fpr = [_number(row.get("detection_fpr")) for row in group]
+        detection_overall_fpr = [_number(row.get("detection_overall_fpr")) for row in group]
         summaries.append(
             {
                 "dataset": key[0],
@@ -63,6 +66,9 @@ def summarize_final_rows(rows: Iterable[dict[str, str]]) -> list[dict]:
                 "error_rate": _stats(error_rates),
                 "accuracy": _stats(accuracies),
                 "attack_success_rate": _stats(attack_success_rates),
+                "detection_tpr": _stats(detection_tpr),
+                "detection_fpr": _stats(detection_fpr),
+                "detection_overall_fpr": _stats(detection_overall_fpr),
                 "metrics_paths": sorted(row["metrics_path"] for row in group),
             }
         )
