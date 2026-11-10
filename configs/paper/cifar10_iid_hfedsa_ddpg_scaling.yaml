@@ -17,7 +17,7 @@ model:
   name: paper_cnn
   conv_channels: [64, 128]
   hidden_dim: 512
-  batchnorm: true
+  batchnorm: false
   dropout: 0.25
 
 federated:
@@ -56,6 +56,8 @@ hfedsa:
   feature_mode: paper
   formula_mode: paper
   cluster_role_strategy: intensity_order
+  normalization_mode: root_norm
+  normalize_update_to_root: true
   gmm_covariance_type: full
   gmm_reg_covar: 0.000001
   gmm_max_iter: 100
