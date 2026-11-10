@@ -2,6 +2,7 @@ import csv
 
 import pytest
 
+from scripts.summarize_runs import REPOSITORY_ROOT, _make_metrics_paths_portable
 from src.utils.results import attach_paper_target, read_final_rows, summarize_final_rows
 
 
@@ -106,4 +107,18 @@ def test_run_class_filter_keeps_calibration_out_of_formal_rows(tmp_path) -> None
     assert len(selected) == 1
     assert selected[0]["seed"] == "2026"
     assert selected[0]["run_class"] == "formal_measured"
+
+
+def test_published_metric_paths_are_repository_relative() -> None:
+    payload = {
+        "metrics_paths": [
+            str(REPOSITORY_ROOT / "results" / "formal" / "seed2026" / "metrics.csv")
+        ]
+    }
+
+    portable = _make_metrics_paths_portable(payload)
+
+    assert portable["metrics_paths"] == [
+        "results/formal/seed2026/metrics.csv"
+    ]
 

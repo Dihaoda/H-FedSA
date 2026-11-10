@@ -15,6 +15,24 @@ if str(REPOSITORY_ROOT) not in sys.path:
 from src.utils.results import attach_paper_target, read_final_rows, summarize_final_rows
 
 
+def _make_metrics_paths_portable(payload: object) -> object:
+    """Replace repository-local absolute metric paths with portable paths."""
+    items = payload if isinstance(payload, list) else [payload]
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        portable = []
+        for value in item.get("metrics_paths", []):
+            path = Path(value)
+            try:
+                portable.append(path.relative_to(REPOSITORY_ROOT).as_posix())
+            except ValueError:
+                portable.append(str(path))
+        if "metrics_paths" in item:
+            item["metrics_paths"] = portable
+    return payload
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Aggregate every discovered final run; duplicate seeds are rejected."
@@ -59,6 +77,8 @@ def main() -> None:
         payload: object = attach_paper_target(matching[0], target, required_runs)
     else:
         payload = summaries
+
+    payload = _make_metrics_paths_portable(payload)
 
     rendered = json.dumps(payload, indent=2, sort_keys=False)
     print(rendered)
