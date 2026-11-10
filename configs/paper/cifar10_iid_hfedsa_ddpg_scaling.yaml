@@ -103,7 +103,8 @@ defenses:
 performance:
   mixed_precision: true
   pin_memory: true
-  num_workers: 2
+  client_num_workers: 0
+  eval_num_workers: 2
   persistent_workers: true
 
 diagnostics:

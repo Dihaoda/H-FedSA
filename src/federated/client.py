@@ -43,7 +43,12 @@ class Client:
         scale_factor: float = 1.0,
         attack_cfg: dict | None = None,
         mixed_precision: bool = False,
+        training_seed: int | None = None,
     ) -> OrderedDict[str, torch.Tensor]:
+        if training_seed is not None:
+            torch.manual_seed(int(training_seed))
+            if torch.cuda.is_available():
+                torch.cuda.manual_seed_all(int(training_seed))
         model = self.model_factory().to(self.device)
         model.load_state_dict(global_state)
         model.train()

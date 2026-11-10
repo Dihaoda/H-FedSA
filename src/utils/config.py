@@ -238,6 +238,13 @@ def validate_config(config: dict[str, Any]) -> list[str]:
             errors.append(f"federated.unseen_shift.data_root is required for external shift '{shift_type}'.")
     if attack not in {"none", "no_attack"} and malicious_ratio <= 0.0:
         warnings.append(f"attack.type='{attack}' is enabled but federated.malicious_ratio is zero.")
+    performance_cfg = config.get("performance", {})
+    client_workers = int(performance_cfg.get("client_num_workers", performance_cfg.get("num_workers", 0)))
+    if len(defenses) > 1 and client_workers > 0 and bool(performance_cfg.get("persistent_workers", False)):
+        warnings.append(
+            "Multiple defenses with persistent client DataLoader workers can break paired augmentation randomness; "
+            "set performance.client_num_workers=0 for formal comparisons."
+        )
     if errors:
         raise ValueError("\n".join(errors))
     if bool(config.get("performance", {}).get("mixed_precision", False)):

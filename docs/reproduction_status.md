@@ -11,6 +11,7 @@ has been reproduced.
 | Three-component GMM | Implemented and unit-tested | Full covariance is the paper-manifest default |
 | DDPG exploration control | Implemented and smoke-tested | 39-dimensional state; server-root validation feedback only |
 | Client-role sampling | Implemented and unit-tested | Preserves malicious/unseen ratios in small rounds |
+| Paired local randomness | Implemented and unit-tested | Seeded by experiment, round, and client across defense comparisons |
 | Detection metrics | Implemented and unit-tested | TPR on malicious clients; paper FPR on unseen clients; overall benign FPR also recorded |
 | CIFAR-10-C unseen data | Implemented and real-data smoke-tested | Gaussian noise and shot noise; exact 40% replacement |
 | FEMNIST + Chars74K | Implemented and unit-tested | Sample001--Sample062 label mapping; real-data smoke pending |

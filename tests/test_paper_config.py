@@ -28,6 +28,8 @@ def test_cifar10_paper_config_matches_protocol() -> None:
     assert config["ddpg"]["state_dim"] == 39
     assert config["attack"]["type"] == "backdoor_scaling"
     assert config["reporting"]["paper_attack_key"] == "scaling"
+    assert config["performance"]["client_num_workers"] == 0
+    assert config["performance"]["eval_num_workers"] == 2
 
 
 def test_cifar10_clean_manifest_is_fixed_before_multiseed_runs() -> None:
@@ -45,4 +47,6 @@ def test_cifar10_clean_manifest_is_fixed_before_multiseed_runs() -> None:
     assert config["federated"]["unseen_shift"]["type"] == "cifar10_c"
     assert config["attack"]["type"] == "no_attack"
     assert config["reporting"]["preregistered_seeds"] == [2026, 2027, 2028, 2029, 2030]
+    assert config["performance"]["client_num_workers"] == 0
+    assert config["performance"]["eval_num_workers"] == 2
 

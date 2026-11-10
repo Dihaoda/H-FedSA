@@ -200,6 +200,7 @@ class FederatedExperiment:
                     scale_factor=scale_factor,
                     attack_cfg=attack_cfg,
                     mixed_precision=self.mixed_precision,
+                    training_seed=int(self.config["seed"]) + 1_000_003 * (round_idx + 1) + int(client_id),
                 )
                 selected_updates.append((client_id, update))
 
@@ -217,6 +218,7 @@ class FederatedExperiment:
                     attack_type="none",
                     scale_factor=1.0,
                     mixed_precision=self.mixed_precision,
+                    training_seed=int(self.config["seed"]) + 1_000_003 * (round_idx + 1) + 999_983,
                 )
             else:
                 root_update = zeros_like_update(selected_updates[0][1])
