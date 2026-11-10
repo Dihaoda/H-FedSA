@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments
+.venv/
+venv/
+.env
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Datasets and model artifacts
+data/
+datasets/
+*.pt
+*.pth
+*.ckpt
+
+# Local logs and generated outputs
+logs/
+results/**/checkpoints/
+results/**/final_model_*.pt
+results/**/metrics.csv
+results/**/summary.json
+results/**/config.yaml
+
+# Temporary files
+*.tmp
+*.temp
