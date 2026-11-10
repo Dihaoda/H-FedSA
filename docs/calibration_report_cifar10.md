@@ -45,9 +45,23 @@ targets are `15.2 +/- 0.3%` error and `1.2 +/- 0.3%` ASR. The error gap was only
 `+0.03`, but the ASR gap was `+1.52`; moreover, FedAvgM is not the paper-strict
 server update. This run is retained only as a measured historical comparison.
 
+## Completed paper-strict attack candidate
+
+With the frozen direct-FedAvg training protocol, target label 2, full-batch
+trigger poisoning, update scale 8, and a DDPG exploration floor of `0.1`, the
+paper-strict candidate finished at `84.38%` accuracy / `15.62%` error and
+`2.47%` ASR. The gaps to the Table II(d) H-FedSA targets were `+0.42` error and
+`+1.27` ASR. The exploration floor was retained because it improved accuracy
+and ASR at matched rounds 60, 80, and 100 by preventing the DDPG policy from
+zeroing the contribution of the entire GMM unseen-data component.
+
+The error is close to target, but the ASR remains too high. A final attack-only
+candidate therefore changes only `poison_fraction` from `1.0` to `0.5`; target
+label, update scale, seed, model, defense, and training protocol remain frozen.
+
 ## Pending before formal launch
 
-- finish the direct-FedAvg H-FedSA attack candidate with `min_beta=0.1`;
+- finish the half-batch-poisoning attack candidate;
 - finish the no-attack H-FedSA clean anchor under the frozen shared protocol;
 - freeze the defense/attack-only parameters, then launch every preregistered
   seed without per-seed changes.
