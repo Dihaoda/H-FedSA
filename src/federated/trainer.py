@@ -216,7 +216,13 @@ class FederatedExperiment:
             best_accuracy = max(best_accuracy, final_accuracy)
             detection = self._detection_metrics(diagnostics)
             if hasattr(defense, "observe_round"):
-                trace = defense.observe_round(train_eval["loss"], test_eval["loss"], test_eval["accuracy"], diagnostics)
+                root_validation = self.evaluate_metrics(global_state, self.fed_data.root_loader)
+                trace = defense.observe_round(
+                    validation_loss=root_validation["loss"],
+                    validation_accuracy=root_validation["accuracy"],
+                    diagnostics=diagnostics,
+                    attack_success_rate=attack_success_rate,
+                )
                 if trace:
                     beta_trace_rows.append({key: value for key, value in trace.items() if key != "state_vector"})
             row = {
@@ -1070,3 +1076,4 @@ class FederatedExperiment:
         if requested == "auto":
             return torch.device("cuda" if torch.cuda.is_available() else "cpu")
         return torch.device(requested)
+
