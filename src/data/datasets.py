@@ -33,6 +33,17 @@ class ShiftedSubset(Dataset):
         self.noise_std = float(shift_cfg.get("noise_std", 0.15))
         self.brightness_delta = float(shift_cfg.get("brightness_delta", 0.10))
         self.seed = int(seed)
+        self.shift_fraction = float(np.clip(float(shift_cfg.get("fraction", 1.0)), 0.0, 1.0))
+        shifted_count = int(round(len(self.indices) * self.shift_fraction))
+        if shifted_count >= len(self.indices):
+            self.shifted_source_indices = set(self.indices)
+        elif shifted_count <= 0:
+            self.shifted_source_indices = set()
+        else:
+            rng = np.random.default_rng(self.seed)
+            self.shifted_source_indices = set(
+                int(index) for index in rng.choice(self.indices, size=shifted_count, replace=False).tolist()
+            )
 
     def __len__(self) -> int:
         return len(self.indices)
@@ -40,7 +51,7 @@ class ShiftedSubset(Dataset):
     def __getitem__(self, item: int):
         source_index = int(self.indices[item])
         image, label = self.dataset[source_index]
-        if self.shift_type in {"none", "off"}:
+        if source_index not in self.shifted_source_indices or self.shift_type in {"none", "off"}:
             return image, label
         if self.shift_type == "gaussian_noise":
             generator = torch.Generator()
@@ -172,6 +183,15 @@ def build_federated_data(config: dict) -> FederatedData:
 
     batch_size = int(fed_cfg["batch_size"])
     unseen_shift_cfg = fed_cfg.get("unseen_shift", {})
+    unseen_data_fraction = float(
+        np.clip(
+            float(fed_cfg.get("unseen_data_fraction", unseen_shift_cfg.get("fraction", 1.0))),
+            0.0,
+            1.0,
+        )
+    )
+    unseen_shift_cfg = dict(unseen_shift_cfg)
+    unseen_shift_cfg["fraction"] = unseen_data_fraction
     if bool(unseen_shift_cfg.get("enabled", False)):
         unseen_shift_type = str(unseen_shift_cfg.get("type", "gaussian_noise"))
     else:
@@ -751,6 +771,9 @@ def _build_metadata(
         "malicious_client_ids": sorted(int(idx) for idx in malicious_clients),
         "unseen_client_ids": sorted(int(idx) for idx in unseen_clients),
         "unseen_shift_type": unseen_shift_type,
+        "unseen_data_fraction": float(
+            fed_cfg.get("unseen_data_fraction", fed_cfg.get("unseen_shift", {}).get("fraction", 1.0))
+        ),
         "partition_summary": {
             "partition_method": _partition_method_name(fed_cfg, iid, train_dataset),
             "iid": iid,
@@ -793,3 +816,4 @@ def _extract_targets(dataset: Dataset) -> np.ndarray:
         return dataset.tensors[1].numpy()
     labels = [int(dataset[i][1]) for i in range(len(dataset))]
     return np.asarray(labels)
+
