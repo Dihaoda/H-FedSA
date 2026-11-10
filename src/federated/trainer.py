@@ -777,7 +777,7 @@ class FederatedExperiment:
     def _should_write_client_diagnostics(self, round_number: int, total_rounds: int) -> bool:
         diag_cfg = self.config.get("diagnostics", {})
         every = max(1, int(diag_cfg.get("client_detail_every", 1)))
-        last_k = max(0, int(diag_cfg.get("client_detail_last_k", total_rounds)))
+        last_k = max(0, int(diag_cfg.get("client_detail_last_k", 5)))
         return round_number == 1 or round_number == total_rounds or round_number % every == 0 or round_number > total_rounds - last_k
 
     def _write_fltrust_diagnostics(

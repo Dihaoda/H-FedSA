@@ -62,3 +62,15 @@ def test_partial_metrics_checkpoint_is_atomic_and_method_scoped(tmp_path) -> Non
     assert saved[0]["round"] == "10"
     assert saved[0]["attack_success_rate"] == "2.0"
 
+
+def test_client_diagnostics_respect_interval_and_final_five_rounds() -> None:
+    experiment = FederatedExperiment.__new__(FederatedExperiment)
+    experiment.config = {"diagnostics": {"client_detail_every": 25}}
+
+    assert experiment._should_write_client_diagnostics(1, 250)
+    assert not experiment._should_write_client_diagnostics(10, 250)
+    assert experiment._should_write_client_diagnostics(25, 250)
+    assert not experiment._should_write_client_diagnostics(245, 250)
+    assert experiment._should_write_client_diagnostics(246, 250)
+    assert experiment._should_write_client_diagnostics(250, 250)
+
