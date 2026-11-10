@@ -27,8 +27,9 @@ The core training pipeline is runnable and has been verified on an NVIDIA A100. 
 - a capability-registry test that instantiates every public defense and
   validates every public attack name, plus GitHub Actions unit tests.
 
-The remaining work is focused on the other shifted-dataset adapters, the
-remaining paper experiment manifests, and multi-seed result generation. See
+The remaining work is focused on real-data validation of the non-CIFAR shifted
+adapters, the remaining paper experiment manifests, and multi-seed result
+generation. See
 [`docs/baselines_and_attacks.md`](docs/baselines_and_attacks.md) for the exact
 semantics and limitations of comparison methods whose original artifacts are
 ambiguous or unavailable.
