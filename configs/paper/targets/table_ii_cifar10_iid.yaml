@@ -1,0 +1,64 @@
+source:
+  paper_table: "Table II(d)"
+  scenario: "Homogeneous Scenario: CIFAR-10 (IID)"
+  reporting: "mean +/- sample standard deviation over 5 runs"
+  metric: "final model error rate (%)"
+  scaling_secondary_metric: "attack success rate (%)"
+
+targets:
+  no_attack:
+    fedavg: {error_mean: 15.0, error_std: 0.3}
+    fltrust: {error_mean: 15.4, error_std: 0.4}
+    rfa: {error_mean: 15.2, error_std: 0.3}
+    safefl: {error_mean: 15.3, error_std: 0.3}
+    msguard: {error_mean: 15.2, error_std: 0.3}
+    hfedsa_ddpg: {error_mean: 15.7, error_std: 0.2}
+  label_flip:
+    fedavg: {error_mean: 72.0, error_std: 4.5}
+    fltrust: {error_mean: 17.3, error_std: 1.0}
+    rfa: {error_mean: 18.0, error_std: 1.2}
+    safefl: {error_mean: 16.6, error_std: 0.9}
+    msguard: {error_mean: 16.3, error_std: 0.8}
+    hfedsa_ddpg: {error_mean: 15.7, error_std: 0.4}
+  scaling:
+    fedavg: {error_mean: 14.8, error_std: 0.0, asr_mean: 100.0, asr_std: 0.0}
+    fltrust: {error_mean: 16.5, error_std: 0.9, asr_mean: 9.8, asr_std: 1.1}
+    rfa: {error_mean: 18.2, error_std: 1.1, asr_mean: 11.5, asr_std: 1.5}
+    safefl: {error_mean: 16.0, error_std: 0.8, asr_mean: 8.0, asr_std: 1.0}
+    msguard: {error_mean: 15.7, error_std: 0.7, asr_mean: 4.5, asr_std: 0.7}
+    hfedsa_ddpg: {error_mean: 15.2, error_std: 0.3, asr_mean: 1.2, asr_std: 0.3}
+  krum_targeted:
+    fedavg: {applicable: false}
+    fltrust: {error_mean: 35.0, error_std: 1.9}
+    rfa: {error_mean: 38.2, error_std: 2.1}
+    safefl: {error_mean: 24.1, error_std: 1.3}
+    msguard: {error_mean: 23.5, error_std: 1.2}
+    hfedsa_ddpg: {error_mean: 21.3, error_std: 1.2}
+  trim_targeted:
+    fedavg: {applicable: false}
+    fltrust: {error_mean: 38.7, error_std: 2.0}
+    rfa: {error_mean: 41.8, error_std: 2.2}
+    safefl: {error_mean: 26.1, error_std: 1.4}
+    msguard: {error_mean: 25.0, error_std: 1.3}
+    hfedsa_ddpg: {error_mean: 21.3, error_std: 1.1}
+  adaptive:
+    fedavg: {error_mean: 87.5, error_std: 4.0}
+    fltrust: {error_mean: 45.1, error_std: 2.3}
+    rfa: {error_mean: 48.5, error_std: 2.5}
+    safefl: {error_mean: 28.0, error_std: 1.5}
+    msguard: {error_mean: 26.7, error_std: 1.4}
+    hfedsa_ddpg: {error_mean: 24.9, error_std: 1.2}
+  poisafl:
+    fedavg: {error_lower_bound: 90.0}
+    fltrust: {error_mean: 55.2, error_std: 2.8}
+    rfa: {error_mean: 58.0, error_std: 3.0}
+    safefl: {error_mean: 35.6, error_std: 1.9}
+    msguard: {error_mean: 33.1, error_std: 1.7}
+    hfedsa_ddpg: {error_mean: 28.8, error_std: 1.3}
+
+evaluation_policy:
+  required_runs: 5
+  preregistered_seeds: [2026, 2027, 2028, 2029, 2030]
+  selection: "Report all preregistered seeds; do not select only favorable runs."
+  calibration: "Calibration runs must use separate output paths and are not table results."
+
