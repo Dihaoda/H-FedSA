@@ -175,6 +175,29 @@ def test_cli_can_set_server_learning_rate() -> None:
     assert validate_config(updated) == []
 
 
+def test_cli_can_disable_hfedsa_root_normalization() -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["defense"] = "hfedsa_ddpg"
+    config["hfedsa"] = {
+        "normalization_mode": "root_norm",
+        "normalize_update_to_root": True,
+    }
+    args = argparse.Namespace(
+        hfedsa_normalization_mode="none",
+        normalize_update_to_root=False,
+    )
+
+    updated, overrides = apply_cli_overrides(config, args)
+
+    assert updated["hfedsa"]["normalization_mode"] == "none"
+    assert updated["hfedsa"]["normalize_update_to_root"] is False
+    assert [item["path"] for item in overrides] == [
+        "hfedsa.normalization_mode",
+        "hfedsa.normalize_update_to_root",
+    ]
+    assert validate_config(updated) == []
+
+
 @pytest.mark.parametrize(
     ("minimum", "maximum", "message"),
     [

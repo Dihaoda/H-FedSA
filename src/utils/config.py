@@ -149,6 +149,16 @@ def parse_args() -> argparse.Namespace:
         type=float,
         help="Non-negative exponent applied to H-FedSA intensity-separation confidence.",
     )
+    parser.add_argument(
+        "--hfedsa_normalization_mode",
+        type=str,
+        help="H-FedSA update transformation: none, root_norm, clip, or root_norm_then_clip.",
+    )
+    parser.add_argument(
+        "--normalize_update_to_root",
+        type=parse_bool,
+        help="Enable or disable explicit H-FedSA scaling to the trusted-root update norm.",
+    )
     parser.add_argument("--model", type=str, help="Model name, e.g. paper_cnn/resnet18_gtsrb/femnist_cnn.")
     parser.add_argument("--iid", nargs="?", const="true", type=parse_bool, help="Set federated.iid true/false. If value is omitted, true is used.")
     parser.add_argument("--non_iid", action="store_true", default=None, help="Shortcut for --iid false.")
@@ -189,6 +199,8 @@ def apply_cli_overrides(config: dict[str, Any], args: argparse.Namespace) -> tup
         ("ddpg_max_beta", ("ddpg", "max_beta")),
         ("role_confidence_mode", ("hfedsa", "role_confidence_mode")),
         ("role_confidence_power", ("hfedsa", "role_confidence_power")),
+        ("hfedsa_normalization_mode", ("hfedsa", "normalization_mode")),
+        ("normalize_update_to_root", ("hfedsa", "normalize_update_to_root")),
         ("model", ("model", "name")),
         ("alpha", ("federated", "non_iid_alpha")),
         ("quick_dev", ("dataset", "quick_dev")),
@@ -284,6 +296,11 @@ def validate_config(config: dict[str, Any]) -> list[str]:
         )
     if float(hfedsa_cfg.get("role_confidence_power", 1.0)) < 0.0:
         errors.append("hfedsa.role_confidence_power must be non-negative.")
+    normalization_mode = str(hfedsa_cfg.get("normalization_mode", "none")).lower()
+    if normalization_mode not in {"none", "root_norm", "clip", "root_norm_then_clip"}:
+        errors.append(
+            "hfedsa.normalization_mode must be one of none/root_norm/clip/root_norm_then_clip."
+        )
     ddpg_enabled = any(key.startswith("hfedsa_ddpg") for key in defense_keys) or (
         hfedsa_enabled and str(hfedsa_cfg.get("beta_mode", "static")).lower() == "ddpg"
     )
