@@ -8,6 +8,17 @@ import torch
 from torch.utils.data import DataLoader, Dataset, Subset, TensorDataset
 
 
+def _select_shifted_source_indices(indices: list[int], fraction: float, seed: int) -> set[int]:
+    fraction = float(np.clip(float(fraction), 0.0, 1.0))
+    shifted_count = int(round(len(indices) * fraction))
+    if shifted_count >= len(indices):
+        return set(indices)
+    if shifted_count <= 0:
+        return set()
+    rng = np.random.default_rng(seed)
+    return set(int(index) for index in rng.choice(indices, size=shifted_count, replace=False).tolist())
+
+
 @dataclass
 class FederatedData:
     client_loaders: list[DataLoader]
@@ -34,16 +45,9 @@ class ShiftedSubset(Dataset):
         self.brightness_delta = float(shift_cfg.get("brightness_delta", 0.10))
         self.seed = int(seed)
         self.shift_fraction = float(np.clip(float(shift_cfg.get("fraction", 1.0)), 0.0, 1.0))
-        shifted_count = int(round(len(self.indices) * self.shift_fraction))
-        if shifted_count >= len(self.indices):
-            self.shifted_source_indices = set(self.indices)
-        elif shifted_count <= 0:
-            self.shifted_source_indices = set()
-        else:
-            rng = np.random.default_rng(self.seed)
-            self.shifted_source_indices = set(
-                int(index) for index in rng.choice(self.indices, size=shifted_count, replace=False).tolist()
-            )
+        self.shifted_source_indices = _select_shifted_source_indices(
+            self.indices, self.shift_fraction, self.seed
+        )
 
     def __len__(self) -> int:
         return len(self.indices)
@@ -66,6 +70,102 @@ class ShiftedSubset(Dataset):
             noise = torch.randn(image.shape, generator=generator, dtype=image.dtype) * self.noise_std
             return image + noise + self.brightness_delta, label
         return image, label
+
+
+class ExternalShiftedSubset(Dataset):
+    """Mix a deterministic fraction of a client's base samples with an external shifted pool."""
+
+    def __init__(
+        self,
+        dataset: Dataset,
+        indices: list[int],
+        external_dataset: Dataset,
+        fraction: float,
+        seed: int,
+    ) -> None:
+        if len(external_dataset) <= 0:
+            raise ValueError("External shifted dataset must contain at least one sample")
+        self.dataset = dataset
+        self.indices = list(indices)
+        self.external_dataset = external_dataset
+        self.shift_fraction = float(np.clip(float(fraction), 0.0, 1.0))
+        self.shifted_source_indices = _select_shifted_source_indices(self.indices, self.shift_fraction, seed)
+        rng = np.random.default_rng(seed + 17)
+        replace = len(self.shifted_source_indices) > len(external_dataset)
+        external_indices = rng.choice(
+            len(external_dataset), size=len(self.shifted_source_indices), replace=replace
+        ).tolist()
+        self.external_index_by_source = {
+            source_index: int(external_index)
+            for source_index, external_index in zip(sorted(self.shifted_source_indices), external_indices)
+        }
+
+    def __len__(self) -> int:
+        return len(self.indices)
+
+    def __getitem__(self, item: int):
+        source_index = int(self.indices[item])
+        external_index = self.external_index_by_source.get(source_index)
+        if external_index is None:
+            return self.dataset[source_index]
+        return self.external_dataset[external_index]
+
+
+class CIFAR10CorruptionDataset(Dataset):
+    """Memory-mapped CIFAR-10-C corruption pool for unseen-client training samples."""
+
+    def __init__(self, root: str | Path, corruptions: list[str], severity: int, transform=None) -> None:
+        from PIL import Image
+
+        root_path = Path(root)
+        nested = root_path / "CIFAR-10-C"
+        self.root = nested if nested.is_dir() else root_path
+        self.corruptions = [str(name) for name in corruptions]
+        self.severity = int(np.clip(int(severity), 1, 5))
+        self.transform = transform
+        self._image_type = Image
+        labels_path = self.root / "labels.npy"
+        if not labels_path.is_file():
+            raise FileNotFoundError(f"CIFAR-10-C labels not found: {labels_path}")
+        self.labels = np.load(labels_path, mmap_mode="r")
+        self.sources: list[tuple[np.ndarray, int, int, np.ndarray]] = []
+        self.cumulative_sizes: list[int] = []
+        total_size = 0
+        for corruption in self.corruptions:
+            path = self.root / f"{corruption}.npy"
+            if not path.is_file():
+                raise FileNotFoundError(f"CIFAR-10-C corruption not found: {path}")
+            images = np.load(path, mmap_mode="r")
+            if len(images) % 5 != 0:
+                raise ValueError(f"Expected five CIFAR-10-C severity blocks in {path}; got {len(images)} samples")
+            block_size = len(images) // 5
+            start = (self.severity - 1) * block_size
+            end = start + block_size
+            if len(self.labels) >= end:
+                labels = self.labels[start:end]
+            elif len(self.labels) >= block_size:
+                labels = self.labels[:block_size]
+            else:
+                raise ValueError(f"CIFAR-10-C labels are shorter than one severity block: {len(self.labels)}")
+            self.sources.append((images, start, end, labels))
+            total_size += block_size
+            self.cumulative_sizes.append(total_size)
+        self.dataset_variant = f"cifar10_c_{'-'.join(self.corruptions)}_severity_{self.severity}"
+        self.source_repository = "https://zenodo.org/records/2535967"
+
+    def __len__(self) -> int:
+        return self.cumulative_sizes[-1] if self.cumulative_sizes else 0
+
+    def __getitem__(self, item: int):
+        item = int(item)
+        source_id = int(np.searchsorted(self.cumulative_sizes, item, side="right"))
+        previous_size = self.cumulative_sizes[source_id - 1] if source_id > 0 else 0
+        local_index = item - previous_size
+        images, start, _, labels = self.sources[source_id]
+        image = self._image_type.fromarray(np.asarray(images[start + local_index]))
+        if self.transform is not None:
+            image = self.transform(image)
+        return image, int(labels[local_index])
 
 
 class CachedTensorDataset(Dataset):
@@ -196,10 +296,23 @@ def build_federated_data(config: dict) -> FederatedData:
         unseen_shift_type = str(unseen_shift_cfg.get("type", "gaussian_noise"))
     else:
         unseen_shift_type = "none"
+    external_shift_dataset = _build_external_shift_dataset(unseen_shift_cfg, dataset_cfg)
     client_datasets = []
     for client_id, indices in enumerate(client_indices):
         if client_id in unseen_clients and unseen_shift_type != "none":
-            client_datasets.append(ShiftedSubset(train_dataset, indices, unseen_shift_cfg, seed + 1000 * (client_id + 1)))
+            client_seed = seed + 1000 * (client_id + 1)
+            if external_shift_dataset is not None:
+                client_datasets.append(
+                    ExternalShiftedSubset(
+                        train_dataset,
+                        indices,
+                        external_shift_dataset,
+                        unseen_data_fraction,
+                        client_seed,
+                    )
+                )
+            else:
+                client_datasets.append(ShiftedSubset(train_dataset, indices, unseen_shift_cfg, client_seed))
         else:
             client_datasets.append(Subset(train_dataset, indices))
     client_loader_kwargs = _loader_kwargs(fed_cfg, prefix="client")
@@ -287,6 +400,28 @@ def _load_dataset(dataset_cfg: dict, fed_cfg: dict, rng: np.random.Generator, se
                 ) from exc
             print(f"Stanford Cars loading failed, using explicitly enabled synthetic fallback. Reason: {exc}")
     return _make_synthetic_images(dataset_cfg, num_classes, rng)
+
+
+def _build_external_shift_dataset(shift_cfg: dict, dataset_cfg: dict) -> Dataset | None:
+    shift_type = str(shift_cfg.get("type", "none")).lower()
+    if not bool(shift_cfg.get("enabled", False)) or shift_type not in {"cifar10_c", "cifar10c"}:
+        return None
+    from torchvision import transforms
+
+    normalize = transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.247, 0.243, 0.261))
+    transform = transforms.Compose([transforms.ToTensor(), normalize])
+    root = shift_cfg.get("data_root") or shift_cfg.get("root") or dataset_cfg.get("cifar10_c_root")
+    if not root:
+        raise ValueError("unseen_shift.data_root is required for CIFAR-10-C")
+    corruptions = shift_cfg.get("corruptions", ["gaussian_noise", "shot_noise"])
+    if isinstance(corruptions, str):
+        corruptions = [corruptions]
+    return CIFAR10CorruptionDataset(
+        root=root,
+        corruptions=list(corruptions),
+        severity=int(shift_cfg.get("severity", 3)),
+        transform=transform,
+    )
 
 
 def _loader_kwargs(fed_cfg: dict, prefix: str) -> dict:
