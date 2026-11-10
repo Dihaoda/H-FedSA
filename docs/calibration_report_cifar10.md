@@ -73,8 +73,12 @@ to an ordinary client update and increased, rather than decreased, measured
 ASR. Full-batch poisoning remains the selected target-2 candidate.
 
 Because the paper does not specify a target class, one final independent-seed
-candidate changes only the target from class 2 to class 0. This is a declared
-attack-definition calibration, not a per-reporting-seed selection.
+candidate changed only the target from class 2 to class 0. It finished at
+`84.51%` accuracy / `15.49%` error and `1.78%` ASR. The gaps to Table II(d)
+were `+0.29` error and `+0.58` ASR. Target 0 was selected before formal seeds:
+it brought error inside the paper's reported error standard deviation and
+reduced ASR by `0.69` points relative to target 2. No further target classes
+will be searched.
 
 ## H-FedSA clean-anchor diagnostics
 
@@ -99,7 +103,7 @@ plausible omitted training detail without adding another defense mechanism.
 
 ## Pending before formal launch
 
-- finish the target-0 full-batch attack candidate;
+- finish the five preregistered target-0 formal attack runs;
 - finish the no-attack H-FedSA/FedAvgM clean anchor;
 - freeze the defense/attack-only parameters, then launch every preregistered
   seed without per-seed changes.

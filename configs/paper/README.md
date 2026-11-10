@@ -24,6 +24,13 @@ model-update scaling) and maps it to the paper target key `scaling`. The plain
 `scaling` implementation is a label-flip/update-scaling stress test and is not
 used for this Table II row.
 
+The paper does not specify the target class, trigger-poisoning fraction, update
+scale, DDPG action floor, or server momentum. Independent-seed calibration
+selected target class 0, full-batch trigger poisoning, update scale 8, a DDPG
+minimum beta of 0.1, and a direct FedAvg server update. Seed 31415 measured
+`15.49%` final error and `1.78%` ASR; these parameters were then frozen before
+the preregistered reporting seeds were launched.
+
 The paper specifies a lightweight two-convolution/two-fully-connected network
 but does not report BatchNorm or all optimizer hyperparameters. This manifest
 therefore disables BatchNorm (so running-statistic buffers cannot dominate the
