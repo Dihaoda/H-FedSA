@@ -14,7 +14,7 @@ This repository is being reconstructed incrementally from the research prototype
 
 The core training pipeline is runnable and has been verified on an NVIDIA A100. The current implementation includes:
 
-- FedAvg, FLTrust, RFA, and H-FedSA aggregation;
+- FedAvg, FLTrust, RFA, H-FedSA, SafeFL-compatible SignGuard, and MSGuard aggregation;
 - the paper's direction, intensity, and normalized-sparsity client features;
 - three-component full-covariance GMM client profiling;
 - paper-form probabilistic aggregation weights;
@@ -22,9 +22,14 @@ The core training pipeline is runnable and has been verified on an NVIDIA A100. 
 - deterministic partial unseen-data shifts via `unseen_data_fraction`;
 - a memory-mapped CIFAR-10-C adapter for Gaussian-noise and shot-noise unseen data;
 - stratified round sampling that preserves malicious and unseen-client ratios;
-- label-flipping, scaling, backdoor-scaling, and adaptive feature-matched attack utilities.
+- label-flipping, scaling, backdoor-scaling, Krum-targeted, Trim-targeted,
+  adaptive feature-matched, and synchronous PoiSAFL attack utilities.
 
-The remaining work is focused on the other shifted-dataset adapters, missing comparison baselines and attacks, the remaining paper experiment manifests, and multi-seed result generation.
+The remaining work is focused on the other shifted-dataset adapters, the
+remaining paper experiment manifests, and multi-seed result generation. See
+[`docs/baselines_and_attacks.md`](docs/baselines_and_attacks.md) for the exact
+semantics and limitations of comparison methods whose original artifacts are
+ambiguous or unavailable.
 
 ## Quick Development Run
 
@@ -63,6 +68,8 @@ to published result artifacts.
 - [`configs/paper/README.md`](configs/paper/README.md): paper-protocol manifests and data layout
 - [`docs/autodl.md`](docs/autodl.md): AutoDL data-disk setup and real-data smoke command
 - [`docs/calibration_protocol.md`](docs/calibration_protocol.md): measured calibration and fixed-seed reporting rules
+- [`docs/baselines_and_attacks.md`](docs/baselines_and_attacks.md): runnable baseline/attack semantics and limitations
+- [`docs/dataset_adapters.md`](docs/dataset_adapters.md): external shifted-data layouts and label mapping
 - [`docs/reproduction_status.md`](docs/reproduction_status.md): implemented, tested, and pending work
 - [`results/README.md`](results/README.md): measured-result publication policy
 

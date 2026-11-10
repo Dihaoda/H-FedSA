@@ -12,13 +12,13 @@ has been reproduced.
 | DDPG exploration control | Implemented and smoke-tested | 39-dimensional state; server-root validation feedback only |
 | Client-role sampling | Implemented and unit-tested | Preserves malicious/unseen ratios in small rounds |
 | CIFAR-10-C unseen data | Implemented and real-data smoke-tested | Gaussian noise and shot noise; exact 40% replacement |
-| FEMNIST + Chars74K | Pending | Real shifted-data adapter not yet implemented |
-| GTSRB + CTSDB/GTSDB | Pending | Dataset naming/source must be reconciled with the paper |
-| Stanford Cars + CompCars | Pending | Real shifted-data adapter not yet implemented |
+| FEMNIST + Chars74K | Implemented and unit-tested | Sample001--Sample062 label mapping; real-data smoke pending |
+| GTSRB + CTSDB/GTSDB | Implemented and unit-tested | Requires an explicit semantic label map; real-data smoke pending |
+| Stanford Cars + CompCars | Implemented and unit-tested | Requires a curated make/model label map; real-data smoke pending |
 | FedAvg, FLTrust, RFA | Implemented | Formal comparison manifests and multi-seed runs pending |
-| SafeFL, MSGuard | Pending | Current factory raises an explicit not-implemented path |
+| SafeFL-compatible SignGuard, MSGuard | Implemented and smoke-tested | SafeFL rule ambiguity and MSGuard artifact limitations are documented |
 | Label flip, scaling, backdoor scaling | Implemented | Protocol-level validation still required per paper table |
-| Krum-targeted, Trim-targeted, PoiSAFL | Pending | Not yet implemented |
+| Krum-targeted, Trim-targeted, PoiSAFL | Implemented and smoke-tested | PoiSAFL is an explicitly documented synchronous adaptation |
 | Full paper tables | Pending | No smoke or synthetic output is accepted as a measured paper result |
 
 The CIFAR-10 Table II(d) values and five fixed reporting seeds are recorded in

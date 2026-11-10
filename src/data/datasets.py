@@ -3,8 +3,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 from collections import Counter
+import re
+
 import numpy as np
 import torch
+import yaml
 from torch.utils.data import DataLoader, Dataset, Subset, TensorDataset
 
 
@@ -82,6 +85,7 @@ class ExternalShiftedSubset(Dataset):
         external_dataset: Dataset,
         fraction: float,
         seed: int,
+        align_labels: bool = True,
     ) -> None:
         if len(external_dataset) <= 0:
             raise ValueError("External shifted dataset must contain at least one sample")
@@ -91,14 +95,22 @@ class ExternalShiftedSubset(Dataset):
         self.shift_fraction = float(np.clip(float(fraction), 0.0, 1.0))
         self.shifted_source_indices = _select_shifted_source_indices(self.indices, self.shift_fraction, seed)
         rng = np.random.default_rng(seed + 17)
-        replace = len(self.shifted_source_indices) > len(external_dataset)
-        external_indices = rng.choice(
-            len(external_dataset), size=len(self.shifted_source_indices), replace=replace
-        ).tolist()
-        self.external_index_by_source = {
-            source_index: int(external_index)
-            for source_index, external_index in zip(sorted(self.shifted_source_indices), external_indices)
+        self.align_labels = bool(align_labels)
+        external_targets = _extract_targets(external_dataset).astype(int)
+        external_by_label = {
+            int(label): np.where(external_targets == label)[0]
+            for label in np.unique(external_targets)
         }
+        base_targets = _extract_targets(dataset).astype(int)
+        self.external_index_by_source: dict[int, int] = {}
+        self.label_fallback_count = 0
+        for source_index in sorted(self.shifted_source_indices):
+            candidates = external_by_label.get(int(base_targets[source_index])) if self.align_labels else None
+            if candidates is None or len(candidates) == 0:
+                candidates = np.arange(len(external_dataset))
+                if self.align_labels:
+                    self.label_fallback_count += 1
+            self.external_index_by_source[source_index] = int(rng.choice(candidates))
 
     def __len__(self) -> int:
         return len(self.indices)
@@ -166,6 +178,68 @@ class CIFAR10CorruptionDataset(Dataset):
         if self.transform is not None:
             image = self.transform(image)
         return image, int(labels[local_index])
+
+
+class MappedImageFolderDataset(Dataset):
+    """ImageFolder pool with an explicit mapping into the base task labels."""
+
+    def __init__(
+        self,
+        root: str | Path,
+        transform,
+        num_classes: int,
+        label_map: dict[str, int] | None = None,
+        label_strategy: str = "identity",
+        source_repository: str = "external_imagefolder",
+    ) -> None:
+        from torchvision.datasets import ImageFolder
+
+        self.root = Path(root)
+        if not self.root.is_dir():
+            raise FileNotFoundError(f"External shifted-data root not found: {self.root}")
+        base = ImageFolder(str(self.root))
+        self.loader = base.loader
+        self.transform = transform
+        self.num_classes = int(num_classes)
+        strategy = str(label_strategy).lower()
+        resolved_map: dict[str, int] = {}
+        if label_map:
+            resolved_map = {str(name): int(label) for name, label in label_map.items()}
+        elif strategy in {"chars74k", "chars74k_sample_order", "sample_order"}:
+            for class_name in base.classes:
+                match = re.search(r"(\d+)$", class_name)
+                if match:
+                    resolved_map[class_name] = int(match.group(1)) - 1
+        else:
+            resolved_map = {name: int(index) for name, index in base.class_to_idx.items()}
+
+        self.samples: list[tuple[str, int]] = []
+        for path, original_label in base.samples:
+            class_name = base.classes[int(original_label)]
+            if class_name not in resolved_map:
+                continue
+            mapped_label = int(resolved_map[class_name])
+            if 0 <= mapped_label < self.num_classes:
+                self.samples.append((path, mapped_label))
+        if not self.samples:
+            raise ValueError(
+                f"No external images under {self.root} map into labels [0, {self.num_classes - 1}]."
+            )
+        self.targets = np.asarray([label for _, label in self.samples], dtype=np.int64)
+        self.class_to_target = resolved_map
+        self.dataset_variant = f"mapped_imagefolder_{strategy}"
+        self.source_repository = str(source_repository)
+        self.transform_description = str(transform)
+
+    def __len__(self) -> int:
+        return len(self.samples)
+
+    def __getitem__(self, item: int):
+        path, label = self.samples[int(item)]
+        image = self.loader(path)
+        if self.transform is not None:
+            image = self.transform(image)
+        return image, int(label)
 
 
 class CachedTensorDataset(Dataset):
@@ -404,23 +478,92 @@ def _load_dataset(dataset_cfg: dict, fed_cfg: dict, rng: np.random.Generator, se
 
 def _build_external_shift_dataset(shift_cfg: dict, dataset_cfg: dict) -> Dataset | None:
     shift_type = str(shift_cfg.get("type", "none")).lower()
-    if not bool(shift_cfg.get("enabled", False)) or shift_type not in {"cifar10_c", "cifar10c"}:
+    if not bool(shift_cfg.get("enabled", False)):
         return None
     from torchvision import transforms
 
-    normalize = transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.247, 0.243, 0.261))
-    transform = transforms.Compose([transforms.ToTensor(), normalize])
-    root = shift_cfg.get("data_root") or shift_cfg.get("root") or dataset_cfg.get("cifar10_c_root")
+    if shift_type in {"cifar10_c", "cifar10c"}:
+        normalize = transforms.Normalize(mean=(0.4914, 0.4822, 0.4465), std=(0.247, 0.243, 0.261))
+        transform = transforms.Compose([transforms.ToTensor(), normalize])
+        root = shift_cfg.get("data_root") or shift_cfg.get("root") or dataset_cfg.get("cifar10_c_root")
+        if not root:
+            raise ValueError("unseen_shift.data_root is required for CIFAR-10-C")
+        corruptions = shift_cfg.get("corruptions", ["gaussian_noise", "shot_noise"])
+        if isinstance(corruptions, str):
+            corruptions = [corruptions]
+        return CIFAR10CorruptionDataset(
+            root=root,
+            corruptions=list(corruptions),
+            severity=int(shift_cfg.get("severity", 3)),
+            transform=transform,
+        )
+
+    supported = {"chars74k", "ctsdb", "gtsdb", "compcars", "imagefolder", "mapped_imagefolder"}
+    if shift_type not in supported:
+        return None
+    root = shift_cfg.get("data_root") or shift_cfg.get("root")
     if not root:
-        raise ValueError("unseen_shift.data_root is required for CIFAR-10-C")
-    corruptions = shift_cfg.get("corruptions", ["gaussian_noise", "shot_noise"])
-    if isinstance(corruptions, str):
-        corruptions = [corruptions]
-    return CIFAR10CorruptionDataset(
+        raise ValueError(f"unseen_shift.data_root is required for {shift_type}")
+    label_map = shift_cfg.get("label_map")
+    label_map_file = shift_cfg.get("label_map_file")
+    if label_map_file:
+        with Path(label_map_file).open("r", encoding="utf-8") as handle:
+            loaded_map = yaml.safe_load(handle)
+        if not isinstance(loaded_map, dict):
+            raise ValueError(f"External label_map_file must contain a mapping: {label_map_file}")
+        label_map = loaded_map
+
+    base_name = str(dataset_cfg.get("name", "")).lower()
+    if base_name == "femnist":
+        transform = transforms.Compose(
+            [
+                transforms.Grayscale(num_output_channels=1),
+                transforms.Resize((28, 28)),
+                transforms.ToTensor(),
+                transforms.Normalize(mean=(0.5,), std=(0.5,)),
+            ]
+        )
+        default_strategy = "chars74k_sample_order" if shift_type == "chars74k" else "identity"
+        repository = "Chars74K" if shift_type == "chars74k" else shift_type
+    elif base_name == "gtsrb":
+        image_size = int(dataset_cfg.get("image_size", 32))
+        transform = transforms.Compose(
+            [
+                transforms.Resize((image_size, image_size)),
+                transforms.ToTensor(),
+                transforms.Normalize(
+                    mean=tuple(dataset_cfg.get("normalize_mean", [0.3403, 0.3121, 0.3214])),
+                    std=tuple(dataset_cfg.get("normalize_std", [0.2724, 0.2608, 0.2669])),
+                ),
+            ]
+        )
+        default_strategy = "identity"
+        repository = "CTSDB/GTSDB" if shift_type in {"ctsdb", "gtsdb"} else shift_type
+    elif base_name in {"stanford_cars", "stanfordcars", "cars"}:
+        image_size = int(dataset_cfg.get("image_size", 224))
+        resize_size = int(dataset_cfg.get("resize_size", max(256, image_size)))
+        transform = transforms.Compose(
+            [
+                transforms.Resize((resize_size, resize_size)),
+                transforms.CenterCrop(image_size),
+                transforms.ToTensor(),
+                transforms.Normalize(
+                    mean=tuple(dataset_cfg.get("normalize_mean", [0.485, 0.456, 0.406])),
+                    std=tuple(dataset_cfg.get("normalize_std", [0.229, 0.224, 0.225])),
+                ),
+            ]
+        )
+        default_strategy = "identity"
+        repository = "CompCars" if shift_type == "compcars" else shift_type
+    else:
+        raise ValueError(f"External ImageFolder shift is not configured for base dataset '{base_name}'")
+    return MappedImageFolderDataset(
         root=root,
-        corruptions=list(corruptions),
-        severity=int(shift_cfg.get("severity", 3)),
         transform=transform,
+        num_classes=int(dataset_cfg.get("num_classes", 10)),
+        label_map=label_map,
+        label_strategy=str(shift_cfg.get("label_strategy", default_strategy)),
+        source_repository=str(shift_cfg.get("source_repository", repository)),
     )
 
 
