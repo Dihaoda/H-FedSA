@@ -27,3 +27,18 @@ def test_cifar10_paper_config_matches_protocol() -> None:
     assert config["model"]["batchnorm"] is False
     assert config["ddpg"]["state_dim"] == 39
 
+
+def test_cifar10_clean_manifest_is_fixed_before_multiseed_runs() -> None:
+    config = load_config(Path("configs/paper/cifar10_iid_clean.yaml"))
+
+    validate_config(config)
+    assert config["federated"]["num_clients"] == 100
+    assert config["federated"]["clients_per_round"] == 10
+    assert config["federated"]["rounds"] == 250
+    assert config["federated"]["local_epochs"] == 5
+    assert config["federated"]["server_optimizer"] == "fedavgm"
+    assert config["federated"]["malicious_ratio"] == 0.0
+    assert config["federated"]["unseen_ratio"] == 0.0
+    assert config["attack"]["type"] == "no_attack"
+    assert config["reporting"]["preregistered_seeds"] == [2026, 2027, 2028, 2029, 2030]
+
