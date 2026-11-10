@@ -12,9 +12,18 @@ code and are not stored as pre-filled measurements.
 - 20% malicious clients;
 - 10% unseen clients, with exactly 40% shifted samples per unseen client;
 - CIFAR-10-C Gaussian noise and shot noise at severity 3;
+- the paper's pre-aggregation client-update normalization to the trusted root
+  update norm;
 - the paper's three security features and a three-component full-covariance GMM;
 - the 39-dimensional DDPG state (GMM means, full covariances, validation loss,
   validation-loss change, and previous beta).
+
+The paper specifies a lightweight two-convolution/two-fully-connected network
+but does not report BatchNorm or all optimizer hyperparameters. This manifest
+therefore disables BatchNorm (so running-statistic buffers cannot dominate the
+paper's update features) and records the remaining reconstruction defaults
+explicitly in YAML. These defaults are parameters to validate empirically, not
+claims copied from the paper.
 
 Expected data layout:
 
