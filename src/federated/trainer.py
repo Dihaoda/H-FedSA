@@ -942,9 +942,10 @@ class FederatedExperiment:
 
     def _prepare_run_dir(self) -> Path:
         base = Path(self.config.get("output_dir", "results/quick_dev"))
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        run_dir = base / f"{self.config.get('experiment_name', 'experiment')}_{timestamp}"
-        run_dir.mkdir(parents=True, exist_ok=True)
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
+        seed = int(self.config.get("seed", 0))
+        run_dir = base / f"{self.config.get('experiment_name', 'experiment')}_seed{seed}_{timestamp}"
+        run_dir.mkdir(parents=True, exist_ok=False)
         config_path = self.config.get("_config_path")
         if config_path:
             shutil.copy2(config_path, run_dir / "config.yaml")
