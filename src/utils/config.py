@@ -98,6 +98,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dataset", type=str, help="Dataset name, e.g. cifar10/femnist/gtsrb/stanford_cars.")
     parser.add_argument("--data_root", type=str, help="Dataset root/cache path. Overrides dataset.data_root.")
     parser.add_argument("--output_dir", type=str, help="Directory where run outputs are saved.")
+    parser.add_argument(
+        "--run_class",
+        type=str,
+        help="Reporting classification, e.g. calibration/formal_measured/smoke.",
+    )
     parser.add_argument("--seed", type=int, help="Random seed.")
     parser.add_argument("--num_clients", type=int, help="Total number of federated clients.")
     parser.add_argument("--clients_per_round", type=int, help="Number of selected clients per communication round.")
@@ -139,6 +144,7 @@ def apply_cli_overrides(config: dict[str, Any], args: argparse.Namespace) -> tup
         ("dataset", ("dataset", "name")),
         ("data_root", ("dataset", "data_root")),
         ("output_dir", ("output_dir",)),
+        ("run_class", ("reporting", "run_class")),
         ("seed", ("seed",)),
         ("num_clients", ("federated", "num_clients")),
         ("clients_per_round", ("federated", "clients_per_round")),
@@ -267,6 +273,13 @@ def validate_config(config: dict[str, Any]) -> list[str]:
             errors.append(f"federated.unseen_shift.data_root is required for external shift '{shift_type}'.")
     if attack not in {"none", "no_attack"} and malicious_ratio <= 0.0:
         warnings.append(f"attack.type='{attack}' is enabled but federated.malicious_ratio is zero.")
+    output_parts = {part.lower() for part in Path(str(config.get("output_dir", ""))).parts}
+    run_class = str(config.get("reporting", {}).get("run_class", "unspecified")).lower()
+    if "calibration" in output_parts and run_class == "formal_measured":
+        warnings.append(
+            "output_dir is under calibration but reporting.run_class is formal_measured; "
+            "use --run_class calibration so this run cannot enter a formal summary."
+        )
     performance_cfg = config.get("performance", {})
     client_workers = int(performance_cfg.get("client_num_workers", performance_cfg.get("num_workers", 0)))
     if len(defenses) > 1 and client_workers > 0 and bool(performance_cfg.get("persistent_workers", False)):

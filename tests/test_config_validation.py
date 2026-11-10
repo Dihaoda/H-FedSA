@@ -1,8 +1,9 @@
+import argparse
 from copy import deepcopy
 
 import pytest
 
-from src.utils.config import validate_config
+from src.utils.config import apply_cli_overrides, validate_config
 
 
 BASE_CONFIG = {
@@ -93,5 +94,36 @@ def test_hfedsa_small_round_warns_about_uniform_fallback() -> None:
     assert validate_config(config) == [
         "H-FedSA needs at least three participating clients to fit its three-component GMM; "
         "smaller rounds use the documented uniform fallback."
+    ]
+
+
+def test_cli_can_classify_an_overridden_output_as_calibration() -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["output_dir"] = "results/paper/candidate"
+    config["reporting"] = {"run_class": "formal_measured"}
+    args = argparse.Namespace(
+        output_dir="results/calibration/candidate",
+        run_class="calibration",
+    )
+
+    updated, overrides = apply_cli_overrides(config, args)
+
+    assert updated["output_dir"] == "results/calibration/candidate"
+    assert updated["reporting"]["run_class"] == "calibration"
+    assert [item["path"] for item in overrides] == [
+        "output_dir",
+        "reporting.run_class",
+    ]
+    assert validate_config(updated) == []
+
+
+def test_calibration_output_warns_if_mislabeled_formal() -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["output_dir"] = "results/calibration/candidate"
+    config["reporting"] = {"run_class": "formal_measured"}
+
+    assert validate_config(config) == [
+        "output_dir is under calibration but reporting.run_class is formal_measured; "
+        "use --run_class calibration so this run cannot enter a formal summary."
     ]
 
