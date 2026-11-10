@@ -62,6 +62,7 @@ to published result artifacts.
 
 - [`configs/paper/README.md`](configs/paper/README.md): paper-protocol manifests and data layout
 - [`docs/autodl.md`](docs/autodl.md): AutoDL data-disk setup and real-data smoke command
+- [`docs/calibration_protocol.md`](docs/calibration_protocol.md): measured calibration and fixed-seed reporting rules
 - [`docs/reproduction_status.md`](docs/reproduction_status.md): implemented, tested, and pending work
 - [`results/README.md`](results/README.md): measured-result publication policy
 
