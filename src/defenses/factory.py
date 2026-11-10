@@ -126,6 +126,7 @@ def _build_hfedsa_config(hcfg: dict) -> HFedSAConfig:
         malicious_hard_gate_enabled=bool(hcfg.get("malicious_hard_gate_enabled", False)),
         malicious_hard_gate_threshold=float(hcfg.get("malicious_hard_gate_threshold", 0.9)),
         ddpg_security_penalty=float(hcfg.get("ddpg_security_penalty", 0.2)),
+        ddpg_smoothness_penalty=float(hcfg.get("ddpg_smoothness_penalty", 0.05)),
         ddpg_residual_penalty=float(hcfg.get("ddpg_residual_penalty", 0.0)),
         ddpg_aggregated_norm_penalty=float(hcfg.get("ddpg_aggregated_norm_penalty", 0.0)),
         ddpg_aggregated_norm_target=float(hcfg.get("ddpg_aggregated_norm_target", 1.0)),
@@ -139,7 +140,7 @@ def _build_ddpg_agent(hcfg: dict, config: dict) -> DDPGBetaAgent:
     dcfg = dict(config.get("ddpg", {}))
     dcfg.update(hcfg.get("ddpg", {}))
     agent_cfg = DDPGBetaConfig(
-        state_dim=int(dcfg.get("state_dim", 24)),
+        state_dim=int(dcfg.get("state_dim", 39)),
         hidden_dim=int(dcfg.get("hidden_dim", 64)),
         actor_lr=float(dcfg.get("actor_lr", 1e-3)),
         critic_lr=float(dcfg.get("critic_lr", 1e-3)),
