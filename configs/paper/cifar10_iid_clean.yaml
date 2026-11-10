@@ -1,0 +1,105 @@
+experiment_name: paper_cifar10_iid_clean
+seed: 2026
+device: auto
+
+dataset:
+  name: cifar10
+  data_root: data/cifar10
+  download: true
+  quick_dev: false
+  use_synthetic_fallback: false
+  augment_train: true
+  random_crop_padding: 4
+  train_eval_subset: 5000
+  num_classes: 10
+
+model:
+  name: paper_cnn
+  conv_channels: [64, 128]
+  hidden_dim: 512
+  batchnorm: false
+  dropout: 0.25
+
+federated:
+  num_clients: 100
+  clients_per_round: 10
+  rounds: 250
+  local_epochs: 5
+  batch_size: 128
+  learning_rate: 0.05
+  momentum: 0.9
+  optimizer: sgd
+  weight_decay: 0.0005
+  lr_schedule:
+    type: cosine
+    min_lr: 0.0005
+  server_optimizer: fedavgm
+  server_lr: 1.0
+  server_momentum: 0.9
+  aggregation_weighting: sample_count
+  malicious_ratio: 0.0
+  unseen_ratio: 0.0
+  unseen_data_fraction: 0.0
+  participant_role_sampling: stratified
+  iid: true
+  root_size: 500
+  eval_every: 1
+
+hfedsa:
+  feature_mode: paper
+  formula_mode: paper
+  cluster_role_strategy: intensity_order
+  normalization_mode: root_norm
+  normalize_update_to_root: true
+  gmm_covariance_type: full
+  gmm_reg_covar: 0.000001
+  gmm_max_iter: 100
+  gmm_n_init: 3
+  gmm_random_state: 2026
+  beta_explore: 0.35
+  malicious_penalty: 0.8
+  detection_threshold: 0.5
+  ddpg_security_penalty: 0.2
+  ddpg_smoothness_penalty: 0.05
+
+hfedsa_ddpg:
+  beta_mode: ddpg
+
+ddpg:
+  state_dim: 39
+  hidden_dim: 64
+  actor_lr: 0.001
+  critic_lr: 0.001
+  gamma: 0.95
+  tau: 0.02
+  replay_capacity: 1000
+  batch_size: 16
+  exploration_noise: 0.05
+  min_beta: 0.0
+  max_beta: 1.0
+
+attack:
+  type: no_attack
+  scale_factor: 1.0
+
+defenses:
+  - fedavg
+  - hfedsa_ddpg
+
+performance:
+  mixed_precision: true
+  pin_memory: true
+  num_workers: 2
+  persistent_workers: true
+
+diagnostics:
+  client_detail_every: 25
+
+reporting:
+  run_class: formal_measured
+  paper_target_file: configs/paper/targets/table_ii_cifar10_iid.yaml
+  preregistered_seeds: [2026, 2027, 2028, 2029, 2030]
+
+output_dir: results/paper/cifar10_iid_clean
+log_dir: logs
+
