@@ -27,6 +27,14 @@ federated:
 attack:
   type: label_flip
   scale_factor: 5.0
+  krum_targeted:
+    search_threshold: 0.00001
+    max_search_steps: 32
+  poisafl:
+    anti_epochs: 1
+    alpha: 0.7
+    temperature: 2.0
+    distance_gamma: 0.8
 
 defenses:
   - fedavg
@@ -41,6 +49,17 @@ hfedsa:
 fltrust:
   min_trust_score: 0.0
 
+safefl:
+  rule: signguard
+  sign_fraction: 0.1
+  norm_lower: 0.1
+  norm_upper: 3.0
+
+msguard:
+  quantile: 0.3
+  min_retained_fraction: 0.5
+
 output_dir: results/quick_dev
 log_dir: logs
+
 

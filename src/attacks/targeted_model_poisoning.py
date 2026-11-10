@@ -173,12 +173,10 @@ def _poisafl_distance_scale(
         reference_distance = float(torch.median(torch.linalg.norm(flats, dim=1)).item())
     gamma = float(np.clip(float(config.get("distance_gamma", 0.8)), 1e-6, 1.0))
     distance_limit = max(gamma * reference_distance, 1e-12)
-    minimum_scale = float(np.clip(float(config.get("minimum_scale", 0.05)), 0.0, 1.0))
     scales = []
     for index in malicious_indices:
         norm = float(torch.linalg.norm(attacked[index]).item())
         scale = min(1.0, distance_limit / max(norm, 1e-12))
-        scale = max(scale, minimum_scale)
         attacked[index] *= scale
         scales.append(scale)
     return attacked, {

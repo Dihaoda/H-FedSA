@@ -72,7 +72,7 @@ def test_poisafl_distance_stage_caps_malicious_update_norm() -> None:
         updates,
         {0},
         "poisafl",
-        {"poisafl": {"distance_gamma": 0.8, "minimum_scale": 0.0}},
+        {"poisafl": {"distance_gamma": 0.8}},
         5,
         1,
     )
