@@ -33,10 +33,15 @@ def main() -> None:
         target_doc = yaml.safe_load(args.target_file.read_text(encoding="utf-8"))
         target = target_doc["targets"][args.attack][args.method]
         required_runs = int(target_doc["evaluation_policy"]["required_runs"])
+        aliases = target_doc.get("measured_attack_aliases", {})
+        measured_attack_keys = {args.attack}
+        measured_attack_keys.update(
+            measured for measured, paper_key in aliases.items() if paper_key == args.attack
+        )
         matching = [
             item
             for item in summaries
-            if item["attack_type"] == args.attack and item["method"] == args.method
+            if item["attack_type"] in measured_attack_keys and item["method"] == args.method
         ]
         if len(matching) != 1:
             raise ValueError(
