@@ -86,8 +86,15 @@ ddpg:
   max_beta: 1.0
 
 attack:
-  type: scaling
+  type: backdoor_scaling
   scale_factor: 10.0
+  target_label: 0
+  poison_fraction: 0.5
+  trigger:
+    size: 4
+    value: 2.5
+    location: bottom_right
+  asr_definition: "Triggered non-target test samples classified as target_label."
 
 defenses:
   - hfedsa_ddpg
@@ -100,6 +107,12 @@ performance:
 
 diagnostics:
   client_detail_every: 1
+
+reporting:
+  run_class: formal_measured
+  paper_attack_key: scaling
+  paper_target_file: configs/paper/targets/table_ii_cifar10_iid.yaml
+  preregistered_seeds: [2026, 2027, 2028, 2029, 2030]
 
 output_dir: results/paper/cifar10_iid_hfedsa_ddpg_scaling
 log_dir: logs
