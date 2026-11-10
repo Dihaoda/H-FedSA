@@ -127,3 +127,44 @@ def test_calibration_output_warns_if_mislabeled_formal() -> None:
         "use --run_class calibration so this run cannot enter a formal summary."
     ]
 
+
+def test_cli_can_set_ddpg_beta_bounds_for_calibration() -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["defense"] = "hfedsa_ddpg"
+    config["ddpg"] = {"state_dim": 39, "min_beta": 0.0, "max_beta": 1.0}
+    args = argparse.Namespace(ddpg_min_beta=0.1, ddpg_max_beta=0.8)
+
+    updated, overrides = apply_cli_overrides(config, args)
+
+    assert updated["ddpg"]["min_beta"] == 0.1
+    assert updated["ddpg"]["max_beta"] == 0.8
+    assert [item["path"] for item in overrides] == [
+        "ddpg.min_beta",
+        "ddpg.max_beta",
+    ]
+    assert validate_config(updated) == []
+
+
+@pytest.mark.parametrize(
+    ("minimum", "maximum", "message"),
+    [
+        (-0.1, 1.0, "min_beta must be in"),
+        (0.0, 1.1, "max_beta must be in"),
+        (0.8, 0.2, "min_beta cannot exceed"),
+    ],
+)
+def test_invalid_ddpg_beta_bounds_are_rejected(
+    minimum: float,
+    maximum: float,
+    message: str,
+) -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["ddpg"] = {
+        "state_dim": 39,
+        "min_beta": minimum,
+        "max_beta": maximum,
+    }
+
+    with pytest.raises(ValueError, match=message):
+        validate_config(config)
+

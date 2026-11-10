@@ -123,6 +123,16 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--malicious_ratio", type=float, help="Fraction of malicious clients.")
     parser.add_argument("--scaling_factor", type=float, help="Scaling factor for scaling/backdoor_scaling attacks.")
+    parser.add_argument(
+        "--ddpg_min_beta",
+        type=float,
+        help="Lower bound for the DDPG exploration action beta.",
+    )
+    parser.add_argument(
+        "--ddpg_max_beta",
+        type=float,
+        help="Upper bound for the DDPG exploration action beta.",
+    )
     parser.add_argument("--model", type=str, help="Model name, e.g. paper_cnn/resnet18_gtsrb/femnist_cnn.")
     parser.add_argument("--iid", nargs="?", const="true", type=parse_bool, help="Set federated.iid true/false. If value is omitted, true is used.")
     parser.add_argument("--non_iid", action="store_true", default=None, help="Shortcut for --iid false.")
@@ -157,6 +167,8 @@ def apply_cli_overrides(config: dict[str, Any], args: argparse.Namespace) -> tup
         ("attack_type", ("attack", "type")),
         ("malicious_ratio", ("federated", "malicious_ratio")),
         ("scaling_factor", ("attack", "scale_factor")),
+        ("ddpg_min_beta", ("ddpg", "min_beta")),
+        ("ddpg_max_beta", ("ddpg", "max_beta")),
         ("model", ("model", "name")),
         ("alpha", ("federated", "non_iid_alpha")),
         ("quick_dev", ("dataset", "quick_dev")),
@@ -251,6 +263,15 @@ def validate_config(config: dict[str, Any]) -> list[str]:
             "ddpg.state_dim must equal 39 for the paper-aligned H-FedSA state "
             "(9 GMM means, 27 covariance values, and 3 validation/action values)."
         )
+    ddpg_cfg = config.get("ddpg", {})
+    ddpg_min_beta = float(ddpg_cfg.get("min_beta", 0.0))
+    ddpg_max_beta = float(ddpg_cfg.get("max_beta", 1.0))
+    if not 0.0 <= ddpg_min_beta <= 1.0:
+        errors.append("ddpg.min_beta must be in [0, 1].")
+    if not 0.0 <= ddpg_max_beta <= 1.0:
+        errors.append("ddpg.max_beta must be in [0, 1].")
+    if ddpg_min_beta > ddpg_max_beta:
+        errors.append("ddpg.min_beta cannot exceed ddpg.max_beta.")
     malicious_ratio = float(fed_cfg.get("malicious_ratio", 0.0))
     unseen_ratio = float(fed_cfg.get("unseen_ratio", 0.0))
     if not 0.0 <= malicious_ratio <= 1.0:
