@@ -124,6 +124,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--malicious_ratio", type=float, help="Fraction of malicious clients.")
     parser.add_argument("--scaling_factor", type=float, help="Scaling factor for scaling/backdoor_scaling attacks.")
     parser.add_argument(
+        "--poison_fraction",
+        type=float,
+        help="Fraction of each malicious local batch poisoned by backdoor_scaling.",
+    )
+    parser.add_argument(
         "--ddpg_min_beta",
         type=float,
         help="Lower bound for the DDPG exploration action beta.",
@@ -167,6 +172,7 @@ def apply_cli_overrides(config: dict[str, Any], args: argparse.Namespace) -> tup
         ("attack_type", ("attack", "type")),
         ("malicious_ratio", ("federated", "malicious_ratio")),
         ("scaling_factor", ("attack", "scale_factor")),
+        ("poison_fraction", ("attack", "poison_fraction")),
         ("ddpg_min_beta", ("ddpg", "min_beta")),
         ("ddpg_max_beta", ("ddpg", "max_beta")),
         ("model", ("model", "name")),
@@ -294,6 +300,9 @@ def validate_config(config: dict[str, Any]) -> list[str]:
             errors.append(f"federated.unseen_shift.data_root is required for external shift '{shift_type}'.")
     if attack not in {"none", "no_attack"} and malicious_ratio <= 0.0:
         warnings.append(f"attack.type='{attack}' is enabled but federated.malicious_ratio is zero.")
+    poison_fraction = float(config.get("attack", {}).get("poison_fraction", 1.0))
+    if not 0.0 <= poison_fraction <= 1.0:
+        errors.append("attack.poison_fraction must be in [0, 1].")
     output_parts = {part.lower() for part in Path(str(config.get("output_dir", ""))).parts}
     run_class = str(config.get("reporting", {}).get("run_class", "unspecified")).lower()
     if "calibration" in output_parts and run_class == "formal_measured":

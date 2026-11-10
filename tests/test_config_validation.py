@@ -168,3 +168,30 @@ def test_invalid_ddpg_beta_bounds_are_rejected(
     with pytest.raises(ValueError, match=message):
         validate_config(config)
 
+
+def test_cli_can_set_backdoor_poison_fraction() -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["attack"] = {
+        "type": "backdoor_scaling",
+        "poison_fraction": 1.0,
+    }
+    args = argparse.Namespace(poison_fraction=0.5)
+
+    updated, overrides = apply_cli_overrides(config, args)
+
+    assert updated["attack"]["poison_fraction"] == 0.5
+    assert [item["path"] for item in overrides] == ["attack.poison_fraction"]
+    assert validate_config(updated) == []
+
+
+@pytest.mark.parametrize("poison_fraction", [-0.1, 1.1])
+def test_invalid_backdoor_poison_fraction_is_rejected(poison_fraction: float) -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["attack"] = {
+        "type": "backdoor_scaling",
+        "poison_fraction": poison_fraction,
+    }
+
+    with pytest.raises(ValueError, match="poison_fraction must be in"):
+        validate_config(config)
+
