@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import json
 import math
 from collections import defaultdict
 from pathlib import Path
@@ -28,6 +29,13 @@ def read_final_rows(
 ) -> list[dict[str, str]]:
     final_rows: list[dict[str, str]] = []
     for path in discover_metrics(paths):
+        run_summary_path = path.with_name("run_summary.json")
+        run_metadata: dict = {}
+        if run_summary_path.is_file():
+            try:
+                run_metadata = json.loads(run_summary_path.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                run_metadata = {}
         with path.open("r", encoding="utf-8", newline="") as stream:
             rows = list(csv.DictReader(stream))
         by_run: dict[tuple[str, str, str, str], dict[str, str]] = {}
@@ -40,6 +48,19 @@ def read_final_rows(
                 by_run[key] = dict(row)
         for row in by_run.values():
             row["metrics_path"] = str(path)
+            provenance = run_metadata.get("provenance", {}) if isinstance(run_metadata, dict) else {}
+            row["_run_provenance"] = {
+                "seed": int(row.get("seed", 0)),
+                "metrics_path": str(path),
+                "config_path": run_metadata.get("config_path", ""),
+                "config_sha256": provenance.get("config_sha256", ""),
+                "declared_source_revision": provenance.get("declared_source_revision", ""),
+                "runtime_git_commit": provenance.get("git_commit", ""),
+                "runtime_git_dirty": provenance.get("git_dirty", ""),
+                "dataset_source": row.get("dataset_source", run_metadata.get("dataset_source", "")),
+                "synthetic": row.get("synthetic", run_metadata.get("synthetic", "")),
+                "run_class": row.get("run_class", ""),
+            }
             final_rows.append(row)
     return final_rows
 
@@ -75,6 +96,10 @@ def summarize_final_rows(rows: Iterable[dict[str, str]]) -> list[dict]:
                 "detection_fpr": _stats(detection_fpr),
                 "detection_overall_fpr": _stats(detection_overall_fpr),
                 "metrics_paths": sorted(row["metrics_path"] for row in group),
+                "run_provenance": sorted(
+                    (dict(row.get("_run_provenance", {})) for row in group),
+                    key=lambda item: int(item.get("seed", 0)),
+                ),
             }
         )
     return summaries

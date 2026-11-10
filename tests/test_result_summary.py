@@ -1,4 +1,5 @@
 import csv
+import json
 
 import pytest
 
@@ -113,12 +114,60 @@ def test_published_metric_paths_are_repository_relative() -> None:
     payload = {
         "metrics_paths": [
             str(REPOSITORY_ROOT / "results" / "formal" / "seed2026" / "metrics.csv")
-        ]
+        ],
+        "run_provenance": [
+            {
+                "seed": 2026,
+                "metrics_path": str(
+                    REPOSITORY_ROOT / "results" / "formal" / "seed2026" / "metrics.csv"
+                ),
+            }
+        ],
     }
 
     portable = _make_metrics_paths_portable(payload)
 
     assert portable["metrics_paths"] == [
         "results/formal/seed2026/metrics.csv"
+    ]
+    assert portable["run_provenance"][0]["metrics_path"] == (
+        "results/formal/seed2026/metrics.csv"
+    )
+
+
+def test_summary_includes_adjacent_run_provenance(tmp_path) -> None:
+    metrics_path = tmp_path / "seed2026" / "metrics.csv"
+    _write_metrics(metrics_path, 2026, 15.0)
+    (metrics_path.parent / "run_summary.json").write_text(
+        json.dumps(
+            {
+                "config_path": "configs/paper/cifar10_iid_clean.yaml",
+                "dataset_source": "real",
+                "provenance": {
+                    "config_sha256": "abc123",
+                    "declared_source_revision": "commit123",
+                    "git_commit": "runtime123",
+                    "git_dirty": False,
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    summary = summarize_final_rows(read_final_rows([tmp_path]))[0]
+
+    assert summary["run_provenance"] == [
+        {
+            "seed": 2026,
+            "metrics_path": str(metrics_path.resolve()),
+            "config_path": "configs/paper/cifar10_iid_clean.yaml",
+            "config_sha256": "abc123",
+            "declared_source_revision": "commit123",
+            "runtime_git_commit": "runtime123",
+            "runtime_git_dirty": False,
+            "dataset_source": "real",
+            "synthetic": "",
+            "run_class": "formal_measured",
+        }
     ]
 

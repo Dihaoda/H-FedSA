@@ -30,6 +30,15 @@ def _make_metrics_paths_portable(payload: object) -> object:
                 portable.append(str(path))
         if "metrics_paths" in item:
             item["metrics_paths"] = portable
+        for provenance in item.get("run_provenance", []):
+            value = provenance.get("metrics_path")
+            if not value:
+                continue
+            path = Path(value)
+            try:
+                provenance["metrics_path"] = path.relative_to(REPOSITORY_ROOT).as_posix()
+            except ValueError:
+                provenance["metrics_path"] = str(path)
     return payload
 
 

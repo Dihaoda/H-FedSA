@@ -1,0 +1,140 @@
+{
+  "dataset": "cifar10",
+  "attack_type": "no_attack",
+  "method": "fedavg",
+  "run_count": 5,
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "rounds": [
+    250,
+    250,
+    250,
+    250,
+    250
+  ],
+  "error_rate": {
+    "count": 5,
+    "mean": 15.088,
+    "sample_std": 0.3599583309217914,
+    "min": 14.799999999999997,
+    "max": 15.700000000000003
+  },
+  "accuracy": {
+    "count": 5,
+    "mean": 84.912,
+    "sample_std": 0.3599583309217914,
+    "min": 84.3,
+    "max": 85.2
+  },
+  "attack_success_rate": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_tpr": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_fpr": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_overall_fpr": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "metrics_paths": [
+    "results/formal/cifar10_iid_clean/fedavg/seed2026/paper_cifar10_iid_clean_seed2026_20261110_160013_288037/metrics.csv",
+    "results/formal/cifar10_iid_clean/fedavg/seed2027/paper_cifar10_iid_clean_seed2027_20261110_160012_873539/metrics.csv",
+    "results/formal/cifar10_iid_clean/fedavg/seed2028/paper_cifar10_iid_clean_seed2028_20261110_161642_492397/metrics.csv",
+    "results/formal/cifar10_iid_clean/fedavg/seed2029/paper_cifar10_iid_clean_seed2029_20261110_165129_172040/metrics.csv",
+    "results/formal/cifar10_iid_clean/fedavg/seed2030/paper_cifar10_iid_clean_seed2030_20261110_165130_279309/metrics.csv"
+  ],
+  "run_provenance": [
+    {
+      "seed": 2026,
+      "metrics_path": "results/formal/cifar10_iid_clean/fedavg/seed2026/paper_cifar10_iid_clean_seed2026_20261110_160013_288037/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean.yaml",
+      "config_sha256": "75b2b3c922ca061424f5a50f09d28ab9509ac2ba3c95d8351b16a506e58a238e",
+      "declared_source_revision": "ba0eb092cedc2adc4b39c3ad87924cca37291a54",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2027,
+      "metrics_path": "results/formal/cifar10_iid_clean/fedavg/seed2027/paper_cifar10_iid_clean_seed2027_20261110_160012_873539/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean.yaml",
+      "config_sha256": "08cb7e1fad12e2345a7540a0425bc00183ecedf7bdb8a0f430e579712825f0fd",
+      "declared_source_revision": "ba0eb092cedc2adc4b39c3ad87924cca37291a54",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2028,
+      "metrics_path": "results/formal/cifar10_iid_clean/fedavg/seed2028/paper_cifar10_iid_clean_seed2028_20261110_161642_492397/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean.yaml",
+      "config_sha256": "14a158c016c0cbbd00eaeaa7843973e4bf7402180d629f3fa92e14c46eb9a954",
+      "declared_source_revision": "ba0eb092cedc2adc4b39c3ad87924cca37291a54",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2029,
+      "metrics_path": "results/formal/cifar10_iid_clean/fedavg/seed2029/paper_cifar10_iid_clean_seed2029_20261110_165129_172040/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean.yaml",
+      "config_sha256": "973a28d5d6cdf69c619848ec0e0ccfa5c79e2a137628f65ff82f96066cd3006c",
+      "declared_source_revision": "f88d2ff545df0ecc858680aa3073224ac0845851",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2030,
+      "metrics_path": "results/formal/cifar10_iid_clean/fedavg/seed2030/paper_cifar10_iid_clean_seed2030_20261110_165130_279309/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean.yaml",
+      "config_sha256": "faaa603b5e7428a8cf9dc43b99d01d1c3387e5e207f36132cf23aee8f3b6a475",
+      "declared_source_revision": "f88d2ff545df0ecc858680aa3073224ac0845851",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    }
+  ],
+  "required_runs": 5,
+  "complete": true,
+  "paper_target": {
+    "error_mean": 15.0,
+    "error_std": 0.3
+  },
+  "error_mean_gap": 0.08799999999999919,
+  "asr_mean_gap": null
+}
+
