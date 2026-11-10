@@ -50,7 +50,8 @@ The CIFAR-10-C archive is available from the official Zenodo record
 ## CIFAR-10 clean anchor
 
 `cifar10_iid_clean.yaml` is the frozen clean calibration/formal manifest for
-Table II(d). It disables malicious and unseen clients, uses 250 rounds with five
+Table II(d). It disables malicious clients but retains the paper-default 10%
+unseen clients with 40% shifted local samples. It uses 250 rounds with five
 local epochs and FedAvgM, and compares FedAvg with H-FedSA from the same initial
 model. The 250-round budget was selected during seed-2026 calibration before
 the five formal seeds were run; it must not be changed per seed or per method.
