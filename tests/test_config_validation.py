@@ -237,6 +237,18 @@ def test_cli_can_set_backdoor_poison_fraction() -> None:
     assert validate_config(updated) == []
 
 
+def test_cli_can_set_backdoor_target_label() -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["attack"] = {"type": "backdoor_scaling", "target_label": 2}
+    args = argparse.Namespace(target_label=0)
+
+    updated, overrides = apply_cli_overrides(config, args)
+
+    assert updated["attack"]["target_label"] == 0
+    assert [item["path"] for item in overrides] == ["attack.target_label"]
+    assert validate_config(updated) == []
+
+
 @pytest.mark.parametrize("poison_fraction", [-0.1, 1.1])
 def test_invalid_backdoor_poison_fraction_is_rejected(poison_fraction: float) -> None:
     config = deepcopy(BASE_CONFIG)

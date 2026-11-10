@@ -124,6 +124,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--malicious_ratio", type=float, help="Fraction of malicious clients.")
     parser.add_argument("--scaling_factor", type=float, help="Scaling factor for scaling/backdoor_scaling attacks.")
+    parser.add_argument("--target_label", type=int, help="Backdoor target class used for poisoning and ASR evaluation.")
     parser.add_argument(
         "--poison_fraction",
         type=float,
@@ -194,6 +195,7 @@ def apply_cli_overrides(config: dict[str, Any], args: argparse.Namespace) -> tup
         ("attack_type", ("attack", "type")),
         ("malicious_ratio", ("federated", "malicious_ratio")),
         ("scaling_factor", ("attack", "scale_factor")),
+        ("target_label", ("attack", "target_label")),
         ("poison_fraction", ("attack", "poison_fraction")),
         ("ddpg_min_beta", ("ddpg", "min_beta")),
         ("ddpg_max_beta", ("ddpg", "max_beta")),
