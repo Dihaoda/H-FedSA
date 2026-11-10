@@ -11,7 +11,7 @@ from torch import nn
 
 @dataclass
 class DDPGBetaConfig:
-    state_dim: int = 24
+    state_dim: int = 39
     hidden_dim: int = 64
     actor_lr: float = 1e-3
     critic_lr: float = 1e-3
@@ -148,6 +148,10 @@ class DDPGBetaAgent:
 
     def _shape_state(self, state: np.ndarray) -> np.ndarray:
         state = np.nan_to_num(np.asarray(state, dtype=np.float32), nan=0.0, posinf=0.0, neginf=0.0).reshape(-1)
-        if state.size >= self.config.state_dim:
-            return state[: self.config.state_dim]
-        return np.pad(state, (0, self.config.state_dim - state.size), mode="constant")
+        if state.size != self.config.state_dim:
+            raise ValueError(
+                f"DDPG state has {state.size} values, but state_dim={self.config.state_dim}. "
+                "Use state_dim=39 for the paper-aligned H-FedSA state."
+            )
+        return state
+
