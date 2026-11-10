@@ -40,7 +40,9 @@ def test_cifar10_clean_manifest_is_fixed_before_multiseed_runs() -> None:
     assert config["federated"]["local_epochs"] == 5
     assert config["federated"]["server_optimizer"] == "fedavgm"
     assert config["federated"]["malicious_ratio"] == 0.0
-    assert config["federated"]["unseen_ratio"] == 0.0
+    assert config["federated"]["unseen_ratio"] == 0.1
+    assert config["federated"]["unseen_data_fraction"] == 0.4
+    assert config["federated"]["unseen_shift"]["type"] == "cifar10_c"
     assert config["attack"]["type"] == "no_attack"
     assert config["reporting"]["preregistered_seeds"] == [2026, 2027, 2028, 2029, 2030]
 
