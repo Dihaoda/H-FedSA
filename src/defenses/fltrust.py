@@ -20,10 +20,28 @@ class FLTrust:
     ) -> tuple[StateDict, list[dict]]:
         if root_update is None:
             raise ValueError("FLTrust requires a trusted root update.")
+        if not updates:
+            raise ValueError("FLTrust cannot aggregate an empty update list.")
         root_flat = flatten_update(root_update)
         root_norm = torch.linalg.norm(root_flat).item()
         if root_norm <= 1e-12:
-            return average_updates([update for _, update in updates]), []
+            uniform = 1.0 / len(updates)
+            diagnostics = [
+                {
+                    "client_id": client_id,
+                    "trust_score": 0.0,
+                    "cosine_similarity": 0.0,
+                    "client_update_norm": float(torch.linalg.norm(flatten_update(update)).item()),
+                    "root_update_norm": root_norm,
+                    "update_scale": 1.0,
+                    "scaled_update_norm": float(torch.linalg.norm(flatten_update(update)).item()),
+                    "weight": uniform,
+                    "predicted_malicious": False,
+                    "fallback_reason": "zero_root_update",
+                }
+                for client_id, update in updates
+            ]
+            return average_updates([update for _, update in updates]), diagnostics
 
         weighted_updates = []
         weights = []
@@ -43,7 +61,9 @@ class FLTrust:
                     "root_update_norm": root_norm,
                     "update_scale": scale,
                     "scaled_update_norm": client_norm * scale,
-                    "weight": trust,
+                    "weight": 0.0,
+                    "predicted_malicious": cos <= 0.0,
+                    "fallback_reason": "",
                 }
             )
             if trust > 0.0:
@@ -52,6 +72,13 @@ class FLTrust:
                 weights.append(trust)
 
         if not weighted_updates or sum(weights) <= 0:
+            uniform = 1.0 / len(updates)
+            for item in diagnostics:
+                item["weight"] = uniform
+                item["fallback_reason"] = "no_positive_trust_scores"
             return average_updates([update for _, update in updates]), diagnostics
         normalizer = sum(weights)
+        for item in diagnostics:
+            item["weight"] = float(item["trust_score"]) / normalizer
         return average_updates(weighted_updates, [w / normalizer for w in weights]), diagnostics
+
