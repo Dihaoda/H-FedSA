@@ -1,14 +1,18 @@
 from __future__ import annotations
 
+from abc import ABC, abstractmethod
 
-class ExplorationPolicy:
+
+class ExplorationPolicy(ABC):
     """Interface for future adaptive beta_explore policies."""
 
+    @abstractmethod
     def select_beta(self, round_idx: int, state: dict | None = None) -> float:
-        raise NotImplementedError
+        """Return the exploration weight for the current round."""
 
+    @abstractmethod
     def update(self, transition: dict) -> None:
-        raise NotImplementedError
+        """Consume an optional policy transition."""
 
 
 class StaticExplorationPolicy(ExplorationPolicy):
@@ -20,3 +24,4 @@ class StaticExplorationPolicy(ExplorationPolicy):
 
     def update(self, transition: dict) -> None:
         return None
+

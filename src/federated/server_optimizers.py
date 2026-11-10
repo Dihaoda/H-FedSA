@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from abc import ABC, abstractmethod
 from collections import OrderedDict
 
 import torch
@@ -7,11 +8,12 @@ import torch
 from src.federated.tensor_ops import StateDict, flatten_update, zeros_like_update
 
 
-class ServerOptimizer:
+class ServerOptimizer(ABC):
     name = "fedavg"
 
+    @abstractmethod
     def step(self, aggregated_delta: StateDict) -> tuple[StateDict, dict]:
-        raise NotImplementedError
+        """Transform one aggregated client delta into a server update."""
 
 
 class FedAvgServerOptimizer(ServerOptimizer):
@@ -147,3 +149,4 @@ def _sanitize_update(update: StateDict, optimizer_name: str, server_lr: float) -
 
 def _safe_norm(update: StateDict) -> float:
     return float(torch.linalg.norm(flatten_update(update)).item())
+
