@@ -38,9 +38,17 @@ federated:
   server_momentum: 0.9
   aggregation_weighting: sample_count
   malicious_ratio: 0.0
-  unseen_ratio: 0.0
-  unseen_data_fraction: 0.0
+  unseen_ratio: 0.1
+  unseen_data_fraction: 0.4
   participant_role_sampling: stratified
+  unseen_shift:
+    enabled: true
+    type: cifar10_c
+    data_root: data/cifar10-c-download
+    corruptions:
+      - gaussian_noise
+      - shot_noise
+    severity: 3
   iid: true
   root_size: 500
   eval_every: 1
