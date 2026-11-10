@@ -21,6 +21,9 @@ def test_cifar10_paper_config_matches_protocol() -> None:
     ]
     assert config["hfedsa"]["feature_mode"] == "paper"
     assert config["hfedsa"]["formula_mode"] == "paper"
+    assert config["hfedsa"]["normalization_mode"] == "root_norm"
+    assert config["hfedsa"]["normalize_update_to_root"] is True
     assert config["hfedsa"]["gmm_covariance_type"] == "full"
+    assert config["model"]["batchnorm"] is False
     assert config["ddpg"]["state_dim"] == 39
 
