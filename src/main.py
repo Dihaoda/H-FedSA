@@ -10,6 +10,15 @@ from src.utils.logging import setup_logger
 from src.utils.seed import set_seed
 
 
+def _log_file_path(config: dict, now: datetime | None = None) -> Path:
+    timestamp = (now or datetime.now()).strftime("%Y%m%d_%H%M%S_%f")
+    experiment_name = config.get("experiment_name", "experiment")
+    seed = int(config.get("seed", 0))
+    return Path(config.get("log_dir", "logs")) / (
+        f"{experiment_name}_seed{seed}_{timestamp}.log"
+    )
+
+
 def main() -> None:
     args = parse_args()
     config, overrides = apply_cli_overrides(load_config(args.config), args)
@@ -29,9 +38,9 @@ def main() -> None:
 
     set_seed(int(config["seed"]))
 
-    log_dir = Path(config.get("log_dir", "logs"))
+    log_file = _log_file_path(config)
+    log_dir = log_file.parent
     log_dir.mkdir(parents=True, exist_ok=True)
-    log_file = log_dir / f"{config.get('experiment_name', 'experiment')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
     logger = setup_logger(log_file)
     logger.info("Loaded config: %s", args.config)
     if overrides:
@@ -51,3 +60,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
