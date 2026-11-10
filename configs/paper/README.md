@@ -52,9 +52,13 @@ The CIFAR-10-C archive is available from the official Zenodo record
 `cifar10_iid_clean.yaml` is the frozen clean calibration/formal manifest for
 Table II(d). It disables malicious clients but retains the paper-default 10%
 unseen clients with 40% shifted local samples. It uses 250 rounds with five
-local epochs and FedAvgM, and compares FedAvg with H-FedSA from the same initial
-model. The 250-round budget was selected during seed-2026 calibration before
-the five formal seeds were run; it must not be changed per seed or per method.
+local epochs and a direct FedAvg server update, and compares FedAvg with
+H-FedSA from the same initial model. The shared budget and learning rate were
+selected with the independent calibration seed `31415` before the five formal
+seeds were run; they must not be changed per seed or per method. The selected
+FedAvg anchor measured `15.60%` error versus the paper's `15.0%` target. See
+[`../../docs/calibration_report_cifar10.md`](../../docs/calibration_report_cifar10.md)
+for the accepted and rejected candidates.
 
 Validate the configuration without starting training:
 
