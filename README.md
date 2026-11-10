@@ -58,3 +58,10 @@ Generated checkpoints and measurements belong under `results/` and are ignored
 by Git. Only summaries produced by a documented measured run should be promoted
 to published result artifacts.
 
+## Documentation
+
+- [`configs/paper/README.md`](configs/paper/README.md): paper-protocol manifests and data layout
+- [`docs/autodl.md`](docs/autodl.md): AutoDL data-disk setup and real-data smoke command
+- [`docs/reproduction_status.md`](docs/reproduction_status.md): implemented, tested, and pending work
+- [`results/README.md`](results/README.md): measured-result publication policy
+
