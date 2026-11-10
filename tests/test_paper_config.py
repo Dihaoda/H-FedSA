@@ -67,3 +67,21 @@ def test_attack_calibration_is_independent_and_not_formal() -> None:
     assert config["reporting"]["run_class"] == "calibration"
     assert config["reporting"]["excluded_from_formal_summary"] is True
 
+
+def test_strict_attack_calibration_uses_direct_server_update() -> None:
+    config = load_config(
+        Path(
+            "configs/calibration/"
+            "cifar10_iid_hfedsa_ddpg_backdoor_strict_seed31415.yaml"
+        )
+    )
+
+    validate_config(config)
+    assert config["seed"] == 31415
+    assert config["federated"]["server_optimizer"] == "fedavg"
+    assert config["federated"]["unseen_ratio"] == 0.1
+    assert config["attack"]["target_label"] == 2
+    assert config["attack"]["scale_factor"] == 8.0
+    assert config["reporting"]["run_class"] == "calibration"
+    assert config["reporting"]["excluded_from_formal_summary"] is True
+

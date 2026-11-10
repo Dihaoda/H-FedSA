@@ -1,0 +1,123 @@
+experiment_name: calibration_cifar10_iid_hfedsa_ddpg_backdoor_strict_seed31415
+seed: 31415
+device: auto
+
+dataset:
+  name: cifar10
+  data_root: data/cifar10
+  download: true
+  quick_dev: false
+  use_synthetic_fallback: false
+  augment_train: true
+  random_crop_padding: 4
+  train_eval_subset: 5000
+  num_classes: 10
+
+model:
+  name: paper_cnn
+  conv_channels: [64, 128]
+  hidden_dim: 512
+  batchnorm: false
+  dropout: 0.25
+
+federated:
+  num_clients: 100
+  clients_per_round: 10
+  rounds: 250
+  local_epochs: 5
+  batch_size: 128
+  learning_rate: 0.05
+  momentum: 0.9
+  optimizer: sgd
+  weight_decay: 0.0005
+  lr_schedule:
+    type: cosine
+    min_lr: 0.0005
+  server_optimizer: fedavg
+  server_lr: 1.0
+  aggregation_weighting: sample_count
+  malicious_ratio: 0.2
+  unseen_ratio: 0.1
+  unseen_data_fraction: 0.4
+  participant_role_sampling: stratified
+  unseen_shift:
+    enabled: true
+    type: cifar10_c
+    data_root: data/cifar10-c-download
+    corruptions:
+      - gaussian_noise
+      - shot_noise
+    severity: 3
+  iid: true
+  root_size: 500
+  eval_every: 10
+
+hfedsa:
+  feature_mode: paper
+  formula_mode: paper
+  cluster_role_strategy: intensity_order
+  normalization_mode: root_norm
+  normalize_update_to_root: true
+  gmm_covariance_type: full
+  gmm_reg_covar: 0.000001
+  gmm_max_iter: 100
+  gmm_n_init: 3
+  gmm_random_state: 2026
+  beta_explore: 0.35
+  malicious_penalty: 0.8
+  detection_threshold: 0.5
+  ddpg_security_penalty: 0.2
+  ddpg_smoothness_penalty: 0.05
+
+hfedsa_ddpg:
+  beta_mode: ddpg
+
+ddpg:
+  state_dim: 39
+  hidden_dim: 64
+  actor_lr: 0.001
+  critic_lr: 0.001
+  gamma: 0.95
+  tau: 0.02
+  replay_capacity: 1000
+  batch_size: 16
+  exploration_noise: 0.05
+  min_beta: 0.0
+  max_beta: 1.0
+
+attack:
+  type: backdoor_scaling
+  scale_factor: 8.0
+  target_label: 2
+  poison_fraction: 1.0
+  trigger:
+    size: 4
+    value: 2.5
+    location: bottom_right
+  asr_definition: "Triggered non-target test samples classified as target_label."
+
+defenses:
+  - hfedsa_ddpg
+
+performance:
+  mixed_precision: true
+  pin_memory: true
+  client_num_workers: 0
+  eval_num_workers: 2
+  persistent_workers: true
+
+diagnostics:
+  client_detail_every: 25
+
+reporting:
+  run_class: calibration
+  checkpoint_every: 10
+  calibration_seed: 31415
+  paper_attack_key: scaling
+  paper_target_file: configs/paper/targets/table_ii_cifar10_iid.yaml
+  candidate_reason: "Paper-strict server update (no server momentum) with the independently checked target-2/scale-8 attack candidate."
+  excluded_from_formal_summary: true
+
+output_dir: results/calibration/cifar10_iid_hfedsa_ddpg_backdoor_strict_seed31415
+log_dir: logs
+

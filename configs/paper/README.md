@@ -82,3 +82,11 @@ and retains the paper-default unseen-client shift. Its results are explicitly
 excluded from formal summaries; after this one calibration run, the selected
 attack parameters are frozen before seeds `2026` through `2030` are launched.
 
+That historical candidate retains FedAvgM so it can be compared with the
+prototype's earlier calibration. The paper-strict companion manifest,
+`../calibration/cifar10_iid_hfedsa_ddpg_backdoor_strict_seed31415.yaml`, uses a
+standard direct FedAvg server update. Algorithm 1 returns the normalized
+aggregate directly, and the paper does not describe a server-momentum term;
+the strict manifest therefore takes precedence when freezing the formal
+protocol.
+
