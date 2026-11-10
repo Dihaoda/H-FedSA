@@ -51,6 +51,31 @@ MODELS = {
 }
 SERVER_OPTIMIZERS = {"fedavg", "fedavgm", "fedadam"}
 LOCAL_OPTIMIZERS = {"sgd", "adam", "adamw"}
+UNSEEN_SHIFT_TYPES = {
+    "none",
+    "off",
+    "gaussian_noise",
+    "brightness",
+    "gaussian_noise_brightness",
+    "cifar10_c",
+    "cifar10c",
+    "chars74k",
+    "ctsdb",
+    "gtsdb",
+    "compcars",
+    "imagefolder",
+    "mapped_imagefolder",
+}
+EXTERNAL_SHIFT_TYPES = {
+    "cifar10_c",
+    "cifar10c",
+    "chars74k",
+    "ctsdb",
+    "gtsdb",
+    "compcars",
+    "imagefolder",
+    "mapped_imagefolder",
+}
 
 
 def load_config(path: str | Path) -> dict[str, Any]:
@@ -184,6 +209,35 @@ def validate_config(config: dict[str, Any]) -> list[str]:
         errors.append(f"Unsupported server_optimizer '{server_optimizer}'. Known: {sorted(SERVER_OPTIMIZERS)}")
     if int(config.get("federated", {}).get("clients_per_round", 1)) > int(config.get("federated", {}).get("num_clients", 1)):
         errors.append("federated.clients_per_round cannot exceed federated.num_clients.")
+    fed_cfg = config.get("federated", {})
+    positive_integer_fields = ("num_clients", "clients_per_round", "rounds", "local_epochs", "batch_size")
+    for field in positive_integer_fields:
+        if int(fed_cfg.get(field, 1)) <= 0:
+            errors.append(f"federated.{field} must be positive.")
+    if int(fed_cfg.get("root_size", 0)) < 0:
+        errors.append("federated.root_size cannot be negative.")
+    malicious_ratio = float(fed_cfg.get("malicious_ratio", 0.0))
+    unseen_ratio = float(fed_cfg.get("unseen_ratio", 0.0))
+    if not 0.0 <= malicious_ratio <= 1.0:
+        errors.append("federated.malicious_ratio must be in [0, 1].")
+    if not 0.0 <= unseen_ratio <= 1.0:
+        errors.append("federated.unseen_ratio must be in [0, 1].")
+    if malicious_ratio + unseen_ratio > 1.0 + 1e-12:
+        errors.append("federated.malicious_ratio + federated.unseen_ratio cannot exceed 1.")
+    unseen_fraction = float(fed_cfg.get("unseen_data_fraction", fed_cfg.get("unseen_shift", {}).get("fraction", 1.0)))
+    if not 0.0 <= unseen_fraction <= 1.0:
+        errors.append("federated.unseen_data_fraction must be in [0, 1].")
+    shift_cfg = fed_cfg.get("unseen_shift", {})
+    if bool(shift_cfg.get("enabled", False)):
+        shift_type = str(shift_cfg.get("type", "gaussian_noise")).lower()
+        if shift_type not in UNSEEN_SHIFT_TYPES:
+            errors.append(f"Unsupported unseen_shift.type '{shift_type}'. Known: {sorted(UNSEEN_SHIFT_TYPES)}")
+        if shift_type in EXTERNAL_SHIFT_TYPES and not (
+            shift_cfg.get("data_root") or shift_cfg.get("root") or config.get("dataset", {}).get("cifar10_c_root")
+        ):
+            errors.append(f"federated.unseen_shift.data_root is required for external shift '{shift_type}'.")
+    if attack not in {"none", "no_attack"} and malicious_ratio <= 0.0:
+        warnings.append(f"attack.type='{attack}' is enabled but federated.malicious_ratio is zero.")
     if errors:
         raise ValueError("\n".join(errors))
     if bool(config.get("performance", {}).get("mixed_precision", False)):

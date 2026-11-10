@@ -137,7 +137,7 @@ class FederatedExperiment:
         aggregation_weighting = str(fed_cfg.get("aggregation_weighting", "uniform")).lower()
         bn_buffer_strategy = str(fed_cfg.get("bn_buffer_strategy", "aggregate")).lower()
         aggregate_bn_buffers = bool(fed_cfg.get("aggregate_bn_buffers", bn_buffer_strategy == "aggregate"))
-        attack_type = str(attack_cfg.get("type", "none"))
+        attack_type = str(attack_cfg.get("type", "none")).lower()
         scale_factor = float(attack_cfg.get("scale_factor", 1.0))
         rows: list[dict] = []
         debug_rows: list[dict] = []
