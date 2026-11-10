@@ -65,3 +65,33 @@ def test_attack_without_malicious_clients_emits_warning() -> None:
         "attack.type='trim_targeted' is enabled but federated.malicious_ratio is zero."
     ]
 
+
+@pytest.mark.parametrize("defense", ["fltrust", "hfedsa_static", "hfedsa_ddpg"])
+def test_root_dependent_defenses_require_root_data(defense: str) -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["defense"] = defense
+    config["federated"]["root_size"] = 0
+
+    with pytest.raises(ValueError, match="root_size must be positive"):
+        validate_config(config)
+
+
+def test_hfedsa_ddpg_rejects_non_paper_state_dimension() -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["defense"] = "hfedsa_ddpg"
+    config["ddpg"] = {"state_dim": 24}
+
+    with pytest.raises(ValueError, match="state_dim must equal 39"):
+        validate_config(config)
+
+
+def test_hfedsa_small_round_warns_about_uniform_fallback() -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["defenses"] = "hfedsa_static"
+    config["federated"]["clients_per_round"] = 2
+
+    assert validate_config(config) == [
+        "H-FedSA needs at least three participating clients to fit its three-component GMM; "
+        "smaller rounds use the documented uniform fallback."
+    ]
+

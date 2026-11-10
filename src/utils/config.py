@@ -190,7 +190,14 @@ def validate_config(config: dict[str, Any]) -> list[str]:
     dataset = str(config.get("dataset", {}).get("name", "")).lower()
     if dataset and dataset not in DATASETS:
         errors.append(f"Unsupported dataset '{dataset}'. Known: {sorted(DATASETS)}")
-    defenses = config.get("defenses") or [config.get("defense", "fedavg")]
+    configured_defenses = config.get("defenses")
+    if isinstance(configured_defenses, str):
+        defenses = [configured_defenses]
+    elif configured_defenses:
+        defenses = list(configured_defenses)
+    else:
+        defenses = [config.get("defense", "fedavg")]
+    defense_keys = {str(defense).lower() for defense in defenses}
     for defense in defenses:
         key = str(defense).lower()
         if key not in DEFENSES:
@@ -216,6 +223,28 @@ def validate_config(config: dict[str, Any]) -> list[str]:
             errors.append(f"federated.{field} must be positive.")
     if int(fed_cfg.get("root_size", 0)) < 0:
         errors.append("federated.root_size cannot be negative.")
+    root_dependent_defense = any(
+        key == "fltrust" or key.startswith("hfedsa") for key in defense_keys
+    )
+    if root_dependent_defense and int(fed_cfg.get("root_size", 0)) <= 0:
+        errors.append(
+            "federated.root_size must be positive for FLTrust and H-FedSA defenses."
+        )
+    hfedsa_enabled = any(key.startswith("hfedsa") for key in defense_keys)
+    if hfedsa_enabled and int(fed_cfg.get("clients_per_round", 1)) < 3:
+        warnings.append(
+            "H-FedSA needs at least three participating clients to fit its three-component GMM; "
+            "smaller rounds use the documented uniform fallback."
+        )
+    hfedsa_cfg = config.get("hfedsa", {})
+    ddpg_enabled = any(key.startswith("hfedsa_ddpg") for key in defense_keys) or (
+        hfedsa_enabled and str(hfedsa_cfg.get("beta_mode", "static")).lower() == "ddpg"
+    )
+    if ddpg_enabled and int(config.get("ddpg", {}).get("state_dim", 39)) != 39:
+        errors.append(
+            "ddpg.state_dim must equal 39 for the paper-aligned H-FedSA state "
+            "(9 GMM means, 27 covariance values, and 3 validation/action values)."
+        )
     malicious_ratio = float(fed_cfg.get("malicious_ratio", 0.0))
     unseen_ratio = float(fed_cfg.get("unseen_ratio", 0.0))
     if not 0.0 <= malicious_ratio <= 1.0:
