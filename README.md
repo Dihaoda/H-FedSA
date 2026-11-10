@@ -24,6 +24,8 @@ The core training pipeline is runnable and has been verified on an NVIDIA A100. 
 - stratified round sampling that preserves malicious and unseen-client ratios;
 - label-flipping, scaling, backdoor-scaling, Krum-targeted, Trim-targeted,
   adaptive feature-matched, and synchronous PoiSAFL attack utilities.
+- a capability-registry test that instantiates every public defense and
+  validates every public attack name, plus GitHub Actions unit tests.
 
 The remaining work is focused on the other shifted-dataset adapters, the
 remaining paper experiment manifests, and multi-seed result generation. See
