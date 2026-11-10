@@ -18,6 +18,7 @@ import yaml
 from torch import nn
 
 from src.attacks.backdoor_scaling import apply_trigger
+from src.attacks.targeted_model_poisoning import apply_targeted_model_attack
 from src.data.datasets import FederatedData
 from src.attacks.adaptive_feature_matched import apply_adaptive_feature_matched_attack
 from src.defenses.factory import build_defense
@@ -142,6 +143,7 @@ class FederatedExperiment:
         debug_rows: list[dict] = []
         beta_trace_rows: list[dict] = []
         adaptive_trace_rows: list[dict] = []
+        targeted_attack_trace_rows: list[dict] = []
         eval_every = max(1, int(fed_cfg.get("eval_every", self.config.get("evaluation", {}).get("eval_every", 1))))
         eval_last_k = max(1, int(fed_cfg.get("eval_last_k", self.config.get("evaluation", {}).get("eval_last_k", 5))))
         log_every = max(1, int(fed_cfg.get("log_every", self.config.get("logging", {}).get("round_log_every", 1))))
@@ -228,6 +230,20 @@ class FederatedExperiment:
                     round_number=round_idx + 1,
                 )
                 adaptive_trace_rows.extend(adaptive_trace)
+            elif attack_type in {"krum_targeted", "trim_targeted", "poisafl"}:
+                selected_updates, targeted_trace = apply_targeted_model_attack(
+                    updates=selected_updates,
+                    malicious_clients=self.fed_data.malicious_clients,
+                    attack_type=attack_type,
+                    attack_cfg=attack_cfg,
+                    seed=int(self.config["seed"]),
+                    round_number=round_idx + 1,
+                )
+                targeted_attack_trace_rows.extend(targeted_trace)
+            update_norms = {
+                client_id: float(torch.linalg.norm(flatten_update(update)).item())
+                for client_id, update in selected_updates
+            }
             before_model_norm = self._model_state_norm(global_state)
             aggregated_update, diagnostics = defense.aggregate(
                 selected_updates,
@@ -375,6 +391,7 @@ class FederatedExperiment:
         self._write_aggregation_debug(defense.name, debug_rows)
         self._write_beta_trace(defense.name, beta_trace_rows)
         self._write_adaptive_attack_trace(defense.name, adaptive_trace_rows)
+        self._write_targeted_attack_trace(defense.name, targeted_attack_trace_rows)
         self._write_final_model_state(defense.name, global_state)
         summary = {
             "final_accuracy": final_accuracy,
@@ -998,6 +1015,30 @@ class FederatedExperiment:
             writer.writeheader()
             writer.writerows(rows)
         self.logger.info("Saved adaptive attack trace: %s", trace_path)
+
+    def _write_targeted_attack_trace(self, defense_name: str, rows: list[dict]) -> None:
+        if not rows:
+            return
+        trace_path = self.run_dir / f"targeted_attack_trace_{defense_name}.csv"
+        fieldnames = [
+            "round",
+            "client_id",
+            "attack_type",
+            "original_norm",
+            "attacked_norm",
+            "target_rule",
+            "lambda",
+            "krum_selected_malicious",
+            "distance_reference",
+            "distance_limit",
+            "applied_scale",
+        ]
+        with trace_path.open("w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            for row in rows:
+                writer.writerow({field: row.get(field, "NA") for field in fieldnames})
+        self.logger.info("Saved targeted attack trace: %s", trace_path)
 
     def _write_final_model_state(self, defense_name: str, global_state: StateDict) -> None:
         safe_defense = defense_name.replace("/", "_").replace("\\", "_")

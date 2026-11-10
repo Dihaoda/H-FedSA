@@ -59,6 +59,7 @@ targets:
 measured_attack_aliases:
   backdoor_scaling: scaling
   label_flipping: label_flip
+  adaptive_feature_matched: adaptive
 
 evaluation_policy:
   required_runs: 5

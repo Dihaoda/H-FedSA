@@ -31,6 +31,9 @@ ATTACKS = {
     "scaling",
     "backdoor_scaling",
     "adaptive_feature_matched",
+    "krum_targeted",
+    "trim_targeted",
+    "poisafl",
 }
 MODELS = {
     "small_cnn",
@@ -80,7 +83,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--local_optimizer", type=str, help="Local optimizer, e.g. sgd/adam/adamw.")
     parser.add_argument("--server_optimizer", type=str, help="Server optimizer, e.g. fedavg/fedavgm/fedadam.")
     parser.add_argument("--defense", type=str, help="Defense method or comma-separated methods, e.g. fedavg,hfedsa_ddpg_normroot.")
-    parser.add_argument("--attack_type", type=str, help="Attack type: no_attack/scaling/backdoor_scaling/label_flipping.")
+    parser.add_argument(
+        "--attack_type",
+        type=str,
+        help=(
+            "Attack type: no_attack/label_flipping/scaling/backdoor_scaling/"
+            "krum_targeted/trim_targeted/adaptive_feature_matched/poisafl."
+        ),
+    )
     parser.add_argument("--malicious_ratio", type=float, help="Fraction of malicious clients.")
     parser.add_argument("--scaling_factor", type=float, help="Scaling factor for scaling/backdoor_scaling attacks.")
     parser.add_argument("--model", type=str, help="Model name, e.g. paper_cnn/resnet18_gtsrb/femnist_cnn.")
@@ -215,3 +225,4 @@ def _set_path(config: dict[str, Any], path: tuple[str, ...], value: Any, cli_nam
             "new": copy.deepcopy(value),
         }
     )
+

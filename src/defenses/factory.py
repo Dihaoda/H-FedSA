@@ -4,8 +4,8 @@ from src.defenses.fedavg import FedAvg
 from src.defenses.fltrust import FLTrust
 from src.defenses.ddpg_beta_agent import DDPGBetaAgent, DDPGBetaConfig
 from src.defenses.hfedsa import HFedSAConfig, HFedSAStatic
-from src.defenses.placeholders import NotImplementedDefense
 from src.defenses.rfa import RFA
+from src.defenses.robust_baselines import MSGuard, SafeFLCompatible
 
 
 def build_defense(name: str, config: dict):
@@ -27,8 +27,23 @@ def build_defense(name: str, config: dict):
             tol=float(rcfg.get("tol", 1e-5)),
             eps=float(rcfg.get("eps", 1e-8)),
         )
-    if key in {"safefl", "msguard"}:
-        return NotImplementedDefense(key)
+    if key == "safefl":
+        scfg = config.get("safefl", {})
+        return SafeFLCompatible(
+            rule=str(scfg.get("rule", "signguard")),
+            seed=int(scfg.get("seed", config.get("seed", 0))),
+            sign_fraction=float(scfg.get("sign_fraction", 0.1)),
+            norm_lower=float(scfg.get("norm_lower", 0.1)),
+            norm_upper=float(scfg.get("norm_upper", 3.0)),
+        )
+    if key == "msguard":
+        mcfg = config.get("msguard", {})
+        bandwidth = mcfg.get("bandwidth")
+        return MSGuard(
+            quantile=float(mcfg.get("quantile", 0.3)),
+            bandwidth=None if bandwidth in {None, "", "auto"} else float(bandwidth),
+            min_retained_fraction=float(mcfg.get("min_retained_fraction", 0.5)),
+        )
     raise ValueError(f"Unknown defense: {name}")
 
 
