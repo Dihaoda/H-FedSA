@@ -22,13 +22,18 @@ def discover_metrics(paths: Iterable[str | Path]) -> list[Path]:
     return sorted(discovered)
 
 
-def read_final_rows(paths: Iterable[str | Path]) -> list[dict[str, str]]:
+def read_final_rows(
+    paths: Iterable[str | Path],
+    run_class: str | None = None,
+) -> list[dict[str, str]]:
     final_rows: list[dict[str, str]] = []
     for path in discover_metrics(paths):
         with path.open("r", encoding="utf-8", newline="") as stream:
             rows = list(csv.DictReader(stream))
         by_run: dict[tuple[str, str, str, str], dict[str, str]] = {}
         for row in rows:
+            if run_class is not None and row.get("run_class", "") != run_class:
+                continue
             key = tuple(row.get(field, "") for field in (*GROUP_FIELDS, "seed"))
             previous = by_run.get(key)
             if previous is None or int(row["round"]) > int(previous["round"]):

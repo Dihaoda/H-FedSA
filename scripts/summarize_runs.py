@@ -23,10 +23,18 @@ def main() -> None:
     parser.add_argument("--target-file", type=Path)
     parser.add_argument("--attack", help="Target-manifest attack key, e.g. no_attack.")
     parser.add_argument("--method", help="Target-manifest method key, e.g. fedavg.")
+    parser.add_argument(
+        "--run-class",
+        help=(
+            "Only include this reporting class. Defaults to formal_measured when "
+            "--target-file is supplied."
+        ),
+    )
     parser.add_argument("--output", type=Path, help="Optional JSON output path.")
     args = parser.parse_args()
 
-    summaries = summarize_final_rows(read_final_rows(args.paths))
+    run_class = args.run_class or ("formal_measured" if args.target_file else None)
+    summaries = summarize_final_rows(read_final_rows(args.paths, run_class=run_class))
     if args.target_file:
         if not args.attack or not args.method:
             parser.error("--target-file requires --attack and --method")

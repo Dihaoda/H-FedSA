@@ -303,6 +303,9 @@ class FederatedExperiment:
                 "method": defense.name,
                 "dataset": self.config.get("dataset", {}).get("name", "unknown"),
                 "attack_type": attack_type,
+                "run_class": str(
+                    self.config.get("reporting", {}).get("run_class", "unspecified")
+                ),
                 "seed": int(self.config["seed"]),
                 "accuracy": final_accuracy,
                 "error_rate": 100.0 - final_accuracy,
@@ -1094,6 +1097,7 @@ class FederatedExperiment:
             "method",
             "dataset",
             "attack_type",
+            "run_class",
             "seed",
             "accuracy",
             "error_rate",

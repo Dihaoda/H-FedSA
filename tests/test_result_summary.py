@@ -10,6 +10,7 @@ FIELDS = [
     "method",
     "dataset",
     "attack_type",
+    "run_class",
     "seed",
     "accuracy",
     "error_rate",
@@ -31,6 +32,7 @@ def _write_metrics(path, seed: int, final_error: float) -> None:
                 "method": "fedavg",
                 "dataset": "cifar10",
                 "attack_type": "no_attack",
+                "run_class": "formal_measured",
                 "seed": seed,
                 "accuracy": 50.0,
                 "error_rate": 50.0,
@@ -46,6 +48,7 @@ def _write_metrics(path, seed: int, final_error: float) -> None:
                 "method": "fedavg",
                 "dataset": "cifar10",
                 "attack_type": "no_attack",
+                "run_class": "formal_measured",
                 "seed": seed,
                 "accuracy": 100.0 - final_error,
                 "error_rate": final_error,
@@ -81,4 +84,26 @@ def test_summary_rejects_duplicate_seed_selection(tmp_path) -> None:
 
     with pytest.raises(ValueError, match="Duplicate seeds"):
         summarize_final_rows(read_final_rows([tmp_path]))
+
+
+def test_run_class_filter_keeps_calibration_out_of_formal_rows(tmp_path) -> None:
+    formal = tmp_path / "formal" / "metrics.csv"
+    calibration = tmp_path / "calibration" / "metrics.csv"
+    _write_metrics(formal, 2026, 15.0)
+    _write_metrics(calibration, 31415, 14.0)
+
+    with calibration.open(encoding="utf-8", newline="") as stream:
+        rows = list(csv.DictReader(stream))
+    for row in rows:
+        row["run_class"] = "calibration"
+    with calibration.open("w", encoding="utf-8", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=FIELDS)
+        writer.writeheader()
+        writer.writerows(rows)
+
+    selected = read_final_rows([tmp_path], run_class="formal_measured")
+
+    assert len(selected) == 1
+    assert selected[0]["seed"] == "2026"
+    assert selected[0]["run_class"] == "formal_measured"
 
