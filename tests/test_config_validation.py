@@ -164,6 +164,17 @@ def test_cli_can_set_hfedsa_role_confidence_for_calibration() -> None:
     assert validate_config(updated) == []
 
 
+def test_cli_can_set_server_learning_rate() -> None:
+    config = deepcopy(BASE_CONFIG)
+    args = argparse.Namespace(server_lr=0.7)
+
+    updated, overrides = apply_cli_overrides(config, args)
+
+    assert updated["federated"]["server_lr"] == 0.7
+    assert [item["path"] for item in overrides] == ["federated.server_lr"]
+    assert validate_config(updated) == []
+
+
 @pytest.mark.parametrize(
     ("minimum", "maximum", "message"),
     [

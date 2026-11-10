@@ -112,6 +112,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--learning_rate", type=float, help="Local optimizer learning rate.")
     parser.add_argument("--local_optimizer", type=str, help="Local optimizer, e.g. sgd/adam/adamw.")
     parser.add_argument("--server_optimizer", type=str, help="Server optimizer, e.g. fedavg/fedavgm/fedadam.")
+    parser.add_argument("--server_lr", type=float, help="Server-side step size applied to the aggregated update.")
     parser.add_argument("--defense", type=str, help="Defense method or comma-separated methods, e.g. fedavg,hfedsa_ddpg_normroot.")
     parser.add_argument(
         "--attack_type",
@@ -179,6 +180,7 @@ def apply_cli_overrides(config: dict[str, Any], args: argparse.Namespace) -> tup
         ("learning_rate", ("federated", "learning_rate")),
         ("local_optimizer", ("federated", "optimizer")),
         ("server_optimizer", ("federated", "server_optimizer")),
+        ("server_lr", ("federated", "server_lr")),
         ("attack_type", ("attack", "type")),
         ("malicious_ratio", ("federated", "malicious_ratio")),
         ("scaling_factor", ("attack", "scale_factor")),
@@ -259,6 +261,8 @@ def validate_config(config: dict[str, Any]) -> list[str]:
             errors.append(f"federated.{field} must be positive.")
     if int(fed_cfg.get("root_size", 0)) < 0:
         errors.append("federated.root_size cannot be negative.")
+    if float(fed_cfg.get("server_lr", 1.0)) <= 0.0:
+        errors.append("federated.server_lr must be positive.")
     root_dependent_defense = any(
         key == "fltrust" or key.startswith("hfedsa") for key in defense_keys
     )
