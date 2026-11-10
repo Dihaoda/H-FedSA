@@ -26,6 +26,8 @@ def test_cifar10_paper_config_matches_protocol() -> None:
     assert config["hfedsa"]["gmm_covariance_type"] == "full"
     assert config["model"]["batchnorm"] is False
     assert config["ddpg"]["state_dim"] == 39
+    assert config["attack"]["type"] == "backdoor_scaling"
+    assert config["reporting"]["paper_attack_key"] == "scaling"
 
 
 def test_cifar10_clean_manifest_is_fixed_before_multiseed_runs() -> None:
