@@ -48,6 +48,7 @@ class HFedSAConfig:
     malicious_hard_gate_enabled: bool = False
     malicious_hard_gate_threshold: float = 0.9
     ddpg_security_penalty: float = 0.2
+    ddpg_smoothness_penalty: float = 0.05
     ddpg_residual_penalty: float = 0.0
     ddpg_aggregated_norm_penalty: float = 0.0
     ddpg_aggregated_norm_target: float = 1.0
@@ -65,8 +66,9 @@ class HFedSAStatic:
         self.round_index = 0
         self._ema_weights: dict[int, float] = {}
         self.last_beta_trace: dict = {}
-        self._previous_test_loss: float | None = None
-        self._previous_test_accuracy: float | None = None
+        self._previous_validation_loss: float | None = None
+        self._previous_validation_accuracy: float | None = None
+        self._last_validation_delta: float = 0.0
         self.last_gmm_means = np.zeros((3, 3), dtype=float)
         self.last_gmm_variances = np.ones((3, 3), dtype=float)
         self.last_gmm_covariances = np.stack([np.eye(3, dtype=float) for _ in range(3)])
@@ -90,7 +92,7 @@ class HFedSAStatic:
         root_norm = torch.linalg.norm(root_flat).item()
         features, cosines, norms, feature_nan_flags, feature_inf_flags = self._extract_features(updates, root_flat, root_norm)
         posteriors, role_indices = self._fit_gmm(features)
-        state_vector = self._ddpg_state_vector(features, posteriors)
+        state_vector = self._ddpg_state_vector()
 
         weighted_updates = []
         weights = []
@@ -336,18 +338,27 @@ class HFedSAStatic:
         norms_array = np.nan_to_num(np.asarray(norms), nan=0.0, posinf=0.0, neginf=0.0)
         return features, cosines_array, norms_array, np.asarray(nan_flags, dtype=bool), np.asarray(inf_flags, dtype=bool)
 
-    def observe_round(self, train_loss: float, test_loss: float, test_accuracy: float, diagnostics: list[dict]) -> dict:
+    def observe_round(
+        self,
+        validation_loss: float,
+        validation_accuracy: float,
+        diagnostics: list[dict],
+        attack_success_rate: float | str = "NA",
+    ) -> dict:
         if self.config.beta_mode != "ddpg" or self.beta_agent is None:
             return {}
         malicious_weight = 0.0
         malicious_residual = 0.0
         aggregated_update_norm = 0.0
         aggregated_norm_spike = 0.0
-        if self._previous_test_loss is None:
+        if self._previous_validation_loss is None:
             reward = 0.0
+            loss_improvement = 0.0
         else:
-            loss_improvement = self._previous_test_loss - float(test_loss)
-            accuracy_improvement = (float(test_accuracy) - float(self._previous_test_accuracy or test_accuracy)) / 100.0
+            loss_improvement = self._previous_validation_loss - float(validation_loss)
+            accuracy_improvement = (
+                float(validation_accuracy) - float(self._previous_validation_accuracy or validation_accuracy)
+            ) / 100.0
             malicious_weight = np.mean(
                 [float(item["weight"]) for item in diagnostics if bool(item.get("predicted_malicious", False)) and item.get("weight") not in {"", "NA", None}]
             ) if diagnostics else 0.0
@@ -372,17 +383,22 @@ class HFedSAStatic:
             beta = float(self.last_beta_trace.get("beta_explore", self.config.beta_explore))
             previous_beta = float(self.last_beta_trace.get("previous_beta", beta))
             smoothness_penalty = abs(beta - previous_beta)
+            if isinstance(attack_success_rate, (int, float, np.number)) and np.isfinite(float(attack_success_rate)):
+                attack_signal = float(attack_success_rate) / 100.0
+            else:
+                attack_signal = malicious_residual
             reward = float(
                 loss_improvement
                 + accuracy_improvement
-                - self.config.ddpg_security_penalty * malicious_weight
+                - self.config.ddpg_security_penalty * attack_signal
                 - self.config.ddpg_residual_penalty * malicious_residual
                 - self.config.ddpg_aggregated_norm_penalty * aggregated_norm_spike
-                - 0.05 * smoothness_penalty
+                - self.config.ddpg_smoothness_penalty * smoothness_penalty
             )
-        self._previous_test_loss = float(test_loss)
-        self._previous_test_accuracy = float(test_accuracy)
-        next_state = np.asarray(self.last_beta_trace.get("state_vector", np.zeros(24)), dtype=float)
+        self._last_validation_delta = float(loss_improvement)
+        self._previous_validation_loss = float(validation_loss)
+        self._previous_validation_accuracy = float(validation_accuracy)
+        next_state = self._ddpg_state_vector()
         train_info = self.beta_agent.observe(reward, next_state)
         self.last_beta_trace.update(
             {
@@ -394,6 +410,9 @@ class HFedSAStatic:
                 "malicious_weighted_contribution": malicious_residual,
                 "aggregated_update_norm": aggregated_update_norm,
                 "aggregated_norm_spike": aggregated_norm_spike,
+                "validation_loss": float(validation_loss),
+                "validation_accuracy": float(validation_accuracy),
+                "validation_loss_improvement": float(loss_improvement),
             }
         )
         return self.last_beta_trace
@@ -594,16 +613,13 @@ class HFedSAStatic:
 
         return responsibilities, means, variances
 
-    def _ddpg_state_vector(self, features: np.ndarray, posteriors: np.ndarray) -> np.ndarray:
+    def _ddpg_state_vector(self) -> np.ndarray:
         previous_beta = float(self.last_beta_trace.get("beta_explore", self.config.beta_explore)) if self.last_beta_trace else self.config.beta_explore
-        previous_loss = float(self._previous_test_loss) if self._previous_test_loss is not None else 0.0
-        previous_accuracy = float(self._previous_test_accuracy) / 100.0 if self._previous_test_accuracy is not None else 0.0
+        previous_loss = float(self._previous_validation_loss) if self._previous_validation_loss is not None else 0.0
         pieces = [
             self.last_gmm_means.reshape(-1),
-            self.last_gmm_variances.reshape(-1),
-            posteriors.mean(axis=0) if posteriors.size else np.zeros(3),
-            features.mean(axis=0) if features.size else np.zeros(3),
-            np.asarray([previous_loss, previous_accuracy, previous_beta, float(self.round_index)], dtype=float),
+            self.last_gmm_covariances.reshape(-1),
+            np.asarray([previous_loss, self._last_validation_delta, previous_beta], dtype=float),
         ]
         state = np.concatenate([np.asarray(piece, dtype=float).reshape(-1) for piece in pieces])
         self.last_beta_trace["state_vector"] = state.tolist() if self.last_beta_trace else state.tolist()
