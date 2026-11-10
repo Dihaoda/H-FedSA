@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import platform
 import shutil
 import subprocess
@@ -1097,6 +1098,7 @@ class FederatedExperiment:
             "cuda_runtime": torch.version.cuda or "NA",
             "cuda_available": torch.cuda.is_available(),
             "gpu": torch.cuda.get_device_name(self.device) if self.device.type == "cuda" else "NA",
+            "declared_source_revision": os.environ.get("HFEDSA_SOURCE_REVISION", "NA"),
             "git_commit": "NA",
             "git_dirty": "NA",
         }
