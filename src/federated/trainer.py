@@ -630,13 +630,13 @@ class FederatedExperiment:
                     unseen_fp += 1
                 else:
                     unseen_tn += 1
-        tpr = tp / max(tp + fn, 1)
-        unseen_fpr = unseen_fp / max(unseen_fp + unseen_tn, 1)
-        overall_fpr = overall_fp / max(overall_fp + overall_tn, 1)
+        malicious_count = tp + fn
+        unseen_count = unseen_fp + unseen_tn
+        non_malicious_count = overall_fp + overall_tn
         return {
-            "detection_tpr": tpr,
-            "detection_fpr": unseen_fpr,
-            "detection_overall_fpr": overall_fpr,
+            "detection_tpr": tp / malicious_count if malicious_count else "",
+            "detection_fpr": unseen_fp / unseen_count if unseen_count else "",
+            "detection_overall_fpr": overall_fp / non_malicious_count if non_malicious_count else "",
         }
 
     def _write_hfedsa_diagnostics(

@@ -32,3 +32,29 @@ def test_detection_metrics_are_blank_for_non_detector() -> None:
         "detection_overall_fpr": "",
     }
 
+
+def test_detection_rates_are_blank_when_round_has_no_relevant_class() -> None:
+    experiment = FederatedExperiment.__new__(FederatedExperiment)
+    experiment.fed_data = SimpleNamespace(malicious_clients={2}, unseen_clients={0})
+
+    metrics = experiment._detection_metrics(
+        [{"client_id": 4, "predicted_malicious": False}]
+    )
+
+    assert metrics["detection_tpr"] == ""
+    assert metrics["detection_fpr"] == ""
+    assert metrics["detection_overall_fpr"] == 0.0
+
+
+def test_overall_fpr_is_blank_when_only_malicious_clients_participate() -> None:
+    experiment = FederatedExperiment.__new__(FederatedExperiment)
+    experiment.fed_data = SimpleNamespace(malicious_clients={2}, unseen_clients=set())
+
+    metrics = experiment._detection_metrics(
+        [{"client_id": 2, "predicted_malicious": True}]
+    )
+
+    assert metrics["detection_tpr"] == 1.0
+    assert metrics["detection_fpr"] == ""
+    assert metrics["detection_overall_fpr"] == ""
+
