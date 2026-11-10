@@ -57,6 +57,50 @@ def test_paper_cluster_roles_follow_intensity_order() -> None:
     assert malicious == 2
 
 
+def test_role_confidence_softens_only_weak_intensity_separation() -> None:
+    defense = HFedSAStatic(
+        HFedSAConfig(role_confidence_mode="intensity_separation")
+    )
+    posteriors = np.eye(3, dtype=float)
+    raw_posteriors = np.eye(3, dtype=float)
+    features = np.asarray(
+        [
+            [0.8, 1.0, 0.8],
+            [0.2, 0.5, 0.7],
+            [-0.2, 1.1, 0.2],
+        ]
+    )
+
+    adjusted = defense._apply_role_confidence(
+        posteriors,
+        features,
+        raw_posteriors,
+        benign_cluster=0,
+        malicious_cluster=2,
+    )
+
+    assert defense.last_malicious_role_confidence == pytest.approx(1.0 / 11.0)
+    assert adjusted[2, 0] == pytest.approx(10.0 / 11.0)
+    assert adjusted[2, 2] == pytest.approx(1.0 / 11.0)
+    np.testing.assert_allclose(adjusted.sum(axis=1), 1.0)
+
+
+def test_hard_role_confidence_preserves_paper_posteriors() -> None:
+    defense = HFedSAStatic(HFedSAConfig(role_confidence_mode="hard"))
+    posteriors = np.eye(3, dtype=float)
+
+    adjusted = defense._apply_role_confidence(
+        posteriors,
+        np.asarray([[0.8, 1.0, 0.8], [0.2, 0.5, 0.7], [-0.2, 1.1, 0.2]]),
+        np.eye(3, dtype=float),
+        benign_cluster=0,
+        malicious_cluster=2,
+    )
+
+    np.testing.assert_array_equal(adjusted, posteriors)
+    assert defense.last_malicious_role_confidence == 1.0
+
+
 def test_paper_ddpg_state_has_expected_statistics() -> None:
     defense = HFedSAStatic(HFedSAConfig(beta_mode="ddpg"))
     defense.last_gmm_means = np.arange(9, dtype=float).reshape(3, 3)

@@ -138,6 +138,16 @@ def parse_args() -> argparse.Namespace:
         type=float,
         help="Upper bound for the DDPG exploration action beta.",
     )
+    parser.add_argument(
+        "--role_confidence_mode",
+        type=str,
+        help="H-FedSA cluster-role confidence mode: hard or intensity_separation.",
+    )
+    parser.add_argument(
+        "--role_confidence_power",
+        type=float,
+        help="Non-negative exponent applied to H-FedSA intensity-separation confidence.",
+    )
     parser.add_argument("--model", type=str, help="Model name, e.g. paper_cnn/resnet18_gtsrb/femnist_cnn.")
     parser.add_argument("--iid", nargs="?", const="true", type=parse_bool, help="Set federated.iid true/false. If value is omitted, true is used.")
     parser.add_argument("--non_iid", action="store_true", default=None, help="Shortcut for --iid false.")
@@ -175,6 +185,8 @@ def apply_cli_overrides(config: dict[str, Any], args: argparse.Namespace) -> tup
         ("poison_fraction", ("attack", "poison_fraction")),
         ("ddpg_min_beta", ("ddpg", "min_beta")),
         ("ddpg_max_beta", ("ddpg", "max_beta")),
+        ("role_confidence_mode", ("hfedsa", "role_confidence_mode")),
+        ("role_confidence_power", ("hfedsa", "role_confidence_power")),
         ("model", ("model", "name")),
         ("alpha", ("federated", "non_iid_alpha")),
         ("quick_dev", ("dataset", "quick_dev")),
@@ -261,6 +273,13 @@ def validate_config(config: dict[str, Any]) -> list[str]:
             "smaller rounds use the documented uniform fallback."
         )
     hfedsa_cfg = config.get("hfedsa", {})
+    role_confidence_mode = str(hfedsa_cfg.get("role_confidence_mode", "hard")).lower()
+    if role_confidence_mode not in {"hard", "paper", "none", "intensity_separation"}:
+        errors.append(
+            "hfedsa.role_confidence_mode must be one of hard/paper/none/intensity_separation."
+        )
+    if float(hfedsa_cfg.get("role_confidence_power", 1.0)) < 0.0:
+        errors.append("hfedsa.role_confidence_power must be non-negative.")
     ddpg_enabled = any(key.startswith("hfedsa_ddpg") for key in defense_keys) or (
         hfedsa_enabled and str(hfedsa_cfg.get("beta_mode", "static")).lower() == "ddpg"
     )

@@ -45,6 +45,8 @@ class HFedSAConfig:
     feature_mode: str = "paper"
     formula_mode: str = "paper"
     cluster_role_strategy: str = "intensity_order"
+    role_confidence_mode: str = "hard"
+    role_confidence_power: float = 1.0
     malicious_hard_gate_enabled: bool = False
     malicious_hard_gate_threshold: float = 0.9
     ddpg_security_penalty: float = 0.2
@@ -72,6 +74,7 @@ class HFedSAStatic:
         self.last_gmm_means = np.zeros((3, 3), dtype=float)
         self.last_gmm_variances = np.ones((3, 3), dtype=float)
         self.last_gmm_covariances = np.stack([np.eye(3, dtype=float) for _ in range(3)])
+        self.last_malicious_role_confidence = 1.0
 
     def aggregate(
         self,
@@ -204,6 +207,8 @@ class HFedSAStatic:
             diagnostics[-1]["normalization_mode"] = self.config.normalization_mode
             diagnostics[-1]["formula_mode"] = self.config.formula_mode
             diagnostics[-1]["cluster_role_strategy"] = self.config.cluster_role_strategy
+            diagnostics[-1]["role_confidence_mode"] = self.config.role_confidence_mode
+            diagnostics[-1]["malicious_role_confidence"] = self.last_malicious_role_confidence
             diagnostics[-1]["malicious_hard_gate_enabled"] = self.config.malicious_hard_gate_enabled
             diagnostics[-1]["malicious_hard_gate_threshold"] = self.config.malicious_hard_gate_threshold
             diagnostics[-1]["retention_floor_enabled"] = self.config.retention_floor_enabled
@@ -549,7 +554,67 @@ class HFedSAStatic:
         posteriors[:, 0] = raw_posteriors[:, benign_cluster]
         posteriors[:, 1] = raw_posteriors[:, unseen_cluster]
         posteriors[:, 2] = raw_posteriors[:, malicious_cluster]
+        posteriors = self._apply_role_confidence(
+            posteriors,
+            features,
+            raw_posteriors,
+            benign_cluster=benign_cluster,
+            malicious_cluster=malicious_cluster,
+        )
         return posteriors, {"benign": 0, "unseen": 1, "malicious": 2}
+
+    def _apply_role_confidence(
+        self,
+        posteriors: np.ndarray,
+        features: np.ndarray,
+        raw_posteriors: np.ndarray,
+        *,
+        benign_cluster: int,
+        malicious_cluster: int,
+    ) -> np.ndarray:
+        """Optionally temper the highest-intensity cluster's malicious role.
+
+        With only ten sampled clients, a three-component GMM always produces a
+        highest-intensity component, even when no attack is present.  The paper
+        does not specify how ``IdentifyClusterIndices`` handles this degenerate
+        no-attack case.  ``intensity_separation`` therefore exposes a continuous,
+        label-free compatibility rule: malicious posterior mass is retained in
+        proportion to the relative gap between the high- and middle-intensity
+        components.  The remaining mass is reassigned to the benign role.
+
+        This is deliberately opt-in; ``hard`` preserves Algorithm 1 exactly.
+        """
+        mode = self.config.role_confidence_mode.lower()
+        self.last_malicious_role_confidence = 1.0
+        if mode in {"hard", "paper", "none"}:
+            return posteriors
+        if mode != "intensity_separation":
+            raise ValueError(f"Unsupported role confidence mode: {self.config.role_confidence_mode}")
+
+        responsibilities = np.asarray(raw_posteriors, dtype=float)
+        intensities = np.asarray(features[:, 1], dtype=float)
+
+        def weighted_intensity(component: int) -> float:
+            mass = float(responsibilities[:, component].sum())
+            if mass <= 1e-12:
+                return 0.0
+            return float(np.dot(responsibilities[:, component], intensities) / mass)
+
+        benign_intensity = weighted_intensity(benign_cluster)
+        malicious_intensity = weighted_intensity(malicious_cluster)
+        relative_gap = max(0.0, malicious_intensity - benign_intensity) / max(
+            abs(malicious_intensity),
+            1e-12,
+        )
+        confidence = float(
+            np.clip(relative_gap, 0.0, 1.0) ** max(float(self.config.role_confidence_power), 0.0)
+        )
+        adjusted = np.asarray(posteriors, dtype=float).copy()
+        released_mass = adjusted[:, 2] * (1.0 - confidence)
+        adjusted[:, 0] += released_mass
+        adjusted[:, 2] *= confidence
+        self.last_malicious_role_confidence = confidence
+        return adjusted
 
     def _assign_cluster_roles(self, centers: np.ndarray) -> tuple[int, int]:
         strategy = self.config.cluster_role_strategy.lower()

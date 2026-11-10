@@ -138,6 +138,8 @@ def _build_hfedsa_config(hcfg: dict) -> HFedSAConfig:
         feature_mode=str(hcfg.get("feature_mode", "paper")).lower(),
         formula_mode=str(hcfg.get("formula_mode", "paper")).lower(),
         cluster_role_strategy=str(hcfg.get("cluster_role_strategy", "intensity_order")).lower(),
+        role_confidence_mode=str(hcfg.get("role_confidence_mode", "hard")).lower(),
+        role_confidence_power=float(hcfg.get("role_confidence_power", 1.0)),
         malicious_hard_gate_enabled=bool(hcfg.get("malicious_hard_gate_enabled", False)),
         malicious_hard_gate_threshold=float(hcfg.get("malicious_hard_gate_threshold", 0.9)),
         ddpg_security_penalty=float(hcfg.get("ddpg_security_penalty", 0.2)),

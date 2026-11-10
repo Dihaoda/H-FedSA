@@ -145,6 +145,25 @@ def test_cli_can_set_ddpg_beta_bounds_for_calibration() -> None:
     assert validate_config(updated) == []
 
 
+def test_cli_can_set_hfedsa_role_confidence_for_calibration() -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["defense"] = "hfedsa_ddpg"
+    args = argparse.Namespace(
+        role_confidence_mode="intensity_separation",
+        role_confidence_power=1.5,
+    )
+
+    updated, overrides = apply_cli_overrides(config, args)
+
+    assert updated["hfedsa"]["role_confidence_mode"] == "intensity_separation"
+    assert updated["hfedsa"]["role_confidence_power"] == 1.5
+    assert [item["path"] for item in overrides] == [
+        "hfedsa.role_confidence_mode",
+        "hfedsa.role_confidence_power",
+    ]
+    assert validate_config(updated) == []
+
+
 @pytest.mark.parametrize(
     ("minimum", "maximum", "message"),
     [
