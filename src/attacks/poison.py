@@ -16,5 +16,11 @@ def poison_update(update: OrderedDict[str, torch.Tensor], attack_type: str, scal
     attack_type = str(attack_type).lower()
     if attack_type not in {"scaling", "backdoor_scaling"}:
         return update
-    return OrderedDict((name, tensor * scale_factor) for name, tensor in update.items())
+    return OrderedDict(
+        (
+            name,
+            tensor * scale_factor if torch.is_floating_point(tensor) else torch.zeros_like(tensor),
+        )
+        for name, tensor in update.items()
+    )
 
