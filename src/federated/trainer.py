@@ -606,23 +606,37 @@ class FederatedExperiment:
 
     def _detection_metrics(self, diagnostics: list[dict]) -> dict:
         if not diagnostics or "predicted_malicious" not in diagnostics[0]:
-            return {"detection_tpr": "", "detection_fpr": ""}
-        tp = fp = tn = fn = 0
+            return {"detection_tpr": "", "detection_fpr": "", "detection_overall_fpr": ""}
+        tp = fn = 0
+        unseen_fp = unseen_tn = 0
+        overall_fp = overall_tn = 0
         for item in diagnostics:
             client_id = int(item["client_id"])
             predicted = bool(item["predicted_malicious"])
-            actual = client_id in self.fed_data.malicious_clients
-            if predicted and actual:
+            actual_malicious = client_id in self.fed_data.malicious_clients
+            actual_unseen = client_id in self.fed_data.unseen_clients
+            if predicted and actual_malicious:
                 tp += 1
-            elif predicted and not actual:
-                fp += 1
-            elif not predicted and actual:
+            elif not predicted and actual_malicious:
                 fn += 1
-            else:
-                tn += 1
+            if not actual_malicious:
+                if predicted:
+                    overall_fp += 1
+                else:
+                    overall_tn += 1
+            if actual_unseen:
+                if predicted:
+                    unseen_fp += 1
+                else:
+                    unseen_tn += 1
         tpr = tp / max(tp + fn, 1)
-        fpr = fp / max(fp + tn, 1)
-        return {"detection_tpr": tpr, "detection_fpr": fpr}
+        unseen_fpr = unseen_fp / max(unseen_fp + unseen_tn, 1)
+        overall_fpr = overall_fp / max(overall_fp + overall_tn, 1)
+        return {
+            "detection_tpr": tpr,
+            "detection_fpr": unseen_fpr,
+            "detection_overall_fpr": overall_fpr,
+        }
 
     def _write_hfedsa_diagnostics(
         self,
@@ -1082,6 +1096,7 @@ class FederatedExperiment:
             "selected_clients",
             "detection_tpr",
             "detection_fpr",
+            "detection_overall_fpr",
         ]
         with metrics_path.open("w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
