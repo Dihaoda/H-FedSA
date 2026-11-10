@@ -56,6 +56,10 @@ targets:
     msguard: {error_mean: 33.1, error_std: 1.7}
     hfedsa_ddpg: {error_mean: 28.8, error_std: 1.3}
 
+measured_attack_aliases:
+  backdoor_scaling: scaling
+  label_flipping: label_flip
+
 evaluation_policy:
   required_runs: 5
   preregistered_seeds: [2026, 2027, 2028, 2029, 2030]
