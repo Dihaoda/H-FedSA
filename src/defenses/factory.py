@@ -93,6 +93,10 @@ def _build_hfedsa_config(hcfg: dict) -> HFedSAConfig:
         malicious_penalty=float(hcfg.get("malicious_penalty", 0.8)),
         detection_threshold=float(hcfg.get("detection_threshold", 0.5)),
         gmm_reg_covar=float(hcfg.get("gmm_reg_covar", 1e-6)),
+        gmm_covariance_type=str(hcfg.get("gmm_covariance_type", "full")).lower(),
+        gmm_max_iter=int(hcfg.get("gmm_max_iter", 100)),
+        gmm_n_init=int(hcfg.get("gmm_n_init", 3)),
+        gmm_random_state=int(hcfg.get("gmm_random_state", 0)),
         weight_ema_enabled=bool(hcfg.get("weight_ema_enabled", False)),
         weight_ema_momentum=float(hcfg.get("weight_ema_momentum", 0.8)),
         posterior_clip_enabled=bool(hcfg.get("posterior_clip_enabled", False)),
@@ -116,8 +120,9 @@ def _build_hfedsa_config(hcfg: dict) -> HFedSAConfig:
         ddpg_beta_decay_rounds=int(hcfg.get("ddpg_beta_decay_rounds", 100)),
         beta_mode=str(hcfg.get("beta_mode", "static")).lower(),
         normalization_mode=str(hcfg.get("normalization_mode", "none")).lower(),
-        formula_mode=str(hcfg.get("formula_mode", "current")).lower(),
-        cluster_role_strategy=str(hcfg.get("cluster_role_strategy", "current")).lower(),
+        feature_mode=str(hcfg.get("feature_mode", "paper")).lower(),
+        formula_mode=str(hcfg.get("formula_mode", "paper")).lower(),
+        cluster_role_strategy=str(hcfg.get("cluster_role_strategy", "intensity_order")).lower(),
         malicious_hard_gate_enabled=bool(hcfg.get("malicious_hard_gate_enabled", False)),
         malicious_hard_gate_threshold=float(hcfg.get("malicious_hard_gate_threshold", 0.9)),
         ddpg_security_penalty=float(hcfg.get("ddpg_security_penalty", 0.2)),
@@ -147,3 +152,4 @@ def _build_ddpg_agent(hcfg: dict, config: dict) -> DDPGBetaAgent:
         max_beta=float(dcfg.get("max_beta", 1.0)),
     )
     return DDPGBetaAgent(agent_cfg, seed=int(config.get("seed", 0)))
+
