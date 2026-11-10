@@ -294,7 +294,6 @@ class FederatedExperiment:
                     validation_loss=root_validation["loss"],
                     validation_accuracy=root_validation["accuracy"],
                     diagnostics=diagnostics,
-                    attack_success_rate=attack_success_rate,
                 )
                 if trace:
                     beta_trace_rows.append({key: value for key, value in trace.items() if key != "state_vector"})

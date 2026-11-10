@@ -77,3 +77,67 @@ def test_ddpg_rejects_silent_state_truncation() -> None:
     with pytest.raises(ValueError, match="state_dim=39"):
         agent.select_beta(np.zeros(24, dtype=float), train=False)
 
+
+class _RecordingAgent:
+    def __init__(self) -> None:
+        self.rewards: list[float] = []
+
+    def observe(self, reward: float, next_state: np.ndarray) -> dict:
+        assert next_state.shape == (39,)
+        self.rewards.append(float(reward))
+        return {"replay_size": len(self.rewards)}
+
+
+def test_ddpg_reward_uses_only_root_validation_and_aggregation_diagnostics() -> None:
+    agent = _RecordingAgent()
+    defense = HFedSAStatic(
+        HFedSAConfig(
+            beta_mode="ddpg",
+            ddpg_security_penalty=1.0,
+            ddpg_residual_penalty=0.0,
+            ddpg_smoothness_penalty=0.0,
+        ),
+        beta_agent=agent,
+    )
+    defense.last_beta_trace = {"beta_explore": 0.2, "previous_beta": 0.2}
+    diagnostics = [
+        {"weight": 0.4, "p_malicious": 0.75, "predicted_malicious": True},
+        {"weight": 0.6, "p_malicious": 0.0, "predicted_malicious": False},
+    ]
+
+    defense.observe_round(validation_loss=1.0, validation_accuracy=0.0, diagnostics=diagnostics)
+    trace = defense.observe_round(validation_loss=1.0, validation_accuracy=10.0, diagnostics=diagnostics)
+
+    assert agent.rewards == pytest.approx([0.0, -0.2])
+    assert trace["security_signal"] == pytest.approx(0.3)
+    assert trace["security_signal_source"] == "aggregation_diagnostics"
+    assert trace["predicted_malicious_mean_weight"] == pytest.approx(0.4)
+
+
+def test_ddpg_empty_predicted_malicious_set_is_finite() -> None:
+    agent = _RecordingAgent()
+    defense = HFedSAStatic(
+        HFedSAConfig(beta_mode="ddpg", ddpg_smoothness_penalty=0.0),
+        beta_agent=agent,
+    )
+    defense.last_beta_trace = {"beta_explore": 0.2, "previous_beta": 0.2}
+    diagnostics = [{"weight": 1.0, "p_malicious": 0.0, "predicted_malicious": False}]
+
+    defense.observe_round(validation_loss=1.0, validation_accuracy=0.0, diagnostics=diagnostics)
+    trace = defense.observe_round(validation_loss=1.0, validation_accuracy=0.0, diagnostics=diagnostics)
+
+    assert trace["predicted_malicious_mean_weight"] == 0.0
+    assert np.isfinite(trace["reward"])
+
+
+def test_small_round_fallback_reports_normalized_weights() -> None:
+    defense = HFedSAStatic(HFedSAConfig())
+    updates = [(7, _update([1.0, 2.0])), (9, _update([3.0, 4.0]))]
+
+    aggregated, diagnostics = defense.aggregate(updates, root_update=_update([1.0, 0.0]))
+
+    torch.testing.assert_close(aggregated["weight"], torch.tensor([2.0, 3.0]))
+    assert len(diagnostics) == 2
+    assert sum(float(item["weight"]) for item in diagnostics) == pytest.approx(1.0)
+    assert all(item["gmm_fallback_reason"] == "fewer_than_three_updates" for item in diagnostics)
+

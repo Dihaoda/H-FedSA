@@ -84,9 +84,28 @@ class HFedSAStatic:
         self.last_fallback_reason = None
         if root_update is None:
             raise ValueError("H-FedSA requires a trusted root update.")
+        if not updates:
+            raise ValueError("H-FedSA cannot aggregate an empty update list.")
         if len(updates) < 3:
             self.last_fallback_reason = "fewer_than_three_updates"
-            return average_updates([update for _, update in updates]), []
+            uniform_weight = 1.0 / len(updates)
+            diagnostics = [
+                {
+                    "client_id": client_id,
+                    "weight": uniform_weight,
+                    "p_benign": 1.0,
+                    "p_unseen": 0.0,
+                    "p_malicious": 0.0,
+                    "predicted_malicious": False,
+                    "risk_weighted_contribution": 0.0,
+                    "num_effective_clients": len(updates),
+                    "gmm_fallback": self.last_fallback_reason,
+                    "gmm_fallback_used": True,
+                    "gmm_fallback_reason": self.last_fallback_reason,
+                }
+                for client_id, _ in updates
+            ]
+            return average_updates([update for _, update in updates]), diagnostics
 
         root_flat = flatten_update(root_update)
         root_norm = torch.linalg.norm(root_flat).item()
@@ -288,7 +307,10 @@ class HFedSAStatic:
                 scale = clip_scale
         if np.isclose(scale, 1.0):
             return update, client_norm, 1.0, clipped
-        transformed = {name: tensor * scale for name, tensor in update.items()}
+        transformed = {
+            name: tensor * scale if torch.is_floating_point(tensor) else tensor.clone()
+            for name, tensor in update.items()
+        }
         return transformed, float(client_norm * scale), float(scale), clipped
 
     def _normalizes_to_root(self) -> bool:
@@ -343,7 +365,6 @@ class HFedSAStatic:
         validation_loss: float,
         validation_accuracy: float,
         diagnostics: list[dict],
-        attack_success_rate: float | str = "NA",
     ) -> dict:
         if self.config.beta_mode != "ddpg" or self.beta_agent is None:
             return {}
@@ -356,12 +377,23 @@ class HFedSAStatic:
             loss_improvement = 0.0
         else:
             loss_improvement = self._previous_validation_loss - float(validation_loss)
-            accuracy_improvement = (
-                float(validation_accuracy) - float(self._previous_validation_accuracy or validation_accuracy)
-            ) / 100.0
-            malicious_weight = np.mean(
-                [float(item["weight"]) for item in diagnostics if bool(item.get("predicted_malicious", False)) and item.get("weight") not in {"", "NA", None}]
-            ) if diagnostics else 0.0
+            previous_validation_accuracy = (
+                float(self._previous_validation_accuracy)
+                if self._previous_validation_accuracy is not None
+                else float(validation_accuracy)
+            )
+            accuracy_improvement = (float(validation_accuracy) - previous_validation_accuracy) / 100.0
+            predicted_malicious_weights = [
+                float(item["weight"])
+                for item in diagnostics
+                if bool(item.get("predicted_malicious", False))
+                and item.get("weight") not in {"", "NA", None}
+            ]
+            malicious_weight = (
+                float(np.mean(predicted_malicious_weights))
+                if predicted_malicious_weights
+                else 0.0
+            )
             malicious_residual = float(
                 sum(
                     float(item.get("weight", 0.0)) * float(item.get("p_malicious", 0.0))
@@ -383,14 +415,10 @@ class HFedSAStatic:
             beta = float(self.last_beta_trace.get("beta_explore", self.config.beta_explore))
             previous_beta = float(self.last_beta_trace.get("previous_beta", beta))
             smoothness_penalty = abs(beta - previous_beta)
-            if isinstance(attack_success_rate, (int, float, np.number)) and np.isfinite(float(attack_success_rate)):
-                attack_signal = float(attack_success_rate) / 100.0
-            else:
-                attack_signal = malicious_residual
             reward = float(
                 loss_improvement
                 + accuracy_improvement
-                - self.config.ddpg_security_penalty * attack_signal
+                - self.config.ddpg_security_penalty * malicious_residual
                 - self.config.ddpg_residual_penalty * malicious_residual
                 - self.config.ddpg_aggregated_norm_penalty * aggregated_norm_spike
                 - self.config.ddpg_smoothness_penalty * smoothness_penalty
@@ -408,6 +436,8 @@ class HFedSAStatic:
                 "replay_size": train_info.get("replay_size", "NA"),
                 "predicted_malicious_mean_weight": malicious_weight,
                 "malicious_weighted_contribution": malicious_residual,
+                "security_signal": malicious_residual,
+                "security_signal_source": "aggregation_diagnostics",
                 "aggregated_update_norm": aggregated_update_norm,
                 "aggregated_norm_spike": aggregated_norm_spike,
                 "validation_loss": float(validation_loss),
