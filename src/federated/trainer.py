@@ -23,6 +23,50 @@ from src.federated.tensor_ops import StateDict, add_update, flatten_update, zero
 from src.models.simple_cnn import build_model
 
 
+def sample_participating_clients(
+    rng: np.random.Generator,
+    num_clients: int,
+    clients_per_round: int,
+    malicious_clients: set[int],
+    unseen_clients: set[int],
+    mode: str = "stratified",
+) -> list[int]:
+    """Sample a round while preserving the configured client-role proportions."""
+    clients_per_round = min(max(int(clients_per_round), 1), int(num_clients))
+    all_clients = set(range(int(num_clients)))
+    if mode.lower() not in {"stratified", "paper"}:
+        return [int(value) for value in rng.choice(num_clients, size=clients_per_round, replace=False).tolist()]
+
+    malicious_pool = sorted(all_clients & set(malicious_clients))
+    unseen_pool = sorted((all_clients & set(unseen_clients)) - set(malicious_pool))
+    benign_pool = sorted(all_clients - set(malicious_pool) - set(unseen_pool))
+
+    def proportional_count(pool: list[int]) -> int:
+        return int(np.floor(clients_per_round * len(pool) / max(num_clients, 1) + 0.5))
+
+    malicious_count = min(proportional_count(malicious_pool), len(malicious_pool))
+    unseen_count = min(proportional_count(unseen_pool), len(unseen_pool))
+    if malicious_count + unseen_count > clients_per_round:
+        unseen_count = max(0, clients_per_round - malicious_count)
+    benign_count = min(clients_per_round - malicious_count - unseen_count, len(benign_pool))
+
+    selected: list[int] = []
+    for pool, count in (
+        (malicious_pool, malicious_count),
+        (unseen_pool, unseen_count),
+        (benign_pool, benign_count),
+    ):
+        if count:
+            selected.extend(int(value) for value in rng.choice(pool, size=count, replace=False).tolist())
+
+    remaining = clients_per_round - len(selected)
+    if remaining:
+        candidates = sorted(all_clients - set(selected))
+        selected.extend(int(value) for value in rng.choice(candidates, size=remaining, replace=False).tolist())
+    rng.shuffle(selected)
+    return selected
+
+
 class FederatedExperiment:
     def __init__(self, config: dict, fed_data: FederatedData, logger) -> None:
         self.config = config
@@ -127,7 +171,14 @@ class FederatedExperiment:
 
         for round_idx in range(rounds):
             learning_rate = self._learning_rate_for_round(base_learning_rate, round_idx + 1, rounds)
-            selected_ids = rng.choice(len(clients), size=clients_per_round, replace=False).tolist()
+            selected_ids = sample_participating_clients(
+                rng=rng,
+                num_clients=len(clients),
+                clients_per_round=clients_per_round,
+                malicious_clients=self.fed_data.malicious_clients,
+                unseen_clients=self.fed_data.unseen_clients,
+                mode=str(fed_cfg.get("participant_role_sampling", "stratified")),
+            )
             selected_updates = []
             for client_id in selected_ids:
                 client = clients[client_id]
