@@ -79,6 +79,15 @@ defense to RFA, with the geometric-median solver fixed at `max_iter=20`,
 configuration and run summary for every seed are archived under
 `artifacts/experiment-evidence/2026-11-11/cifar10_iid_clean_rfa/`.
 
+`cifar10_iid_clean_safefl_signguard.yaml` reuses the same protocol and fixes
+the public SafeFL-compatible SignGuard profile to a 10% deterministic
+sign-coordinate sample and median-norm bounds `[0.1, 3.0]`. Its five-seed
+formal result is `15.430 +/- 0.202%` error versus the paper's SafeFL column
+`15.3 +/- 0.3%`. The compatibility qualifier is required because the H-FedSA
+paper does not identify which SafeFL rule generated its column. Per-seed
+resolved configurations and summaries are archived under
+`artifacts/experiment-evidence/2026-11-11/cifar10_iid_clean_safefl_signguard/`.
+
 Validate the configuration without starting training:
 
 ```bash

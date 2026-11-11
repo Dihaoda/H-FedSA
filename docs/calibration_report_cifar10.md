@@ -52,6 +52,19 @@ best checkpoints, were aggregated. The dedicated manifest and portable result
 are `configs/paper/cifar10_iid_clean_rfa.yaml` and
 `results/published/cifar10_iid_clean_rfa_5seeds.json`.
 
+## Completed formal SafeFL-compatible SignGuard anchor
+
+The public SafeFL SignGuard profile was run under the same frozen clean
+protocol with a 10% deterministic sign-coordinate sample and median-norm
+bounds `[0.1, 3.0]`. Across the five preregistered seeds, the measured final
+error was `15.430 +/- 0.202%`, a mean gap of `+0.130` percentage points from
+the H-FedSA paper's SafeFL target `15.3 +/- 0.3%`. All runs completed 250
+rounds on real data with final-round aggregation. Because the paper does not
+name its selected SafeFL rule, the result remains labeled SafeFL-compatible
+SignGuard. The manifest and result are
+`configs/paper/cifar10_iid_clean_safefl_signguard.yaml` and
+`results/published/cifar10_iid_clean_safefl_signguard_5seeds.json`.
+
 ## Completed clean candidates
 
 | Candidate | Final accuracy | Final error | Gap to 15.0 | Decision |

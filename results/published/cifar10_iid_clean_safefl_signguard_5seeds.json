@@ -1,0 +1,140 @@
+{
+  "dataset": "cifar10",
+  "attack_type": "no_attack",
+  "method": "safefl",
+  "run_count": 5,
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "rounds": [
+    250,
+    250,
+    250,
+    250,
+    250
+  ],
+  "error_rate": {
+    "count": 5,
+    "mean": 15.430000000000001,
+    "sample_std": 0.20186629238186257,
+    "min": 15.230000000000004,
+    "max": 15.719999999999999
+  },
+  "accuracy": {
+    "count": 5,
+    "mean": 84.57,
+    "sample_std": 0.20186629238186257,
+    "min": 84.28,
+    "max": 84.77
+  },
+  "attack_success_rate": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_tpr": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_fpr": {
+    "count": 5,
+    "mean": 0.2,
+    "sample_std": 0.4472135954999579,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "detection_overall_fpr": {
+    "count": 5,
+    "mean": 0.36,
+    "sample_std": 0.05477225575051663,
+    "min": 0.3,
+    "max": 0.4
+  },
+  "metrics_paths": [
+    "results/formal/cifar10_iid_clean/safefl_signguard/seed2026/paper_cifar10_iid_clean_safefl_signguard_seed2026_20261111_125003_771909/metrics.csv",
+    "results/formal/cifar10_iid_clean/safefl_signguard/seed2027/paper_cifar10_iid_clean_safefl_signguard_seed2027_20261111_125004_277357/metrics.csv",
+    "results/formal/cifar10_iid_clean/safefl_signguard/seed2028/paper_cifar10_iid_clean_safefl_signguard_seed2028_20261111_125004_239694/metrics.csv",
+    "results/formal/cifar10_iid_clean/safefl_signguard/seed2029/paper_cifar10_iid_clean_safefl_signguard_seed2029_20261111_125005_321028/metrics.csv",
+    "results/formal/cifar10_iid_clean/safefl_signguard/seed2030/paper_cifar10_iid_clean_safefl_signguard_seed2030_20261111_125004_288786/metrics.csv"
+  ],
+  "run_provenance": [
+    {
+      "seed": 2026,
+      "metrics_path": "results/formal/cifar10_iid_clean/safefl_signguard/seed2026/paper_cifar10_iid_clean_safefl_signguard_seed2026_20261111_125003_771909/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_safefl_signguard.yaml",
+      "config_sha256": "62d1c89a9ccd9b06333c9f89a43d207f5fc3d5e7ec3bce9cfae59b314e3e7b2d",
+      "declared_source_revision": "8ce8962d2139392121a3f7b2b99654d8329a4c2e",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2027,
+      "metrics_path": "results/formal/cifar10_iid_clean/safefl_signguard/seed2027/paper_cifar10_iid_clean_safefl_signguard_seed2027_20261111_125004_277357/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_safefl_signguard.yaml",
+      "config_sha256": "087944c68c2e3993a48f98b4bc91e6fd44e0ce97bf6c212bdc9042ba304aff50",
+      "declared_source_revision": "8ce8962d2139392121a3f7b2b99654d8329a4c2e",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2028,
+      "metrics_path": "results/formal/cifar10_iid_clean/safefl_signguard/seed2028/paper_cifar10_iid_clean_safefl_signguard_seed2028_20261111_125004_239694/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_safefl_signguard.yaml",
+      "config_sha256": "4943a1ee0165721e395c050cfdb5739106d1bfeeff148aa143727fbfbe48c3c1",
+      "declared_source_revision": "8ce8962d2139392121a3f7b2b99654d8329a4c2e",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2029,
+      "metrics_path": "results/formal/cifar10_iid_clean/safefl_signguard/seed2029/paper_cifar10_iid_clean_safefl_signguard_seed2029_20261111_125005_321028/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_safefl_signguard.yaml",
+      "config_sha256": "1172671dd306ec29034c756cefce12fcb877a8d1fc275534ca8f966c9bdae477",
+      "declared_source_revision": "8ce8962d2139392121a3f7b2b99654d8329a4c2e",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2030,
+      "metrics_path": "results/formal/cifar10_iid_clean/safefl_signguard/seed2030/paper_cifar10_iid_clean_safefl_signguard_seed2030_20261111_125004_288786/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_safefl_signguard.yaml",
+      "config_sha256": "2511241c71563d8314b1fd056e4be44be9b583e66abe9c6c2e477d58068e4954",
+      "declared_source_revision": "8ce8962d2139392121a3f7b2b99654d8329a4c2e",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    }
+  ],
+  "required_runs": 5,
+  "complete": true,
+  "paper_target": {
+    "error_mean": 15.3,
+    "error_std": 0.3
+  },
+  "error_mean_gap": 0.13000000000000078,
+  "asr_mean_gap": null
+}
+

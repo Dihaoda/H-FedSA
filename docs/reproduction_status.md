@@ -18,7 +18,7 @@ has been reproduced.
 | GTSRB + CTSDB/GTSDB | Implemented and unit-tested | Requires an explicit semantic label map; real-data smoke pending |
 | Stanford Cars + CompCars | Implemented and unit-tested | Requires a curated make/model label map; real-data smoke pending |
 | FedAvg, FLTrust, RFA | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed for all three methods |
-| SafeFL-compatible SignGuard, MSGuard | Implemented and smoke-tested | SafeFL rule ambiguity and MSGuard artifact limitations are documented |
+| SafeFL-compatible SignGuard, MSGuard | Implemented; SignGuard profile formally measured | Clean CIFAR-10 IID SignGuard five-seed result completed; SafeFL rule ambiguity and MSGuard artifact limitations remain documented |
 | Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID H-FedSA scaling formally measured | Five fixed-seed result: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR |
 | Krum-targeted, Trim-targeted, PoiSAFL | Implemented and smoke-tested | PoiSAFL is an explicitly documented synchronous adaptation |
 | Full paper tables | Pending | No smoke or synthetic output is accepted as a measured paper result |
@@ -57,4 +57,13 @@ II(d)'s `15.2 +/- 0.3%`. All five runs used the same preregistered RFA settings
 (`max_iter=20`, `tol=1e-5`, `eps=1e-8`) in
 `configs/paper/cifar10_iid_clean_rfa.yaml`; no best-checkpoint or per-seed
 selection was used.
+
+The completed clean SafeFL-compatible SignGuard summary is
+`results/published/cifar10_iid_clean_safefl_signguard_5seeds.json`. Its
+five-seed error is `15.430 +/- 0.202%`, a mean gap of `+0.130` percentage
+points from the H-FedSA paper's SafeFL column (`15.3 +/- 0.3%`). The manifest
+fixes the public SignGuard profile at a 10% sign-coordinate sample and norm
+bounds `[0.1, 3.0]`. Because the H-FedSA paper does not identify which SafeFL
+rule produced its column, this result is explicitly reported as compatible,
+not as bit-for-bit reproduction of an unspecified rule.
 
