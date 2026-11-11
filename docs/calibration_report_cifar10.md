@@ -202,8 +202,20 @@ collapse. The compact measured evidence is published at
 `results/published/cifar10_iid_clean_hfedsa_attack_presence_calibration_seed31415.json`.
 The frozen five-seed manifest is `configs/paper/cifar10_iid_clean_hfedsa_ddpg.yaml`.
 
+## Completed formal H-FedSA clean result
+
+The frozen candidate was run on all preregistered seeds (`2026` through `2030`)
+without per-seed changes. Final errors were `15.02%`, `15.24%`, `14.94%`,
+`15.47%`, and `14.80%`, producing `15.094 +/- 0.264%`. The mean is `-0.606`
+percentage points below the Table II(d) target. Although this is better clean
+accuracy, it is not numerically inside the paper's `15.7 +/- 0.2%` interval;
+the measured value is retained without post-hoc degradation. All 1,250 rounds
+triggered the registered no-attack path, with a maximum observed ratio of
+`1.2587` and no diagnostic alerts. The aggregate, gate audit, and per-seed
+resolved configurations are published in the repository.
+
 ## Remaining reproduction gap
 
-- run the frozen H-FedSA clean candidate on seeds `2026` through `2030` and
-  report the final-round mean and sample standard deviation.
+- calibrate the H-FedSA label-flipping condition on the independent seed
+  `31415`, then run the unchanged candidate on the five preregistered seeds.
 

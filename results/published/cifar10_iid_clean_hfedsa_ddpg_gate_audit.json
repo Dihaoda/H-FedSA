@@ -1,0 +1,42 @@
+{
+  "candidate_id": "hfedsa_attack_presence_ratio3_uniform_raw",
+  "threshold": 3.0,
+  "total_rounds": 1250,
+  "triggered_rounds": 1250,
+  "attack_present_rounds": 0,
+  "gmm_fallbacks": 0,
+  "diagnostic_alert_rounds": 0,
+  "runs": [
+    {
+      "seed": 2026,
+      "ratio_min": 1.0008867016961633,
+      "ratio_median": 1.0393735297541362,
+      "ratio_max": 1.2336207780927333
+    },
+    {
+      "seed": 2027,
+      "ratio_min": 1.0000067840550289,
+      "ratio_median": 1.0470391004085469,
+      "ratio_max": 1.1830880429956654
+    },
+    {
+      "seed": 2028,
+      "ratio_min": 1.000120796161576,
+      "ratio_median": 1.0446942438994224,
+      "ratio_max": 1.1848885098838349
+    },
+    {
+      "seed": 2029,
+      "ratio_min": 1.000089305139116,
+      "ratio_median": 1.042702069782445,
+      "ratio_max": 1.2587192917127445
+    },
+    {
+      "seed": 2030,
+      "ratio_min": 1.001215988273605,
+      "ratio_median": 1.0386799460545202,
+      "ratio_max": 1.1800937478077462
+    }
+  ]
+}
+

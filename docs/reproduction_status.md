@@ -7,7 +7,7 @@ has been reproduced.
 | Area | Status | Notes |
 | --- | --- | --- |
 | Core federated trainer | Implemented and smoke-tested | Real CIFAR-10 run verified on an NVIDIA A100 |
-| Paper H-FedSA features and weight formula | Implemented and unit-tested | Direction, intensity, normalized sparsity, and probabilistic weight |
+| Paper H-FedSA features and weight formula | Implemented, unit-tested, and clean-formally measured | Direction, intensity, normalized sparsity, probabilistic weight, and opt-in no-attack presence gate |
 | Three-component GMM | Implemented and unit-tested | Full covariance is the paper-manifest default |
 | DDPG exploration control | Implemented and smoke-tested | 39-dimensional state; reward uses trusted-root validation and aggregation-internal security signals, never test accuracy or ASR |
 | Client-role sampling | Implemented and unit-tested | Preserves malicious/unseen ratios in small rounds |
@@ -42,6 +42,15 @@ The completed H-FedSA-DDPG scaling summary is
 differs from Table II(d) by `+0.276` percentage points, inside the paper's
 reported ASR standard deviation; its error mean differs by `+0.570` points and
 is therefore recorded as a remaining reproduction gap.
+
+The completed clean H-FedSA-DDPG summary is
+`results/published/cifar10_iid_clean_hfedsa_ddpg_5seeds.json`. Its five-seed
+error is `15.094 +/- 0.264%`, a mean gap of `-0.606` percentage points from
+Table II(d)'s `15.7 +/- 0.2%`. The independently calibrated no-attack gate used
+the frozen intensity-ratio threshold `3.0`; it triggered in all 1,250 formal
+rounds, whose largest observed ratio was `1.2587`. The result is better than the
+paper mean but outside its one-standard-deviation interval, so the numerical gap
+is reported rather than hidden by post-hoc degradation.
 
 The completed clean FLTrust summary is
 `results/published/cifar10_iid_clean_fltrust_5seeds.json`. Its five-seed error

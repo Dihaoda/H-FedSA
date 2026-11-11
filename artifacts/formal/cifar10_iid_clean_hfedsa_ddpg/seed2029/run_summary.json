@@ -1,0 +1,436 @@
+{
+  "experiment_name": "paper_cifar10_iid_clean_hfedsa_ddpg",
+  "config_path": "configs/paper/cifar10_iid_clean_hfedsa_ddpg.yaml",
+  "output_dir": "results/formal/cifar10_iid_clean/hfedsa_ddpg/seed2029/paper_cifar10_iid_clean_hfedsa_ddpg_seed2029_20261111_163727_165655",
+  "dataset": "cifar10",
+  "dataset_source": "real",
+  "synthetic": false,
+  "iid": true,
+  "partition_summary": {
+    "partition_method": "iid_balanced",
+    "iid": true,
+    "non_iid_alpha": "NA",
+    "min_client_samples": 1,
+    "empty_clients": [],
+    "min_client_samples_observed": 490,
+    "max_client_samples_observed": 500
+  },
+  "malicious_client_ids": [],
+  "unseen_client_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "unseen_shift_type": "cifar10_c",
+  "attack_type": "no_attack",
+  "malicious_ratio": 0.0,
+  "scaling_factor": 1.0,
+  "seed": 2029,
+  "rounds": 250,
+  "local_epochs": 5,
+  "server_optimizer": "fedavg",
+  "server_lr": 1.0,
+  "aggregation_weighting": "sample_count",
+  "reporting": {
+    "run_class": "formal_measured",
+    "checkpoint_every": 10,
+    "paper_attack_key": "no_attack",
+    "paper_method_key": "hfedsa",
+    "paper_target_file": "configs/paper/targets/table_ii_cifar10_iid.yaml",
+    "preregistered_seeds": [
+      2026,
+      2027,
+      2028,
+      2029,
+      2030
+    ],
+    "selection_rule": "final_round_only",
+    "candidate_id": "hfedsa_attack_presence_ratio3_uniform_raw",
+    "calibration_evidence": "results/published/cifar10_iid_clean_hfedsa_attack_presence_calibration_seed31415.json"
+  },
+  "provenance": {
+    "config_sha256": "24480d370479e859ebce9d954b30315f486f76e2ad88b268bde94e5beafbc5f8",
+    "python": "3.12.3",
+    "platform": "Linux-5.15.0-86-generic-x86_64-with-glibc2.35",
+    "torch": "2.8.0+cu128",
+    "cuda_runtime": "12.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "declared_source_revision": "fd738bc6fb835a28a8fd698aa8f11dce55d895b7",
+    "git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+    "git_dirty": true
+  },
+  "cli_overrides": [
+    {
+      "arg": "--output_dir",
+      "path": "output_dir",
+      "old": "results/formal/cifar10_iid_clean/hfedsa_ddpg",
+      "new": "results/formal/cifar10_iid_clean/hfedsa_ddpg/seed2029"
+    },
+    {
+      "arg": "--seed",
+      "path": "seed",
+      "old": 2026,
+      "new": 2029
+    }
+  ],
+  "final_config": {
+    "experiment_name": "paper_cifar10_iid_clean_hfedsa_ddpg",
+    "seed": 2029,
+    "device": "auto",
+    "dataset": {
+      "name": "cifar10",
+      "data_root": "data/cifar10",
+      "download": true,
+      "quick_dev": false,
+      "use_synthetic_fallback": false,
+      "augment_train": true,
+      "random_crop_padding": 4,
+      "train_eval_subset": 5000,
+      "num_classes": 10
+    },
+    "model": {
+      "name": "paper_cnn",
+      "conv_channels": [
+        64,
+        128
+      ],
+      "hidden_dim": 512,
+      "batchnorm": false,
+      "dropout": 0.25
+    },
+    "federated": {
+      "num_clients": 100,
+      "clients_per_round": 10,
+      "rounds": 250,
+      "local_epochs": 5,
+      "batch_size": 128,
+      "learning_rate": 0.05,
+      "momentum": 0.9,
+      "optimizer": "sgd",
+      "weight_decay": 0.0005,
+      "lr_schedule": {
+        "type": "cosine",
+        "min_lr": 0.0005
+      },
+      "server_optimizer": "fedavg",
+      "server_lr": 1.0,
+      "aggregation_weighting": "sample_count",
+      "malicious_ratio": 0.0,
+      "unseen_ratio": 0.1,
+      "unseen_data_fraction": 0.4,
+      "participant_role_sampling": "stratified",
+      "unseen_shift": {
+        "enabled": true,
+        "type": "cifar10_c",
+        "data_root": "data/cifar10-c-download",
+        "corruptions": [
+          "gaussian_noise",
+          "shot_noise"
+        ],
+        "severity": 3
+      },
+      "iid": true,
+      "root_size": 500,
+      "eval_every": 10
+    },
+    "hfedsa": {
+      "feature_mode": "paper",
+      "formula_mode": "paper",
+      "cluster_role_strategy": "intensity_order",
+      "role_confidence_mode": "hard",
+      "normalization_mode": "root_norm",
+      "normalize_update_to_root": true,
+      "gmm_covariance_type": "full",
+      "gmm_reg_covar": 1e-06,
+      "gmm_max_iter": 100,
+      "gmm_n_init": 3,
+      "gmm_random_state": 2026,
+      "beta_explore": 0.35,
+      "malicious_penalty": 0.8,
+      "detection_threshold": 0.5,
+      "ddpg_security_penalty": 0.2,
+      "ddpg_smoothness_penalty": 0.05,
+      "attack_presence_gate_enabled": true,
+      "attack_presence_intensity_ratio_threshold": 3.0,
+      "attack_absent_aggregation": "uniform_raw"
+    },
+    "hfedsa_ddpg": {
+      "beta_mode": "ddpg"
+    },
+    "ddpg": {
+      "state_dim": 39,
+      "hidden_dim": 64,
+      "actor_lr": 0.001,
+      "critic_lr": 0.001,
+      "gamma": 0.95,
+      "tau": 0.02,
+      "replay_capacity": 1000,
+      "batch_size": 16,
+      "exploration_noise": 0.05,
+      "min_beta": 0.0,
+      "max_beta": 1.0
+    },
+    "attack": {
+      "type": "no_attack",
+      "scale_factor": 1.0
+    },
+    "defenses": [
+      "hfedsa_ddpg"
+    ],
+    "performance": {
+      "mixed_precision": true,
+      "pin_memory": true,
+      "client_num_workers": 0,
+      "eval_num_workers": 2,
+      "persistent_workers": true
+    },
+    "diagnostics": {
+      "client_detail_every": 1
+    },
+    "reporting": {
+      "run_class": "formal_measured",
+      "checkpoint_every": 10,
+      "paper_attack_key": "no_attack",
+      "paper_method_key": "hfedsa",
+      "paper_target_file": "configs/paper/targets/table_ii_cifar10_iid.yaml",
+      "preregistered_seeds": [
+        2026,
+        2027,
+        2028,
+        2029,
+        2030
+      ],
+      "selection_rule": "final_round_only",
+      "candidate_id": "hfedsa_attack_presence_ratio3_uniform_raw",
+      "calibration_evidence": "results/published/cifar10_iid_clean_hfedsa_attack_presence_calibration_seed31415.json"
+    },
+    "output_dir": "results/formal/cifar10_iid_clean/hfedsa_ddpg/seed2029",
+    "log_dir": "logs",
+    "_config_path": "configs/paper/cifar10_iid_clean_hfedsa_ddpg.yaml",
+    "_cli_overrides": [
+      {
+        "arg": "--output_dir",
+        "path": "output_dir",
+        "old": "results/formal/cifar10_iid_clean/hfedsa_ddpg",
+        "new": "results/formal/cifar10_iid_clean/hfedsa_ddpg/seed2029"
+      },
+      {
+        "arg": "--seed",
+        "path": "seed",
+        "old": 2026,
+        "new": 2029
+      }
+    ]
+  },
+  "runtime_seconds": 3288.2918611122295,
+  "summaries": {
+    "hfedsa_ddpg": {
+      "final_accuracy": 84.53,
+      "final_error_rate": 15.469999999999999,
+      "best_accuracy": 84.64,
+      "final_attack_success_rate": "NA",
+      "attack_type": "no_attack",
+      "scaling_factor": 1.0,
+      "variant": "hfedsa_ddpg",
+      "normalization_mode": "root_norm",
+      "weight_ema_enabled": false,
+      "ddpg_enabled": true,
+      "beta_mode": "ddpg",
+      "beta_explore": 0.35,
+      "update_norm_clip_enabled": false,
+      "update_norm_clip_ratio": 1.0,
+      "retention_floor_enabled": false,
+      "retention_floor": 0.0,
+      "retention_mode": "global",
+      "retention_pmal_threshold": 0.3,
+      "retention_topk": 10,
+      "weight_bounds_enabled": false,
+      "min_weight": 0.0,
+      "max_weight": 1.0,
+      "malicious_hard_gate_enabled": false,
+      "malicious_hard_gate_threshold": 0.9,
+      "cluster_role_strategy": "intensity_order",
+      "role_confidence_mode": "hard",
+      "role_confidence_power": 1.0,
+      "ddpg_security_penalty": 0.2,
+      "ddpg_residual_penalty": 0.0,
+      "ddpg_aggregated_norm_penalty": 0.0,
+      "ddpg_beta_decay_enabled": false,
+      "runtime_seconds": 3288.2918611122295,
+      "config_path": "configs/paper/cifar10_iid_clean_hfedsa_ddpg.yaml",
+      "output_dir": "results/formal/cifar10_iid_clean/hfedsa_ddpg/seed2029/paper_cifar10_iid_clean_hfedsa_ddpg_seed2029_20261111_163727_165655",
+      "dataset_source": "real",
+      "cli_overrides": [
+        {
+          "arg": "--output_dir",
+          "path": "output_dir",
+          "old": "results/formal/cifar10_iid_clean/hfedsa_ddpg",
+          "new": "results/formal/cifar10_iid_clean/hfedsa_ddpg/seed2029"
+        },
+        {
+          "arg": "--seed",
+          "path": "seed",
+          "old": 2026,
+          "new": 2029
+        }
+      ],
+      "final_config": {
+        "experiment_name": "paper_cifar10_iid_clean_hfedsa_ddpg",
+        "seed": 2029,
+        "device": "auto",
+        "dataset": {
+          "name": "cifar10",
+          "data_root": "data/cifar10",
+          "download": true,
+          "quick_dev": false,
+          "use_synthetic_fallback": false,
+          "augment_train": true,
+          "random_crop_padding": 4,
+          "train_eval_subset": 5000,
+          "num_classes": 10
+        },
+        "model": {
+          "name": "paper_cnn",
+          "conv_channels": [
+            64,
+            128
+          ],
+          "hidden_dim": 512,
+          "batchnorm": false,
+          "dropout": 0.25
+        },
+        "federated": {
+          "num_clients": 100,
+          "clients_per_round": 10,
+          "rounds": 250,
+          "local_epochs": 5,
+          "batch_size": 128,
+          "learning_rate": 0.05,
+          "momentum": 0.9,
+          "optimizer": "sgd",
+          "weight_decay": 0.0005,
+          "lr_schedule": {
+            "type": "cosine",
+            "min_lr": 0.0005
+          },
+          "server_optimizer": "fedavg",
+          "server_lr": 1.0,
+          "aggregation_weighting": "sample_count",
+          "malicious_ratio": 0.0,
+          "unseen_ratio": 0.1,
+          "unseen_data_fraction": 0.4,
+          "participant_role_sampling": "stratified",
+          "unseen_shift": {
+            "enabled": true,
+            "type": "cifar10_c",
+            "data_root": "data/cifar10-c-download",
+            "corruptions": [
+              "gaussian_noise",
+              "shot_noise"
+            ],
+            "severity": 3
+          },
+          "iid": true,
+          "root_size": 500,
+          "eval_every": 10
+        },
+        "hfedsa": {
+          "feature_mode": "paper",
+          "formula_mode": "paper",
+          "cluster_role_strategy": "intensity_order",
+          "role_confidence_mode": "hard",
+          "normalization_mode": "root_norm",
+          "normalize_update_to_root": true,
+          "gmm_covariance_type": "full",
+          "gmm_reg_covar": 1e-06,
+          "gmm_max_iter": 100,
+          "gmm_n_init": 3,
+          "gmm_random_state": 2026,
+          "beta_explore": 0.35,
+          "malicious_penalty": 0.8,
+          "detection_threshold": 0.5,
+          "ddpg_security_penalty": 0.2,
+          "ddpg_smoothness_penalty": 0.05,
+          "attack_presence_gate_enabled": true,
+          "attack_presence_intensity_ratio_threshold": 3.0,
+          "attack_absent_aggregation": "uniform_raw"
+        },
+        "hfedsa_ddpg": {
+          "beta_mode": "ddpg"
+        },
+        "ddpg": {
+          "state_dim": 39,
+          "hidden_dim": 64,
+          "actor_lr": 0.001,
+          "critic_lr": 0.001,
+          "gamma": 0.95,
+          "tau": 0.02,
+          "replay_capacity": 1000,
+          "batch_size": 16,
+          "exploration_noise": 0.05,
+          "min_beta": 0.0,
+          "max_beta": 1.0
+        },
+        "attack": {
+          "type": "no_attack",
+          "scale_factor": 1.0
+        },
+        "defenses": [
+          "hfedsa_ddpg"
+        ],
+        "performance": {
+          "mixed_precision": true,
+          "pin_memory": true,
+          "client_num_workers": 0,
+          "eval_num_workers": 2,
+          "persistent_workers": true
+        },
+        "diagnostics": {
+          "client_detail_every": 1
+        },
+        "reporting": {
+          "run_class": "formal_measured",
+          "checkpoint_every": 10,
+          "paper_attack_key": "no_attack",
+          "paper_method_key": "hfedsa",
+          "paper_target_file": "configs/paper/targets/table_ii_cifar10_iid.yaml",
+          "preregistered_seeds": [
+            2026,
+            2027,
+            2028,
+            2029,
+            2030
+          ],
+          "selection_rule": "final_round_only",
+          "candidate_id": "hfedsa_attack_presence_ratio3_uniform_raw",
+          "calibration_evidence": "results/published/cifar10_iid_clean_hfedsa_attack_presence_calibration_seed31415.json"
+        },
+        "output_dir": "results/formal/cifar10_iid_clean/hfedsa_ddpg/seed2029",
+        "log_dir": "logs",
+        "_config_path": "configs/paper/cifar10_iid_clean_hfedsa_ddpg.yaml",
+        "_cli_overrides": [
+          {
+            "arg": "--output_dir",
+            "path": "output_dir",
+            "old": "results/formal/cifar10_iid_clean/hfedsa_ddpg",
+            "new": "results/formal/cifar10_iid_clean/hfedsa_ddpg/seed2029"
+          },
+          {
+            "arg": "--seed",
+            "path": "seed",
+            "old": 2026,
+            "new": 2029
+          }
+        ]
+      }
+    }
+  }
+}
