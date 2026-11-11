@@ -151,6 +151,21 @@ def parse_args() -> argparse.Namespace:
         help="Non-negative exponent applied to H-FedSA intensity-separation confidence.",
     )
     parser.add_argument(
+        "--attack_presence_gate_enabled",
+        type=parse_bool,
+        help="Enable or disable the label-free H-FedSA attack-presence gate.",
+    )
+    parser.add_argument(
+        "--attack_presence_intensity_ratio_threshold",
+        type=float,
+        help="High-to-middle GMM intensity ratio required to declare an attack present.",
+    )
+    parser.add_argument(
+        "--attack_absent_aggregation",
+        type=str,
+        help="H-FedSA aggregation used when the gate finds no attack: paper or uniform_raw.",
+    )
+    parser.add_argument(
         "--hfedsa_normalization_mode",
         type=str,
         help="H-FedSA update transformation: none, root_norm, clip, or root_norm_then_clip.",
@@ -201,6 +216,12 @@ def apply_cli_overrides(config: dict[str, Any], args: argparse.Namespace) -> tup
         ("ddpg_max_beta", ("ddpg", "max_beta")),
         ("role_confidence_mode", ("hfedsa", "role_confidence_mode")),
         ("role_confidence_power", ("hfedsa", "role_confidence_power")),
+        ("attack_presence_gate_enabled", ("hfedsa", "attack_presence_gate_enabled")),
+        (
+            "attack_presence_intensity_ratio_threshold",
+            ("hfedsa", "attack_presence_intensity_ratio_threshold"),
+        ),
+        ("attack_absent_aggregation", ("hfedsa", "attack_absent_aggregation")),
         ("hfedsa_normalization_mode", ("hfedsa", "normalization_mode")),
         ("normalize_update_to_root", ("hfedsa", "normalize_update_to_root")),
         ("model", ("model", "name")),
@@ -298,6 +319,20 @@ def validate_config(config: dict[str, Any]) -> list[str]:
         )
     if float(hfedsa_cfg.get("role_confidence_power", 1.0)) < 0.0:
         errors.append("hfedsa.role_confidence_power must be non-negative.")
+    attack_presence_threshold = float(
+        hfedsa_cfg.get("attack_presence_intensity_ratio_threshold", 3.0)
+    )
+    if attack_presence_threshold <= 1.0:
+        errors.append(
+            "hfedsa.attack_presence_intensity_ratio_threshold must be greater than 1."
+        )
+    attack_absent_aggregation = str(
+        hfedsa_cfg.get("attack_absent_aggregation", "paper")
+    ).lower()
+    if attack_absent_aggregation not in {"paper", "uniform_raw"}:
+        errors.append(
+            "hfedsa.attack_absent_aggregation must be one of paper/uniform_raw."
+        )
     normalization_mode = str(hfedsa_cfg.get("normalization_mode", "none")).lower()
     if normalization_mode not in {"none", "root_norm", "clip", "root_norm_then_clip"}:
         errors.append(

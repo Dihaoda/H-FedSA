@@ -168,8 +168,29 @@ before calibration was stopped. No clean H-FedSA candidate has therefore been
 promoted to formal results. This unresolved gap is retained explicitly rather
 than substituting a target value or selecting a favorable partial checkpoint.
 
+### Preregistered no-attack presence-gate candidate
+
+The paper-aligned implementation review confirmed that Algorithm 1 always
+labels the highest-intensity GMM component as malicious, but does not define a
+special case for an attack-free round. A new compatibility gate is therefore
+implemented as an opt-in extension; the default remains the paper algorithm.
+The gate uses only the current round's unlabeled GMM responsibilities and raw
+update intensities. If the high-to-middle component intensity ratio is below
+`3.0`, malicious posterior mass is released to the benign role and aggregation
+uses the uniform raw client-update mean for that round.
+
+The threshold was frozen before the new run. Recomputing the signal over the
+192-round seed-31415 strict clean diagnostic gave a range of `1.0005` to
+`1.9166` (median `1.0408`). The already completed five-seed scaling diagnostics
+gave a range of `16.9426` to `107.3388` (median `28.7068`). Thus `3.0` lies in a
+wide observed separation interval and does not depend on formal clean seeds.
+The complete pending configuration is
+`configs/calibration/cifar10_iid_clean_hfedsa_attack_presence_seed31415.yaml`;
+only final-round error is eligible for the calibration decision.
+
 ## Remaining reproduction gap
 
-- investigate the clean H-FedSA gap only if an additional implementation detail
-  or author-provided hyperparameter becomes available.
+- finish the preregistered seed-31415 no-attack presence-gate calibration; if it
+  satisfies its frozen decision rule, run the unchanged candidate on seeds
+  `2026` through `2030`.
 

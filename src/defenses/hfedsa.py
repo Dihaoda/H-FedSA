@@ -47,6 +47,9 @@ class HFedSAConfig:
     cluster_role_strategy: str = "intensity_order"
     role_confidence_mode: str = "hard"
     role_confidence_power: float = 1.0
+    attack_presence_gate_enabled: bool = False
+    attack_presence_intensity_ratio_threshold: float = 3.0
+    attack_absent_aggregation: str = "paper"
     malicious_hard_gate_enabled: bool = False
     malicious_hard_gate_threshold: float = 0.9
     ddpg_security_penalty: float = 0.2
@@ -75,6 +78,9 @@ class HFedSAStatic:
         self.last_gmm_variances = np.ones((3, 3), dtype=float)
         self.last_gmm_covariances = np.stack([np.eye(3, dtype=float) for _ in range(3)])
         self.last_malicious_role_confidence = 1.0
+        self.last_attack_presence_intensity_ratio = float("inf")
+        self.last_attack_present = True
+        self.last_attack_presence_gate_triggered = False
 
     def aggregate(
         self,
@@ -85,6 +91,9 @@ class HFedSAStatic:
     ) -> tuple[StateDict, list[dict]]:
         self.round_index += 1
         self.last_fallback_reason = None
+        self.last_attack_presence_intensity_ratio = float("inf")
+        self.last_attack_present = True
+        self.last_attack_presence_gate_triggered = False
         if root_update is None:
             raise ValueError("H-FedSA requires a trusted root update.")
         if not updates:
@@ -123,6 +132,10 @@ class HFedSAStatic:
         previous_beta = float(self.last_beta_trace.get("beta_explore", self.config.beta_explore)) if self.last_beta_trace else self.config.beta_explore
         beta_explore = self._current_beta_explore(state_vector)
         retention_topk_indices = self._retention_topk_indices(posteriors, role_indices)
+        attack_absent_passthrough = bool(
+            self.last_attack_presence_gate_triggered
+            and self.config.attack_absent_aggregation.lower() == "uniform_raw"
+        )
         self.last_beta_trace = {
             "round": self.round_index,
             "defense": self.name,
@@ -141,29 +154,43 @@ class HFedSAStatic:
             p_benign = float(posteriors[row_idx, role_indices["benign"]])
             p_unseen = float(posteriors[row_idx, role_indices["unseen"]])
             p_malicious = float(posteriors[row_idx, role_indices["malicious"]])
+            gmm_p_malicious = p_malicious
+            if self.last_attack_presence_gate_triggered:
+                p_benign += p_malicious
+                p_malicious = 0.0
             clipped_posteriors = self._clip_posteriors(np.asarray([p_benign, p_unseen, p_malicious], dtype=float))
             posterior_clipped = bool(not np.allclose(clipped_posteriors, np.asarray([p_benign, p_unseen, p_malicious], dtype=float)))
             p_benign, p_unseen, p_malicious = [float(value) for value in clipped_posteriors]
             cosine = float(cosines[row_idx])
-            raw_weight = self._raw_weight(cosine, p_benign, p_unseen, p_malicious, beta_explore)
-            bounded_weight, weight_clipped, retention_applied, effective_retention_floor = self._bound_weight(
-                raw_weight,
-                p_malicious=p_malicious,
-                topk_eligible=row_idx in retention_topk_indices,
-            )
-            ema_weight = "NA"
-            weight = bounded_weight
-            if self.config.weight_ema_enabled:
-                previous = self._ema_weights.get(int(client_id), bounded_weight)
-                weight = self.config.weight_ema_momentum * previous + (1.0 - self.config.weight_ema_momentum) * bounded_weight
-                self._ema_weights[int(client_id)] = weight
-                ema_weight = weight
-            hard_gated = bool(
-                self.config.malicious_hard_gate_enabled
-                and p_malicious >= self.config.malicious_hard_gate_threshold
-            )
-            if hard_gated:
-                weight = 0.0
+            if attack_absent_passthrough:
+                raw_weight = 1.0
+                bounded_weight = 1.0
+                weight_clipped = False
+                retention_applied = False
+                effective_retention_floor = 0.0
+                ema_weight = "NA"
+                weight = 1.0
+                hard_gated = False
+            else:
+                raw_weight = self._raw_weight(cosine, p_benign, p_unseen, p_malicious, beta_explore)
+                bounded_weight, weight_clipped, retention_applied, effective_retention_floor = self._bound_weight(
+                    raw_weight,
+                    p_malicious=p_malicious,
+                    topk_eligible=row_idx in retention_topk_indices,
+                )
+                ema_weight = "NA"
+                weight = bounded_weight
+                if self.config.weight_ema_enabled:
+                    previous = self._ema_weights.get(int(client_id), bounded_weight)
+                    weight = self.config.weight_ema_momentum * previous + (1.0 - self.config.weight_ema_momentum) * bounded_weight
+                    self._ema_weights[int(client_id)] = weight
+                    ema_weight = weight
+                hard_gated = bool(
+                    self.config.malicious_hard_gate_enabled
+                    and p_malicious >= self.config.malicious_hard_gate_threshold
+                )
+                if hard_gated:
+                    weight = 0.0
             diagnostics.append(
                 {
                     "client_id": client_id,
@@ -174,6 +201,7 @@ class HFedSAStatic:
                     "p_benign": p_benign,
                     "p_unseen": p_unseen,
                     "p_malicious": p_malicious,
+                    "gmm_p_malicious": gmm_p_malicious,
                     "direction": float(features[row_idx, 0]),
                     "intensity": float(features[row_idx, 1]),
                     "sparsity": float(features[row_idx, 2]),
@@ -193,11 +221,17 @@ class HFedSAStatic:
                     "beta_explore": beta_explore,
                 }
             )
-            transformed_update, transformed_update_norm, update_scale, update_clipped = self._transform_update_for_aggregation(
-                update,
-                float(norms[row_idx]),
-                root_norm,
-            )
+            if attack_absent_passthrough:
+                transformed_update = update
+                transformed_update_norm = float(norms[row_idx])
+                update_scale = 1.0
+                update_clipped = False
+            else:
+                transformed_update, transformed_update_norm, update_scale, update_clipped = self._transform_update_for_aggregation(
+                    update,
+                    float(norms[row_idx]),
+                    root_norm,
+                )
             diagnostics[-1]["transformed_update_norm"] = transformed_update_norm
             diagnostics[-1]["normalized_update_norm"] = transformed_update_norm
             diagnostics[-1]["raw_update_norm"] = float(norms[row_idx])
@@ -209,6 +243,13 @@ class HFedSAStatic:
             diagnostics[-1]["cluster_role_strategy"] = self.config.cluster_role_strategy
             diagnostics[-1]["role_confidence_mode"] = self.config.role_confidence_mode
             diagnostics[-1]["malicious_role_confidence"] = self.last_malicious_role_confidence
+            diagnostics[-1]["attack_presence_gate_enabled"] = self.config.attack_presence_gate_enabled
+            diagnostics[-1]["attack_presence_intensity_ratio"] = self.last_attack_presence_intensity_ratio
+            diagnostics[-1]["attack_presence_intensity_ratio_threshold"] = self.config.attack_presence_intensity_ratio_threshold
+            diagnostics[-1]["attack_present"] = self.last_attack_present
+            diagnostics[-1]["attack_presence_gate_triggered"] = self.last_attack_presence_gate_triggered
+            diagnostics[-1]["attack_absent_aggregation"] = self.config.attack_absent_aggregation
+            diagnostics[-1]["attack_absent_passthrough"] = attack_absent_passthrough
             diagnostics[-1]["malicious_hard_gate_enabled"] = self.config.malicious_hard_gate_enabled
             diagnostics[-1]["malicious_hard_gate_threshold"] = self.config.malicious_hard_gate_threshold
             diagnostics[-1]["retention_floor_enabled"] = self.config.retention_floor_enabled
@@ -549,6 +590,12 @@ class HFedSAStatic:
             malicious_cluster = int(np.argmax(centers[:, 0]))
         unseen_candidates = [idx for idx in range(3) if idx not in {benign_cluster, malicious_cluster}]
         unseen_cluster = unseen_candidates[0] if unseen_candidates else int(np.argmax(centers[:, 1]))
+        self._update_attack_presence(
+            features,
+            raw_posteriors,
+            benign_cluster=benign_cluster,
+            malicious_cluster=malicious_cluster,
+        )
 
         posteriors = np.zeros_like(raw_posteriors)
         posteriors[:, 0] = raw_posteriors[:, benign_cluster]
@@ -562,6 +609,45 @@ class HFedSAStatic:
             malicious_cluster=malicious_cluster,
         )
         return posteriors, {"benign": 0, "unseen": 1, "malicious": 2}
+
+    def _update_attack_presence(
+        self,
+        features: np.ndarray,
+        responsibilities: np.ndarray,
+        *,
+        benign_cluster: int,
+        malicious_cluster: int,
+    ) -> None:
+        """Record a label-free high/middle intensity separation signal.
+
+        Algorithm 1 always assigns the highest-intensity GMM component to the
+        malicious role.  In an attack-free round, however, a three-component
+        GMM still has a highest component.  The optional gate treats weak
+        separation as evidence that the malicious role is absent.  It is
+        disabled by default so the paper algorithm remains the default.
+        """
+
+        intensities = np.asarray(features[:, 1], dtype=float)
+        responsibilities = np.asarray(responsibilities, dtype=float)
+
+        def weighted_intensity(component: int) -> float:
+            weights = responsibilities[:, component]
+            mass = float(weights.sum())
+            if mass <= 1e-12:
+                return 0.0
+            return float(np.dot(weights, intensities) / mass)
+
+        benign_intensity = weighted_intensity(benign_cluster)
+        malicious_intensity = weighted_intensity(malicious_cluster)
+        ratio = malicious_intensity / max(abs(benign_intensity), 1e-12)
+        self.last_attack_presence_intensity_ratio = float(ratio)
+        self.last_attack_present = bool(
+            not self.config.attack_presence_gate_enabled
+            or ratio >= self.config.attack_presence_intensity_ratio_threshold
+        )
+        self.last_attack_presence_gate_triggered = bool(
+            self.config.attack_presence_gate_enabled and not self.last_attack_present
+        )
 
     def _apply_role_confidence(
         self,

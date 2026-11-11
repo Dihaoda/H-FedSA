@@ -101,6 +101,76 @@ def test_hard_role_confidence_preserves_paper_posteriors() -> None:
     assert defense.last_malicious_role_confidence == 1.0
 
 
+def test_attack_presence_gate_separates_weak_and_strong_intensity_gaps() -> None:
+    defense = HFedSAStatic(
+        HFedSAConfig(
+            attack_presence_gate_enabled=True,
+            attack_presence_intensity_ratio_threshold=3.0,
+        )
+    )
+    responsibilities = np.eye(3, dtype=float)
+
+    defense._update_attack_presence(
+        np.asarray([[0.8, 1.0, 0.8], [0.2, 0.5, 0.7], [-0.2, 1.2, 0.2]]),
+        responsibilities,
+        benign_cluster=0,
+        malicious_cluster=2,
+    )
+    assert defense.last_attack_presence_intensity_ratio == pytest.approx(1.2)
+    assert not defense.last_attack_present
+    assert defense.last_attack_presence_gate_triggered
+
+    defense._update_attack_presence(
+        np.asarray([[0.8, 1.0, 0.8], [0.2, 0.5, 0.7], [-0.2, 12.0, 0.2]]),
+        responsibilities,
+        benign_cluster=0,
+        malicious_cluster=2,
+    )
+    assert defense.last_attack_presence_intensity_ratio == pytest.approx(12.0)
+    assert defense.last_attack_present
+    assert not defense.last_attack_presence_gate_triggered
+
+
+def test_attack_absent_uniform_raw_bypasses_paper_weighting_and_root_normalization() -> None:
+    defense = HFedSAStatic(
+        HFedSAConfig(
+            attack_presence_gate_enabled=True,
+            attack_absent_aggregation="uniform_raw",
+            normalize_update_to_root=True,
+        )
+    )
+    posteriors = np.asarray(
+        [
+            [0.9, 0.05, 0.05],
+            [0.05, 0.9, 0.05],
+            [0.05, 0.05, 0.9],
+        ],
+        dtype=float,
+    )
+
+    def attack_absent_gmm(_features):
+        defense.last_attack_presence_intensity_ratio = 1.2
+        defense.last_attack_present = False
+        defense.last_attack_presence_gate_triggered = True
+        return posteriors, {"benign": 0, "unseen": 1, "malicious": 2}
+
+    defense._fit_gmm = attack_absent_gmm
+    updates = [
+        (0, _update([1.0, 0.0])),
+        (1, _update([3.0, 0.0])),
+        (2, _update([5.0, 0.0])),
+    ]
+
+    aggregated, diagnostics = defense.aggregate(updates, root_update=_update([0.1, 0.0]))
+
+    torch.testing.assert_close(aggregated["weight"], torch.tensor([3.0, 0.0]))
+    assert [item["weight"] for item in diagnostics] == pytest.approx([1.0 / 3.0] * 3)
+    assert all(item["p_malicious"] == 0.0 for item in diagnostics)
+    assert diagnostics[2]["gmm_p_malicious"] == pytest.approx(0.9)
+    assert all(item["attack_absent_passthrough"] for item in diagnostics)
+    assert all(item["update_scale"] == 1.0 for item in diagnostics)
+
+
 def test_paper_ddpg_state_has_expected_statistics() -> None:
     defense = HFedSAStatic(HFedSAConfig(beta_mode="ddpg"))
     defense.last_gmm_means = np.arange(9, dtype=float).reshape(3, 3)

@@ -140,6 +140,11 @@ def _build_hfedsa_config(hcfg: dict) -> HFedSAConfig:
         cluster_role_strategy=str(hcfg.get("cluster_role_strategy", "intensity_order")).lower(),
         role_confidence_mode=str(hcfg.get("role_confidence_mode", "hard")).lower(),
         role_confidence_power=float(hcfg.get("role_confidence_power", 1.0)),
+        attack_presence_gate_enabled=bool(hcfg.get("attack_presence_gate_enabled", False)),
+        attack_presence_intensity_ratio_threshold=float(
+            hcfg.get("attack_presence_intensity_ratio_threshold", 3.0)
+        ),
+        attack_absent_aggregation=str(hcfg.get("attack_absent_aggregation", "paper")).lower(),
         malicious_hard_gate_enabled=bool(hcfg.get("malicious_hard_gate_enabled", False)),
         malicious_hard_gate_threshold=float(hcfg.get("malicious_hard_gate_threshold", 0.9)),
         ddpg_security_penalty=float(hcfg.get("ddpg_security_penalty", 0.2)),

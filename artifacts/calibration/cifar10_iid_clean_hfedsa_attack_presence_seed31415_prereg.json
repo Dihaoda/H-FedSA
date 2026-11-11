@@ -1,0 +1,33 @@
+{
+  "status": "preregistered_pending_run",
+  "candidate_id": "hfedsa_attack_presence_ratio3_uniform_raw",
+  "config": "configs/calibration/cifar10_iid_clean_hfedsa_attack_presence_seed31415.yaml",
+  "calibration_seed": 31415,
+  "selection_metric": "final_round_test_error_percent",
+  "checkpoint_selection": "none",
+  "paper_target": {
+    "dataset": "CIFAR-10 IID",
+    "condition": "No Attack",
+    "defense": "H-FedSA",
+    "error_mean_percent": 15.7,
+    "error_std_percent": 0.2
+  },
+  "gate": {
+    "signal": "gmm_high_intensity_component_mean / gmm_middle_intensity_component_mean",
+    "threshold": 3.0,
+    "attack_absent_aggregation": "uniform_raw",
+    "paper_algorithm_remains_default": true
+  },
+  "threshold_evidence": {
+    "clean_seed31415_rounds": 192,
+    "clean_ratio_min": 1.0005293046147565,
+    "clean_ratio_median": 1.040832012667276,
+    "clean_ratio_max": 1.9165666574319244,
+    "scaling_formal_round_diagnostic_files": 75,
+    "scaling_ratio_min": 16.942637229920955,
+    "scaling_ratio_median": 28.70676891707779,
+    "scaling_ratio_max": 107.33876278983283
+  },
+  "decision_rule": "Promote the frozen candidate to the five preregistered formal seeds only if the seed-31415 final error is inside 15.7 +/- 0.2 percentage points and every clean diagnostic round remains below the registered threshold."
+}
+

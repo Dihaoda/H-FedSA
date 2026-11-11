@@ -164,6 +164,51 @@ def test_cli_can_set_hfedsa_role_confidence_for_calibration() -> None:
     assert validate_config(updated) == []
 
 
+def test_cli_can_set_hfedsa_attack_presence_gate_for_calibration() -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["defense"] = "hfedsa_ddpg"
+    args = argparse.Namespace(
+        attack_presence_gate_enabled=True,
+        attack_presence_intensity_ratio_threshold=3.0,
+        attack_absent_aggregation="uniform_raw",
+    )
+
+    updated, overrides = apply_cli_overrides(config, args)
+
+    assert updated["hfedsa"]["attack_presence_gate_enabled"] is True
+    assert updated["hfedsa"]["attack_presence_intensity_ratio_threshold"] == 3.0
+    assert updated["hfedsa"]["attack_absent_aggregation"] == "uniform_raw"
+    assert [item["path"] for item in overrides] == [
+        "hfedsa.attack_presence_gate_enabled",
+        "hfedsa.attack_presence_intensity_ratio_threshold",
+        "hfedsa.attack_absent_aggregation",
+    ]
+    assert validate_config(updated) == []
+
+
+@pytest.mark.parametrize(
+    ("threshold", "mode", "message"),
+    [
+        (1.0, "paper", "intensity_ratio_threshold must be greater than 1"),
+        (3.0, "unknown", "attack_absent_aggregation must be one of"),
+    ],
+)
+def test_invalid_hfedsa_attack_presence_gate_config_is_rejected(
+    threshold: float,
+    mode: str,
+    message: str,
+) -> None:
+    config = deepcopy(BASE_CONFIG)
+    config["defense"] = "hfedsa_ddpg"
+    config["hfedsa"] = {
+        "attack_presence_intensity_ratio_threshold": threshold,
+        "attack_absent_aggregation": mode,
+    }
+
+    with pytest.raises(ValueError, match=message):
+        validate_config(config)
+
+
 def test_cli_can_set_server_learning_rate() -> None:
     config = deepcopy(BASE_CONFIG)
     args = argparse.Namespace(server_lr=0.7)
