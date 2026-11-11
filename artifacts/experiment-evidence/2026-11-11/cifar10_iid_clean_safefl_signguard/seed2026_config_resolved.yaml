@@ -1,0 +1,96 @@
+experiment_name: paper_cifar10_iid_clean_safefl_signguard
+seed: 2026
+device: auto
+dataset:
+  name: cifar10
+  data_root: data/cifar10
+  download: true
+  quick_dev: false
+  use_synthetic_fallback: false
+  augment_train: true
+  random_crop_padding: 4
+  train_eval_subset: 5000
+  num_classes: 10
+model:
+  name: paper_cnn
+  conv_channels:
+  - 64
+  - 128
+  hidden_dim: 512
+  batchnorm: false
+  dropout: 0.25
+federated:
+  num_clients: 100
+  clients_per_round: 10
+  rounds: 250
+  local_epochs: 5
+  batch_size: 128
+  learning_rate: 0.05
+  momentum: 0.9
+  optimizer: sgd
+  weight_decay: 0.0005
+  lr_schedule:
+    type: cosine
+    min_lr: 0.0005
+  server_optimizer: fedavg
+  server_lr: 1.0
+  aggregation_weighting: sample_count
+  malicious_ratio: 0.0
+  unseen_ratio: 0.1
+  unseen_data_fraction: 0.4
+  participant_role_sampling: stratified
+  unseen_shift:
+    enabled: true
+    type: cifar10_c
+    data_root: data/cifar10-c-download
+    corruptions:
+    - gaussian_noise
+    - shot_noise
+    severity: 3
+  iid: true
+  root_size: 500
+  eval_every: 10
+safefl:
+  rule: signguard
+  sign_fraction: 0.1
+  norm_lower: 0.1
+  norm_upper: 3.0
+attack:
+  type: no_attack
+  scale_factor: 1.0
+defenses:
+- safefl
+performance:
+  mixed_precision: true
+  pin_memory: true
+  client_num_workers: 0
+  eval_num_workers: 2
+  persistent_workers: true
+diagnostics:
+  client_detail_every: 25
+reporting:
+  run_class: formal_measured
+  checkpoint_every: 10
+  paper_attack_key: no_attack
+  paper_method_key: safefl
+  paper_target_file: configs/paper/targets/table_ii_cifar10_iid.yaml
+  preregistered_seeds:
+  - 2026
+  - 2027
+  - 2028
+  - 2029
+  - 2030
+  compatibility_profile: SafeFL-compatible SignGuard
+output_dir: results/formal/cifar10_iid_clean/safefl_signguard/seed2026
+log_dir: logs
+_config_path: configs/paper/cifar10_iid_clean_safefl_signguard.yaml
+_cli_overrides:
+- arg: --output_dir
+  path: output_dir
+  old: results/formal/cifar10_iid_clean/safefl_signguard
+  new: results/formal/cifar10_iid_clean/safefl_signguard/seed2026
+- arg: --seed
+  path: seed
+  old: 2026
+  new: 2026
+
