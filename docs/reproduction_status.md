@@ -17,7 +17,7 @@ has been reproduced.
 | FEMNIST + Chars74K | Implemented and unit-tested | Sample001--Sample062 label mapping; real-data smoke pending |
 | GTSRB + CTSDB/GTSDB | Implemented and unit-tested | Requires an explicit semantic label map; real-data smoke pending |
 | Stanford Cars + CompCars | Implemented and unit-tested | Requires a curated make/model label map; real-data smoke pending |
-| FedAvg, FLTrust, RFA | Implemented | Formal comparison manifests and multi-seed runs pending |
+| FedAvg, FLTrust, RFA | Implemented | Clean CIFAR-10 IID FedAvg and FLTrust formally measured; RFA pending |
 | SafeFL-compatible SignGuard, MSGuard | Implemented and smoke-tested | SafeFL rule ambiguity and MSGuard artifact limitations are documented |
 | Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID H-FedSA scaling formally measured | Five fixed-seed result: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR |
 | Krum-targeted, Trim-targeted, PoiSAFL | Implemented and smoke-tested | PoiSAFL is an explicitly documented synchronous adaptation |
@@ -42,3 +42,11 @@ The completed H-FedSA-DDPG scaling summary is
 differs from Table II(d) by `+0.276` percentage points, inside the paper's
 reported ASR standard deviation; its error mean differs by `+0.570` points and
 is therefore recorded as a remaining reproduction gap.
+
+The completed clean FLTrust summary is
+`results/published/cifar10_iid_clean_fltrust_5seeds.json`. Its five-seed error
+is `15.614 +/- 0.595%`, a mean gap of `+0.214` percentage points from Table
+II(d)'s `15.4 +/- 0.4%`; the measured mean is inside the paper's reported
+range. The dedicated preregistered manifest is
+`configs/paper/cifar10_iid_clean_fltrust.yaml`.
+

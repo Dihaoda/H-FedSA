@@ -67,6 +67,11 @@ FedAvg anchor measured `15.60%` error versus the paper's `15.0%` target. See
 [`../../docs/calibration_report_cifar10.md`](../../docs/calibration_report_cifar10.md)
 for the accepted and rejected candidates.
 
+`cifar10_iid_clean_fltrust.yaml` reuses this frozen protocol and changes only
+the defense to FLTrust with the explicit default `min_trust_score=0.0`. Its five
+fixed-seed formal result is `15.614 +/- 0.595%` error versus the paper's
+`15.4 +/- 0.4%`.
+
 Validate the configuration without starting training:
 
 ```bash

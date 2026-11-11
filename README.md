@@ -66,11 +66,13 @@ Generated checkpoints and measurements belong under `results/` and are ignored
 by Git. Only summaries produced by a documented measured run should be promoted
 to published result artifacts.
 
-The completed five-seed CIFAR-10 IID results currently include a clean FedAvg
-anchor (`15.088 +/- 0.360%` error) and H-FedSA-DDPG under backdoor scaling
-(`15.770 +/- 0.317%` error, `1.476 +/- 0.172%` ASR). The latter is a real-data
-measurement: its ASR mean is within the paper's reported `1.2 +/- 0.3%` range,
-while its error remains `+0.570` percentage points above the paper mean.
+The completed five-seed CIFAR-10 IID results currently include clean FedAvg
+(`15.088 +/- 0.360%` error), clean FLTrust (`15.614 +/- 0.595%` error), and
+H-FedSA-DDPG under backdoor scaling (`15.770 +/- 0.317%` error,
+`1.476 +/- 0.172%` ASR). The FLTrust mean differs from the paper by `+0.214`
+percentage points and is inside its reported range. For H-FedSA scaling, ASR is
+inside the reported range while error remains `+0.570` points above the paper
+mean.
 
 ## Documentation
 
@@ -81,3 +83,4 @@ while its error remains `+0.570` percentage points above the paper mean.
 - [`docs/dataset_adapters.md`](docs/dataset_adapters.md): external shifted-data layouts and label mapping
 - [`docs/reproduction_status.md`](docs/reproduction_status.md): implemented, tested, and pending work
 - [`results/README.md`](results/README.md): measured-result publication policy
+

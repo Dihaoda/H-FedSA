@@ -31,6 +31,16 @@ percentage points from Table II(d). The portable summary and per-run provenance
 are published at
 `results/published/cifar10_iid_clean_fedavg_5seeds.json`.
 
+## Completed formal FLTrust anchor
+
+The same frozen clean protocol was run with FLTrust's documented default
+`min_trust_score=0.0` for every preregistered seed. The measured final error was
+`15.614 +/- 0.595%`, a mean gap of `+0.214` percentage points from Table II(d)'s
+`15.4 +/- 0.4%`. No per-seed parameters or checkpoints were selected. The
+dedicated manifest and portable result are
+`configs/paper/cifar10_iid_clean_fltrust.yaml` and
+`results/published/cifar10_iid_clean_fltrust_5seeds.json`.
+
 ## Completed clean candidates
 
 | Candidate | Final accuracy | Final error | Gap to 15.0 | Decision |
@@ -124,3 +134,4 @@ than substituting a target value or selecting a favorable partial checkpoint.
 
 - investigate the clean H-FedSA gap only if an additional implementation detail
   or author-provided hyperparameter becomes available.
+

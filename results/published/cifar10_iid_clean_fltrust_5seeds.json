@@ -1,0 +1,140 @@
+{
+  "dataset": "cifar10",
+  "attack_type": "no_attack",
+  "method": "fltrust",
+  "run_count": 5,
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "rounds": [
+    250,
+    250,
+    250,
+    250,
+    250
+  ],
+  "error_rate": {
+    "count": 5,
+    "mean": 15.614,
+    "sample_std": 0.5948361118829272,
+    "min": 14.650000000000006,
+    "max": 16.180000000000007
+  },
+  "accuracy": {
+    "count": 5,
+    "mean": 84.386,
+    "sample_std": 0.5948361118829272,
+    "min": 83.82,
+    "max": 85.35
+  },
+  "attack_success_rate": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_tpr": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_fpr": {
+    "count": 5,
+    "mean": 1.0,
+    "sample_std": 0.0,
+    "min": 1.0,
+    "max": 1.0
+  },
+  "detection_overall_fpr": {
+    "count": 5,
+    "mean": 0.74,
+    "sample_std": 0.11401754250991383,
+    "min": 0.6,
+    "max": 0.9
+  },
+  "metrics_paths": [
+    "results/formal/cifar10_iid_clean/fltrust/seed2026/paper_cifar10_iid_clean_fltrust_seed2026_20261111_103536_961690/metrics.csv",
+    "results/formal/cifar10_iid_clean/fltrust/seed2027/paper_cifar10_iid_clean_fltrust_seed2027_20261111_103537_723687/metrics.csv",
+    "results/formal/cifar10_iid_clean/fltrust/seed2028/paper_cifar10_iid_clean_fltrust_seed2028_20261111_103536_501193/metrics.csv",
+    "results/formal/cifar10_iid_clean/fltrust/seed2029/paper_cifar10_iid_clean_fltrust_seed2029_20261111_103537_533995/metrics.csv",
+    "results/formal/cifar10_iid_clean/fltrust/seed2030/paper_cifar10_iid_clean_fltrust_seed2030_20261111_103536_846723/metrics.csv"
+  ],
+  "run_provenance": [
+    {
+      "seed": 2026,
+      "metrics_path": "results/formal/cifar10_iid_clean/fltrust/seed2026/paper_cifar10_iid_clean_fltrust_seed2026_20261111_103536_961690/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_fltrust.yaml",
+      "config_sha256": "8857347581c58daf1becc6888bce0c17d8d2bf39558c9c869e5f860436fe9ab2",
+      "declared_source_revision": "bfc760750271d916446456d0dcf8e3158d0bc668",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2027,
+      "metrics_path": "results/formal/cifar10_iid_clean/fltrust/seed2027/paper_cifar10_iid_clean_fltrust_seed2027_20261111_103537_723687/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_fltrust.yaml",
+      "config_sha256": "50ac50ce6cf4a3f01da69bcf278e9fe3f198db21feae9fb62c33a0f9f5a7dcd8",
+      "declared_source_revision": "bfc760750271d916446456d0dcf8e3158d0bc668",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2028,
+      "metrics_path": "results/formal/cifar10_iid_clean/fltrust/seed2028/paper_cifar10_iid_clean_fltrust_seed2028_20261111_103536_501193/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_fltrust.yaml",
+      "config_sha256": "cd6d70d18cfda9dba5b336baca6484c3427c7a0f471ca102a7dd179680f05d56",
+      "declared_source_revision": "bfc760750271d916446456d0dcf8e3158d0bc668",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2029,
+      "metrics_path": "results/formal/cifar10_iid_clean/fltrust/seed2029/paper_cifar10_iid_clean_fltrust_seed2029_20261111_103537_533995/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_fltrust.yaml",
+      "config_sha256": "3abed419c4066ef7fef3b0b8256c16a09bc73dc90ad8ffe400f7bc5c193409b2",
+      "declared_source_revision": "bfc760750271d916446456d0dcf8e3158d0bc668",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2030,
+      "metrics_path": "results/formal/cifar10_iid_clean/fltrust/seed2030/paper_cifar10_iid_clean_fltrust_seed2030_20261111_103536_846723/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_fltrust.yaml",
+      "config_sha256": "af901b88d6e31a554f1649fb71cef32dc82d2f111606bdcde24dd4c5612d6654",
+      "declared_source_revision": "bfc760750271d916446456d0dcf8e3158d0bc668",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    }
+  ],
+  "required_runs": 5,
+  "complete": true,
+  "paper_target": {
+    "error_mean": 15.4,
+    "error_std": 0.4
+  },
+  "error_mean_gap": 0.2140000000000004,
+  "asr_mean_gap": null
+}
+
