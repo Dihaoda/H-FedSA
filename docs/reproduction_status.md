@@ -19,7 +19,7 @@ has been reproduced.
 | Stanford Cars + CompCars | Implemented and unit-tested | Requires a curated make/model label map; real-data smoke pending |
 | FedAvg, FLTrust, RFA | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed for all three methods |
 | SafeFL-compatible SignGuard, MSGuard | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed; SafeFL rule ambiguity and MSGuard artifact limitations remain documented |
-| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID H-FedSA scaling formally measured | Five fixed-seed result: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR |
+| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID scaling formally measured; label-flip calibration active | Scaling five-seed result: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR; strict label-flip seed 31415 reached `15.95%` error but was not promoted after one weight-concentration alert |
 | Krum-targeted, Trim-targeted, PoiSAFL | Implemented and smoke-tested | PoiSAFL is an explicitly documented synchronous adaptation |
 | Full paper tables | Pending | No smoke or synthetic output is accepted as a measured paper result |
 
@@ -84,4 +84,3 @@ paper's one-standard-deviation upper bound. The manifest fixes Mean Shift to
 automatic bandwidth estimation with `quantile=0.3` and a 50% minimum-retention
 floor. Because no public author artifact is available, this remains labeled a
 published-component implementation rather than source-identical reproduction.
-

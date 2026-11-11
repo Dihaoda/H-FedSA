@@ -1,0 +1,58 @@
+{
+  "status": "numeric_target_met_not_promoted",
+  "experiment_class": "calibration",
+  "candidate_id": "hfedsa_label_flip_strict_minbeta010",
+  "seed": 31415,
+  "dataset": "CIFAR-10 IID with the registered CIFAR-10-C unseen-client protocol",
+  "dataset_source": "real",
+  "attack": "label_flipping",
+  "label_transform": "y -> 9 - y",
+  "malicious_ratio": 0.2,
+  "defense": "hfedsa_ddpg",
+  "rounds": 250,
+  "selection_rule": "final_round_only",
+  "final_accuracy_percent": 84.05,
+  "final_error_percent": 15.95,
+  "best_accuracy_percent": 84.19,
+  "paper_target_error_percent": 15.7,
+  "paper_target_std_percent": 0.4,
+  "gap_to_paper_mean_percent_points": 0.25,
+  "within_paper_one_std_interval": true,
+  "detection": {
+    "selected_updates": 2500,
+    "malicious_selected": 500,
+    "nonmalicious_selected": 2000,
+    "true_positive": 484,
+    "false_negative": 16,
+    "false_positive": 8,
+    "true_negative": 1992,
+    "malicious_tpr": 0.968,
+    "nonmalicious_fpr": 0.004
+  },
+  "diagnostics": {
+    "gmm_fallbacks": 0,
+    "nan_rounds": 0,
+    "inf_rounds": 0,
+    "weight_collapse_rounds": [167],
+    "effective_clients_min": 6,
+    "effective_clients_mean": 8.104,
+    "round_167": {
+      "maximum_normalized_client_share": 0.8201849794038578,
+      "top_client_id": 2,
+      "top_client_true_type": "unseen",
+      "weight_sum_before_normalization": 0.8858209986822887
+    }
+  },
+  "ddpg_beta": {
+    "minimum": 0.1,
+    "mean": 0.2490286962232933,
+    "maximum": 1.0
+  },
+  "promotion_decision": "rejected_by_preregistered_weight_collapse_rule",
+  "runtime_seconds": 3119.557220384013,
+  "config": "configs/calibration/cifar10_iid_hfedsa_ddpg_label_flip_strict_seed31415.yaml",
+  "config_sha256": "b4ba1e7957d5d49e16e44c00b224bc764379ebd427b723b7203a2cd47550aaed0",
+  "declared_source_revision": "b082d8ce5c661cf8244d2a5929d9856e419c34e0",
+  "evidence_directory": "artifacts/calibration/cifar10_iid_hfedsa_ddpg_label_flip_strict_seed31415",
+  "server_run_directory": "results/calibration/cifar10_iid_hfedsa_ddpg_label_flip_strict_seed31415/calibration_cifar10_iid_hfedsa_ddpg_label_flip_strict_seed31415_20261111_174759_326376"
+}

@@ -1,5 +1,5 @@
 {
-  "status": "preregistered_pending_run",
+  "status": "completed_not_promoted",
   "candidate_id": "hfedsa_label_flip_strict_minbeta010",
   "config": "configs/calibration/cifar10_iid_hfedsa_ddpg_label_flip_strict_seed31415.yaml",
   "calibration_seed": 31415,
@@ -20,5 +20,17 @@
     "rounds": 250,
     "local_epochs": 5
   },
-  "decision_rule": "Promote unchanged to seeds 2026-2030 if final error is inside 15.7 +/- 0.4 percentage points and the run has no non-finite or weight-collapse diagnostics."
+  "decision_rule": "Promote unchanged to seeds 2026-2030 if final error is inside 15.7 +/- 0.4 percentage points and the run has no non-finite or weight-collapse diagnostics.",
+  "measured_result": {
+    "final_accuracy_percent": 84.05,
+    "final_error_percent": 15.95,
+    "within_paper_one_std_interval": true,
+    "malicious_tpr": 0.968,
+    "nonmalicious_fpr": 0.004,
+    "gmm_fallbacks": 0,
+    "nonfinite_rounds": 0,
+    "weight_collapse_rounds": [167],
+    "round_167_maximum_normalized_client_share": 0.8201849794038578,
+    "promotion_decision": "rejected_by_preregistered_weight_collapse_rule"
+  }
 }

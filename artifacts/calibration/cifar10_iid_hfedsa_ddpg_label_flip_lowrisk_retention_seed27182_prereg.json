@@ -1,0 +1,38 @@
+{
+  "status": "preregistered_pending_run",
+  "candidate_id": "hfedsa_label_flip_lowrisk_floor005_minbeta010",
+  "config": "configs/calibration/cifar10_iid_hfedsa_ddpg_label_flip_lowrisk_retention_seed27182.yaml",
+  "calibration_seed": 27182,
+  "selection_metric": "final_round_test_error_percent",
+  "checkpoint_selection": "none",
+  "paper_target": {
+    "dataset": "CIFAR-10 IID",
+    "condition": "Label-Flipping Attack",
+    "defense": "H-FedSA",
+    "error_mean_percent": 15.7,
+    "error_std_percent": 0.4
+  },
+  "frozen_choices": {
+    "malicious_ratio": 0.2,
+    "label_transform": "y -> 9 - y",
+    "attack_presence_gate_enabled": false,
+    "ddpg_min_beta": 0.1,
+    "weight_ema_enabled": false,
+    "retention_floor_enabled": true,
+    "retention_floor": 0.05,
+    "retention_mode": "low_pmal_only",
+    "retention_pmal_threshold": 0.3,
+    "rounds": 250,
+    "local_epochs": 5
+  },
+  "change_rationale": {
+    "source_candidate": "hfedsa_label_flip_strict_minbeta010",
+    "source_seed": 31415,
+    "source_event_round": 167,
+    "observed_maximum_normalized_client_share": 0.8201849794038578,
+    "top_client_true_type": "unseen",
+    "reason": "Use the implementation's existing 0.05 compatibility floor only for clients with p_malicious < 0.3, while leaving malicious weights and every paper training parameter unchanged. This is the smallest existing switch that directly addresses the single observed concentration event."
+  },
+  "seed_policy": "Use a new independent calibration seed because the compatibility change was chosen after inspecting seed 31415. Formal seeds remain 2026-2030 and are untouched.",
+  "decision_rule": "Promote unchanged to seeds 2026-2030 only if the seed-27182 final error is inside 15.7 +/- 0.4 percentage points and the run has no GMM fallback, non-finite, or weight-collapse diagnostics."
+}

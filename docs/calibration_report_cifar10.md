@@ -214,11 +214,34 @@ triggered the registered no-attack path, with a maximum observed ratio of
 `1.2587` and no diagnostic alerts. The aggregate, gate audit, and per-seed
 resolved configurations are published in the repository.
 
-## Remaining reproduction gap
+## Completed strict label-flipping calibration
 
-The next preregistered condition is H-FedSA under label flipping. The initial
-candidate preserves the strict paper GMM path (the clean-only attack-presence
-extension is disabled), uses 20% malicious clients with the deterministic
-`y -> 9 - y` transform, and retains the previously selected DDPG lower bound
-`0.1`. It is evaluated once on independent seed `31415`; only final-round error
-is eligible for promotion to seeds `2026` through `2030`.
+The strict paper-path candidate used 20% malicious clients, deterministic
+`y -> 9 - y` labels, the previously selected DDPG lower bound `0.1`, and no
+clean-only attack-presence gate. On independent seed `31415`, it completed all
+250 rounds at `84.05%` accuracy / `15.95%` error. The final error is `+0.25`
+percentage points from Table II(d)'s `15.7 +/- 0.4%` and is numerically inside
+that interval. Across 2,500 selected updates, the malicious TPR was `96.8%`
+and the non-malicious FPR was `0.4%`; there were no GMM fallbacks or non-finite
+diagnostics.
+
+The candidate was not promoted because its preregistered rule also required no
+weight-collapse alert. At round 167, one unseen client received `82.02%` of the
+normalized aggregation weight, while seven clients remained effective. This
+single event is retained rather than waived after seeing the otherwise passing
+final error. Compact results and run evidence are published under
+`results/published/cifar10_iid_hfedsa_ddpg_label_flip_strict_calibration_seed31415.json`
+and `artifacts/calibration/cifar10_iid_hfedsa_ddpg_label_flip_strict_seed31415/`.
+
+### Preregistered low-risk retention confirmation
+
+The next candidate changes only one existing compatibility switch: clients with
+`p_malicious < 0.3` receive the implementation's existing raw-weight floor of
+`0.05`. EMA remains disabled, malicious-client weights are not floored, and all
+paper training and attack parameters remain frozen. This directly targets the
+single concentration event without changing the label-flipping attack or GMM
+roles. Because the change was chosen after inspecting seed `31415`, the
+confirmation uses new independent calibration seed `27182`; formal seeds
+`2026` through `2030` remain untouched. Only the final round is eligible for
+promotion, and any GMM fallback, non-finite value, or weight-collapse alert
+rejects the candidate.
