@@ -5,6 +5,7 @@
   "calibration_seed": 31415,
   "selection_metric": "final_round_test_error_percent",
   "checkpoint_selection": "none",
+  "instrumentation_note": "A 10-round pre-run was stopped and excluded because the CSV export schema omitted gate fields. The scientific parameters are unchanged; the restarted run uses the v2 output directory and records the ratio and gate decision every round.",
   "paper_target": {
     "dataset": "CIFAR-10 IID",
     "condition": "No Attack",

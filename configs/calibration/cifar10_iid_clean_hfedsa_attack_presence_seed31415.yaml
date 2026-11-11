@@ -114,6 +114,6 @@ reporting:
   selection_rule: final_round_only
   candidate_id: hfedsa_attack_presence_ratio3_uniform_raw
 
-output_dir: results/calibration/cifar10_iid_clean/hfedsa_ddpg_attack_presence_ratio3_r250
+output_dir: results/calibration/cifar10_iid_clean/hfedsa_ddpg_attack_presence_ratio3_r250_v2
 log_dir: logs
 

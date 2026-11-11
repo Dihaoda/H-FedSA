@@ -188,6 +188,11 @@ The complete pending configuration is
 `configs/calibration/cifar10_iid_clean_hfedsa_attack_presence_seed31415.yaml`;
 only final-round error is eligible for the calibration decision.
 
+An initial 10-round instrumentation pre-run was stopped and excluded after the
+CSV writer was found not to export the new gate fields. The scientific settings
+were not changed. The restarted run uses the `_v2` output directory and records
+the intensity ratio, gate decision, and passthrough count for every round.
+
 ## Remaining reproduction gap
 
 - finish the preregistered seed-31415 no-attack presence-gate calibration; if it
