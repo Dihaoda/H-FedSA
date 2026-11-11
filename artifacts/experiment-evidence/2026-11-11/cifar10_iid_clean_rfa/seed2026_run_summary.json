@@ -1,0 +1,338 @@
+{
+  "experiment_name": "paper_cifar10_iid_clean_rfa",
+  "config_path": "configs/paper/cifar10_iid_clean_rfa.yaml",
+  "output_dir": "results/formal/cifar10_iid_clean/rfa/seed2026/paper_cifar10_iid_clean_rfa_seed2026_20261111_114258_619549",
+  "dataset": "cifar10",
+  "dataset_source": "real",
+  "synthetic": false,
+  "iid": true,
+  "partition_summary": {
+    "partition_method": "iid_balanced",
+    "iid": true,
+    "non_iid_alpha": "NA",
+    "min_client_samples": 1,
+    "empty_clients": [],
+    "min_client_samples_observed": 490,
+    "max_client_samples_observed": 500
+  },
+  "malicious_client_ids": [],
+  "unseen_client_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "unseen_shift_type": "cifar10_c",
+  "attack_type": "no_attack",
+  "malicious_ratio": 0.0,
+  "scaling_factor": 1.0,
+  "seed": 2026,
+  "rounds": 250,
+  "local_epochs": 5,
+  "server_optimizer": "fedavg",
+  "server_lr": 1.0,
+  "aggregation_weighting": "sample_count",
+  "reporting": {
+    "run_class": "formal_measured",
+    "checkpoint_every": 10,
+    "paper_attack_key": "no_attack",
+    "paper_method_key": "rfa",
+    "paper_target_file": "configs/paper/targets/table_ii_cifar10_iid.yaml",
+    "preregistered_seeds": [
+      2026,
+      2027,
+      2028,
+      2029,
+      2030
+    ]
+  },
+  "provenance": {
+    "config_sha256": "63c236e9529d7e96592974a9969b64df5805f8b38839a59e566d3d2571c11868",
+    "python": "3.12.3",
+    "platform": "Linux-5.15.0-86-generic-x86_64-with-glibc2.35",
+    "torch": "2.8.0+cu128",
+    "cuda_runtime": "12.8",
+    "cuda_available": true,
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "declared_source_revision": "74fbaaa2c93f2f1f17b4ea4748826db3319f7e24",
+    "git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+    "git_dirty": true
+  },
+  "cli_overrides": [
+    {
+      "arg": "--output_dir",
+      "path": "output_dir",
+      "old": "results/formal/cifar10_iid_clean/rfa",
+      "new": "results/formal/cifar10_iid_clean/rfa/seed2026"
+    },
+    {
+      "arg": "--seed",
+      "path": "seed",
+      "old": 2026,
+      "new": 2026
+    }
+  ],
+  "final_config": {
+    "experiment_name": "paper_cifar10_iid_clean_rfa",
+    "seed": 2026,
+    "device": "auto",
+    "dataset": {
+      "name": "cifar10",
+      "data_root": "data/cifar10",
+      "download": true,
+      "quick_dev": false,
+      "use_synthetic_fallback": false,
+      "augment_train": true,
+      "random_crop_padding": 4,
+      "train_eval_subset": 5000,
+      "num_classes": 10
+    },
+    "model": {
+      "name": "paper_cnn",
+      "conv_channels": [
+        64,
+        128
+      ],
+      "hidden_dim": 512,
+      "batchnorm": false,
+      "dropout": 0.25
+    },
+    "federated": {
+      "num_clients": 100,
+      "clients_per_round": 10,
+      "rounds": 250,
+      "local_epochs": 5,
+      "batch_size": 128,
+      "learning_rate": 0.05,
+      "momentum": 0.9,
+      "optimizer": "sgd",
+      "weight_decay": 0.0005,
+      "lr_schedule": {
+        "type": "cosine",
+        "min_lr": 0.0005
+      },
+      "server_optimizer": "fedavg",
+      "server_lr": 1.0,
+      "aggregation_weighting": "sample_count",
+      "malicious_ratio": 0.0,
+      "unseen_ratio": 0.1,
+      "unseen_data_fraction": 0.4,
+      "participant_role_sampling": "stratified",
+      "unseen_shift": {
+        "enabled": true,
+        "type": "cifar10_c",
+        "data_root": "data/cifar10-c-download",
+        "corruptions": [
+          "gaussian_noise",
+          "shot_noise"
+        ],
+        "severity": 3
+      },
+      "iid": true,
+      "root_size": 500,
+      "eval_every": 10
+    },
+    "rfa": {
+      "max_iter": 20,
+      "tol": 1e-05,
+      "eps": 1e-08
+    },
+    "attack": {
+      "type": "no_attack",
+      "scale_factor": 1.0
+    },
+    "defenses": [
+      "rfa"
+    ],
+    "performance": {
+      "mixed_precision": true,
+      "pin_memory": true,
+      "client_num_workers": 0,
+      "eval_num_workers": 2,
+      "persistent_workers": true
+    },
+    "diagnostics": {
+      "client_detail_every": 25
+    },
+    "reporting": {
+      "run_class": "formal_measured",
+      "checkpoint_every": 10,
+      "paper_attack_key": "no_attack",
+      "paper_method_key": "rfa",
+      "paper_target_file": "configs/paper/targets/table_ii_cifar10_iid.yaml",
+      "preregistered_seeds": [
+        2026,
+        2027,
+        2028,
+        2029,
+        2030
+      ]
+    },
+    "output_dir": "results/formal/cifar10_iid_clean/rfa/seed2026",
+    "log_dir": "logs",
+    "_config_path": "configs/paper/cifar10_iid_clean_rfa.yaml",
+    "_cli_overrides": [
+      {
+        "arg": "--output_dir",
+        "path": "output_dir",
+        "old": "results/formal/cifar10_iid_clean/rfa",
+        "new": "results/formal/cifar10_iid_clean/rfa/seed2026"
+      },
+      {
+        "arg": "--seed",
+        "path": "seed",
+        "old": 2026,
+        "new": 2026
+      }
+    ]
+  },
+  "runtime_seconds": 3157.844882132951,
+  "summaries": {
+    "rfa": {
+      "final_accuracy": 84.81,
+      "final_error_rate": 15.189999999999998,
+      "best_accuracy": 84.98,
+      "final_attack_success_rate": "NA",
+      "attack_type": "no_attack",
+      "scaling_factor": 1.0,
+      "runtime_seconds": 3157.844882132951,
+      "config_path": "configs/paper/cifar10_iid_clean_rfa.yaml",
+      "output_dir": "results/formal/cifar10_iid_clean/rfa/seed2026/paper_cifar10_iid_clean_rfa_seed2026_20261111_114258_619549",
+      "dataset_source": "real",
+      "cli_overrides": [
+        {
+          "arg": "--output_dir",
+          "path": "output_dir",
+          "old": "results/formal/cifar10_iid_clean/rfa",
+          "new": "results/formal/cifar10_iid_clean/rfa/seed2026"
+        },
+        {
+          "arg": "--seed",
+          "path": "seed",
+          "old": 2026,
+          "new": 2026
+        }
+      ],
+      "final_config": {
+        "experiment_name": "paper_cifar10_iid_clean_rfa",
+        "seed": 2026,
+        "device": "auto",
+        "dataset": {
+          "name": "cifar10",
+          "data_root": "data/cifar10",
+          "download": true,
+          "quick_dev": false,
+          "use_synthetic_fallback": false,
+          "augment_train": true,
+          "random_crop_padding": 4,
+          "train_eval_subset": 5000,
+          "num_classes": 10
+        },
+        "model": {
+          "name": "paper_cnn",
+          "conv_channels": [
+            64,
+            128
+          ],
+          "hidden_dim": 512,
+          "batchnorm": false,
+          "dropout": 0.25
+        },
+        "federated": {
+          "num_clients": 100,
+          "clients_per_round": 10,
+          "rounds": 250,
+          "local_epochs": 5,
+          "batch_size": 128,
+          "learning_rate": 0.05,
+          "momentum": 0.9,
+          "optimizer": "sgd",
+          "weight_decay": 0.0005,
+          "lr_schedule": {
+            "type": "cosine",
+            "min_lr": 0.0005
+          },
+          "server_optimizer": "fedavg",
+          "server_lr": 1.0,
+          "aggregation_weighting": "sample_count",
+          "malicious_ratio": 0.0,
+          "unseen_ratio": 0.1,
+          "unseen_data_fraction": 0.4,
+          "participant_role_sampling": "stratified",
+          "unseen_shift": {
+            "enabled": true,
+            "type": "cifar10_c",
+            "data_root": "data/cifar10-c-download",
+            "corruptions": [
+              "gaussian_noise",
+              "shot_noise"
+            ],
+            "severity": 3
+          },
+          "iid": true,
+          "root_size": 500,
+          "eval_every": 10
+        },
+        "rfa": {
+          "max_iter": 20,
+          "tol": 1e-05,
+          "eps": 1e-08
+        },
+        "attack": {
+          "type": "no_attack",
+          "scale_factor": 1.0
+        },
+        "defenses": [
+          "rfa"
+        ],
+        "performance": {
+          "mixed_precision": true,
+          "pin_memory": true,
+          "client_num_workers": 0,
+          "eval_num_workers": 2,
+          "persistent_workers": true
+        },
+        "diagnostics": {
+          "client_detail_every": 25
+        },
+        "reporting": {
+          "run_class": "formal_measured",
+          "checkpoint_every": 10,
+          "paper_attack_key": "no_attack",
+          "paper_method_key": "rfa",
+          "paper_target_file": "configs/paper/targets/table_ii_cifar10_iid.yaml",
+          "preregistered_seeds": [
+            2026,
+            2027,
+            2028,
+            2029,
+            2030
+          ]
+        },
+        "output_dir": "results/formal/cifar10_iid_clean/rfa/seed2026",
+        "log_dir": "logs",
+        "_config_path": "configs/paper/cifar10_iid_clean_rfa.yaml",
+        "_cli_overrides": [
+          {
+            "arg": "--output_dir",
+            "path": "output_dir",
+            "old": "results/formal/cifar10_iid_clean/rfa",
+            "new": "results/formal/cifar10_iid_clean/rfa/seed2026"
+          },
+          {
+            "arg": "--seed",
+            "path": "seed",
+            "old": 2026,
+            "new": 2026
+          }
+        ]
+      }
+    }
+  }
+}
