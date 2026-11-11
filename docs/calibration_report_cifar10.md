@@ -216,6 +216,9 @@ resolved configurations are published in the repository.
 
 ## Remaining reproduction gap
 
-- calibrate the H-FedSA label-flipping condition on the independent seed
-  `31415`, then run the unchanged candidate on the five preregistered seeds.
-
+The next preregistered condition is H-FedSA under label flipping. The initial
+candidate preserves the strict paper GMM path (the clean-only attack-presence
+extension is disabled), uses 20% malicious clients with the deterministic
+`y -> 9 - y` transform, and retains the previously selected DDPG lower bound
+`0.1`. It is evaluated once on independent seed `31415`; only final-round error
+is eligible for promotion to seeds `2026` through `2030`.

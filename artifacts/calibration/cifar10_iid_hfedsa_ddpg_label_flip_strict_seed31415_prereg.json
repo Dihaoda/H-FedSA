@@ -1,0 +1,24 @@
+{
+  "status": "preregistered_pending_run",
+  "candidate_id": "hfedsa_label_flip_strict_minbeta010",
+  "config": "configs/calibration/cifar10_iid_hfedsa_ddpg_label_flip_strict_seed31415.yaml",
+  "calibration_seed": 31415,
+  "selection_metric": "final_round_test_error_percent",
+  "checkpoint_selection": "none",
+  "paper_target": {
+    "dataset": "CIFAR-10 IID",
+    "condition": "Label-Flipping Attack",
+    "defense": "H-FedSA",
+    "error_mean_percent": 15.7,
+    "error_std_percent": 0.4
+  },
+  "frozen_choices": {
+    "malicious_ratio": 0.2,
+    "label_transform": "y -> 9 - y",
+    "attack_presence_gate_enabled": false,
+    "ddpg_min_beta": 0.1,
+    "rounds": 250,
+    "local_epochs": 5
+  },
+  "decision_rule": "Promote unchanged to seeds 2026-2030 if final error is inside 15.7 +/- 0.4 percentage points and the run has no non-finite or weight-collapse diagnostics."
+}
