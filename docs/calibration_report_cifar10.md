@@ -237,10 +237,13 @@ and `artifacts/calibration/cifar10_iid_hfedsa_ddpg_label_flip_strict_seed31415/`
 
 The next candidate changes only one existing compatibility switch: clients with
 `p_malicious < 0.3` receive the implementation's existing raw-weight floor of
-`0.05`. EMA remains disabled, malicious-client weights are not floored, and all
-paper training and attack parameters remain frozen. This directly targets the
-single concentration event without changing the label-flipping attack or GMM
-roles. Because the change was chosen after inspecting seed `31415`, the
+`0.05`. EMA remains disabled, high-malicious-posterior weights are not floored,
+and all paper training and attack parameters remain frozen. The rule is
+label-free, so a truly malicious client misclassified as low risk can receive
+the floor; the confirmation run measures that tradeoff explicitly. This
+directly targets the single concentration event without changing the
+label-flipping attack or GMM roles. Because the change was chosen after
+inspecting seed `31415`, the
 confirmation uses new independent calibration seed `27182`; formal seeds
 `2026` through `2030` remain untouched. Only the final round is eligible for
 promotion, and any GMM fallback, non-finite value, or weight-collapse alert

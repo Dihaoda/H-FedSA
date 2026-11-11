@@ -31,7 +31,7 @@
     "source_event_round": 167,
     "observed_maximum_normalized_client_share": 0.8201849794038578,
     "top_client_true_type": "unseen",
-    "reason": "Use the implementation's existing 0.05 compatibility floor only for clients with p_malicious < 0.3, while leaving malicious weights and every paper training parameter unchanged. This is the smallest existing switch that directly addresses the single observed concentration event."
+    "reason": "Use the implementation's existing 0.05 compatibility floor only for clients assigned p_malicious < 0.3, while leaving high-malicious-posterior weights and every paper training parameter unchanged. Because this is label-free, a truly malicious client misclassified by the GMM can receive the floor. This is the smallest existing switch that directly addresses the single observed concentration event."
   },
   "seed_policy": "Use a new independent calibration seed because the compatibility change was chosen after inspecting seed 31415. Formal seeds remain 2026-2030 and are untouched.",
   "decision_rule": "Promote unchanged to seeds 2026-2030 only if the seed-27182 final error is inside 15.7 +/- 0.4 percentage points and the run has no GMM fallback, non-finite, or weight-collapse diagnostics."
