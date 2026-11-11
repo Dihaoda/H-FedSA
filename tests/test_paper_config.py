@@ -184,6 +184,52 @@ def test_cifar10_clean_safefl_signguard_manifest_reuses_frozen_protocol() -> Non
     assert config["reporting"]["compatibility_profile"] == "SafeFL-compatible SignGuard"
 
 
+def test_cifar10_clean_msguard_manifest_reuses_frozen_protocol() -> None:
+    shared = load_config(Path("configs/paper/cifar10_iid_clean.yaml"))
+    config = load_config(Path("configs/paper/cifar10_iid_clean_msguard.yaml"))
+
+    validate_config(config)
+    for key in (
+        "num_clients",
+        "clients_per_round",
+        "rounds",
+        "local_epochs",
+        "batch_size",
+        "learning_rate",
+        "momentum",
+        "optimizer",
+        "weight_decay",
+        "lr_schedule",
+        "server_optimizer",
+        "server_lr",
+        "malicious_ratio",
+        "unseen_ratio",
+        "unseen_data_fraction",
+        "participant_role_sampling",
+        "unseen_shift",
+        "iid",
+        "root_size",
+        "eval_every",
+    ):
+        assert config["federated"][key] == shared["federated"][key]
+    assert config["dataset"] == shared["dataset"]
+    assert config["model"] == shared["model"]
+    assert config["attack"]["type"] == "no_attack"
+    assert config["defenses"] == ["msguard"]
+    assert config["msguard"] == {
+        "quantile": 0.3,
+        "bandwidth": "auto",
+        "min_retained_fraction": 0.5,
+    }
+    assert config["reporting"]["run_class"] == "formal_measured"
+    assert config["reporting"]["paper_attack_key"] == "no_attack"
+    assert config["reporting"]["paper_method_key"] == "msguard"
+    assert config["reporting"]["preregistered_seeds"] == [2026, 2027, 2028, 2029, 2030]
+    assert config["reporting"]["implementation_profile"] == (
+        "MSGuard published-component implementation"
+    )
+
+
 def test_attack_calibration_is_independent_and_not_formal() -> None:
     config = load_config(
         Path("configs/calibration/cifar10_iid_hfedsa_ddpg_backdoor_seed31415.yaml")
