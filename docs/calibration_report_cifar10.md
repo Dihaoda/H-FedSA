@@ -258,3 +258,15 @@ than hidden. There were no GMM fallbacks, non-finite diagnostics, or
 weight-collapse alerts, and the largest normalized client contribution was
 `58.47%`. The candidate therefore passed every preregistered condition and was
 frozen for formal seeds `2026` through `2030`.
+
+## Formal label-flipping progress
+
+The first frozen formal seed, `2026`, completed all 250 rounds with final
+accuracy `82.75%` / error `17.25%`. This is `+1.55` percentage points from the
+paper mean and outside the reported interval. The run nevertheless had strong
+detection (`97.4%` malicious TPR, `0.75%` non-malicious FPR) and no GMM
+fallback, non-finite diagnostic, or weight-collapse alert. Its accuracy curve
+showed large mid-run oscillations, and its DDPG beta averaged `0.894`, compared
+with `0.175` in the passing seed-27182 calibration. This seed remains part of
+the formal aggregate; it will not be replaced or rerun for a favorable value.
+The campaign is paused after seed `2026` and resumes with `2027`.

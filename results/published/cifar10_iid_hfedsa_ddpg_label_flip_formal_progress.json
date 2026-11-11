@@ -1,0 +1,41 @@
+{
+  "status": "paused_after_seed2026_by_user_request",
+  "experiment_class": "formal_measured_in_progress",
+  "candidate_id": "hfedsa_label_flip_lowrisk_floor005_minbeta010",
+  "config": "configs/paper/cifar10_iid_hfedsa_ddpg_label_flip.yaml",
+  "paper_target": {
+    "error_mean_percent": 15.7,
+    "error_std_percent": 0.4
+  },
+  "preregistered_seeds": [2026, 2027, 2028, 2029, 2030],
+  "completed_seeds": [2026],
+  "remaining_seeds": [2027, 2028, 2029, 2030],
+  "selection_rule": "final_round_only",
+  "runs": [
+    {
+      "seed": 2026,
+      "dataset_source": "real",
+      "rounds_completed": 250,
+      "final_accuracy_percent": 82.75,
+      "final_error_percent": 17.25,
+      "best_accuracy_percent": 82.92,
+      "gap_to_paper_mean_percent_points": 1.55,
+      "within_paper_one_std_interval": false,
+      "malicious_tpr": 0.974,
+      "nonmalicious_fpr": 0.0075,
+      "retention_applied_updates": 450,
+      "retention_applied_true_malicious": 4,
+      "gmm_fallbacks": 0,
+      "nan_rounds": 0,
+      "inf_rounds": 0,
+      "weight_collapse_rounds": 0,
+      "maximum_normalized_client_share": 0.7407407407407407,
+      "runtime_seconds": 3237.912896797061,
+      "config_sha256": "0b992c793cc7a1fb5105f7a362ae19677d78e1a1b3c26471ee15381eb0456def",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "evidence_directory": "artifacts/formal/cifar10_iid_hfedsa_ddpg_label_flip/seed2026",
+      "server_run_directory": "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2026_20261111_195345_608760"
+    }
+  ],
+  "resume_note": "Resume with seed 2027 on the next server. Do not rerun or replace seed 2026; it is a valid preregistered result despite missing the paper interval."
+}
