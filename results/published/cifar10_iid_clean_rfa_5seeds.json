@@ -1,0 +1,140 @@
+{
+  "dataset": "cifar10",
+  "attack_type": "no_attack",
+  "method": "rfa",
+  "run_count": 5,
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "rounds": [
+    250,
+    250,
+    250,
+    250,
+    250
+  ],
+  "error_rate": {
+    "count": 5,
+    "mean": 15.144,
+    "sample_std": 0.20875823337056468,
+    "min": 14.870000000000005,
+    "max": 15.39
+  },
+  "accuracy": {
+    "count": 5,
+    "mean": 84.856,
+    "sample_std": 0.20875823337056468,
+    "min": 84.61,
+    "max": 85.13
+  },
+  "attack_success_rate": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_tpr": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_fpr": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_overall_fpr": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "metrics_paths": [
+    "results/formal/cifar10_iid_clean/rfa/seed2026/paper_cifar10_iid_clean_rfa_seed2026_20261111_114258_619549/metrics.csv",
+    "results/formal/cifar10_iid_clean/rfa/seed2027/paper_cifar10_iid_clean_rfa_seed2027_20261111_114257_786449/metrics.csv",
+    "results/formal/cifar10_iid_clean/rfa/seed2028/paper_cifar10_iid_clean_rfa_seed2028_20261111_114257_899533/metrics.csv",
+    "results/formal/cifar10_iid_clean/rfa/seed2029/paper_cifar10_iid_clean_rfa_seed2029_20261111_114258_197370/metrics.csv",
+    "results/formal/cifar10_iid_clean/rfa/seed2030/paper_cifar10_iid_clean_rfa_seed2030_20261111_114257_628087/metrics.csv"
+  ],
+  "run_provenance": [
+    {
+      "seed": 2026,
+      "metrics_path": "results/formal/cifar10_iid_clean/rfa/seed2026/paper_cifar10_iid_clean_rfa_seed2026_20261111_114258_619549/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_rfa.yaml",
+      "config_sha256": "63c236e9529d7e96592974a9969b64df5805f8b38839a59e566d3d2571c11868",
+      "declared_source_revision": "74fbaaa2c93f2f1f17b4ea4748826db3319f7e24",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2027,
+      "metrics_path": "results/formal/cifar10_iid_clean/rfa/seed2027/paper_cifar10_iid_clean_rfa_seed2027_20261111_114257_786449/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_rfa.yaml",
+      "config_sha256": "72d52de83484a86fa86964012904c5a74138af40fa775de1426fc3ccdf433c73",
+      "declared_source_revision": "74fbaaa2c93f2f1f17b4ea4748826db3319f7e24",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2028,
+      "metrics_path": "results/formal/cifar10_iid_clean/rfa/seed2028/paper_cifar10_iid_clean_rfa_seed2028_20261111_114257_899533/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_rfa.yaml",
+      "config_sha256": "a582a0ec9a5adb1d2a77534c06887125d09c853b2d4446bfe64d084919608db9",
+      "declared_source_revision": "74fbaaa2c93f2f1f17b4ea4748826db3319f7e24",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2029,
+      "metrics_path": "results/formal/cifar10_iid_clean/rfa/seed2029/paper_cifar10_iid_clean_rfa_seed2029_20261111_114258_197370/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_rfa.yaml",
+      "config_sha256": "c8e7543586256e38dda30816001b047bbf067b2046e645e0e2d2118dd76c0506",
+      "declared_source_revision": "74fbaaa2c93f2f1f17b4ea4748826db3319f7e24",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2030,
+      "metrics_path": "results/formal/cifar10_iid_clean/rfa/seed2030/paper_cifar10_iid_clean_rfa_seed2030_20261111_114257_628087/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_rfa.yaml",
+      "config_sha256": "1ed6bcb0c2c52587b1f7ce1dafd0348121c6caa0cdb40397656e34defcabb3ac",
+      "declared_source_revision": "74fbaaa2c93f2f1f17b4ea4748826db3319f7e24",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    }
+  ],
+  "required_runs": 5,
+  "complete": true,
+  "paper_target": {
+    "error_mean": 15.2,
+    "error_std": 0.3
+  },
+  "error_mean_gap": -0.05599999999999916,
+  "asr_mean_gap": null
+}
+

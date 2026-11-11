@@ -14,6 +14,8 @@ Published measured summaries:
   FedAvg, seeds 2026--2030; final error `15.088 +/- 0.360%`.
 - `published/cifar10_iid_clean_fltrust_5seeds.json`: CIFAR-10 IID, no attack,
   FLTrust, seeds 2026--2030; final error `15.614 +/- 0.595%`.
+- `published/cifar10_iid_clean_rfa_5seeds.json`: CIFAR-10 IID, no attack,
+  RFA, seeds 2026--2030; final error `15.144 +/- 0.209%`.
 - `published/cifar10_iid_hfedsa_ddpg_scaling_5seeds.json`: CIFAR-10 IID,
   H-FedSA-DDPG under backdoor scaling, seeds 2026--2030; final error
   `15.770 +/- 0.317%` and ASR `1.476 +/- 0.172%`.

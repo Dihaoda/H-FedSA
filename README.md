@@ -67,12 +67,13 @@ by Git. Only summaries produced by a documented measured run should be promoted
 to published result artifacts.
 
 The completed five-seed CIFAR-10 IID results currently include clean FedAvg
-(`15.088 +/- 0.360%` error), clean FLTrust (`15.614 +/- 0.595%` error), and
-H-FedSA-DDPG under backdoor scaling (`15.770 +/- 0.317%` error,
-`1.476 +/- 0.172%` ASR). The FLTrust mean differs from the paper by `+0.214`
-percentage points and is inside its reported range. For H-FedSA scaling, ASR is
-inside the reported range while error remains `+0.570` points above the paper
-mean.
+(`15.088 +/- 0.360%` error), clean FLTrust (`15.614 +/- 0.595%` error), clean
+RFA (`15.144 +/- 0.209%` error), and H-FedSA-DDPG under backdoor scaling
+(`15.770 +/- 0.317%` error, `1.476 +/- 0.172%` ASR). The RFA mean differs from
+the paper by `-0.056` percentage points; the FLTrust mean differs by `+0.214`
+points. Both clean defense means are inside their reported paper ranges. For
+H-FedSA scaling, ASR is inside the reported range while error remains `+0.570`
+points above the paper mean.
 
 ## Documentation
 

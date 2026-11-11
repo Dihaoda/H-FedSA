@@ -41,6 +41,17 @@ dedicated manifest and portable result are
 `configs/paper/cifar10_iid_clean_fltrust.yaml` and
 `results/published/cifar10_iid_clean_fltrust_5seeds.json`.
 
+## Completed formal RFA anchor
+
+RFA was run under the same frozen clean protocol with a geometric-median
+solver capped at 20 iterations (`tol=1e-5`, `eps=1e-8`). Across the five
+preregistered seeds, the measured final error was `15.144 +/- 0.209%`, a mean
+gap of `-0.056` percentage points from Table II(d)'s `15.2 +/- 0.3%`. Every
+run completed all 250 rounds on real data; final-round metrics, rather than
+best checkpoints, were aggregated. The dedicated manifest and portable result
+are `configs/paper/cifar10_iid_clean_rfa.yaml` and
+`results/published/cifar10_iid_clean_rfa_5seeds.json`.
+
 ## Completed clean candidates
 
 | Candidate | Final accuracy | Final error | Gap to 15.0 | Decision |

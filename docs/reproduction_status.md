@@ -17,7 +17,7 @@ has been reproduced.
 | FEMNIST + Chars74K | Implemented and unit-tested | Sample001--Sample062 label mapping; real-data smoke pending |
 | GTSRB + CTSDB/GTSDB | Implemented and unit-tested | Requires an explicit semantic label map; real-data smoke pending |
 | Stanford Cars + CompCars | Implemented and unit-tested | Requires a curated make/model label map; real-data smoke pending |
-| FedAvg, FLTrust, RFA | Implemented | Clean CIFAR-10 IID FedAvg and FLTrust formally measured; RFA pending |
+| FedAvg, FLTrust, RFA | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed for all three methods |
 | SafeFL-compatible SignGuard, MSGuard | Implemented and smoke-tested | SafeFL rule ambiguity and MSGuard artifact limitations are documented |
 | Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID H-FedSA scaling formally measured | Five fixed-seed result: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR |
 | Krum-targeted, Trim-targeted, PoiSAFL | Implemented and smoke-tested | PoiSAFL is an explicitly documented synchronous adaptation |
@@ -49,4 +49,12 @@ is `15.614 +/- 0.595%`, a mean gap of `+0.214` percentage points from Table
 II(d)'s `15.4 +/- 0.4%`; the measured mean is inside the paper's reported
 range. The dedicated preregistered manifest is
 `configs/paper/cifar10_iid_clean_fltrust.yaml`.
+
+The completed clean RFA summary is
+`results/published/cifar10_iid_clean_rfa_5seeds.json`. Its five-seed error is
+`15.144 +/- 0.209%`, a mean gap of `-0.056` percentage points from Table
+II(d)'s `15.2 +/- 0.3%`. All five runs used the same preregistered RFA settings
+(`max_iter=20`, `tol=1e-5`, `eps=1e-8`) in
+`configs/paper/cifar10_iid_clean_rfa.yaml`; no best-checkpoint or per-seed
+selection was used.
 

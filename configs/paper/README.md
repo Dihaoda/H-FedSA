@@ -72,6 +72,13 @@ the defense to FLTrust with the explicit default `min_trust_score=0.0`. Its five
 fixed-seed formal result is `15.614 +/- 0.595%` error versus the paper's
 `15.4 +/- 0.4%`.
 
+`cifar10_iid_clean_rfa.yaml` reuses the same protocol and changes only the
+defense to RFA, with the geometric-median solver fixed at `max_iter=20`,
+`tol=1e-5`, and `eps=1e-8`. Its five fixed-seed formal result is
+`15.144 +/- 0.209%` error versus the paper's `15.2 +/- 0.3%`; the resolved
+configuration and run summary for every seed are archived under
+`artifacts/experiment-evidence/2026-11-11/cifar10_iid_clean_rfa/`.
+
 Validate the configuration without starting training:
 
 ```bash
