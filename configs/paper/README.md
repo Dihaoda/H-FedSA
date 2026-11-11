@@ -38,6 +38,15 @@ paper's update features) and records the remaining reconstruction defaults
 explicitly in YAML. These defaults are parameters to validate empirically, not
 claims copied from the paper.
 
+`cifar10_iid_hfedsa_ddpg_label_flip.yaml` freezes the measured label-flipping
+candidate for seeds `2026` through `2030`. It uses the deterministic
+`y -> 9 - y` transform and an explicitly labeled compatibility extension: a
+raw-weight floor of `0.05` applies only when the GMM assigns
+`p_malicious < 0.3`. The independent confirmation seed `27182` measured
+`15.68%` final error, `97.2%` malicious TPR, `0.8%` non-malicious FPR, and no
+weight-collapse alerts. Because the floor is not specified by Algorithm 1,
+formal results from this manifest must retain the compatibility qualifier.
+
 Expected data layout:
 
 ```text
@@ -129,4 +138,3 @@ standard direct FedAvg server update. Algorithm 1 returns the normalized
 aggregate directly, and the paper does not describe a server-momentum term;
 the strict manifest therefore takes precedence when freezing the formal
 protocol.
-

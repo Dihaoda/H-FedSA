@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "experiment_class": "calibration",
+  "candidate_id": "hfedsa_label_flip_lowrisk_floor005_minbeta010",
+  "seed": 27182,
+  "dataset": "CIFAR-10 IID with the registered CIFAR-10-C unseen-client protocol",
+  "dataset_source": "real",
+  "attack": "label_flipping",
+  "label_transform": "y -> 9 - y",
+  "malicious_ratio": 0.2,
+  "defense": "hfedsa_ddpg",
+  "rounds": 250,
+  "selection_rule": "final_round_only",
+  "final_accuracy_percent": 84.32,
+  "final_error_percent": 15.68,
+  "best_accuracy_percent": 84.34,
+  "paper_target_error_percent": 15.7,
+  "paper_target_std_percent": 0.4,
+  "gap_to_paper_mean_percent_points": -0.02,
+  "within_paper_one_std_interval": true,
+  "retention": {
+    "floor": 0.05,
+    "mode": "low_pmal_only",
+    "p_malicious_threshold": 0.3,
+    "applied_updates": 959,
+    "applied_true_benign": 914,
+    "applied_true_unseen": 39,
+    "applied_true_malicious": 6
+  },
+  "detection": {
+    "selected_updates": 2500,
+    "malicious_selected": 500,
+    "nonmalicious_selected": 2000,
+    "true_positive": 486,
+    "false_negative": 14,
+    "false_positive": 16,
+    "true_negative": 1984,
+    "malicious_tpr": 0.972,
+    "nonmalicious_fpr": 0.008
+  },
+  "diagnostics": {
+    "gmm_fallbacks": 0,
+    "nan_rounds": 0,
+    "inf_rounds": 0,
+    "weight_collapse_rounds": 0,
+    "maximum_normalized_client_share": 0.5847180504187796,
+    "effective_clients_min": 5,
+    "effective_clients_mean": 8.176
+  },
+  "ddpg_beta": {
+    "minimum": 0.1,
+    "mean": 0.17517344434050927,
+    "maximum": 0.6307657845974592
+  },
+  "promotion_decision": "passed_all_preregistered_conditions",
+  "runtime_seconds": 3149.1105452650227,
+  "config": "configs/calibration/cifar10_iid_hfedsa_ddpg_label_flip_lowrisk_retention_seed27182.yaml",
+  "config_sha256": "31c0bcd3f7ee7ff47eee7632c8af251443e462e0c34cf1e21ebe3089baec7794",
+  "declared_source_revision": "a22d116ec53bbcc217fb3fbd52da0054b82a55a5",
+  "evidence_directory": "artifacts/calibration/cifar10_iid_hfedsa_ddpg_label_flip_lowrisk_retention_seed27182",
+  "server_run_directory": "results/calibration/cifar10_iid_hfedsa_ddpg_label_flip_lowrisk_retention_seed27182/calibration_cifar10_iid_hfedsa_ddpg_label_flip_lowrisk_retention_seed27182_20261111_185137_363270"
+}

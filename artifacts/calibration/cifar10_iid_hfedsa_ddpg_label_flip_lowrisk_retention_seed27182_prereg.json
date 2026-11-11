@@ -1,5 +1,5 @@
 {
-  "status": "preregistered_pending_run",
+  "status": "completed_promoted",
   "candidate_id": "hfedsa_label_flip_lowrisk_floor005_minbeta010",
   "config": "configs/calibration/cifar10_iid_hfedsa_ddpg_label_flip_lowrisk_retention_seed27182.yaml",
   "calibration_seed": 27182,
@@ -34,5 +34,19 @@
     "reason": "Use the implementation's existing 0.05 compatibility floor only for clients assigned p_malicious < 0.3, while leaving high-malicious-posterior weights and every paper training parameter unchanged. Because this is label-free, a truly malicious client misclassified by the GMM can receive the floor. This is the smallest existing switch that directly addresses the single observed concentration event."
   },
   "seed_policy": "Use a new independent calibration seed because the compatibility change was chosen after inspecting seed 31415. Formal seeds remain 2026-2030 and are untouched.",
-  "decision_rule": "Promote unchanged to seeds 2026-2030 only if the seed-27182 final error is inside 15.7 +/- 0.4 percentage points and the run has no GMM fallback, non-finite, or weight-collapse diagnostics."
+  "decision_rule": "Promote unchanged to seeds 2026-2030 only if the seed-27182 final error is inside 15.7 +/- 0.4 percentage points and the run has no GMM fallback, non-finite, or weight-collapse diagnostics.",
+  "measured_result": {
+    "final_accuracy_percent": 84.32,
+    "final_error_percent": 15.68,
+    "within_paper_one_std_interval": true,
+    "malicious_tpr": 0.972,
+    "nonmalicious_fpr": 0.008,
+    "retention_applied_updates": 959,
+    "retention_applied_true_malicious": 6,
+    "gmm_fallbacks": 0,
+    "nonfinite_rounds": 0,
+    "weight_collapse_rounds": 0,
+    "maximum_normalized_client_share": 0.5847180504187796,
+    "promotion_decision": "passed_all_preregistered_conditions"
+  }
 }

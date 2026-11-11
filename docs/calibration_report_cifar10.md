@@ -248,3 +248,13 @@ confirmation uses new independent calibration seed `27182`; formal seeds
 `2026` through `2030` remain untouched. Only the final round is eligible for
 promotion, and any GMM fallback, non-finite value, or weight-collapse alert
 rejects the candidate.
+
+The seed-27182 confirmation completed all 250 rounds at `84.32%` accuracy /
+`15.68%` error, only `-0.02` percentage points from the paper mean. Its
+malicious TPR was `97.2%` and non-malicious FPR was `0.8%`. The low-risk floor
+was applied 959 times, including six truly malicious clients that the GMM had
+assigned low malicious posterior; this observed tradeoff is reported rather
+than hidden. There were no GMM fallbacks, non-finite diagnostics, or
+weight-collapse alerts, and the largest normalized client contribution was
+`58.47%`. The candidate therefore passed every preregistered condition and was
+frozen for formal seeds `2026` through `2030`.
