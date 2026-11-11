@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "experiment_class": "calibration",
+  "candidate_id": "hfedsa_attack_presence_ratio3_uniform_raw",
+  "seed": 31415,
+  "dataset": "CIFAR-10 IID with the registered CIFAR-10-C unseen-client protocol",
+  "dataset_source": "real",
+  "attack": "no_attack",
+  "defense": "hfedsa_ddpg",
+  "rounds": 250,
+  "selection_rule": "final_round_only",
+  "final_accuracy_percent": 84.37,
+  "final_error_percent": 15.63,
+  "best_accuracy_percent": 84.45,
+  "paper_target_error_percent": 15.7,
+  "paper_target_std_percent": 0.2,
+  "gap_to_paper_mean_percent_points": -0.07,
+  "within_paper_one_std_interval": true,
+  "gate": {
+    "intensity_ratio_threshold": 3.0,
+    "attack_absent_aggregation": "uniform_raw",
+    "ratio_min": 1.0006798894811226,
+    "ratio_median": 1.03875540700135,
+    "ratio_max": 1.2389142367779713,
+    "triggered_rounds": 250,
+    "attack_present_rounds": 0,
+    "passthrough_client_updates": 2500
+  },
+  "diagnostics": {
+    "gmm_fallbacks": 0,
+    "nan_rounds": 0,
+    "inf_rounds": 0,
+    "weight_collapse_rounds": 0
+  },
+  "runtime_seconds": 3136.0482608280145,
+  "config": "configs/calibration/cifar10_iid_clean_hfedsa_attack_presence_seed31415.yaml",
+  "config_sha256": "a18794b4edf4f6036e3421588ff8e6814450e989e46eaaeac5a214a78ff4de4d2",
+  "declared_source_revision": "16237d9455a3875b6e5698073a05eaf5325f7bc2",
+  "server_run_directory": "results/calibration/cifar10_iid_clean/hfedsa_ddpg_attack_presence_ratio3_r250_v2/calibration_cifar10_iid_clean_hfedsa_attack_presence_seed31415_20261111_153646_318974"
+}
+

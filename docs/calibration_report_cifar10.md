@@ -193,9 +193,17 @@ CSV writer was found not to export the new gate fields. The scientific settings
 were not changed. The restarted run uses the `_v2` output directory and records
 the intensity ratio, gate decision, and passthrough count for every round.
 
+The restarted seed-31415 run completed all 250 rounds with final accuracy
+`84.37%`, or `15.63%` error. This is `-0.07` percentage points from the Table
+II(d) H-FedSA clean target (`15.7 +/- 0.2%`) and satisfies the frozen promotion
+rule. The gate triggered in all 250 attack-free rounds; the measured ratio range
+was `1.0007` to `1.2389`, with no GMM fallback, non-finite feature, or weight
+collapse. The compact measured evidence is published at
+`results/published/cifar10_iid_clean_hfedsa_attack_presence_calibration_seed31415.json`.
+The frozen five-seed manifest is `configs/paper/cifar10_iid_clean_hfedsa_ddpg.yaml`.
+
 ## Remaining reproduction gap
 
-- finish the preregistered seed-31415 no-attack presence-gate calibration; if it
-  satisfies its frozen decision rule, run the unchanged candidate on seeds
-  `2026` through `2030`.
+- run the frozen H-FedSA clean candidate on seeds `2026` through `2030` and
+  report the final-round mean and sample standard deviation.
 

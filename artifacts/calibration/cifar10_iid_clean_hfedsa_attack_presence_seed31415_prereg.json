@@ -1,5 +1,5 @@
 {
-  "status": "preregistered_pending_run",
+  "status": "passed",
   "candidate_id": "hfedsa_attack_presence_ratio3_uniform_raw",
   "config": "configs/calibration/cifar10_iid_clean_hfedsa_attack_presence_seed31415.yaml",
   "calibration_seed": 31415,
@@ -29,6 +29,14 @@
     "scaling_ratio_median": 28.70676891707779,
     "scaling_ratio_max": 107.33876278983283
   },
-  "decision_rule": "Promote the frozen candidate to the five preregistered formal seeds only if the seed-31415 final error is inside 15.7 +/- 0.2 percentage points and every clean diagnostic round remains below the registered threshold."
+  "decision_rule": "Promote the frozen candidate to the five preregistered formal seeds only if the seed-31415 final error is inside 15.7 +/- 0.2 percentage points and every clean diagnostic round remains below the registered threshold.",
+  "measured_result": {
+    "final_accuracy_percent": 84.37,
+    "final_error_percent": 15.63,
+    "gap_to_target_mean_percent_points": -0.07,
+    "ratio_max": 1.2389142367779713,
+    "triggered_rounds": 250,
+    "decision": "promote_to_formal_five_seed_run"
+  }
 }
 
