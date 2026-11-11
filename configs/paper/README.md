@@ -88,6 +88,14 @@ paper does not identify which SafeFL rule generated its column. Per-seed
 resolved configurations and summaries are archived under
 `artifacts/experiment-evidence/2026-11-11/cifar10_iid_clean_safefl_signguard/`.
 
+`cifar10_iid_clean_msguard.yaml` reuses the shared protocol and fixes the
+MSGuard published-component implementation to automatic Mean Shift bandwidth,
+`quantile=0.3`, and `min_retained_fraction=0.5`. Its five-seed result is
+`15.504 +/- 0.227%` error versus the paper's `15.2 +/- 0.3%`; the unrounded
+mean is `0.004` points above the paper's one-standard-deviation upper bound.
+Per-seed resolved configurations and summaries are archived under
+`artifacts/experiment-evidence/2026-11-11/cifar10_iid_clean_msguard/`.
+
 Validate the configuration without starting training:
 
 ```bash

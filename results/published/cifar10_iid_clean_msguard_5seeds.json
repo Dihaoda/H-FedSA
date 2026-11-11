@@ -1,0 +1,140 @@
+{
+  "dataset": "cifar10",
+  "attack_type": "no_attack",
+  "method": "msguard",
+  "run_count": 5,
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "rounds": [
+    250,
+    250,
+    250,
+    250,
+    250
+  ],
+  "error_rate": {
+    "count": 5,
+    "mean": 15.503999999999996,
+    "sample_std": 0.22667156857444895,
+    "min": 15.209999999999994,
+    "max": 15.75
+  },
+  "accuracy": {
+    "count": 5,
+    "mean": 84.49600000000001,
+    "sample_std": 0.22667156857444895,
+    "min": 84.25,
+    "max": 84.79
+  },
+  "attack_success_rate": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_tpr": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_fpr": {
+    "count": 5,
+    "mean": 0.4,
+    "sample_std": 0.5477225575051661,
+    "min": 0.0,
+    "max": 1.0
+  },
+  "detection_overall_fpr": {
+    "count": 5,
+    "mean": 0.38,
+    "sample_std": 0.08366600265340757,
+    "min": 0.3,
+    "max": 0.5
+  },
+  "metrics_paths": [
+    "results/formal/cifar10_iid_clean/msguard/seed2026/paper_cifar10_iid_clean_msguard_seed2026_20261111_135242_342228/metrics.csv",
+    "results/formal/cifar10_iid_clean/msguard/seed2027/paper_cifar10_iid_clean_msguard_seed2027_20261111_135241_289528/metrics.csv",
+    "results/formal/cifar10_iid_clean/msguard/seed2028/paper_cifar10_iid_clean_msguard_seed2028_20261111_135240_642350/metrics.csv",
+    "results/formal/cifar10_iid_clean/msguard/seed2029/paper_cifar10_iid_clean_msguard_seed2029_20261111_135241_371881/metrics.csv",
+    "results/formal/cifar10_iid_clean/msguard/seed2030/paper_cifar10_iid_clean_msguard_seed2030_20261111_135241_348601/metrics.csv"
+  ],
+  "run_provenance": [
+    {
+      "seed": 2026,
+      "metrics_path": "results/formal/cifar10_iid_clean/msguard/seed2026/paper_cifar10_iid_clean_msguard_seed2026_20261111_135242_342228/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_msguard.yaml",
+      "config_sha256": "3f77cbb006cfefd24f131f586dfad95cb51936608b711d5263af3e210ae358dc",
+      "declared_source_revision": "484c0b22ab195aaa551469213ebc4f3c84cae468",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2027,
+      "metrics_path": "results/formal/cifar10_iid_clean/msguard/seed2027/paper_cifar10_iid_clean_msguard_seed2027_20261111_135241_289528/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_msguard.yaml",
+      "config_sha256": "c857c45593eaf9c8d4ffb6767a95502b5a0cfea882cab1618e749f53e573a520",
+      "declared_source_revision": "484c0b22ab195aaa551469213ebc4f3c84cae468",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2028,
+      "metrics_path": "results/formal/cifar10_iid_clean/msguard/seed2028/paper_cifar10_iid_clean_msguard_seed2028_20261111_135240_642350/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_msguard.yaml",
+      "config_sha256": "dc33169a5572c54303e3b949b5d8809b396f58efa79df676edadde439311a48f",
+      "declared_source_revision": "484c0b22ab195aaa551469213ebc4f3c84cae468",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2029,
+      "metrics_path": "results/formal/cifar10_iid_clean/msguard/seed2029/paper_cifar10_iid_clean_msguard_seed2029_20261111_135241_371881/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_msguard.yaml",
+      "config_sha256": "e5bac2a2c10c4ffa0d6c33dd94774fef9aa6234bef1aabb85e9ede09a478661a",
+      "declared_source_revision": "484c0b22ab195aaa551469213ebc4f3c84cae468",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2030,
+      "metrics_path": "results/formal/cifar10_iid_clean/msguard/seed2030/paper_cifar10_iid_clean_msguard_seed2030_20261111_135241_348601/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_clean_msguard.yaml",
+      "config_sha256": "6c6e88548e523ef038baa99de00a1248ce51d9beb81fe79818f4645cd212fa46",
+      "declared_source_revision": "484c0b22ab195aaa551469213ebc4f3c84cae468",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    }
+  ],
+  "required_runs": 5,
+  "complete": true,
+  "paper_target": {
+    "error_mean": 15.2,
+    "error_std": 0.3
+  },
+  "error_mean_gap": 0.3039999999999967,
+  "asr_mean_gap": null
+}
+

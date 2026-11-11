@@ -65,6 +65,20 @@ SignGuard. The manifest and result are
 `configs/paper/cifar10_iid_clean_safefl_signguard.yaml` and
 `results/published/cifar10_iid_clean_safefl_signguard_5seeds.json`.
 
+## Completed formal MSGuard anchor
+
+The documented MSGuard component implementation was run under the same frozen
+clean protocol with automatic Mean Shift bandwidth estimation,
+`quantile=0.3`, and a 50% minimum-retention floor. The five preregistered seeds
+measured `15.504 +/- 0.227%` final error, a mean gap of `+0.304` percentage
+points from Table II(d)'s `15.2 +/- 0.3%`. The unrounded mean is `0.004`
+points above the paper's one-standard-deviation upper bound. All runs completed
+250 rounds on real data and used final-round metrics. In the absence of a
+public author artifact, the result is labeled a published-component
+implementation. The manifest and result are
+`configs/paper/cifar10_iid_clean_msguard.yaml` and
+`results/published/cifar10_iid_clean_msguard_5seeds.json`.
+
 ## Completed clean candidates
 
 | Candidate | Final accuracy | Final error | Gap to 15.0 | Decision |

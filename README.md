@@ -69,10 +69,13 @@ to published result artifacts.
 The completed five-seed CIFAR-10 IID results currently include clean FedAvg
 (`15.088 +/- 0.360%` error), clean FLTrust (`15.614 +/- 0.595%` error), clean
 RFA (`15.144 +/- 0.209%` error), SafeFL-compatible SignGuard
-(`15.430 +/- 0.202%` error), and H-FedSA-DDPG under backdoor scaling
-(`15.770 +/- 0.317%` error, `1.476 +/- 0.172%` ASR). The RFA, FLTrust, and
-SafeFL-compatible means differ from their paper targets by `-0.056`, `+0.214`,
-and `+0.130` percentage points respectively, all inside their reported paper
+(`15.430 +/- 0.202%` error), MSGuard published-component implementation
+(`15.504 +/- 0.227%` error), and H-FedSA-DDPG under backdoor scaling
+(`15.770 +/- 0.317%` error, `1.476 +/- 0.172%` ASR). The RFA, FLTrust,
+SafeFL-compatible, and MSGuard means differ from their paper targets by
+`-0.056`, `+0.214`, `+0.130`, and `+0.304` percentage points respectively.
+The MSGuard mean is `0.004` points above the paper's one-standard-deviation
+upper bound; the other three clean-defense means are inside their reported
 ranges. For H-FedSA scaling, ASR is inside the reported range while error
 remains `+0.570` points above the paper mean.
 

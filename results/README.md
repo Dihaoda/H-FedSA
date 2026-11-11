@@ -19,6 +19,9 @@ Published measured summaries:
 - `published/cifar10_iid_clean_safefl_signguard_5seeds.json`: CIFAR-10 IID,
   no attack, SafeFL-compatible SignGuard profile, seeds 2026--2030; final
   error `15.430 +/- 0.202%`.
+- `published/cifar10_iid_clean_msguard_5seeds.json`: CIFAR-10 IID, no attack,
+  MSGuard published-component implementation, seeds 2026--2030; final error
+  `15.504 +/- 0.227%`.
 - `published/cifar10_iid_hfedsa_ddpg_scaling_5seeds.json`: CIFAR-10 IID,
   H-FedSA-DDPG under backdoor scaling, seeds 2026--2030; final error
   `15.770 +/- 0.317%` and ASR `1.476 +/- 0.172%`.

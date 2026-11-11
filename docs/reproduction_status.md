@@ -18,7 +18,7 @@ has been reproduced.
 | GTSRB + CTSDB/GTSDB | Implemented and unit-tested | Requires an explicit semantic label map; real-data smoke pending |
 | Stanford Cars + CompCars | Implemented and unit-tested | Requires a curated make/model label map; real-data smoke pending |
 | FedAvg, FLTrust, RFA | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed for all three methods |
-| SafeFL-compatible SignGuard, MSGuard | Implemented; SignGuard profile formally measured | Clean CIFAR-10 IID SignGuard five-seed result completed; SafeFL rule ambiguity and MSGuard artifact limitations remain documented |
+| SafeFL-compatible SignGuard, MSGuard | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed; SafeFL rule ambiguity and MSGuard artifact limitations remain documented |
 | Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID H-FedSA scaling formally measured | Five fixed-seed result: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR |
 | Krum-targeted, Trim-targeted, PoiSAFL | Implemented and smoke-tested | PoiSAFL is an explicitly documented synchronous adaptation |
 | Full paper tables | Pending | No smoke or synthetic output is accepted as a measured paper result |
@@ -66,4 +66,13 @@ fixes the public SignGuard profile at a 10% sign-coordinate sample and norm
 bounds `[0.1, 3.0]`. Because the H-FedSA paper does not identify which SafeFL
 rule produced its column, this result is explicitly reported as compatible,
 not as bit-for-bit reproduction of an unspecified rule.
+
+The completed clean MSGuard summary is
+`results/published/cifar10_iid_clean_msguard_5seeds.json`. Its five-seed error
+is `15.504 +/- 0.227%`, a mean gap of `+0.304` percentage points from Table
+II(d)'s `15.2 +/- 0.3%`. The unrounded mean is `0.004` points above the
+paper's one-standard-deviation upper bound. The manifest fixes Mean Shift to
+automatic bandwidth estimation with `quantile=0.3` and a 50% minimum-retention
+floor. Because no public author artifact is available, this remains labeled a
+published-component implementation rather than source-identical reproduction.
 
