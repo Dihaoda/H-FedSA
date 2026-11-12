@@ -19,7 +19,7 @@ has been reproduced.
 | Stanford Cars + CompCars | Implemented and unit-tested | Requires a curated make/model label map; real-data smoke pending |
 | FedAvg, FLTrust, RFA | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed for all three methods |
 | SafeFL-compatible SignGuard, MSGuard | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed; SafeFL rule ambiguity and MSGuard artifact limitations remain documented |
-| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID scaling and label flip formally measured | Scaling five-seed result: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR; label-flip five-seed result: `15.888 +/- 0.898%` error |
+| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID scaling, H-FedSA label flip, and FedAvg label-flip baseline formally measured | Scaling H-FedSA: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR; label flip H-FedSA: `15.888 +/- 0.898%` error; label flip FedAvg: `18.924 +/- 0.604%` error versus paper `72.0 +/- 4.5%` |
 | Krum-targeted, Trim-targeted, PoiSAFL | Implemented and smoke-tested | PoiSAFL is an explicitly documented synchronous adaptation |
 | Full paper tables | Pending | No smoke or synthetic output is accepted as a measured paper result |
 
@@ -52,6 +52,16 @@ deviation is larger. All 1,250 rounds used real CIFAR-10/CIFAR-10-C, and no run
 had a GMM fallback, non-finite diagnostic, or weight-collapse alert. The
 low-risk raw-weight floor remains explicitly labeled as a compatibility
 extension because it is not specified by Algorithm 1.
+
+The completed FedAvg label-flipping baseline is
+`results/published/cifar10_iid_fedavg_label_flip_5seeds.json`. Its fixed
+five-seed final-round error is `18.924 +/- 0.604%`, a mean gap of
+`-53.076` percentage points from Table II(d)'s `72.0 +/- 4.5%`. All five
+runs used the same deterministic `y -> 9 - y` attack, 20% malicious-client
+ratio, real CIFAR-10/CIFAR-10-C data, and optimization budget as the H-FedSA
+label-flipping campaign. The large gap indicates that the paper's FedAvg
+label-flipping result depends on attack details not reproduced by the current
+deterministic protocol; it is recorded openly rather than changed post hoc.
 
 The completed clean H-FedSA-DDPG summary is
 `results/published/cifar10_iid_clean_hfedsa_ddpg_5seeds.json`. Its five-seed
