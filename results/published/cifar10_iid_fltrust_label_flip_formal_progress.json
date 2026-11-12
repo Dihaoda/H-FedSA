@@ -1,6 +1,6 @@
 {
-  "status": "preregistered",
-  "experiment_class": "formal_measured_pending",
+  "status": "in_progress",
+  "experiment_class": "formal_measured_in_progress",
   "candidate_id": "fltrust_label_flip_paper_protocol",
   "config": "configs/paper/cifar10_iid_fltrust_label_flip.yaml",
   "paper_target": {
@@ -14,15 +14,33 @@
     2029,
     2030
   ],
-  "completed_seeds": [],
+  "completed_seeds": [
+    2026
+  ],
   "remaining_seeds": [
-    2026,
     2027,
     2028,
     2029,
     2030
   ],
   "selection_rule": "final_round_only",
-  "runs": [],
-  "protocol_note": "FLTrust shares the frozen real CIFAR-10/CIFAR-10-C, client sampling, optimization, and deterministic y -> 9 - y label-flipping protocol used by the completed H-FedSA and FedAvg campaigns. FLTrust min_trust_score is frozen at 0.0, matching the completed clean FLTrust manifest."
+  "runs": [
+    {
+      "seed": 2026,
+      "dataset_source": "real",
+      "rounds_completed": 250,
+      "final_accuracy_percent": 82.91,
+      "final_error_percent": 17.090000000000003,
+      "best_accuracy_percent": 83.12,
+      "gap_to_paper_mean_percent_points": -0.2099999999999973,
+      "within_paper_one_std_interval": true,
+      "runtime_seconds": 3053.3818521937355,
+      "config_sha256": "7a8272319686779ee026fb829de0ef38104989c903c673e482549edef9b50200",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "evidence_directory": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2026",
+      "server_run_directory": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2026_20261112_211512_706594"
+    }
+  ],
+  "protocol_note": "FLTrust shares the frozen real CIFAR-10/CIFAR-10-C, client sampling, optimization, and deterministic y -> 9 - y label-flipping protocol used by the completed H-FedSA and FedAvg campaigns. FLTrust min_trust_score is frozen at 0.0, matching the completed clean FLTrust manifest.",
+  "resume_note": "Seed 2026 is complete and immutable. Seed 2027 is running; seeds 2028-2030 remain preregistered."
 }
