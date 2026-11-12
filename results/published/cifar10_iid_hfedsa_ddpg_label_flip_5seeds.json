@@ -1,0 +1,140 @@
+{
+  "dataset": "cifar10",
+  "attack_type": "label_flipping",
+  "method": "hfedsa_ddpg",
+  "run_count": 5,
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "rounds": [
+    250,
+    250,
+    250,
+    250,
+    250
+  ],
+  "error_rate": {
+    "count": 5,
+    "mean": 15.888,
+    "sample_std": 0.897841856899087,
+    "min": 15.030000000000001,
+    "max": 17.25
+  },
+  "accuracy": {
+    "count": 5,
+    "mean": 84.112,
+    "sample_std": 0.897841856899087,
+    "min": 82.75,
+    "max": 84.97
+  },
+  "attack_success_rate": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_tpr": {
+    "count": 5,
+    "mean": 1.0,
+    "sample_std": 0.0,
+    "min": 1.0,
+    "max": 1.0
+  },
+  "detection_fpr": {
+    "count": 5,
+    "mean": 0.0,
+    "sample_std": 0.0,
+    "min": 0.0,
+    "max": 0.0
+  },
+  "detection_overall_fpr": {
+    "count": 5,
+    "mean": 0.0,
+    "sample_std": 0.0,
+    "min": 0.0,
+    "max": 0.0
+  },
+  "metrics_paths": [
+    "artifacts/formal/cifar10_iid_hfedsa_ddpg_label_flip/seed2026/metrics.csv",
+    "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2027_20261112_125724_292271/metrics.csv",
+    "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2028_20261112_135643_837583/metrics.csv",
+    "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2029_20261112_145411_668506/metrics.csv",
+    "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2030_20261112_155337_235291/metrics.csv"
+  ],
+  "run_provenance": [
+    {
+      "seed": 2026,
+      "metrics_path": "artifacts/formal/cifar10_iid_hfedsa_ddpg_label_flip/seed2026/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_hfedsa_ddpg_label_flip.yaml",
+      "config_sha256": "0b992c793cc7a1fb5105f7a362ae19677d78e1a1b3c26471ee15381eb0456def",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "runtime_git_commit": "7e8f62e44b6bf3dd4d407b8154253a7f18e4b9bf",
+      "runtime_git_dirty": true,
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2027,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2027_20261112_125724_292271/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_hfedsa_ddpg_label_flip.yaml",
+      "config_sha256": "6dc860a0e37d2f6b0e1e65e01c009964ae976f53bb654fe06899441b1a38f06c",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "runtime_git_commit": "NA",
+      "runtime_git_dirty": "NA",
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2028,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2028_20261112_135643_837583/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_hfedsa_ddpg_label_flip.yaml",
+      "config_sha256": "94cb42a887e52224998a587cbcb7fc5d1614db9b04ded4b0642a55c513c14a96",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "runtime_git_commit": "NA",
+      "runtime_git_dirty": "NA",
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2029,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2029_20261112_145411_668506/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_hfedsa_ddpg_label_flip.yaml",
+      "config_sha256": "3fcc098b6a60f9cb7e71613d52195eda50c31d3f219df9dc7aea68c60dde8582",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "runtime_git_commit": "NA",
+      "runtime_git_dirty": "NA",
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2030,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2030_20261112_155337_235291/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_hfedsa_ddpg_label_flip.yaml",
+      "config_sha256": "6266c871cf55f411d0e550fc6ba276ca83cfccf20cc9a4ffe34893d65e9c34b5",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "runtime_git_commit": "NA",
+      "runtime_git_dirty": "NA",
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    }
+  ],
+  "required_runs": 5,
+  "complete": true,
+  "paper_target": {
+    "error_mean": 15.7,
+    "error_std": 0.4
+  },
+  "error_mean_gap": 0.1880000000000006,
+  "asr_mean_gap": null
+}
+
