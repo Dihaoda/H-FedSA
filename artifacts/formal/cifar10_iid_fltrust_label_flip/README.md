@@ -10,15 +10,17 @@ is FLTrust with `min_trust_score: 0.0`.
 
 - Seed `2026`: final accuracy `82.91%`, final error `17.09%`, best
   accuracy `83.12%`, runtime `3053.382` seconds.
+- Seed `2027`: final accuracy `83.49%`, final error `16.51%`, best
+  accuracy `83.59%`, runtime `3065.679` seconds.
 
-The paper target is `17.3 +/- 1.0%` error. Seed 2026 is inside that interval,
-but no campaign-level comparison is claimed until all five preregistered seeds
-(`2026`-`2030`) finish.
+The paper target is `17.3 +/- 1.0%` error. Both completed seeds are inside
+that interval, but no campaign-level comparison is claimed until all five
+preregistered seeds (`2026`-`2030`) finish.
 
 ## In progress
 
-- Seed `2027` is running.
-- Seeds `2028`, `2029`, and `2030` remain preregistered.
+- Seed `2028` is running.
+- Seeds `2029` and `2030` remain preregistered.
 
 Each completed seed directory archives the resolved configuration, final-round
 metrics, aggregation diagnostics, FLTrust scaling diagnostics, data and
