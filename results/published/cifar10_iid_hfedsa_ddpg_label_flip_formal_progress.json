@@ -1,6 +1,6 @@
 {
-  "status": "active_after_seed2029",
-  "experiment_class": "formal_measured_in_progress",
+  "status": "complete",
+  "experiment_class": "formal_measured_complete",
   "candidate_id": "hfedsa_label_flip_lowrisk_floor005_minbeta010",
   "config": "configs/paper/cifar10_iid_hfedsa_ddpg_label_flip.yaml",
   "paper_target": {
@@ -18,11 +18,10 @@
     2026,
     2027,
     2028,
-    2029
-  ],
-  "remaining_seeds": [
+    2029,
     2030
   ],
+  "remaining_seeds": [],
   "selection_rule": "final_round_only",
   "runs": [
     {
@@ -120,13 +119,45 @@
       "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
       "evidence_directory": "artifacts/formal/cifar10_iid_hfedsa_ddpg_label_flip/seed2029",
       "server_run_directory": "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2029_20261112_145411_668506"
+    },
+    {
+      "seed": 2030,
+      "dataset_source": "real",
+      "rounds_completed": 250,
+      "final_accuracy_percent": 83.87,
+      "final_error_percent": 16.13,
+      "best_accuracy_percent": 83.87,
+      "gap_to_paper_mean_percent_points": 0.43,
+      "within_paper_one_std_interval": false,
+      "malicious_tpr": 0.98,
+      "nonmalicious_fpr": 0.004,
+      "retention_applied_updates": 416,
+      "retention_applied_true_malicious": 3,
+      "gmm_fallbacks": 0,
+      "nan_rounds": 0,
+      "inf_rounds": 0,
+      "weight_collapse_rounds": 0,
+      "maximum_normalized_client_share": 0.7407407407407407,
+      "runtime_seconds": 3223.761200301349,
+      "config_sha256": "6266c871cf55f411d0e550fc6ba276ca83cfccf20cc9a4ffe34893d65e9cc34b5",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "evidence_directory": "artifacts/formal/cifar10_iid_hfedsa_ddpg_label_flip/seed2030",
+      "server_run_directory": "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2030_20261112_155337_235291"
     }
   ],
-  "resume_note": "Continue unchanged with the final seed 2030. Seeds 2026-2029 are immutable preregistered results and must remain in the final aggregate.",
-  "interim_aggregate": {
-    "completed_run_count": 4,
-    "error_mean_percent": 15.8275,
-    "error_sample_std_percent": 1.0249024343809512,
-    "note": "Provisional only; final reporting requires all five preregistered seeds."
+  "resume_note": "Campaign complete. All five preregistered seeds are immutable and included in the final-round aggregate.",
+  "final_aggregate": {
+    "run_count": 5,
+    "error_mean_percent": 15.888,
+    "error_sample_std_percent": 0.897841856899087,
+    "accuracy_mean_percent": 84.112,
+    "accuracy_sample_std_percent": 0.897841856899087,
+    "paper_error_mean_percent": 15.7,
+    "paper_error_std_percent": 0.4,
+    "mean_gap_percent_points": 0.1880000000000006,
+    "mean_within_paper_one_std_interval": true,
+    "selection_rule": "final_round_only",
+    "published_summary": "results/published/cifar10_iid_hfedsa_ddpg_label_flip_5seeds.json",
+    "published_summary_sha256": "919e04e8f3099f9b298deebb025e6f893952af56325955e89edd15165c643722"
   }
 }
