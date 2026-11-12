@@ -1,0 +1,9 @@
+{
+  "partition_method": "iid_balanced",
+  "iid": true,
+  "non_iid_alpha": "NA",
+  "min_client_samples": 1,
+  "empty_clients": [],
+  "min_client_samples_observed": 490,
+  "max_client_samples_observed": 500
+}
