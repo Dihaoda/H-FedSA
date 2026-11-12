@@ -1,5 +1,5 @@
 {
-  "status": "active_after_seed2028",
+  "status": "active_after_seed2029",
   "experiment_class": "formal_measured_in_progress",
   "candidate_id": "hfedsa_label_flip_lowrisk_floor005_minbeta010",
   "config": "configs/paper/cifar10_iid_hfedsa_ddpg_label_flip.yaml",
@@ -17,10 +17,10 @@
   "completed_seeds": [
     2026,
     2027,
-    2028
+    2028,
+    2029
   ],
   "remaining_seeds": [
-    2029,
     2030
   ],
   "selection_rule": "final_round_only",
@@ -96,13 +96,37 @@
       "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
       "evidence_directory": "artifacts/formal/cifar10_iid_hfedsa_ddpg_label_flip/seed2028",
       "server_run_directory": "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2028_20261112_135643_837583"
+    },
+    {
+      "seed": 2029,
+      "dataset_source": "real",
+      "rounds_completed": 250,
+      "final_accuracy_percent": 84.97,
+      "final_error_percent": 15.03,
+      "best_accuracy_percent": 85.1,
+      "gap_to_paper_mean_percent_points": -0.67,
+      "within_paper_one_std_interval": false,
+      "malicious_tpr": 0.974,
+      "nonmalicious_fpr": 0.02,
+      "retention_applied_updates": 811,
+      "retention_applied_true_malicious": 3,
+      "gmm_fallbacks": 0,
+      "nan_rounds": 0,
+      "inf_rounds": 0,
+      "weight_collapse_rounds": 0,
+      "maximum_normalized_client_share": 0.6894754084250437,
+      "runtime_seconds": 3279.3258700310253,
+      "config_sha256": "3fcc098b6a60f9cb7e71613d52195eda50c31d3f219df9dc7aea68c60ddee8582",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "evidence_directory": "artifacts/formal/cifar10_iid_hfedsa_ddpg_label_flip/seed2029",
+      "server_run_directory": "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2029_20261112_145411_668506"
     }
   ],
-  "resume_note": "Continue unchanged with seed 2029. Seeds 2026-2028 are immutable preregistered results and must remain in the final aggregate.",
+  "resume_note": "Continue unchanged with the final seed 2030. Seeds 2026-2029 are immutable preregistered results and must remain in the final aggregate.",
   "interim_aggregate": {
-    "completed_run_count": 3,
-    "error_mean_percent": 16.093333333333334,
-    "error_sample_std_percent": 1.0731418048577421,
+    "completed_run_count": 4,
+    "error_mean_percent": 15.8275,
+    "error_sample_std_percent": 1.0249024343809512,
     "note": "Provisional only; final reporting requires all five preregistered seeds."
   }
 }
