@@ -1,0 +1,25 @@
+{
+  "seed": 2028,
+  "campaign": "cifar10_iid_fltrust_label_flip",
+  "incident": "ssh_remote_disconnect",
+  "interrupted_attempt": {
+    "server_run_directory": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2028_20261112_230014_813221",
+    "last_completed_round": 28,
+    "included_in_formal_results": false,
+    "reason": "The foreground training process terminated when the AutoDL SSH connections were closed by the remote host. No resumable model checkpoint existed."
+  },
+  "official_rerun": {
+    "server_run_directory": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2028_20261112_231048_672299",
+    "execution_mode": "nohup_background",
+    "rounds_completed": 250,
+    "selection_rule": "final_round_only",
+    "final_accuracy_percent": 82.9,
+    "final_error_percent": 17.099999999999994,
+    "best_accuracy_percent": 82.94,
+    "runtime_seconds": 3151.6868147924542,
+    "config_sha256": "dc0401f9ccc90160f94095c4a989bcabaed6b24235ac5edd8256f1d20dc994cac",
+    "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0"
+  },
+  "integrity_note": "The interrupted attempt and official rerun were not merged. Only the complete 250-round rerun is included in campaign summaries."
+}
+
