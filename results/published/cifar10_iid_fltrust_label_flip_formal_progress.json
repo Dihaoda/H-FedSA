@@ -1,0 +1,28 @@
+{
+  "status": "preregistered",
+  "experiment_class": "formal_measured_pending",
+  "candidate_id": "fltrust_label_flip_paper_protocol",
+  "config": "configs/paper/cifar10_iid_fltrust_label_flip.yaml",
+  "paper_target": {
+    "error_mean_percent": 17.3,
+    "error_std_percent": 1
+  },
+  "preregistered_seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "completed_seeds": [],
+  "remaining_seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "selection_rule": "final_round_only",
+  "runs": [],
+  "protocol_note": "FLTrust shares the frozen real CIFAR-10/CIFAR-10-C, client sampling, optimization, and deterministic y -> 9 - y label-flipping protocol used by the completed H-FedSA and FedAvg campaigns. FLTrust min_trust_score is frozen at 0.0, matching the completed clean FLTrust manifest."
+}
