@@ -1,6 +1,6 @@
 {
-  "status": "preregistered",
-  "experiment_class": "formal_measured_pending",
+  "status": "active_after_seed2026",
+  "experiment_class": "formal_measured_in_progress",
   "candidate_id": "fedavg_label_flip_paper_protocol",
   "config": "configs/paper/cifar10_iid_fedavg_label_flip.yaml",
   "paper_target": {
@@ -14,15 +14,37 @@
     2029,
     2030
   ],
-  "completed_seeds": [],
+  "completed_seeds": [
+    2026
+  ],
   "remaining_seeds": [
-    2026,
     2027,
     2028,
     2029,
     2030
   ],
   "selection_rule": "final_round_only",
-  "runs": [],
-  "protocol_note": "FedAvg baseline shares the frozen CIFAR-10/CIFAR-10-C, client sampling, optimization, and deterministic y -> 9 - y label-flipping protocol used by the completed H-FedSA campaign. No H-FedSA or DDPG parameters are active."
+  "runs": [
+    {
+      "seed": 2026,
+      "dataset_source": "real",
+      "rounds_completed": 250,
+      "final_accuracy_percent": 80.64,
+      "final_error_percent": 19.36,
+      "best_accuracy_percent": 81.07,
+      "gap_to_paper_mean_percent_points": -52.64,
+      "within_paper_one_std_interval": false,
+      "runtime_seconds": 2869.969075046014,
+      "config_sha256": "e23a93bb9408d3690429072c3cf805e08e79f17c7edbb5692c95f085800fa5ce",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "evidence_directory": "artifacts/formal/cifar10_iid_fedavg_label_flip/seed2026",
+      "server_run_directory": "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2026_20261112_165924_959735"
+    }
+  ],
+  "protocol_note": "FedAvg baseline shares the frozen CIFAR-10/CIFAR-10-C, client sampling, optimization, and deterministic y -> 9 - y label-flipping protocol used by the completed H-FedSA campaign. No H-FedSA or DDPG parameters are active.",
+  "interim_aggregate": {
+    "completed_run_count": 1,
+    "error_mean_percent": 19.36,
+    "note": "Provisional only; seed 2027 is running and final reporting requires all five preregistered seeds."
+  }
 }
