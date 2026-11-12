@@ -1,0 +1,140 @@
+{
+  "dataset": "cifar10",
+  "attack_type": "label_flipping",
+  "method": "fedavg",
+  "run_count": 5,
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "rounds": [
+    250,
+    250,
+    250,
+    250,
+    250
+  ],
+  "error_rate": {
+    "count": 5,
+    "mean": 18.924,
+    "sample_std": 0.6043839839042742,
+    "min": 18.159999999999997,
+    "max": 19.620000000000005
+  },
+  "accuracy": {
+    "count": 5,
+    "mean": 81.076,
+    "sample_std": 0.6043839839042742,
+    "min": 80.38,
+    "max": 81.84
+  },
+  "attack_success_rate": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_tpr": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_fpr": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "detection_overall_fpr": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "metrics_paths": [
+    "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2026_20261112_165924_959735/metrics.csv",
+    "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2027_20261112_174905_714330/metrics.csv",
+    "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2028_20261112_183731_888810/metrics.csv",
+    "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2029_20261112_192638_269076/metrics.csv",
+    "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2030_20261112_201540_496471/metrics.csv"
+  ],
+  "run_provenance": [
+    {
+      "seed": 2026,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2026_20261112_165924_959735/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_fedavg_label_flip.yaml",
+      "config_sha256": "e23a93bb9408d3690429072c3cf805e08e79f17c7edbb5692c95f085800fa5ce",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "runtime_git_commit": "NA",
+      "runtime_git_dirty": "NA",
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2027,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2027_20261112_174905_714330/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_fedavg_label_flip.yaml",
+      "config_sha256": "92ef85a351214cc3b40e90a4e7db2e30bec71112ef2d97d8768ee249d3218eda",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "runtime_git_commit": "NA",
+      "runtime_git_dirty": "NA",
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2028,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2028_20261112_183731_888810/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_fedavg_label_flip.yaml",
+      "config_sha256": "fce085f6474af101b738979c8db8c6a1846c2751eed2e3579665425c7ed0bda6",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "runtime_git_commit": "NA",
+      "runtime_git_dirty": "NA",
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2029,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2029_20261112_192638_269076/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_fedavg_label_flip.yaml",
+      "config_sha256": "1a893045ec0cf9738447fb617adde0254698188fbadb6665cb20ff692b10b2e1",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "runtime_git_commit": "NA",
+      "runtime_git_dirty": "NA",
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    },
+    {
+      "seed": 2030,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2030_20261112_201540_496471/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_fedavg_label_flip.yaml",
+      "config_sha256": "d584d5f1520202334e321dae8873acd8569f1c5da9b6b5e6bd59cee9486c4aa6",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "runtime_git_commit": "NA",
+      "runtime_git_dirty": "NA",
+      "dataset_source": "real",
+      "synthetic": "False",
+      "run_class": "formal_measured"
+    }
+  ],
+  "required_runs": 5,
+  "complete": true,
+  "paper_target": {
+    "error_mean": 72.0,
+    "error_std": 4.5
+  },
+  "error_mean_gap": -53.076,
+  "asr_mean_gap": null
+}
+
