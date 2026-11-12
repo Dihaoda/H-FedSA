@@ -1,5 +1,5 @@
 {
-  "status": "paused_after_seed2026_by_user_request",
+  "status": "active_after_seed2027",
   "experiment_class": "formal_measured_in_progress",
   "candidate_id": "hfedsa_label_flip_lowrisk_floor005_minbeta010",
   "config": "configs/paper/cifar10_iid_hfedsa_ddpg_label_flip.yaml",
@@ -7,9 +7,22 @@
     "error_mean_percent": 15.7,
     "error_std_percent": 0.4
   },
-  "preregistered_seeds": [2026, 2027, 2028, 2029, 2030],
-  "completed_seeds": [2026],
-  "remaining_seeds": [2027, 2028, 2029, 2030],
+  "preregistered_seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "completed_seeds": [
+    2026,
+    2027
+  ],
+  "remaining_seeds": [
+    2028,
+    2029,
+    2030
+  ],
   "selection_rule": "final_round_only",
   "runs": [
     {
@@ -35,7 +48,37 @@
       "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
       "evidence_directory": "artifacts/formal/cifar10_iid_hfedsa_ddpg_label_flip/seed2026",
       "server_run_directory": "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2026_20261111_195345_608760"
+    },
+    {
+      "seed": 2027,
+      "dataset_source": "real",
+      "rounds_completed": 250,
+      "final_accuracy_percent": 84.1,
+      "final_error_percent": 15.9,
+      "best_accuracy_percent": 84.1,
+      "gap_to_paper_mean_percent_points": 0.2,
+      "within_paper_one_std_interval": true,
+      "malicious_tpr": 0.98,
+      "nonmalicious_fpr": 0.008,
+      "retention_applied_updates": 650,
+      "retention_applied_true_malicious": 5,
+      "gmm_fallbacks": 0,
+      "nan_rounds": 0,
+      "inf_rounds": 0,
+      "weight_collapse_rounds": 0,
+      "maximum_normalized_client_share": 0.7407407407407407,
+      "runtime_seconds": 3198.8521892130375,
+      "config_sha256": "6dc860a0e37d2f6b0e1e65e01c009964ae976f53bb654fe06899441b1aa38f06c",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "evidence_directory": "artifacts/formal/cifar10_iid_hfedsa_ddpg_label_flip/seed2027",
+      "server_run_directory": "results/formal/cifar10_iid_label_flip/hfedsa_ddpg_lowrisk_floor005/paper_cifar10_iid_hfedsa_ddpg_label_flip_seed2027_20261112_125724_292271"
     }
   ],
-  "resume_note": "Resume with seed 2027 on the next server. Do not rerun or replace seed 2026; it is a valid preregistered result despite missing the paper interval."
+  "resume_note": "Continue unchanged with seed 2028. Seeds 2026 and 2027 are immutable preregistered results and must both remain in the final aggregate.",
+  "interim_aggregate": {
+    "completed_run_count": 2,
+    "error_mean_percent": 16.575,
+    "error_sample_std_percent": 0.954594154601839,
+    "note": "Provisional only; final reporting requires all five preregistered seeds."
+  }
 }
