@@ -1,5 +1,5 @@
 {
-  "status": "active_after_seed2026",
+  "status": "active_after_seed2027",
   "experiment_class": "formal_measured_in_progress",
   "candidate_id": "fedavg_label_flip_paper_protocol",
   "config": "configs/paper/cifar10_iid_fedavg_label_flip.yaml",
@@ -15,10 +15,10 @@
     2030
   ],
   "completed_seeds": [
-    2026
+    2026,
+    2027
   ],
   "remaining_seeds": [
-    2027,
     2028,
     2029,
     2030
@@ -39,12 +39,28 @@
       "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
       "evidence_directory": "artifacts/formal/cifar10_iid_fedavg_label_flip/seed2026",
       "server_run_directory": "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2026_20261112_165924_959735"
+    },
+    {
+      "seed": 2027,
+      "dataset_source": "real",
+      "rounds_completed": 250,
+      "final_accuracy_percent": 80.38,
+      "final_error_percent": 19.620000000000005,
+      "best_accuracy_percent": 80.66,
+      "gap_to_paper_mean_percent_points": -52.379999999999995,
+      "within_paper_one_std_interval": false,
+      "runtime_seconds": 2803.724692839198,
+      "config_sha256": "92ef85a351214cc3b40e90a4e7db2e30bec71112ef2d97d8768ee249d32118eda",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "evidence_directory": "artifacts/formal/cifar10_iid_fedavg_label_flip/seed2027",
+      "server_run_directory": "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2027_20261112_174905_714330"
     }
   ],
   "protocol_note": "FedAvg baseline shares the frozen CIFAR-10/CIFAR-10-C, client sampling, optimization, and deterministic y -> 9 - y label-flipping protocol used by the completed H-FedSA campaign. No H-FedSA or DDPG parameters are active.",
   "interim_aggregate": {
-    "completed_run_count": 1,
-    "error_mean_percent": 19.36,
-    "note": "Provisional only; seed 2027 is running and final reporting requires all five preregistered seeds."
+    "completed_run_count": 2,
+    "error_mean_percent": 19.490000000000002,
+    "error_sample_std_percent": 0.1838477631085058,
+    "note": "Provisional only; seed 2028 is running and final reporting requires all five preregistered seeds."
   }
 }
