@@ -1,0 +1,28 @@
+{
+  "status": "preregistered",
+  "experiment_class": "formal_measured_pending",
+  "candidate_id": "fedavg_label_flip_paper_protocol",
+  "config": "configs/paper/cifar10_iid_fedavg_label_flip.yaml",
+  "paper_target": {
+    "error_mean_percent": 72,
+    "error_std_percent": 4.5
+  },
+  "preregistered_seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "completed_seeds": [],
+  "remaining_seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "selection_rule": "final_round_only",
+  "runs": [],
+  "protocol_note": "FedAvg baseline shares the frozen CIFAR-10/CIFAR-10-C, client sampling, optimization, and deterministic y -> 9 - y label-flipping protocol used by the completed H-FedSA campaign. No H-FedSA or DDPG parameters are active."
+}
