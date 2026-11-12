@@ -19,7 +19,7 @@ has been reproduced.
 | Stanford Cars + CompCars | Implemented and unit-tested | Requires a curated make/model label map; real-data smoke pending |
 | FedAvg, FLTrust, RFA | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed for all three methods |
 | SafeFL-compatible SignGuard, MSGuard | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed; SafeFL rule ambiguity and MSGuard artifact limitations remain documented |
-| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID scaling formally measured; label-flip formal campaign active at 4/5 seeds | Scaling five-seed result: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR; label-flip seeds 2026-2029 provisionally aggregate to `15.828 +/- 1.025%` error; run final seed 2030 |
+| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID scaling and label flip formally measured | Scaling five-seed result: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR; label-flip five-seed result: `15.888 +/- 0.898%` error |
 | Krum-targeted, Trim-targeted, PoiSAFL | Implemented and smoke-tested | PoiSAFL is an explicitly documented synchronous adaptation |
 | Full paper tables | Pending | No smoke or synthetic output is accepted as a measured paper result |
 
@@ -42,6 +42,16 @@ The completed H-FedSA-DDPG scaling summary is
 differs from Table II(d) by `+0.276` percentage points, inside the paper's
 reported ASR standard deviation; its error mean differs by `+0.570` points and
 is therefore recorded as a remaining reproduction gap.
+
+The completed H-FedSA-DDPG label-flipping summary is
+`results/published/cifar10_iid_hfedsa_ddpg_label_flip_5seeds.json`. Its fixed
+five-seed final-round error is `15.888 +/- 0.898%`, a mean gap of `+0.188`
+percentage points from Table II(d)'s `15.7 +/- 0.4%`. The measured mean is
+inside the paper's reported interval, while the measured sample standard
+deviation is larger. All 1,250 rounds used real CIFAR-10/CIFAR-10-C, and no run
+had a GMM fallback, non-finite diagnostic, or weight-collapse alert. The
+low-risk raw-weight floor remains explicitly labeled as a compatibility
+extension because it is not specified by Algorithm 1.
 
 The completed clean H-FedSA-DDPG summary is
 `results/published/cifar10_iid_clean_hfedsa_ddpg_5seeds.json`. Its five-seed
