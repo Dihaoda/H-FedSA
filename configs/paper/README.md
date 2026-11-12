@@ -51,6 +51,14 @@ The completed fixed-seed result is `15.888 +/- 0.898%` final-round error
 the paper's `15.7 +/- 0.4%`. The mean is inside the reported interval, while
 the measured between-seed standard deviation is larger.
 
+`cifar10_iid_fedavg_label_flip.yaml` changes only the defense to standard
+FedAvg while retaining the same real data, client sampling, optimization
+budget, malicious ratio, deterministic label transform, and fixed seeds. Its
+completed result is `18.924 +/- 0.604%` final-round error versus the paper's
+`72.0 +/- 4.5%`, a `-53.076` percentage-point reproduction gap. The
+manifest and evidence are preserved unchanged so the missing attack-detail
+discrepancy can be investigated without retroactive result selection.
+
 Expected data layout:
 
 ```text
