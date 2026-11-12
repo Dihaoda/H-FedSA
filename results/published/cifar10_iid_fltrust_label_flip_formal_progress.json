@@ -1,5 +1,5 @@
 {
-  "status": "in_progress",
+  "status": "paused_by_user",
   "experiment_class": "formal_measured_in_progress",
   "candidate_id": "fltrust_label_flip_paper_protocol",
   "config": "configs/paper/cifar10_iid_fltrust_label_flip.yaml",
@@ -16,10 +16,10 @@
   ],
   "completed_seeds": [
     2026,
-    2027
+    2027,
+    2028
   ],
   "remaining_seeds": [
-    2028,
     2029,
     2030
   ],
@@ -54,8 +54,37 @@
       "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
       "evidence_directory": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2027",
       "server_run_directory": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2027_20261112_220735_397202"
+    },
+    {
+      "seed": 2028,
+      "dataset_source": "real",
+      "rounds_completed": 250,
+      "final_accuracy_percent": 82.9,
+      "final_error_percent": 17.099999999999994,
+      "best_accuracy_percent": 82.94,
+      "gap_to_paper_mean_percent_points": -0.2000000000000064,
+      "within_paper_one_std_interval": true,
+      "runtime_seconds": 3151.6868147924542,
+      "config_sha256": "dc0401f9ccc90160f94095c4a989bcabaed6b24235ac5edd8256f1d20dc994cac",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "evidence_directory": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2028",
+      "restart_note": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2028/restart_note.json",
+      "server_run_directory": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2028_20261112_231048_672299"
     }
   ],
   "protocol_note": "FLTrust shares the frozen real CIFAR-10/CIFAR-10-C, client sampling, optimization, and deterministic y -> 9 - y label-flipping protocol used by the completed H-FedSA and FedAvg campaigns. FLTrust min_trust_score is frozen at 0.0, matching the completed clean FLTrust manifest.",
-  "resume_note": "Seeds 2026 and 2027 are complete and immutable. Seed 2028 is running; seeds 2029-2030 remain preregistered."
+  "resume_note": "Paused at the user's request after seed 2028. Seeds 2026-2028 are complete and immutable; seeds 2029 and 2030 remain preregistered. Resume on the next server with the same manifest, declared source revision, seed order, and final-round-only rule. Do not rerun or replace completed seeds.",
+  "partial_aggregate_nonfinal": {
+    "run_count": 3,
+    "error_mean_percent": 16.900000000000002,
+    "error_sample_std_percent": 0.33778691508108705,
+    "accuracy_mean_percent": 83.1,
+    "accuracy_sample_std_percent": 0.33778691508108705,
+    "paper_error_mean_percent": 17.3,
+    "paper_error_std_percent": 1,
+    "mean_gap_percent_points": -0.3999999999999986,
+    "mean_within_paper_one_std_interval": true,
+    "selection_rule": "final_round_only",
+    "warning": "Non-final checkpoint only. Seeds 2029 and 2030 remain preregistered and must be included before publishing the campaign aggregate."
+  }
 }
