@@ -1,6 +1,6 @@
 {
-  "status": "active_after_seed2029",
-  "experiment_class": "formal_measured_in_progress",
+  "status": "complete",
+  "experiment_class": "formal_measured_complete",
   "candidate_id": "fedavg_label_flip_paper_protocol",
   "config": "configs/paper/cifar10_iid_fedavg_label_flip.yaml",
   "paper_target": {
@@ -18,11 +18,10 @@
     2026,
     2027,
     2028,
-    2029
-  ],
-  "remaining_seeds": [
+    2029,
     2030
   ],
+  "remaining_seeds": [],
   "selection_rule": "final_round_only",
   "runs": [
     {
@@ -84,13 +83,37 @@
       "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
       "evidence_directory": "artifacts/formal/cifar10_iid_fedavg_label_flip/seed2029",
       "server_run_directory": "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2029_20261112_192638_269076"
+    },
+    {
+      "seed": 2030,
+      "dataset_source": "real",
+      "rounds_completed": 250,
+      "final_accuracy_percent": 81.84,
+      "final_error_percent": 18.159999999999997,
+      "best_accuracy_percent": 81.86,
+      "gap_to_paper_mean_percent_points": -53.84,
+      "within_paper_one_std_interval": false,
+      "runtime_seconds": 2802.475361198187,
+      "config_sha256": "d584d5f1520202334e321dae8873acd8569f1c5da9b6b5e6bd59cee9486c4aa6",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "evidence_directory": "artifacts/formal/cifar10_iid_fedavg_label_flip/seed2030",
+      "server_run_directory": "results/formal/cifar10_iid_label_flip/fedavg/paper_cifar10_iid_fedavg_label_flip_seed2030_20261112_201540_496471"
     }
   ],
   "protocol_note": "FedAvg baseline shares the frozen CIFAR-10/CIFAR-10-C, client sampling, optimization, and deterministic y -> 9 - y label-flipping protocol used by the completed H-FedSA campaign. No H-FedSA or DDPG parameters are active.",
-  "interim_aggregate": {
-    "completed_run_count": 4,
-    "error_mean_percent": 19.115000000000002,
-    "error_sample_std_percent": 0.4937948291885336,
-    "note": "Provisional only; final seed 2030 is running and final reporting requires all five preregistered seeds."
-  }
+  "final_aggregate": {
+    "run_count": 5,
+    "error_mean_percent": 18.924,
+    "error_sample_std_percent": 0.6043839839042742,
+    "accuracy_mean_percent": 81.076,
+    "accuracy_sample_std_percent": 0.6043839839042742,
+    "paper_error_mean_percent": 72,
+    "paper_error_std_percent": 4.5,
+    "mean_gap_percent_points": -53.076,
+    "mean_within_paper_one_std_interval": false,
+    "selection_rule": "final_round_only",
+    "published_summary": "results/published/cifar10_iid_fedavg_label_flip_5seeds.json",
+    "published_summary_sha256": "5b59f42eab4e770709c3e6d50ed3d2ea8c215537aff60c9bda8a01c21b6980c7"
+  },
+  "resume_note": "Campaign complete. All five preregistered seeds are immutable and included in the final-round aggregate."
 }
