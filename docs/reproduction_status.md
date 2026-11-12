@@ -19,7 +19,7 @@ has been reproduced.
 | Stanford Cars + CompCars | Implemented and unit-tested | Requires a curated make/model label map; real-data smoke pending |
 | FedAvg, FLTrust, RFA | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed for all three methods |
 | SafeFL-compatible SignGuard, MSGuard | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed; SafeFL rule ambiguity and MSGuard artifact limitations remain documented |
-| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID scaling formally measured; label-flip formal campaign active at 3/5 seeds | Scaling five-seed result: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR; label-flip seeds 2026-2028 provisionally aggregate to `16.093 +/- 1.073%` error; continue at seed 2029 |
+| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID scaling formally measured; label-flip formal campaign active at 4/5 seeds | Scaling five-seed result: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR; label-flip seeds 2026-2029 provisionally aggregate to `15.828 +/- 1.025%` error; run final seed 2030 |
 | Krum-targeted, Trim-targeted, PoiSAFL | Implemented and smoke-tested | PoiSAFL is an explicitly documented synchronous adaptation |
 | Full paper tables | Pending | No smoke or synthetic output is accepted as a measured paper result |
 
