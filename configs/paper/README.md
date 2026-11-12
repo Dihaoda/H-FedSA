@@ -46,6 +46,10 @@ raw-weight floor of `0.05` applies only when the GMM assigns
 `15.68%` final error, `97.2%` malicious TPR, `0.8%` non-malicious FPR, and no
 weight-collapse alerts. Because the floor is not specified by Algorithm 1,
 formal results from this manifest must retain the compatibility qualifier.
+The completed fixed-seed result is `15.888 +/- 0.898%` final-round error
+(sample standard deviation), a mean gap of `+0.188` percentage points from
+the paper's `15.7 +/- 0.4%`. The mean is inside the reported interval, while
+the measured between-seed standard deviation is larger.
 
 Expected data layout:
 
