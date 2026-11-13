@@ -1,0 +1,156 @@
+2026-11-13 11:50:05,992 | INFO | Loaded config: configs/paper/cifar10_iid_fltrust_label_flip.yaml
+2026-11-13 11:50:05,993 | INFO | CLI override --seed -> seed: 2026 -> 2030
+2026-11-13 11:50:05,993 | WARNING | mixed_precision is enabled; it is used only when the resolved device is CUDA.
+2026-11-13 11:51:00,649 | INFO | Saved data diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/data_diagnostics.json
+2026-11-13 11:51:00,650 | INFO | Saved client label distribution: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/client_label_distribution.csv
+2026-11-13 11:51:00,650 | INFO | Saved partition summary: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/partition_summary.json
+2026-11-13 11:51:00,650 | INFO | Dataset source: real
+2026-11-13 11:51:00,650 | INFO | Device: cuda
+2026-11-13 11:51:00,762 | INFO | Starting defense: fltrust
+2026-11-13 11:51:31,448 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:51:31,449 | INFO | fltrust round 1/250 | lr 0.05000 | train 28.84 | test 31.31 | asr NA | agg_delta 1.8126
+2026-11-13 11:51:49,172 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:51:49,174 | INFO | fltrust round 2/250 | lr 0.05000 | train 28.84 | test 31.31 | asr NA | agg_delta 1.1820
+2026-11-13 11:52:03,731 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:52:03,731 | INFO | fltrust round 3/250 | lr 0.04999 | train 28.84 | test 31.31 | asr NA | agg_delta 1.1408
+2026-11-13 11:52:17,874 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:52:17,874 | INFO | fltrust round 4/250 | lr 0.04998 | train 28.84 | test 31.31 | asr NA | agg_delta 1.1779
+2026-11-13 11:52:29,681 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:52:29,681 | INFO | fltrust round 5/250 | lr 0.04997 | train 28.84 | test 31.31 | asr NA | agg_delta 1.1208
+2026-11-13 11:52:41,563 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:52:41,563 | INFO | fltrust round 6/250 | lr 0.04995 | train 28.84 | test 31.31 | asr NA | agg_delta 1.1538
+2026-11-13 11:52:53,248 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:52:53,249 | INFO | fltrust round 7/250 | lr 0.04993 | train 28.84 | test 31.31 | asr NA | agg_delta 1.1166
+2026-11-13 11:53:05,100 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:53:05,100 | INFO | fltrust round 8/250 | lr 0.04990 | train 28.84 | test 31.31 | asr NA | agg_delta 1.2199
+2026-11-13 11:53:19,910 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:53:19,911 | INFO | fltrust round 9/250 | lr 0.04987 | train 28.84 | test 31.31 | asr NA | agg_delta 1.2048
+2026-11-13 11:53:34,009 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:53:34,010 | INFO | fltrust round 10/250 | lr 0.04984 | train 50.64 | test 53.93 | asr NA | agg_delta 1.2055
+2026-11-13 11:53:45,866 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:53:45,866 | INFO | fltrust round 11/250 | lr 0.04980 | train 50.64 | test 53.93 | asr NA | agg_delta 1.2618
+2026-11-13 11:54:00,685 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:54:00,685 | INFO | fltrust round 12/250 | lr 0.04976 | train 50.64 | test 53.93 | asr NA | agg_delta 1.2629
+2026-11-13 11:54:12,318 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:54:12,318 | INFO | fltrust round 13/250 | lr 0.04972 | train 50.64 | test 53.93 | asr NA | agg_delta 1.2303
+2026-11-13 11:54:23,954 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:54:23,954 | INFO | fltrust round 14/250 | lr 0.04967 | train 50.64 | test 53.93 | asr NA | agg_delta 1.2383
+2026-11-13 11:54:35,658 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:54:35,658 | INFO | fltrust round 15/250 | lr 0.04961 | train 50.64 | test 53.93 | asr NA | agg_delta 1.2895
+2026-11-13 11:54:47,314 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:54:47,314 | INFO | fltrust round 16/250 | lr 0.04956 | train 50.64 | test 53.93 | asr NA | agg_delta 1.2030
+2026-11-13 11:54:58,881 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:54:58,881 | INFO | fltrust round 17/250 | lr 0.04950 | train 50.64 | test 53.93 | asr NA | agg_delta 1.3092
+2026-11-13 11:55:10,501 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:55:10,501 | INFO | fltrust round 18/250 | lr 0.04943 | train 50.64 | test 53.93 | asr NA | agg_delta 1.2823
+2026-11-13 11:55:22,112 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:55:22,112 | INFO | fltrust round 19/250 | lr 0.04936 | train 50.64 | test 53.93 | asr NA | agg_delta 1.3600
+2026-11-13 11:55:36,376 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:55:36,377 | INFO | fltrust round 20/250 | lr 0.04929 | train 60.68 | test 63.54 | asr NA | agg_delta 1.3475
+2026-11-13 11:55:48,132 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:55:48,133 | INFO | fltrust round 21/250 | lr 0.04922 | train 60.68 | test 63.54 | asr NA | agg_delta 1.3852
+2026-11-13 11:55:59,802 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:55:59,803 | INFO | fltrust round 22/250 | lr 0.04914 | train 60.68 | test 63.54 | asr NA | agg_delta 1.3870
+2026-11-13 11:56:11,453 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:56:11,454 | INFO | fltrust round 23/250 | lr 0.04905 | train 60.68 | test 63.54 | asr NA | agg_delta 1.4196
+2026-11-13 11:56:23,166 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:56:23,166 | INFO | fltrust round 24/250 | lr 0.04897 | train 60.68 | test 63.54 | asr NA | agg_delta 1.3410
+2026-11-13 11:56:34,781 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:56:34,781 | INFO | fltrust round 25/250 | lr 0.04887 | train 60.68 | test 63.54 | asr NA | agg_delta 1.4690
+2026-11-13 11:56:48,947 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:56:48,947 | INFO | fltrust round 26/250 | lr 0.04878 | train 60.68 | test 63.54 | asr NA | agg_delta 1.3922
+2026-11-13 11:57:00,871 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:57:00,871 | INFO | fltrust round 27/250 | lr 0.04868 | train 60.68 | test 63.54 | asr NA | agg_delta 1.5214
+2026-11-13 11:57:12,662 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:57:12,662 | INFO | fltrust round 28/250 | lr 0.04858 | train 60.68 | test 63.54 | asr NA | agg_delta 1.4393
+2026-11-13 11:57:24,339 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:57:24,340 | INFO | fltrust round 29/250 | lr 0.04847 | train 60.68 | test 63.54 | asr NA | agg_delta 1.4938
+2026-11-13 11:57:38,420 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:57:38,421 | INFO | fltrust round 30/250 | lr 0.04836 | train 63.20 | test 66.18 | asr NA | agg_delta 1.4657
+2026-11-13 11:57:50,227 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:57:50,228 | INFO | fltrust round 31/250 | lr 0.04825 | train 63.20 | test 66.18 | asr NA | agg_delta 1.4668
+2026-11-13 11:58:01,955 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:58:01,955 | INFO | fltrust round 32/250 | lr 0.04813 | train 63.20 | test 66.18 | asr NA | agg_delta 1.5336
+2026-11-13 11:58:13,607 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:58:13,607 | INFO | fltrust round 33/250 | lr 0.04801 | train 63.20 | test 66.18 | asr NA | agg_delta 1.4853
+2026-11-13 11:58:25,302 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:58:25,302 | INFO | fltrust round 34/250 | lr 0.04789 | train 63.20 | test 66.18 | asr NA | agg_delta 1.3898
+2026-11-13 11:58:37,044 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:58:37,044 | INFO | fltrust round 35/250 | lr 0.04776 | train 63.20 | test 66.18 | asr NA | agg_delta 1.4961
+2026-11-13 11:58:48,684 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:58:48,685 | INFO | fltrust round 36/250 | lr 0.04763 | train 63.20 | test 66.18 | asr NA | agg_delta 1.4000
+2026-11-13 11:59:00,362 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:59:00,362 | INFO | fltrust round 37/250 | lr 0.04749 | train 63.20 | test 66.18 | asr NA | agg_delta 1.5308
+2026-11-13 11:59:12,027 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:59:12,027 | INFO | fltrust round 38/250 | lr 0.04735 | train 63.20 | test 66.18 | asr NA | agg_delta 1.4561
+2026-11-13 11:59:23,702 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:59:23,702 | INFO | fltrust round 39/250 | lr 0.04721 | train 63.20 | test 66.18 | asr NA | agg_delta 1.5204
+2026-11-13 11:59:44,168 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:59:44,171 | INFO | fltrust round 40/250 | lr 0.04706 | train 57.14 | test 59.29 | asr NA | agg_delta 1.6580
+2026-11-13 11:59:56,238 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 11:59:56,239 | INFO | fltrust round 41/250 | lr 0.04691 | train 57.14 | test 59.29 | asr NA | agg_delta 1.6959
+2026-11-13 12:00:08,249 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:00:08,249 | INFO | fltrust round 42/250 | lr 0.04676 | train 57.14 | test 59.29 | asr NA | agg_delta 1.5066
+2026-11-13 12:00:19,961 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:00:19,961 | INFO | fltrust round 43/250 | lr 0.04661 | train 57.14 | test 59.29 | asr NA | agg_delta 1.5475
+2026-11-13 12:00:31,642 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:00:31,642 | INFO | fltrust round 44/250 | lr 0.04645 | train 57.14 | test 59.29 | asr NA | agg_delta 1.4505
+2026-11-13 12:00:49,788 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:00:49,790 | INFO | fltrust round 45/250 | lr 0.04628 | train 57.14 | test 59.29 | asr NA | agg_delta 1.5110
+2026-11-13 12:01:02,074 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:01:02,074 | INFO | fltrust round 46/250 | lr 0.04612 | train 57.14 | test 59.29 | asr NA | agg_delta 1.4507
+2026-11-13 12:01:13,732 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:01:13,732 | INFO | fltrust round 47/250 | lr 0.04595 | train 57.14 | test 59.29 | asr NA | agg_delta 1.5674
+2026-11-13 12:01:25,342 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:01:25,342 | INFO | fltrust round 48/250 | lr 0.04577 | train 57.14 | test 59.29 | asr NA | agg_delta 1.5298
+2026-11-13 12:01:42,062 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:01:42,065 | INFO | fltrust round 49/250 | lr 0.04560 | train 57.14 | test 59.29 | asr NA | agg_delta 1.5418
+2026-11-13 12:01:57,146 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:01:57,149 | INFO | fltrust round 50/250 | lr 0.04542 | train 54.04 | test 54.28 | asr NA | agg_delta 1.8134
+2026-11-13 12:02:10,965 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:02:10,967 | INFO | fltrust round 51/250 | lr 0.04524 | train 54.04 | test 54.28 | asr NA | agg_delta 1.9623
+2026-11-13 12:02:23,581 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:02:23,581 | INFO | fltrust round 52/250 | lr 0.04505 | train 54.04 | test 54.28 | asr NA | agg_delta 1.6862
+2026-11-13 12:02:37,662 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:02:37,664 | INFO | fltrust round 53/250 | lr 0.04486 | train 54.04 | test 54.28 | asr NA | agg_delta 1.6789
+2026-11-13 12:02:49,992 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:02:49,992 | INFO | fltrust round 54/250 | lr 0.04467 | train 54.04 | test 54.28 | asr NA | agg_delta 1.5877
+2026-11-13 12:03:02,169 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:03:02,170 | INFO | fltrust round 55/250 | lr 0.04447 | train 54.04 | test 54.28 | asr NA | agg_delta 1.6157
+2026-11-13 12:03:14,172 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:03:14,173 | INFO | fltrust round 56/250 | lr 0.04428 | train 54.04 | test 54.28 | asr NA | agg_delta 1.6326
+2026-11-13 12:03:26,073 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:03:26,073 | INFO | fltrust round 57/250 | lr 0.04408 | train 54.04 | test 54.28 | asr NA | agg_delta 1.6656
+2026-11-13 12:03:38,394 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:03:38,395 | INFO | fltrust round 58/250 | lr 0.04387 | train 54.04 | test 54.28 | asr NA | agg_delta 1.8528
+2026-11-13 12:03:50,629 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:03:50,630 | INFO | fltrust round 59/250 | lr 0.04366 | train 54.04 | test 54.28 | asr NA | agg_delta 1.6387
+2026-11-13 12:04:05,431 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:04:05,433 | INFO | fltrust round 60/250 | lr 0.04345 | train 64.40 | test 65.08 | asr NA | agg_delta 1.8034
+2026-11-13 12:04:17,649 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:04:17,650 | INFO | fltrust round 61/250 | lr 0.04324 | train 64.40 | test 65.08 | asr NA | agg_delta 1.7387
+2026-11-13 12:04:29,677 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:04:29,677 | INFO | fltrust round 62/250 | lr 0.04302 | train 64.40 | test 65.08 | asr NA | agg_delta 1.5928
+2026-11-13 12:04:45,464 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:04:45,464 | INFO | fltrust round 63/250 | lr 0.04281 | train 64.40 | test 65.08 | asr NA | agg_delta 1.4855
+2026-11-13 12:04:57,492 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:04:57,493 | INFO | fltrust round 64/250 | lr 0.04258 | train 64.40 | test 65.08 | asr NA | agg_delta 1.4946
+2026-11-13 12:05:09,329 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:05:09,329 | INFO | fltrust round 65/250 | lr 0.04236 | train 64.40 | test 65.08 | asr NA | agg_delta 1.4682
+2026-11-13 12:05:21,200 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:05:21,201 | INFO | fltrust round 66/250 | lr 0.04213 | train 64.40 | test 65.08 | asr NA | agg_delta 1.4988
+2026-11-13 12:05:46,568 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:05:46,571 | INFO | fltrust round 67/250 | lr 0.04190 | train 64.40 | test 65.08 | asr NA | agg_delta 1.5653
+2026-11-13 12:05:59,012 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:05:59,012 | INFO | fltrust round 68/250 | lr 0.04167 | train 64.40 | test 65.08 | asr NA | agg_delta 1.6653
+2026-11-13 12:06:11,149 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:06:11,149 | INFO | fltrust round 69/250 | lr 0.04144 | train 64.40 | test 65.08 | asr NA | agg_delta 1.6613
+2026-11-13 12:06:25,511 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:06:25,512 | INFO | fltrust round 70/250 | lr 0.04120 | train 72.12 | test 73.00 | asr NA | agg_delta 1.5172
+2026-11-13 12:06:37,368 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:06:37,369 | INFO | fltrust round 71/250 | lr 0.04096 | train 72.12 | test 73.00 | asr NA | agg_delta 1.5737
+2026-11-13 12:06:49,086 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:06:49,086 | INFO | fltrust round 72/250 | lr 0.04072 | train 72.12 | test 73.00 | asr NA | agg_delta 1.7087
+2026-11-13 12:07:01,067 | INFO | Updated FLTrust diagnostics: results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788/fltrust_scaling_diagnostics.csv
+2026-11-13 12:07:01,067 | INFO | fltrust round 73/250 | lr 0.04047 | train 72.12 | test 73.00 | asr NA | agg_delta 1.6900
+
