@@ -17,10 +17,10 @@
   "completed_seeds": [
     2026,
     2027,
-    2028
+    2028,
+    2029
   ],
   "remaining_seeds": [
-    2029,
     2030
   ],
   "selection_rule": "final_round_only",
@@ -70,21 +70,47 @@
       "evidence_directory": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2028",
       "restart_note": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2028/restart_note.json",
       "server_run_directory": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2028_20261112_231048_672299"
+    },
+    {
+      "seed": 2029,
+      "dataset_source": "real",
+      "rounds_completed": 250,
+      "final_accuracy_percent": 83.3,
+      "final_error_percent": 16.700000000000003,
+      "best_accuracy_percent": 83.39,
+      "gap_to_paper_mean_percent_points": -0.5999999999999979,
+      "within_paper_one_std_interval": true,
+      "runtime_seconds": 3162.973066739738,
+      "config_sha256": "0978297fd5a145f9d48b286b03e2e08d7f6260e18953ac793a6a09b6d476b9fb",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "evidence_directory": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2029",
+      "server_run_directory": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2029_20261113_105315_585177"
     }
   ],
   "protocol_note": "FLTrust shares the frozen real CIFAR-10/CIFAR-10-C, client sampling, optimization, and deterministic y -> 9 - y label-flipping protocol used by the completed H-FedSA and FedAvg campaigns. FLTrust min_trust_score is frozen at 0.0, matching the completed clean FLTrust manifest.",
-  "resume_note": "Paused at the user's request after seed 2028. Seeds 2026-2028 are complete and immutable; seeds 2029 and 2030 remain preregistered. Resume on the next server with the same manifest, declared source revision, seed order, and final-round-only rule. Do not rerun or replace completed seeds.",
+  "resume_note": "Paused at the user's request after completing seed 2029. Seeds 2026-2029 are complete and immutable. A seed 2030 attempt was stopped after round 73 and is explicitly excluded; rerun seed 2030 from round 1 on the next server with the unchanged manifest, declared source revision, and final-round-only rule.",
   "partial_aggregate_nonfinal": {
-    "run_count": 3,
-    "error_mean_percent": 16.900000000000002,
-    "error_sample_std_percent": 0.33778691508108705,
-    "accuracy_mean_percent": 83.1,
-    "accuracy_sample_std_percent": 0.33778691508108705,
+    "run_count": 4,
+    "error_mean_percent": 16.85,
+    "error_sample_std_percent": 0.29337120967584157,
+    "accuracy_mean_percent": 83.15,
+    "accuracy_sample_std_percent": 0.29337120967584157,
     "paper_error_mean_percent": 17.3,
     "paper_error_std_percent": 1,
-    "mean_gap_percent_points": -0.3999999999999986,
+    "mean_gap_percent_points": -0.4499999999999993,
     "mean_within_paper_one_std_interval": true,
     "selection_rule": "final_round_only",
-    "warning": "Non-final checkpoint only. Seeds 2029 and 2030 remain preregistered and must be included before publishing the campaign aggregate."
-  }
+    "warning": "Non-final checkpoint only. Preregistered seed 2030 remains incomplete and must be rerun from round 1 and included before publishing the campaign aggregate."
+  },
+  "interrupted_attempts": [
+    {
+      "seed": 2030,
+      "last_completed_round": 73,
+      "configured_rounds": 250,
+      "included_in_formal_aggregate": false,
+      "restart_note": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2030/restart_note.json",
+      "archived_log": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2030/interrupted_attempt_20261113.log",
+      "action": "Rerun seed 2030 from round 1 with the unchanged manifest."
+    }
+  ]
 }
