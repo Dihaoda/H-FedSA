@@ -1,0 +1,18 @@
+{
+  "status": "interrupted_by_user_excluded",
+  "experiment": "CIFAR-10 IID / FLTrust / label flipping",
+  "seed": 2030,
+  "attempt_started_at": "2026-11-13T11:51:00+08:00",
+  "attempt_stopped_at": "2026-11-13T12:07:01+08:00",
+  "last_completed_round": 73,
+  "configured_rounds": 250,
+  "last_checkpoint_accuracy_percent": 73.0,
+  "has_final_summary": false,
+  "included_in_formal_aggregate": false,
+  "reason": "The user requested that execution stop for the day because the server may change.",
+  "resume_instruction": "Rerun seed 2030 from round 1 on the next server with configs/paper/cifar10_iid_fltrust_label_flip.yaml, declared source revision 75705eac0a3586aca246e75ba46729a2dfebf1f0, and the unchanged final_round_only selection rule. Do not treat this interrupted attempt as a formal run.",
+  "server_run_directory": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261113_115100_638788",
+  "archived_log": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2030/interrupted_attempt_20261113.log",
+  "archived_log_sha256": "79f0480af79c4a155bc84fe9d9047a68741126b96475f749afbc44df018c1187"
+}
+
