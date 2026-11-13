@@ -19,7 +19,7 @@ has been reproduced.
 | Stanford Cars + CompCars | Implemented and unit-tested | Requires a curated make/model label map; real-data smoke pending |
 | FedAvg, FLTrust, RFA | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed for all three methods |
 | SafeFL-compatible SignGuard, MSGuard | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed; SafeFL rule ambiguity and MSGuard artifact limitations remain documented |
-| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID scaling, H-FedSA label flip, and FedAvg label-flip formally measured; FLTrust label flip paused after 3/5 seeds | Scaling H-FedSA: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR; label flip H-FedSA: `15.888 +/- 0.898%` error; label flip FedAvg: `18.924 +/- 0.604%` error; non-final FLTrust checkpoint: `16.900 +/- 0.338%` error |
+| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID scaling, H-FedSA label flip, and FedAvg label-flip formally measured; FLTrust label flip paused after 4/5 seeds | Scaling H-FedSA: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR; label flip H-FedSA: `15.888 +/- 0.898%` error; label flip FedAvg: `18.924 +/- 0.604%` error; non-final FLTrust checkpoint: `16.850 +/- 0.293%` error |
 | Krum-targeted, Trim-targeted, PoiSAFL | Implemented and smoke-tested | PoiSAFL is an explicitly documented synchronous adaptation |
 | Full paper tables | Pending | No smoke or synthetic output is accepted as a measured paper result |
 
@@ -64,11 +64,13 @@ label-flipping result depends on attack details not reproduced by the current
 deterministic protocol; it is recorded openly rather than changed post hoc.
 
 The FLTrust label-flipping campaign is paused after fixed seeds `2026`,
-`2027`, and `2028`, whose final-round errors are `17.09%`, `16.51%`, and
-`17.10%`. The non-final three-seed checkpoint is `16.900 +/- 0.338%` error,
-inside Table II(d)'s `17.3 +/- 1.0%` interval. Seeds `2029` and `2030` remain
-preregistered and must be run before creating a published five-seed summary.
-The machine-readable resume state is
+`2027`, `2028`, and `2029`, whose final-round errors are `17.09%`, `16.51%`,
+`17.10%`, and `16.70%`. The non-final four-seed checkpoint is
+`16.850 +/- 0.293%` error, inside Table II(d)'s `17.3 +/- 1.0%` interval.
+A seed `2030` attempt stopped after round 73/250 at the user's request is
+explicitly excluded. Seed `2030` remains preregistered and must be rerun from
+round 1 before creating a published five-seed summary. The machine-readable
+resume state is
 `results/published/cifar10_iid_fltrust_label_flip_formal_progress.json`.
 
 The completed clean H-FedSA-DDPG summary is
