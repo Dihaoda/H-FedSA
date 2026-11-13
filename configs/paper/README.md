@@ -61,14 +61,16 @@ discrepancy can be investigated without retroactive result selection.
 
 `cifar10_iid_fltrust_label_flip.yaml` changes only the defense to FLTrust
 with `min_trust_score=0.0` while retaining the same frozen label-flipping
-protocol. Seeds `2026`, `2027`, and `2028` are complete with final-round errors
-`17.09%`, `16.51%`, and `17.10%`. Their non-final checkpoint statistic is
-`16.900 +/- 0.338%` error; all three seeds are inside the paper's
-`17.3 +/- 1.0%` interval. The campaign is paused at the user's request, and
-seeds `2029` and `2030` remain preregistered. No five-seed result may be
-published until both remaining seeds finish. Seed `2028`'s excluded SSH-
-interrupted attempt and complete background rerun are documented in
-`artifacts/formal/cifar10_iid_fltrust_label_flip/seed2028/restart_note.json`.
+protocol. Seeds `2026`, `2027`, `2028`, and `2029` are complete with final-round
+errors `17.09%`, `16.51%`, `17.10%`, and `16.70%`. Their non-final checkpoint
+statistic is `16.850 +/- 0.293%` error; all four seeds are inside the paper's
+`17.3 +/- 1.0%` interval. The campaign is paused at the user's request. A seed
+`2030` attempt stopped after round 73/250 is explicitly excluded; seed `2030`
+remains preregistered and must be rerun from round 1 before a five-seed result
+is published. Restart evidence is under
+`artifacts/formal/cifar10_iid_fltrust_label_flip/seed2030/`. Seed `2028`'s
+excluded SSH-interrupted attempt and complete background rerun are documented
+in `artifacts/formal/cifar10_iid_fltrust_label_flip/seed2028/restart_note.json`.
 
 Expected data layout:
 
