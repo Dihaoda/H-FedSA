@@ -1,0 +1,359 @@
+2026-11-15 18:59:42,965 | INFO | Loaded config: configs/pilot/cifar10_iid_hfedsa_ddpg_krum_targeted_seed2027_lambda040.yaml
+2026-11-15 18:59:42,966 | INFO | CLI overrides: none
+2026-11-15 18:59:42,966 | WARNING | mixed_precision is enabled; it is used only when the resolved device is CUDA.
+Files already downloaded and verified
+Files already downloaded and verified
+2026-11-15 19:00:33,574 | INFO | Saved data diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/data_diagnostics.json
+2026-11-15 19:00:33,575 | INFO | Saved client label distribution: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_label_distribution.csv
+2026-11-15 19:00:33,575 | INFO | Saved partition summary: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/partition_summary.json
+2026-11-15 19:00:33,575 | INFO | Dataset source: real
+2026-11-15 19:00:33,576 | INFO | Device: cuda
+2026-11-15 19:00:33,664 | INFO | Starting defense: hfedsa_ddpg
+2026-11-15 19:00:52,451 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_001.csv
+2026-11-15 19:00:52,453 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:00:52,453 | INFO | hfedsa_ddpg round 1/250 | lr 0.05000 | train 18.52 | test 21.61 | asr NA | agg_delta 1.4657
+2026-11-15 19:01:07,293 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_002.csv
+2026-11-15 19:01:07,294 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:01:07,294 | INFO | hfedsa_ddpg round 2/250 | lr 0.05000 | train 18.52 | test 21.61 | asr NA | agg_delta 1.2499
+2026-11-15 19:01:21,427 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_003.csv
+2026-11-15 19:01:21,428 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:01:21,428 | INFO | hfedsa_ddpg round 3/250 | lr 0.04999 | train 18.52 | test 21.61 | asr NA | agg_delta 1.1993
+2026-11-15 19:01:34,417 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_004.csv
+2026-11-15 19:01:34,417 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:01:34,418 | INFO | hfedsa_ddpg round 4/250 | lr 0.04998 | train 18.52 | test 21.61 | asr NA | agg_delta 1.1774
+2026-11-15 19:01:48,006 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_005.csv
+2026-11-15 19:01:48,007 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:01:48,007 | INFO | hfedsa_ddpg round 5/250 | lr 0.04997 | train 18.52 | test 21.61 | asr NA | agg_delta 1.9080
+2026-11-15 19:02:01,433 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_006.csv
+2026-11-15 19:02:01,433 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:02:01,433 | INFO | hfedsa_ddpg round 6/250 | lr 0.04995 | train 18.52 | test 21.61 | asr NA | agg_delta 1.3737
+2026-11-15 19:02:15,081 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_007.csv
+2026-11-15 19:02:15,082 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:02:15,082 | INFO | hfedsa_ddpg round 7/250 | lr 0.04993 | train 18.52 | test 21.61 | asr NA | agg_delta 1.7540
+2026-11-15 19:02:28,875 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_008.csv
+2026-11-15 19:02:28,876 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:02:28,876 | INFO | hfedsa_ddpg round 8/250 | lr 0.04990 | train 18.52 | test 21.61 | asr NA | agg_delta 1.5864
+2026-11-15 19:02:42,488 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_009.csv
+2026-11-15 19:02:42,489 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:02:42,489 | INFO | hfedsa_ddpg round 9/250 | lr 0.04987 | train 18.52 | test 21.61 | asr NA | agg_delta 1.6816
+2026-11-15 19:02:58,364 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_010.csv
+2026-11-15 19:02:58,365 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:02:58,365 | INFO | hfedsa_ddpg round 10/250 | lr 0.04984 | train 40.60 | test 43.24 | asr NA | agg_delta 1.2529
+2026-11-15 19:03:11,900 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_011.csv
+2026-11-15 19:03:11,901 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:03:11,901 | INFO | hfedsa_ddpg round 11/250 | lr 0.04980 | train 40.60 | test 43.24 | asr NA | agg_delta 1.5865
+2026-11-15 19:03:25,242 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_012.csv
+2026-11-15 19:03:25,243 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:03:25,243 | INFO | hfedsa_ddpg round 12/250 | lr 0.04976 | train 40.60 | test 43.24 | asr NA | agg_delta 1.9392
+2026-11-15 19:03:39,055 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_013.csv
+2026-11-15 19:03:39,056 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:03:39,056 | INFO | hfedsa_ddpg round 13/250 | lr 0.04972 | train 40.60 | test 43.24 | asr NA | agg_delta 1.3715
+2026-11-15 19:03:52,588 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_014.csv
+2026-11-15 19:03:52,589 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:03:52,589 | INFO | hfedsa_ddpg round 14/250 | lr 0.04967 | train 40.60 | test 43.24 | asr NA | agg_delta 1.3682
+2026-11-15 19:04:06,452 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_015.csv
+2026-11-15 19:04:06,452 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:04:06,452 | INFO | hfedsa_ddpg round 15/250 | lr 0.04961 | train 40.60 | test 43.24 | asr NA | agg_delta 1.6770
+2026-11-15 19:04:19,986 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_016.csv
+2026-11-15 19:04:19,987 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:04:19,988 | INFO | hfedsa_ddpg round 16/250 | lr 0.04956 | train 40.60 | test 43.24 | asr NA | agg_delta 1.7421
+2026-11-15 19:04:33,027 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_017.csv
+2026-11-15 19:04:33,028 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:04:33,028 | INFO | hfedsa_ddpg round 17/250 | lr 0.04950 | train 40.60 | test 43.24 | asr NA | agg_delta 1.7928
+2026-11-15 19:04:46,781 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_018.csv
+2026-11-15 19:04:46,781 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:04:46,782 | INFO | hfedsa_ddpg round 18/250 | lr 0.04943 | train 40.60 | test 43.24 | asr NA | agg_delta 1.6355
+2026-11-15 19:05:00,524 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_019.csv
+2026-11-15 19:05:00,525 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:05:00,525 | INFO | hfedsa_ddpg round 19/250 | lr 0.04936 | train 40.60 | test 43.24 | asr NA | agg_delta 1.5308
+2026-11-15 19:05:16,256 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_020.csv
+2026-11-15 19:05:16,256 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:05:16,257 | INFO | hfedsa_ddpg round 20/250 | lr 0.04929 | train 40.44 | test 44.18 | asr NA | agg_delta 1.8155
+2026-11-15 19:05:29,692 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_021.csv
+2026-11-15 19:05:29,693 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:05:29,693 | INFO | hfedsa_ddpg round 21/250 | lr 0.04922 | train 40.44 | test 44.18 | asr NA | agg_delta 2.1149
+2026-11-15 19:05:42,829 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_022.csv
+2026-11-15 19:05:42,830 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:05:42,830 | INFO | hfedsa_ddpg round 22/250 | lr 0.04914 | train 40.44 | test 44.18 | asr NA | agg_delta 1.3941
+2026-11-15 19:05:56,393 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_023.csv
+2026-11-15 19:05:56,395 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:05:56,395 | INFO | hfedsa_ddpg round 23/250 | lr 0.04905 | train 40.44 | test 44.18 | asr NA | agg_delta 1.5873
+2026-11-15 19:06:09,817 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_024.csv
+2026-11-15 19:06:09,817 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:06:09,817 | INFO | hfedsa_ddpg round 24/250 | lr 0.04897 | train 40.44 | test 44.18 | asr NA | agg_delta 1.8269
+2026-11-15 19:06:22,990 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_025.csv
+2026-11-15 19:06:22,992 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:06:22,992 | INFO | hfedsa_ddpg round 25/250 | lr 0.04887 | train 40.44 | test 44.18 | asr NA | agg_delta 1.8039
+2026-11-15 19:06:36,593 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_026.csv
+2026-11-15 19:06:36,593 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:06:36,593 | INFO | hfedsa_ddpg round 26/250 | lr 0.04878 | train 40.44 | test 44.18 | asr NA | agg_delta 1.6364
+2026-11-15 19:06:49,884 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_027.csv
+2026-11-15 19:06:49,885 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:06:49,885 | INFO | hfedsa_ddpg round 27/250 | lr 0.04868 | train 40.44 | test 44.18 | asr NA | agg_delta 1.3871
+2026-11-15 19:07:04,288 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_028.csv
+2026-11-15 19:07:04,288 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:07:04,288 | INFO | hfedsa_ddpg round 28/250 | lr 0.04858 | train 40.44 | test 44.18 | asr NA | agg_delta 1.7581
+2026-11-15 19:07:18,009 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_029.csv
+2026-11-15 19:07:18,010 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:07:18,010 | INFO | hfedsa_ddpg round 29/250 | lr 0.04847 | train 40.44 | test 44.18 | asr NA | agg_delta 1.9193
+2026-11-15 19:07:33,945 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_030.csv
+2026-11-15 19:07:33,946 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:07:33,946 | INFO | hfedsa_ddpg round 30/250 | lr 0.04836 | train 42.96 | test 45.39 | asr NA | agg_delta 1.7371
+2026-11-15 19:07:47,340 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_031.csv
+2026-11-15 19:07:47,341 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:07:47,341 | INFO | hfedsa_ddpg round 31/250 | lr 0.04825 | train 42.96 | test 45.39 | asr NA | agg_delta 2.0239
+2026-11-15 19:08:00,587 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_032.csv
+2026-11-15 19:08:00,588 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:08:00,588 | INFO | hfedsa_ddpg round 32/250 | lr 0.04813 | train 42.96 | test 45.39 | asr NA | agg_delta 1.4742
+2026-11-15 19:08:14,352 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_033.csv
+2026-11-15 19:08:14,353 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:08:14,353 | INFO | hfedsa_ddpg round 33/250 | lr 0.04801 | train 42.96 | test 45.39 | asr NA | agg_delta 2.1538
+2026-11-15 19:08:27,517 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_034.csv
+2026-11-15 19:08:27,517 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:08:27,518 | INFO | hfedsa_ddpg round 34/250 | lr 0.04789 | train 42.96 | test 45.39 | asr NA | agg_delta 2.3749
+2026-11-15 19:08:41,246 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_035.csv
+2026-11-15 19:08:41,246 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:08:41,246 | INFO | hfedsa_ddpg round 35/250 | lr 0.04776 | train 42.96 | test 45.39 | asr NA | agg_delta 1.8473
+2026-11-15 19:08:55,334 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_036.csv
+2026-11-15 19:08:55,335 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:08:55,335 | INFO | hfedsa_ddpg round 36/250 | lr 0.04763 | train 42.96 | test 45.39 | asr NA | agg_delta 1.9809
+2026-11-15 19:09:08,880 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_037.csv
+2026-11-15 19:09:08,881 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:09:08,881 | INFO | hfedsa_ddpg round 37/250 | lr 0.04749 | train 42.96 | test 45.39 | asr NA | agg_delta 1.9512
+2026-11-15 19:09:23,249 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_038.csv
+2026-11-15 19:09:23,249 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:09:23,249 | INFO | hfedsa_ddpg round 38/250 | lr 0.04735 | train 42.96 | test 45.39 | asr NA | agg_delta 1.6877
+2026-11-15 19:09:37,136 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_039.csv
+2026-11-15 19:09:37,137 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:09:37,137 | INFO | hfedsa_ddpg round 39/250 | lr 0.04721 | train 42.96 | test 45.39 | asr NA | agg_delta 1.8906
+2026-11-15 19:09:52,059 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_040.csv
+2026-11-15 19:09:52,060 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:09:52,061 | INFO | hfedsa_ddpg round 40/250 | lr 0.04706 | train 46.38 | test 47.03 | asr NA | agg_delta 1.6928
+2026-11-15 19:10:05,509 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_041.csv
+2026-11-15 19:10:05,509 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:10:05,509 | INFO | hfedsa_ddpg round 41/250 | lr 0.04691 | train 46.38 | test 47.03 | asr NA | agg_delta 1.7856
+2026-11-15 19:10:19,310 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_042.csv
+2026-11-15 19:10:19,310 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:10:19,310 | INFO | hfedsa_ddpg round 42/250 | lr 0.04676 | train 46.38 | test 47.03 | asr NA | agg_delta 1.5598
+2026-11-15 19:10:32,512 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_043.csv
+2026-11-15 19:10:32,513 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:10:32,513 | INFO | hfedsa_ddpg round 43/250 | lr 0.04661 | train 46.38 | test 47.03 | asr NA | agg_delta 1.7595
+2026-11-15 19:10:45,917 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_044.csv
+2026-11-15 19:10:45,918 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:10:45,918 | INFO | hfedsa_ddpg round 44/250 | lr 0.04645 | train 46.38 | test 47.03 | asr NA | agg_delta 2.0038
+2026-11-15 19:10:59,328 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_045.csv
+2026-11-15 19:10:59,329 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:10:59,329 | INFO | hfedsa_ddpg round 45/250 | lr 0.04628 | train 46.38 | test 47.03 | asr NA | agg_delta 2.0949
+2026-11-15 19:11:13,425 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_046.csv
+2026-11-15 19:11:13,426 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:11:13,426 | INFO | hfedsa_ddpg round 46/250 | lr 0.04612 | train 46.38 | test 47.03 | asr NA | agg_delta 1.8599
+2026-11-15 19:11:27,615 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_047.csv
+2026-11-15 19:11:27,616 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:11:27,617 | INFO | hfedsa_ddpg round 47/250 | lr 0.04595 | train 46.38 | test 47.03 | asr NA | agg_delta 1.5959
+2026-11-15 19:11:41,437 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_048.csv
+2026-11-15 19:11:41,437 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:11:41,437 | INFO | hfedsa_ddpg round 48/250 | lr 0.04577 | train 46.38 | test 47.03 | asr NA | agg_delta 1.9066
+2026-11-15 19:11:55,589 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_049.csv
+2026-11-15 19:11:55,590 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:11:55,590 | INFO | hfedsa_ddpg round 49/250 | lr 0.04560 | train 46.38 | test 47.03 | asr NA | agg_delta 1.7257
+2026-11-15 19:12:12,624 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_050.csv
+2026-11-15 19:12:12,624 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:12:12,625 | INFO | hfedsa_ddpg round 50/250 | lr 0.04542 | train 44.10 | test 46.18 | asr NA | agg_delta 2.0328
+2026-11-15 19:12:27,926 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_051.csv
+2026-11-15 19:12:27,926 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:12:27,926 | INFO | hfedsa_ddpg round 51/250 | lr 0.04524 | train 44.10 | test 46.18 | asr NA | agg_delta 1.5723
+2026-11-15 19:12:42,363 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_052.csv
+2026-11-15 19:12:42,364 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:12:42,364 | INFO | hfedsa_ddpg round 52/250 | lr 0.04505 | train 44.10 | test 46.18 | asr NA | agg_delta 1.6541
+2026-11-15 19:12:56,258 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_053.csv
+2026-11-15 19:12:56,259 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:12:56,259 | INFO | hfedsa_ddpg round 53/250 | lr 0.04486 | train 44.10 | test 46.18 | asr NA | agg_delta 1.8532
+2026-11-15 19:13:10,476 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_054.csv
+2026-11-15 19:13:10,476 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:13:10,476 | INFO | hfedsa_ddpg round 54/250 | lr 0.04467 | train 44.10 | test 46.18 | asr NA | agg_delta 1.7281
+2026-11-15 19:13:26,488 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_055.csv
+2026-11-15 19:13:26,489 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:13:26,489 | INFO | hfedsa_ddpg round 55/250 | lr 0.04447 | train 44.10 | test 46.18 | asr NA | agg_delta 1.6310
+2026-11-15 19:13:40,973 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_056.csv
+2026-11-15 19:13:40,974 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:13:40,974 | INFO | hfedsa_ddpg round 56/250 | lr 0.04428 | train 44.10 | test 46.18 | asr NA | agg_delta 1.7698
+2026-11-15 19:13:55,072 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_057.csv
+2026-11-15 19:13:55,073 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:13:55,073 | INFO | hfedsa_ddpg round 57/250 | lr 0.04408 | train 44.10 | test 46.18 | asr NA | agg_delta 1.6951
+2026-11-15 19:14:09,220 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_058.csv
+2026-11-15 19:14:09,221 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:14:09,221 | INFO | hfedsa_ddpg round 58/250 | lr 0.04387 | train 44.10 | test 46.18 | asr NA | agg_delta 1.8812
+2026-11-15 19:14:30,270 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_059.csv
+2026-11-15 19:14:30,272 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:14:30,272 | INFO | hfedsa_ddpg round 59/250 | lr 0.04366 | train 44.10 | test 46.18 | asr NA | agg_delta 1.5823
+2026-11-15 19:14:46,747 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_060.csv
+2026-11-15 19:14:46,748 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:14:46,749 | INFO | hfedsa_ddpg round 60/250 | lr 0.04345 | train 45.78 | test 48.44 | asr NA | agg_delta 1.6797
+2026-11-15 19:15:01,293 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_061.csv
+2026-11-15 19:15:01,293 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:15:01,293 | INFO | hfedsa_ddpg round 61/250 | lr 0.04324 | train 45.78 | test 48.44 | asr NA | agg_delta 1.9930
+2026-11-15 19:15:15,508 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_062.csv
+2026-11-15 19:15:15,509 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:15:15,509 | INFO | hfedsa_ddpg round 62/250 | lr 0.04302 | train 45.78 | test 48.44 | asr NA | agg_delta 1.6780
+2026-11-15 19:15:29,513 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_063.csv
+2026-11-15 19:15:29,513 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:15:29,513 | INFO | hfedsa_ddpg round 63/250 | lr 0.04281 | train 45.78 | test 48.44 | asr NA | agg_delta 1.5900
+2026-11-15 19:15:43,642 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_064.csv
+2026-11-15 19:15:43,643 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:15:43,643 | INFO | hfedsa_ddpg round 64/250 | lr 0.04258 | train 45.78 | test 48.44 | asr NA | agg_delta 1.6035
+2026-11-15 19:15:58,021 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_065.csv
+2026-11-15 19:15:58,021 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:15:58,022 | INFO | hfedsa_ddpg round 65/250 | lr 0.04236 | train 45.78 | test 48.44 | asr NA | agg_delta 1.7711
+2026-11-15 19:16:12,415 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_066.csv
+2026-11-15 19:16:12,416 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:16:12,416 | INFO | hfedsa_ddpg round 66/250 | lr 0.04213 | train 45.78 | test 48.44 | asr NA | agg_delta 1.7577
+2026-11-15 19:16:36,877 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_067.csv
+2026-11-15 19:16:36,883 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:16:36,883 | INFO | hfedsa_ddpg round 67/250 | lr 0.04190 | train 45.78 | test 48.44 | asr NA | agg_delta 1.7066
+2026-11-15 19:16:51,718 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_068.csv
+2026-11-15 19:16:51,719 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:16:51,719 | INFO | hfedsa_ddpg round 68/250 | lr 0.04167 | train 45.78 | test 48.44 | asr NA | agg_delta 2.0356
+2026-11-15 19:17:05,789 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_069.csv
+2026-11-15 19:17:05,790 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:17:05,790 | INFO | hfedsa_ddpg round 69/250 | lr 0.04144 | train 45.78 | test 48.44 | asr NA | agg_delta 1.4896
+2026-11-15 19:17:23,960 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_070.csv
+2026-11-15 19:17:23,961 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:17:23,962 | INFO | hfedsa_ddpg round 70/250 | lr 0.04120 | train 45.70 | test 46.84 | asr NA | agg_delta 1.8577
+2026-11-15 19:17:38,029 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_071.csv
+2026-11-15 19:17:38,029 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:17:38,030 | INFO | hfedsa_ddpg round 71/250 | lr 0.04096 | train 45.70 | test 46.84 | asr NA | agg_delta 1.4723
+2026-11-15 19:17:52,273 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_072.csv
+2026-11-15 19:17:52,274 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:17:52,274 | INFO | hfedsa_ddpg round 72/250 | lr 0.04072 | train 45.70 | test 46.84 | asr NA | agg_delta 1.5093
+2026-11-15 19:18:06,490 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_073.csv
+2026-11-15 19:18:06,490 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:18:06,491 | INFO | hfedsa_ddpg round 73/250 | lr 0.04047 | train 45.70 | test 46.84 | asr NA | agg_delta 1.8985
+2026-11-15 19:18:21,636 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_074.csv
+2026-11-15 19:18:21,637 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:18:21,637 | INFO | hfedsa_ddpg round 74/250 | lr 0.04022 | train 45.70 | test 46.84 | asr NA | agg_delta 1.4995
+2026-11-15 19:18:36,265 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_075.csv
+2026-11-15 19:18:36,267 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:18:36,267 | INFO | hfedsa_ddpg round 75/250 | lr 0.03997 | train 45.70 | test 46.84 | asr NA | agg_delta 1.9075
+2026-11-15 19:18:50,043 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_076.csv
+2026-11-15 19:18:50,044 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:18:50,044 | INFO | hfedsa_ddpg round 76/250 | lr 0.03972 | train 45.70 | test 46.84 | asr NA | agg_delta 1.4307
+2026-11-15 19:19:04,498 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_077.csv
+2026-11-15 19:19:04,499 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:19:04,499 | INFO | hfedsa_ddpg round 77/250 | lr 0.03947 | train 45.70 | test 46.84 | asr NA | agg_delta 1.6583
+2026-11-15 19:19:29,153 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_078.csv
+2026-11-15 19:19:29,153 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:19:29,153 | INFO | hfedsa_ddpg round 78/250 | lr 0.03921 | train 45.70 | test 46.84 | asr NA | agg_delta 1.3352
+2026-11-15 19:19:43,391 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_079.csv
+2026-11-15 19:19:43,392 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:19:43,392 | INFO | hfedsa_ddpg round 79/250 | lr 0.03895 | train 45.70 | test 46.84 | asr NA | agg_delta 1.5568
+2026-11-15 19:19:59,572 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_080.csv
+2026-11-15 19:19:59,572 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:19:59,574 | INFO | hfedsa_ddpg round 80/250 | lr 0.03869 | train 46.46 | test 48.17 | asr NA | agg_delta 1.6517
+2026-11-15 19:20:38,389 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_081.csv
+2026-11-15 19:20:38,393 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:20:38,393 | INFO | hfedsa_ddpg round 81/250 | lr 0.03843 | train 46.46 | test 48.17 | asr NA | agg_delta 1.8069
+2026-11-15 19:20:53,902 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_082.csv
+2026-11-15 19:20:53,903 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:20:53,904 | INFO | hfedsa_ddpg round 82/250 | lr 0.03816 | train 46.46 | test 48.17 | asr NA | agg_delta 19.4320
+2026-11-15 19:21:08,227 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_083.csv
+2026-11-15 19:21:08,228 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:21:08,228 | INFO | hfedsa_ddpg round 83/250 | lr 0.03789 | train 46.46 | test 48.17 | asr NA | agg_delta 173.1867
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+2026-11-15 19:21:27,256 | INFO | hfedsa_ddpg round 84 fallback: all_hfedsa_weights_zero
+2026-11-15 19:21:27,565 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_084.csv
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2026-11-15 19:21:27,570 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:21:27,570 | INFO | hfedsa_ddpg round 84/250 | lr 0.03763 | train 46.46 | test 48.17 | asr NA | agg_delta 0.0042
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+2026-11-15 19:21:41,449 | INFO | hfedsa_ddpg round 85 fallback: all_hfedsa_weights_zero
+2026-11-15 19:21:41,745 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_085.csv
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2026-11-15 19:21:41,745 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:21:41,746 | INFO | hfedsa_ddpg round 85/250 | lr 0.03735 | train 46.46 | test 48.17 | asr NA | agg_delta 0.0042
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+2026-11-15 19:21:55,669 | INFO | hfedsa_ddpg round 86 fallback: all_hfedsa_weights_zero
+2026-11-15 19:21:55,982 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_086.csv
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2026-11-15 19:21:55,983 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:21:55,983 | INFO | hfedsa_ddpg round 86/250 | lr 0.03708 | train 46.46 | test 48.17 | asr NA | agg_delta 0.0042
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+2026-11-15 19:22:09,496 | INFO | hfedsa_ddpg round 87 fallback: all_hfedsa_weights_zero
+2026-11-15 19:22:09,825 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_087.csv
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2026-11-15 19:22:09,826 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:22:09,826 | INFO | hfedsa_ddpg round 87/250 | lr 0.03681 | train 46.46 | test 48.17 | asr NA | agg_delta 0.0042
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+2026-11-15 19:22:27,772 | INFO | hfedsa_ddpg round 88 fallback: all_hfedsa_weights_zero
+2026-11-15 19:22:28,108 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_088.csv
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2026-11-15 19:22:28,108 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:22:28,109 | INFO | hfedsa_ddpg round 88/250 | lr 0.03653 | train 46.46 | test 48.17 | asr NA | agg_delta 0.0042
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+2026-11-15 19:22:41,761 | INFO | hfedsa_ddpg round 89 fallback: all_hfedsa_weights_zero
+2026-11-15 19:22:42,074 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_089.csv
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2026-11-15 19:22:42,075 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:22:42,076 | INFO | hfedsa_ddpg round 89/250 | lr 0.03625 | train 46.46 | test 48.17 | asr NA | agg_delta 0.0042
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+/root/autodl-tmp/H-FedSA/.venv/lib/python3.12/site-packages/sklearn/base.py:1403: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (3). Possibly due to duplicate points in X.
+  return fit_method(estimator, *args, **kwargs)
+2026-11-15 19:22:55,959 | INFO | hfedsa_ddpg round 90 fallback: all_hfedsa_weights_zero
+2026-11-15 19:22:59,014 | INFO | Saved H-FedSA diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/client_diagnostics_hfedsa_ddpg_round_090.csv
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/root/miniconda3/lib/python3.12/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+2026-11-15 19:22:59,014 | INFO | Updated H-FedSA round diagnostics: results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163/hfedsa_round_diagnostics_hfedsa_ddpg.csv
+2026-11-15 19:22:59,041 | INFO | hfedsa_ddpg round 90/250 | lr 0.03597 | train 10.04 | test 9.95 | asr NA | agg_delta 0.0042
+
