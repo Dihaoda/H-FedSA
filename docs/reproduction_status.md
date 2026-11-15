@@ -241,3 +241,23 @@ mean and `1.05` points above the reported interval. The abrupt non-monotonic
 changes are retained as measured evidence; no seed or final round was replaced.
 Complete artifacts are stored under
 `artifacts/pilot/cifar10_iid_hfedsa_krum_targeted/lambda*_seed2028/`.
+
+
+### Completed one-seed Krum/Trim baseline matrix (2026-11-16 02:15 CST)
+
+All paper-applicable baseline cells for Krum-targeted and Trim-targeted completed
+250 rounds with fixed seed 2026 and final-round-only selection. FedAvg remains
+marked not applicable in the paper target manifest.
+
+| Defense | Krum error | Paper Krum | Trim error | Paper Trim |
+| --- | ---: | ---: | ---: | ---: |
+| FLTrust | 15.90% | 35.0 +/- 1.9% | 15.97% | 38.7 +/- 2.0% |
+| RFA | 19.24% | 38.2 +/- 2.1% | 19.08% | 41.8 +/- 2.2% |
+| SafeFL-compatible SignGuard | 16.35% | 24.1 +/- 1.3% | 19.90% | 26.1 +/- 1.4% |
+| MSGuard | 16.09% | 23.5 +/- 1.2% | 15.49% | 25.0 +/- 1.3% |
+
+None of these eight cells lies inside the paper interval. Complete evidence is
+stored in method- and attack-specific directories under `artifacts/pilot/`.
+The large systematic shortfall indicates that the current targeted-attack
+adaptations are weaker than the paper's undisclosed effective protocols for
+these baselines; values are retained rather than target-substituted.
