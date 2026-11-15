@@ -306,3 +306,23 @@ FedAvg plus scaling completed at `91.36%` error and `45.76%` ASR versus
 the paper's `14.8%` error and `100.0%` ASR. The measured failure mode is
 therefore severe accuracy collapse rather than the paper's high-accuracy,
 full-ASR outcome. The remaining four scaling defenses are running.
+
+
+### Completed one-seed PoiSAFL baseline matrix (2026-11-16 03:15 CST)
+
+All five paper baseline methods completed 250 rounds with fixed seed 2026 and
+final-round-only selection.
+
+| Defense | Measured error | Paper PoiSAFL |
+| --- | ---: | ---: |
+| FedAvg | 15.19% | >=90.0% |
+| FLTrust | 15.47% | 55.2 +/- 2.8% |
+| RFA | 15.34% | 58.0 +/- 3.0% |
+| SafeFL-compatible SignGuard | 15.66% | 35.6 +/- 1.9% |
+| MSGuard | 15.94% | 33.1 +/- 1.7% |
+
+None meets the paper target. The systematic shortfall indicates that the
+documented synchronous PoiSAFL adaptation is much weaker against these
+baselines than the paper's effective protocol. Full evidence is retained under
+the corresponding `artifacts/pilot/cifar10_iid_*_poisafl/default_seed2026/`
+directories; values were not replaced or target-substituted.
