@@ -261,3 +261,18 @@ stored in method- and attack-specific directories under `artifacts/pilot/`.
 The large systematic shortfall indicates that the current targeted-attack
 adaptations are weaker than the paper's undisclosed effective protocols for
 these baselines; values are retained rather than target-substituted.
+
+
+### Cross-method adaptive/PoiSAFL progress (2026-11-16 02:56 CST)
+
+The fixed-seed adaptive pilots completed at `16.46%` error for FedAvg,
+`19.71%` for FLTrust, and `16.69%` for RFA, versus paper targets
+`87.5 +/- 4.0%`, `45.1 +/- 2.3%`, and `48.5 +/- 2.5%`,
+respectively. None lies inside its paper interval. SafeFL-compatible SignGuard
+and MSGuard adaptive pilots remain running.
+
+FedAvg plus the synchronous PoiSAFL adaptation completed at `15.19%` final
+error versus the paper lower-bound target `>=90%`. The current adaptation
+therefore did not reproduce the paper's reported FedAvg failure. Full evidence
+is stored in
+`artifacts/pilot/cifar10_iid_fedavg_poisafl/default_seed2026/`.
