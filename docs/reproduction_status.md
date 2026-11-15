@@ -154,3 +154,24 @@ training log, round metrics, attack trace, diagnostics, and SHA-256 manifest in
 
 These grid points are calibration evidence, not formal five-seed summaries; no
 best-checkpoint, seed replacement, or target-derived metric substitution is used.
+
+
+### Latest calibration outcomes (2026-11-15 22:49 CST)
+
+- The synchronous PoiSAFL profile with `anti_epochs=4`, `alpha=0.20`,
+  `temperature=2.0`, and `distance_gamma=1.0` completed all 250 rounds at
+  `27.80%` final error. This is `-1.00` percentage point from the paper mean
+  `28.8%` and lies inside its reported `28.8 +/- 1.3%` interval. It is a
+  transparent single-seed calibration pilot, not a five-seed formal result.
+  Full evidence is in
+  `artifacts/pilot/cifar10_iid_hfedsa_poisafl/anti4_alpha020_seed2026_within_paper_range/`.
+- Adaptive projection strengths `0.66`, `0.67`, and `0.68` completed at
+  `21.49%`, `21.72%`, and `22.84%` final error. All remain below the paper
+  interval; interpolation candidates near `0.637` are running.
+- PoiSAFL `anti_epochs=3` with `alpha=0.10` and `0.05` completed at
+  `34.12%` and `31.77%` error. The `anti_epochs=4, alpha=0.10` ultra profile
+  collapsed to `90.00%` error and is archived as failed evidence.
+- Krum-targeted multipliers `1.25` collapsed to `90.00%` error, while `2.0`
+  and `2.5` completed at `33.46%` and `33.39%`. Lower-boundary candidates
+  between `1.35` and `1.475` are running; failed and out-of-range points are
+  retained rather than discarded.
