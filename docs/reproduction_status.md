@@ -19,7 +19,7 @@ has been reproduced.
 | Stanford Cars + CompCars | Implemented and unit-tested | Requires a curated make/model label map; real-data smoke pending |
 | FedAvg, FLTrust, RFA | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed for all three methods |
 | SafeFL-compatible SignGuard, MSGuard | Implemented and formally measured | Clean CIFAR-10 IID five-seed results completed; SafeFL rule ambiguity and MSGuard artifact limitations remain documented |
-| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID scaling, H-FedSA label flip, and FedAvg label-flip formally measured; FLTrust label flip paused after 4/5 seeds | Scaling H-FedSA: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR; label flip H-FedSA: `15.888 +/- 0.898%` error; label flip FedAvg: `18.924 +/- 0.604%` error; non-final FLTrust checkpoint: `16.850 +/- 0.293%` error |
+| Label flip, scaling, backdoor scaling | Implemented; CIFAR-10 IID scaling plus H-FedSA, FedAvg, and FLTrust label-flip formally measured | Scaling H-FedSA: `15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR; label flip H-FedSA: `15.888 +/- 0.898%` error; label flip FedAvg: `18.924 +/- 0.604%` error; label flip FLTrust: `16.856 +/- 0.254%` error |
 | Krum-targeted, Trim-targeted, PoiSAFL | Implemented and smoke-tested | PoiSAFL is an explicitly documented synchronous adaptation |
 | Full paper tables | Pending | No smoke or synthetic output is accepted as a measured paper result |
 
@@ -63,14 +63,14 @@ label-flipping campaign. The large gap indicates that the paper's FedAvg
 label-flipping result depends on attack details not reproduced by the current
 deterministic protocol; it is recorded openly rather than changed post hoc.
 
-The FLTrust label-flipping campaign is paused after fixed seeds `2026`,
-`2027`, `2028`, and `2029`, whose final-round errors are `17.09%`, `16.51%`,
-`17.10%`, and `16.70%`. The non-final four-seed checkpoint is
-`16.850 +/- 0.293%` error, inside Table II(d)'s `17.3 +/- 1.0%` interval.
-A seed `2030` attempt stopped after round 73/250 at the user's request is
-explicitly excluded. Seed `2030` remains preregistered and must be rerun from
-round 1 before creating a published five-seed summary. The machine-readable
-resume state is
+The completed FLTrust label-flipping summary is
+`results/published/cifar10_iid_fltrust_label_flip_5seeds.json`. Its fixed
+five-seed final-round error is `16.856 +/- 0.254%`, a mean gap of `-0.444`
+percentage points from Table II(d)'s `17.3 +/- 1.0%`; the measured mean is
+inside the paper's reported interval. Seed `2030` was rerun from round 1 on
+2026-11-15 with the unchanged manifest and final-round-only rule. The earlier
+interrupted seed-2030 attempt remains archived and excluded. The machine-readable
+campaign record is
 `results/published/cifar10_iid_fltrust_label_flip_formal_progress.json`.
 
 The completed clean H-FedSA-DDPG summary is
@@ -114,3 +114,16 @@ paper's one-standard-deviation upper bound. The manifest fixes Mean Shift to
 automatic bandwidth estimation with `quantile=0.3` and a 50% minimum-retention
 floor. Because no public author artifact is available, this remains labeled a
 published-component implementation rather than source-identical reproduction.
+
+
+## Single-seed measured pilots (2026-11-15)
+
+These are fixed-seed, final-round-only pilots and are not five-seed formal
+reproductions. RFA plus label flipping measured `17.06%` error versus the paper's
+`18.0 +/- 1.2%`, and the SafeFL-compatible SignGuard profile measured `16.06%`
+versus `16.6 +/- 0.9%`; both lie inside the paper intervals. H-FedSA measured
+`15.84%` under Trim-targeted versus `21.3 +/- 1.1%`, `28.75%` under the adaptive
+feature-matched attack versus `24.9 +/- 1.2%`, and `16.92%` under the synchronous
+PoiSAFL adaptation versus `28.8 +/- 1.3%`. These remaining gaps are recorded
+openly; preregistered calibration-grid candidates are stored under
+`configs/pilot/` and never replace the default pilot evidence.
