@@ -1,0 +1,56 @@
+# Server handoff and recovery state (2026-11-16)
+
+This file is intentionally free of SSH hosts, ports, passwords, tokens, and
+other credentials.
+
+## Canonical storage
+
+- Repository: `Dihaoda/H-FedSA`
+- Server-side code revision used by the measured runs:
+  `bc296f7eb82414c8d7ce15837d5b82fe93f7317f`
+- Newly preregistered manifests, queue utilities, evidence archives, and status
+  updates are committed directly to the repository default branch.
+- The canonical experiment status is `docs/reproduction_status.md`.
+- Complete single-seed evidence is stored below `artifacts/pilot/`. Each
+  evidence directory includes the submitted and resolved configuration,
+  round metrics, attack trace, diagnostics where applicable, training log, and
+  `SHA256SUMS`.
+
+## Reusable utilities
+
+- `scripts/run_preregistered_queue.sh` keeps at most
+  `MAX_PARALLEL` distinct configurations active.
+- `scripts/archive_pilot_evidence.sh` creates a compact evidence directory,
+  checksum manifest, and tar archive from a completed run.
+- `configs/pilot/queue_20261116.txt` is the original paper-applicable
+  one-seed queue. It is a historical campaign manifest, not an idempotent
+  resume file: do not replay it wholesale after results have completed.
+
+## New-server recovery
+
+1. Clone the default branch and record `git rev-parse HEAD`.
+2. Create the Python environment and install the repository requirements.
+3. Confirm CUDA/PyTorch visibility and run the existing test suite and one
+   configuration with `python -m src.main --config CONFIG --dry_run`.
+4. Allow the real CIFAR-10 and CIFAR-10-C data paths in the manifests to
+   download/populate; synthetic fallback must remain disabled.
+5. Build a new queue containing only combinations still marked pending in
+   `docs/reproduction_status.md`.
+6. Use the same thread limits as this campaign:
+   `OMP_NUM_THREADS=1`, `MKL_NUM_THREADS=1`,
+   `OPENBLAS_NUM_THREADS=1`, and `NUMEXPR_NUM_THREADS=1`.
+7. Preserve the fixed seed, 250 rounds, and `final_round_only` policy.
+
+## Shutdown gate
+
+The current server may be powered off only after all of the following are true:
+
+- the preregistered queue has launched every entry and no trainer remains;
+- every completed output has a GitHub evidence directory and checksum manifest;
+- `docs/reproduction_status.md` records the final measured results and gaps;
+- this handoff file is updated with the terminal queue state;
+- a final read-back check confirms the GitHub files exist.
+
+Status at creation: campaign still running. This line will be replaced with the
+terminal state before the server is powered off.
+
