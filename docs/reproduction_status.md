@@ -128,3 +128,27 @@ feature-matched attack versus `24.9 +/- 1.2%`, and `16.92%` under the synchronou
 PoiSAFL adaptation versus `28.8 +/- 1.3%`. These remaining gaps are recorded
 openly; preregistered calibration-grid candidates are stored under
 `configs/pilot/` and never replace the default pilot evidence.
+
+
+### Calibration-grid progress
+
+All entries below are real CIFAR-10/CIFAR-10-C, fixed seed 2026, 250-round,
+final-round-only measured pilots. They retain their full resolved configuration,
+training log, round metrics, attack trace, diagnostics, and SHA-256 manifest in
+`artifacts/pilot/`.
+
+- Adaptive feature-matched projection strengths `0.625`, `0.75`, and `1.0`
+  produced error rates `26.74%`, `21.89%`, and `21.05%`, respectively,
+  against the paper target `24.9 +/- 1.2%`. Projection `0.625` is the closest
+  completed candidate (absolute gap `1.84` points); preregistered interpolation
+  candidates `0.66` and `0.68` are running.
+- Synchronous PoiSAFL medium, strong, and extra profiles produced error rates
+  `19.71%`, `25.54%`, and `26.62%`, respectively, against the paper target
+  `28.8 +/- 1.3%`. The extra profile is the closest completed candidate
+  (absolute gap `2.18` points); stronger preregistered candidates are running.
+- The earlier Krum-targeted multiplier `1.5` pilot produced `24.74%` error
+  against `21.3 +/- 1.2%`, improving the absolute gap from the default pilot by
+  `6.54` points. Multipliers `1.25`, `2.0`, and `2.5` are running.
+
+These grid points are calibration evidence, not formal five-seed summaries; no
+best-checkpoint, seed replacement, or target-derived metric substitution is used.
