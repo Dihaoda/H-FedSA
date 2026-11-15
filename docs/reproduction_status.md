@@ -204,3 +204,18 @@ a five-seed formal reproduction.
   running concurrently. A preregistered FedAvg plus Krum-targeted cross-method
   pilot is also running. All runs use real CIFAR-10/CIFAR-10-C, 250 rounds,
   fixed seeds, and final-round-only selection.
+
+
+### Completed boundary probes (2026-11-16 00:46 CST)
+
+- H-FedSA Krum-targeted multiplier `1.49` completed at `23.91%` final
+  error. It is `+2.61` percentage points from the paper mean and `1.41`
+  points above the reported interval's upper boundary. Evidence is in
+  `artifacts/pilot/cifar10_iid_hfedsa_krum_targeted/lambda149_seed2028/`.
+- H-FedSA Trim-targeted scale factor `200` completed at `16.00%` final
+  error. It is `-5.30` percentage points from the paper mean and remains
+  below the paper interval. Evidence is in
+  `artifacts/pilot/cifar10_iid_hfedsa_trim_targeted/scale200_seed2026/`.
+- The bounded queue then launched FLTrust and RFA Krum-targeted pilots. Queue
+  entries are limited to paper-applicable combinations and retain the
+  single-seed, 250-round, final-round-only policy.
