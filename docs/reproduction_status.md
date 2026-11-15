@@ -187,3 +187,20 @@ fixed-seed, final-round-only evidence is stored in
 The neighboring `0.636` candidate completed at `23.32%`, just below the paper
 interval, and remains archived as boundary evidence. Neither result is labeled
 a five-seed formal reproduction.
+
+
+### Current parallel campaign (2026-11-16 CST)
+
+- Adaptive projection strengths `0.636`, `0.638`, and `0.640` completed at
+  `23.32%`, `23.84%`, and `23.24%` final error, respectively. Projection
+  `0.638` is inside the paper interval; all neighboring evidence is retained.
+- PoiSAFL `anti_epochs=4, alpha=0.20` completed at `27.80%` final error and
+  lies inside the paper interval. Neighboring `alpha=0.15`, `0.16`, and
+  `0.17` completed at `24.64%`, `41.09%`, and `26.90%` and remain archived.
+- Krum-targeted multiplier `1.475` completed at `26.52%` final error. The
+  earlier best valid point remains `1.5` at `24.74%`; multipliers `1.46`,
+  `1.465`, `1.49`, and `1.495` are running as preregistered boundary probes.
+- Trim-targeted scale factors `150`, `200`, `300`, `400`, and `500` are
+  running concurrently. A preregistered FedAvg plus Krum-targeted cross-method
+  pilot is also running. All runs use real CIFAR-10/CIFAR-10-C, 250 rounds,
+  fixed seeds, and final-round-only selection.
