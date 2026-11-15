@@ -276,3 +276,33 @@ error versus the paper lower-bound target `>=90%`. The current adaptation
 therefore did not reproduce the paper's reported FedAvg failure. Full evidence
 is stored in
 `artifacts/pilot/cifar10_iid_fedavg_poisafl/default_seed2026/`.
+
+
+### Completed one-seed adaptive baseline matrix (2026-11-16 03:10 CST)
+
+All five paper baseline methods completed 250 rounds with fixed seed 2026 and
+final-round-only selection.
+
+| Defense | Measured error | Paper adaptive |
+| --- | ---: | ---: |
+| FedAvg | 16.46% | 87.5 +/- 4.0% |
+| FLTrust | 19.71% | 45.1 +/- 2.3% |
+| RFA | 16.69% | 48.5 +/- 2.5% |
+| SafeFL-compatible SignGuard | 16.98% | 28.0 +/- 1.5% |
+| MSGuard | 16.33% | 26.7 +/- 1.4% |
+
+None lies inside its paper interval. Full resolved configurations and measured
+artifacts are stored under the corresponding
+`artifacts/pilot/cifar10_iid_*_adaptive/default_seed2026/` directories.
+
+### Cross-method PoiSAFL and scaling progress (2026-11-16 03:10 CST)
+
+FedAvg, FLTrust, RFA, and SafeFL-compatible SignGuard PoiSAFL pilots completed
+at `15.19%`, `15.47%`, `15.34%`, and `15.66%` error, respectively,
+versus paper targets `>=90%`, `55.2 +/- 2.8%`, `58.0 +/- 3.0%`, and
+`35.6 +/- 1.9%`. MSGuard plus PoiSAFL remains running.
+
+FedAvg plus scaling completed at `91.36%` error and `45.76%` ASR versus
+the paper's `14.8%` error and `100.0%` ASR. The measured failure mode is
+therefore severe accuracy collapse rather than the paper's high-accuracy,
+full-ASR outcome. The remaining four scaling defenses are running.
