@@ -1,0 +1,110 @@
+{
+  "dataset": "cifar10",
+  "attack_type": "label_flipping",
+  "method": "fltrust",
+  "run_count": 5,
+  "seeds": [
+    2026,
+    2027,
+    2028,
+    2029,
+    2030
+  ],
+  "rounds": [
+    250,
+    250,
+    250,
+    250,
+    250
+  ],
+  "error_rate": {
+    "count": 5,
+    "mean": 16.856,
+    "sample_std": 0.2544209110902611,
+    "min": 16.510000000000005,
+    "max": 17.099999999999994
+  },
+  "accuracy": {
+    "count": 5,
+    "mean": 83.14399999999999,
+    "sample_std": 0.2544209110902611,
+    "min": 82.9,
+    "max": 83.49
+  },
+  "attack_success_rate": {
+    "count": 0,
+    "mean": null,
+    "sample_std": null,
+    "min": null,
+    "max": null
+  },
+  "metrics_paths": [
+    "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2026_20261112_211512_706594/metrics.csv",
+    "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2027_20261112_220735_397202/metrics.csv",
+    "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2028_20261112_231048_672299/metrics.csv",
+    "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2029_20261113_105315_585177/metrics.csv",
+    "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261115_191055_657439/metrics.csv"
+  ],
+  "run_provenance": [
+    {
+      "seed": 2026,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2026_20261112_211512_706594/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_fltrust_label_flip.yaml",
+      "config_sha256": "7a8272319686779ee026fb829de0ef38104989c903c673e482549edef9b50200",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "dataset_source": "real",
+      "run_class": "formal_measured",
+      "evidence_directory": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2026"
+    },
+    {
+      "seed": 2027,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2027_20261112_220735_397202/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_fltrust_label_flip.yaml",
+      "config_sha256": "e5858c28557b39f2bccf0ffd0b554715014ca7ce9abcb784aba77cc9ae799bfa8",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "dataset_source": "real",
+      "run_class": "formal_measured",
+      "evidence_directory": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2027"
+    },
+    {
+      "seed": 2028,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2028_20261112_231048_672299/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_fltrust_label_flip.yaml",
+      "config_sha256": "dc0401f9ccc90160f94095c4a989bcabaed6b24235ac5edd8256f1d20dc994cac",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "dataset_source": "real",
+      "run_class": "formal_measured",
+      "evidence_directory": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2028"
+    },
+    {
+      "seed": 2029,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2029_20261113_105315_585177/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_fltrust_label_flip.yaml",
+      "config_sha256": "0978297fd5a145f9d48b286b03e2e08d7f6260e18953ac793a6a09b6d476b9fb",
+      "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
+      "dataset_source": "real",
+      "run_class": "formal_measured",
+      "evidence_directory": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2029"
+    },
+    {
+      "seed": 2030,
+      "metrics_path": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261115_191055_657439/metrics.csv",
+      "config_path": "configs/paper/cifar10_iid_fltrust_label_flip.yaml",
+      "config_sha256": "c95edcddf7de3b65a38cc6d238f5e63d57cab6b57abf8420e5be9cad6a5300d7",
+      "declared_source_revision": "bc296f7eb82414c8d7ce15837d5b82fe93f7317f",
+      "dataset_source": "real",
+      "run_class": "formal_measured",
+      "evidence_directory": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2030_completed"
+    }
+  ],
+  "required_runs": 5,
+  "complete": true,
+  "selection_rule": "final_round_only",
+  "paper_target": {
+    "error_mean": 17.3,
+    "error_std": 1
+  },
+  "error_mean_gap": -0.44399999999999906,
+  "mean_within_paper_one_std_interval": true,
+  "note": "The archived interrupted seed-2030 attempt is excluded; only the complete rerun from round 1 is included."
+}
