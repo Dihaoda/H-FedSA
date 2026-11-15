@@ -219,3 +219,13 @@ a five-seed formal reproduction.
 - The bounded queue then launched FLTrust and RFA Krum-targeted pilots. Queue
   entries are limited to paper-applicable combinations and retain the
   single-seed, 250-round, final-round-only policy.
+
+
+### Trim-targeted scale grid (2026-11-16 00:55 CST)
+
+The preregistered H-FedSA Trim-targeted scale-factor grid completed with final
+error rates `16.21%` (1.5), `16.00%` (2.0), `15.72%` (3.0), `15.79%`
+(4.0), and `15.87%` (5.0). All are below the paper target
+`21.3 +/- 1.1%`; increasing only this implementation's scale factor did not
+close the reproduction gap. Complete evidence for every point is stored under
+`artifacts/pilot/cifar10_iid_hfedsa_trim_targeted/scale*_seed2026/`.
