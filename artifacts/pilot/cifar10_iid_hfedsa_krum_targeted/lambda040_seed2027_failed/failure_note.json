@@ -1,0 +1,21 @@
+{
+  "status": "failed_calibration_excluded",
+  "experiment": "CIFAR-10 IID / H-FedSA-DDPG / Krum-targeted",
+  "seed": 2027,
+  "candidate_id": "hfedsa_krum_targeted_lambda040_seed2027",
+  "lambda_multiplier": 0.4,
+  "configured_rounds": 250,
+  "last_completed_round": 90,
+  "last_test_accuracy_percent": 9.95,
+  "last_error_rate_percent": 90.05,
+  "included_in_reported_single_seed_result": false,
+  "termination_reason": "The all_hfedsa_weights_zero fallback and an aggregated delta norm of approximately 0.0042 persisted; the candidate had collapsed and could not approach the paper target.",
+  "paper_target_error_percent": {
+    "mean": 21.3,
+    "std": 1.2
+  },
+  "source_revision": "bc296f7eb82414c8d7ce15837d5b82fe93f7317f",
+  "server_run_directory": "results/pilot/cifar10_iid_krum_targeted/hfedsa_ddpg_lambda040/pilot_cifar10_iid_hfedsa_ddpg_krum_targeted_lambda040_seed2027_20261115_190033_566163",
+  "training_log_sha256": "4b6e447d41b169d6593469a3e2dc123fe957b7fb81499972dcba462a0da0da0b"
+}
+
