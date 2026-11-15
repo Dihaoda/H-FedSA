@@ -148,7 +148,9 @@ training log, round metrics, attack trace, diagnostics, and SHA-256 manifest in
   (absolute gap `2.18` points); stronger preregistered candidates are running.
 - The earlier Krum-targeted multiplier `1.5` pilot produced `24.74%` error
   against `21.3 +/- 1.2%`, improving the absolute gap from the default pilot by
-  `6.54` points. Multipliers `1.25`, `2.0`, and `2.5` are running.
+  `6.54` points. Multiplier `2.0` completed at `33.46%` error (absolute
+  gap `12.16` points, therefore too strong); multipliers `1.25`, `1.35`, and
+  `2.5` are running.
 
 These grid points are calibration evidence, not formal five-seed summaries; no
 best-checkpoint, seed replacement, or target-derived metric substitution is used.
