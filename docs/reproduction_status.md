@@ -229,3 +229,15 @@ error rates `16.21%` (1.5), `16.00%` (2.0), `15.72%` (3.0), `15.79%`
 `21.3 +/- 1.1%`; increasing only this implementation's scale factor did not
 close the reproduction gap. Complete evidence for every point is stored under
 `artifacts/pilot/cifar10_iid_hfedsa_trim_targeted/scale*_seed2026/`.
+
+
+### Krum-targeted boundary grid conclusion (2026-11-16 01:20 CST)
+
+The latest H-FedSA boundary probes completed at `27.89%` error for multiplier
+`1.46`, `31.67%` for `1.465`, `26.52%` for `1.475`, `23.91%` for
+`1.49`, and `23.55%` for `1.495`. Multiplier `1.495` is the closest
+valid measured point, but remains `+2.25` percentage points from the paper
+mean and `1.05` points above the reported interval. The abrupt non-monotonic
+changes are retained as measured evidence; no seed or final round was replaced.
+Complete artifacts are stored under
+`artifacts/pilot/cifar10_iid_hfedsa_krum_targeted/lambda*_seed2028/`.
