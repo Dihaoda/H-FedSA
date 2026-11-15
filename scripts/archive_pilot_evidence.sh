@@ -32,6 +32,10 @@ for name in \
   "hfedsa_beta_trace_${variant}.csv" \
   hfedsa_diagnostic_summary.csv \
   "hfedsa_round_diagnostics_${variant}.csv" \
+  fltrust_scaling_diagnostics.csv \
+  rfa_round_diagnostics.csv \
+  safefl_round_diagnostics.csv \
+  msguard_round_diagnostics.csv \
   metrics.csv \
   partition_summary.json \
   run_summary.json \
