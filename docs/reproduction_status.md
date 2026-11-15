@@ -175,3 +175,15 @@ best-checkpoint, seed replacement, or target-derived metric substitution is used
   and `2.5` completed at `33.46%` and `33.39%`. Lower-boundary candidates
   between `1.35` and `1.475` are running; failed and out-of-range points are
   retained rather than discarded.
+
+
+### Adaptive in-range calibration (2026-11-15 23:49 CST)
+
+Adaptive feature-matched projection strength `0.638` completed all 250 rounds
+at `23.84%` final error. This is `-1.06` percentage points from the paper
+mean `24.9%` and lies inside the reported `24.9 +/- 1.2%` interval. The
+fixed-seed, final-round-only evidence is stored in
+`artifacts/pilot/cifar10_iid_hfedsa_adaptive/projection0638_seed2026_within_paper_range/`.
+The neighboring `0.636` candidate completed at `23.32%`, just below the paper
+interval, and remains archived as boundary evidence. Neither result is labeled
+a five-seed formal reproduction.
