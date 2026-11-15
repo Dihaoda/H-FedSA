@@ -1,6 +1,6 @@
 {
-  "status": "paused_by_user",
-  "experiment_class": "formal_measured_in_progress",
+  "status": "complete",
+  "experiment_class": "formal_measured_complete",
   "candidate_id": "fltrust_label_flip_paper_protocol",
   "config": "configs/paper/cifar10_iid_fltrust_label_flip.yaml",
   "paper_target": {
@@ -18,11 +18,10 @@
     2026,
     2027,
     2028,
-    2029
-  ],
-  "remaining_seeds": [
+    2029,
     2030
   ],
+  "remaining_seeds": [],
   "selection_rule": "final_round_only",
   "runs": [
     {
@@ -85,11 +84,37 @@
       "declared_source_revision": "75705eac0a3586aca246e75ba46729a2dfebf1f0",
       "evidence_directory": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2029",
       "server_run_directory": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2029_20261113_105315_585177"
+    },
+    {
+      "seed": 2030,
+      "dataset_source": "real",
+      "rounds_completed": 250,
+      "final_accuracy_percent": 83.12,
+      "final_error_percent": 16.879999999999995,
+      "best_accuracy_percent": 83.32,
+      "gap_to_paper_mean_percent_points": -0.42000000000000526,
+      "within_paper_one_std_interval": true,
+      "runtime_seconds": 3687.926942810416,
+      "config_sha256": "c95edcddf7de3b65a38cc6d238f5e63d57cab6b57abf8420e5be9cad6a5300d7",
+      "declared_source_revision": "bc296f7eb82414c8d7ce15837d5b82fe93f7317f",
+      "evidence_directory": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2030_completed",
+      "server_run_directory": "results/formal/cifar10_iid_label_flip/fltrust/paper_cifar10_iid_fltrust_label_flip_seed2030_20261115_191055_657439"
     }
   ],
   "protocol_note": "FLTrust shares the frozen real CIFAR-10/CIFAR-10-C, client sampling, optimization, and deterministic y -> 9 - y label-flipping protocol used by the completed H-FedSA and FedAvg campaigns. FLTrust min_trust_score is frozen at 0.0, matching the completed clean FLTrust manifest.",
-  "resume_note": "Paused at the user's request after completing seed 2029. Seeds 2026-2029 are complete and immutable. A seed 2030 attempt was stopped after round 73 and is explicitly excluded; rerun seed 2030 from round 1 on the next server with the unchanged manifest, declared source revision, and final-round-only rule.",
-  "partial_aggregate_nonfinal": {
+  "resume_note": "Seed 2030 was rerun from round 1 with the unchanged manifest and final-round-only rule. The earlier interrupted seed-2030 attempt remains archived and excluded.",
+  "interrupted_attempts": [
+    {
+      "seed": 2030,
+      "last_completed_round": 73,
+      "configured_rounds": 250,
+      "included_in_formal_aggregate": false,
+      "restart_note": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2030/restart_note.json",
+      "archived_log": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2030/interrupted_attempt_20261113.log",
+      "action": "Excluded historical attempt; superseded by the complete round-1 rerun archived under seed2030_completed."
+    }
+  ],
+  "previous_partial_aggregate_nonfinal": {
     "run_count": 4,
     "error_mean_percent": 16.85,
     "error_sample_std_percent": 0.29337120967584157,
@@ -102,15 +127,16 @@
     "selection_rule": "final_round_only",
     "warning": "Non-final checkpoint only. Preregistered seed 2030 remains incomplete and must be rerun from round 1 and included before publishing the campaign aggregate."
   },
-  "interrupted_attempts": [
-    {
-      "seed": 2030,
-      "last_completed_round": 73,
-      "configured_rounds": 250,
-      "included_in_formal_aggregate": false,
-      "restart_note": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2030/restart_note.json",
-      "archived_log": "artifacts/formal/cifar10_iid_fltrust_label_flip/seed2030/interrupted_attempt_20261113.log",
-      "action": "Rerun seed 2030 from round 1 with the unchanged manifest."
-    }
-  ]
+  "formal_aggregate": {
+    "run_count": 5,
+    "error_mean_percent": 16.856,
+    "error_sample_std_percent": 0.2544209110902611,
+    "accuracy_mean_percent": 83.14399999999999,
+    "accuracy_sample_std_percent": 0.2544209110902611,
+    "paper_error_mean_percent": 17.3,
+    "paper_error_std_percent": 1,
+    "mean_gap_percent_points": -0.44399999999999906,
+    "mean_within_paper_one_std_interval": true,
+    "selection_rule": "final_round_only"
+  }
 }
