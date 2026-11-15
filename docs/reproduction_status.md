@@ -120,8 +120,9 @@ published-component implementation rather than source-identical reproduction.
 
 These are fixed-seed, final-round-only pilots and are not five-seed formal
 reproductions. RFA plus label flipping measured `17.06%` error versus the paper's
-`18.0 +/- 1.2%`, and the SafeFL-compatible SignGuard profile measured `16.06%`
-versus `16.6 +/- 0.9%`; both lie inside the paper intervals. H-FedSA measured
+`18.0 +/- 1.2%`; the SafeFL-compatible SignGuard profile measured `16.06%`
+versus `16.6 +/- 0.9%`; and the MSGuard published-component profile measured
+`15.81%` versus `16.3 +/- 0.8%`. All three lie inside the paper intervals. H-FedSA measured
 `15.84%` under Trim-targeted versus `21.3 +/- 1.1%`, `28.75%` under the adaptive
 feature-matched attack versus `24.9 +/- 1.2%`, and `16.92%` under the synchronous
 PoiSAFL adaptation versus `28.8 +/- 1.3%`. These remaining gaps are recorded
