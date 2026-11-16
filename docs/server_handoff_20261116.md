@@ -109,3 +109,11 @@ H-FedSA clean dropout 0.10 completed at 15.81% error and was archived under
 `artifacts/calibration/cifar10_iid_clean_hfedsa_ddpg/d010_seed2026/`.
 The local and GitHub evidence include a matching SHA-256 manifest. The server
 remains powered on and the remaining queues continue.
+
+
+### Live queue state (2026-11-16 19:10 CST)
+
+Ten trainers are active: four H-FedSA Trim retention-floor extensions, four
+MSGuard clean calibration candidates, and two joint FLTrust Scaling
+learning-rate candidates. Four additional joint FLTrust/RFA candidates are
+queued for automatic slot refill. The server must remain powered on.
