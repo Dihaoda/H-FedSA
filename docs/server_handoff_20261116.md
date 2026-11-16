@@ -101,3 +101,11 @@ separate configuration and evidence paths.
   `logs/calibration/hfedsa_boundary_autofill_20261116.log` after the current
   queue.
 - The server must remain powered on.
+
+
+### In-range clean evidence (2026-11-16 18:44 CST)
+
+H-FedSA clean dropout 0.10 completed at 15.81% error and was archived under
+`artifacts/calibration/cifar10_iid_clean_hfedsa_ddpg/d010_seed2026/`.
+The local and GitHub evidence include a matching SHA-256 manifest. The server
+remains powered on and the remaining queues continue.
