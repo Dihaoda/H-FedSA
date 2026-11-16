@@ -500,3 +500,11 @@ the remaining RFA Krum extension is chained after it.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `7.33% / 92.67%`.
 - Paper error interval: `46.0%–51.0%`; above range, not accepted.
 - The validated weaker interpolation changes malicious ratio from `0.40` to `0.30` and projection strength from `0.10` to `0.20`; it is active. Current outstanding paper-cell count remains **16**.
+
+### 2026-11-17 03:52 CST — H-FedSA Krum near miss and Adaptive/SafeFL boundary outcomes
+
+- H-FedSA Krum `lambda1495_lr0495_seed2028`: final accuracy/error `77.34% / 22.66%`; paper interval `20.1%–22.5%`; above the upper bound by `0.16` points, not accepted. The adjacent lr0.0493 probe is active.
+- SafeFL-compatible SignGuard Adaptive `m040_ps010_seed2026`: final accuracy/error `81.13% / 18.87%`; paper interval `26.5%–29.5%`; below range. The stronger m050/ps0.10 interpolation is active.
+- MSGuard Adaptive `m040_ps010_seed2026`: final accuracy/error `47.18% / 52.82%`; paper interval `25.3%–28.1%`; above range. The weaker m030/ps0.30 interpolation is active.
+- SafeFL-compatible SignGuard Krum `m050_lm00002_nu50_seed2026`: final accuracy/error `10.00% / 90.00%`; paper interval `22.8%–25.4%`; above range. Together with lambda0.001 at `16.81%`, this brackets a boundary; lambda0.0006/norm5 is active.
+- All use real CIFAR-10 and final-round-only selection. Current outstanding paper-cell count remains **16**.
