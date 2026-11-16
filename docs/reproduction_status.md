@@ -662,3 +662,10 @@ probe.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `77.18% / 22.82%`.
 - Paper error interval: `36.1%–40.3%`; below range, not accepted. Fixed m040 produced `90.00%`, establishing a discrete malicious-count failure boundary.
 - The next explicitly labeled continuous probe keeps m030 and increases `krum_targeted.lambda_multiplier` from 1.0 to 1.5. Current outstanding paper-cell count remains **20**.
+
+### 2026-11-17 00:48 CST — MSGuard Krum m040 lr035 completed
+
+- Candidate: `cifar10_iid_msguard_krum_targeted_m040_lr035_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `77.78% / 22.22%`.
+- Paper error interval: `22.3%–24.7%`; below the lower bound by 0.08 percentage points, so it is recorded as a near miss and not accepted.
+- The next continuous probe changes only local learning rate from 0.035 to 0.033. Current outstanding paper-cell count remains **20**.
