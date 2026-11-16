@@ -572,3 +572,9 @@ the remaining RFA Krum extension is chained after it.
 - The measured neighboring values now bracket a discontinuity: lambda0.0006 produced `90.00%`, while lambda0.0008 produced `17.50%`.
 - The lambda0.00075/norm5 boundary config passed dry-run validation, was committed, passed 1/1 normalized GitHub readback, and is active.
 - Ten unique configurations are active; outstanding paper-cell count remains **14**.
+
+### Adaptive and PoiSAFL checkpoint — 2026-11-17 06:21 CST
+
+- SafeFL-compatible SignGuard + Adaptive m045-random/ps0.10 completed at `90.00%` error, above the `26.5%–29.5%` interval. The stable m040-stratified/ps0.05 follow-up passed dry-run validation, was committed, passed 1/1 normalized GitHub readback, and is active.
+- FedAvg + PoiSAFL m090/anti-epochs5/alpha0.00/distance-gamma1.0 completed at `74.48%` error, below the `>=90.0%` criterion. The cell remains pending.
+- MSGuard PoiSAFL launched into the free slot. Ten unique configurations are active; outstanding paper-cell count remains **14**.
