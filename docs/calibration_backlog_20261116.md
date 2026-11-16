@@ -608,3 +608,9 @@ the remaining RFA Krum extension is chained after it.
 - FLTrust + Adaptive lr0.0008 completed at `41.00%` error, 1.8 points below the `42.8%–47.4%` interval. lr0.0007 passed dry-run, was committed, and is active.
 - SafeFL-compatible SignGuard + Krum lambda0.00075/norm5 completed at `90.00%`; lambda0.0008 previously produced `17.50%`. The lambda0.000795 binary-search point passed dry-run, was committed, and is active.
 - Normalized GitHub readback for both new configs passed 2/2. Ten unique configurations are active; outstanding count remains **14**.
+
+### RFA Krum lambda checkpoint — 2026-11-17 07:12 CST
+
+- RFA + Krum m030/lambda0.7 completed at `21.53%` error, below the `36.1%–40.3%` interval and also below the prior m030/default result.
+- The next candidate uses the collapse-side m031 random participation with lambda1.5. It passed dry-run, was committed, passed 1/1 normalized GitHub readback, and is queued.
+- RFA PoiSAFL m060/anti-epochs5/alpha0.00 filled the released slot. Ten unique configurations are active; outstanding count remains **14**.
