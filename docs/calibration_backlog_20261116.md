@@ -248,3 +248,11 @@ queued: FLTrust/RFA Trim-targeted at malicious ratio 0.30 and FLTrust/RFA
 Krum-targeted at ratio 0.40. They cover four previously uncalibrated baseline
 cells and launch automatically under the ten-configuration limit. A dedicated
 MSGuard Trim 0.22 interpolation is already active.
+
+
+## RFA Scaling lower-learning-rate outcomes (2026-11-16 21:35 CST)
+
+Learning rates 0.025 and 0.030 completed at 16.54% and 15.87% final error,
+with ASR 2.96% and 4.33%. Both remain below the 17.1--19.3% error interval.
+A validated 0.020 candidate is committed and receives the next available slot;
+the remaining RFA Krum extension is chained after it.
