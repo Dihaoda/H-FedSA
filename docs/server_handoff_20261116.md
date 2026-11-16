@@ -189,3 +189,11 @@ Four validated and committed compatibility extensions wait behind the active
 ten runs: SafeFL/MSGuard Trim at malicious ratio 0.25 and SafeFL/MSGuard Krum
 at 0.40. The supervisor enforces a ten-configuration limit. The server must
 remain powered on.
+
+
+### H-FedSA Trim learning-rate autofill (2026-11-16 20:42 CST)
+
+Retention floor 0.30 with learning rates 0.040 and 0.045 is validated and
+committed. A chained bounded supervisor waits for the targeted follow-on
+supervisor to finish launching, then queues these two candidates without
+exceeding ten active configurations. The server must remain powered on.
