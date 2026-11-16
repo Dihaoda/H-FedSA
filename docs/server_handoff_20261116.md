@@ -348,3 +348,9 @@ powered on.
 - FedAvg + PoiSAFL m080/anti-epochs3/alpha0.10 completed at `30.30%` error, below the `>=90%` criterion.
 - The stronger m090/anti-epochs5/alpha0.00 config passed dry-run validation, is committed, and is active.
 - Ten unique configurations remain active. Outstanding paper-cell count remains `14`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 04:55 CST
+
+- SafeFL-compatible SignGuard + Krum lambda0.0006/norm5 completed at `90.00%` error, above its interval.
+- The lambda0.0008/norm5 boundary probe passed dry-run validation, is committed, and is active.
+- Ten unique configurations remain active. Outstanding paper-cell count remains `14`; keep the server powered on.
