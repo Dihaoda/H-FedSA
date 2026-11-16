@@ -239,3 +239,12 @@ SignGuard Krum 17.21%, MSGuard Krum 18.39%, SafeFL-compatible SignGuard Trim
 paper intervals, while both Trim cells overshoot. The active follow-on therefore
 uses 40% for Krum and 25% (plus a dedicated 22% MSGuard interpolation) for
 Trim. None of the m030 cells is accepted.
+
+
+## FLTrust/RFA targeted calibration wave (2026-11-16 21:13 CST)
+
+Four new fixed-seed compatibility extensions are validated, committed, and
+queued: FLTrust/RFA Trim-targeted at malicious ratio 0.30 and FLTrust/RFA
+Krum-targeted at ratio 0.40. They cover four previously uncalibrated baseline
+cells and launch automatically under the ten-configuration limit. A dedicated
+MSGuard Trim 0.22 interpolation is already active.
