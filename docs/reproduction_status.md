@@ -842,3 +842,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - `cifar10_iid_msguard_adaptive_m030_ps030_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `17.24%`; target `25.3%–28.1%`, out of range. m033/ps0.25 is active.
 - `cifar10_iid_rfa_trim_targeted_m031_random_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `48.02%`; target `39.6%–44.0%`, out of range.
 - All four are retained as immutable calibration measurements and are not promoted as paper-aligned evidence. Outstanding paper-cell count remains **14**.
+
+### 2026-11-17 05:49 CST — Adaptive, Krum, and PoiSAFL outcomes
+
+- `cifar10_iid_fltrust_adaptive_m040_ps010_lr0010_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `39.40%`; target `42.8%–47.4%`, out of range. lr0.0008 is active.
+- `cifar10_iid_rfa_krum_targeted_m031_random_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `90.00%`; target `36.1%–40.3%`, out of range. m030/lambda0.7 is active.
+- `cifar10_iid_fltrust_poisafl_m050_ae3_a010_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `19.80%`; target `52.4%–58.0%`, out of range.
+- These measurements remain immutable calibration evidence and are not promoted as paper-aligned. Outstanding paper-cell count remains **14**.
