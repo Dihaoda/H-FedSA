@@ -374,3 +374,9 @@ powered on.
 - FLTrust Adaptive lr0.0008 and RFA Krum m030/lambda0.7 passed `--dry_run`, were committed, and are active. Normalized GitHub readback for both new configs passed 2/2.
 - SafeFL-compatible SignGuard PoiSAFL filled the remaining free slot. Ten unique configurations are active; outstanding count remains `14`.
 - Continue low-frequency monitoring and keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 06:02 CST
+
+- SafeFL-compatible SignGuard Krum lambda0.0008/norm5 completed at `17.50%`, below its paper interval.
+- Lambda0.00075/norm5 passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is active.
+- Ten unique configurations are active. Continue low-frequency monitoring; keep the server powered on.
