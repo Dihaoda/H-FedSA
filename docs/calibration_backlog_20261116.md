@@ -122,3 +122,11 @@ FLTrust and RFA values 0.50/0.75 completed outside the joint error/ASR
 criteria. RFA value 0.75 reached 10.68% ASR but only 15.27% error. A six-run
 joint learning-rate wave is active/queued with FLTrust value 0.65 and RFA
 value 0.75.
+
+
+## H-FedSA Scaling low-dropout follow-on (2026-11-16 19:17 CST)
+
+Because the higher-dropout boundary wave did not lower final error enough,
+three seed-2026 candidates with dropout 0.00, 0.05, and 0.10 are validated and
+queued. They retain the same attack, defense, optimizer, 250-round budget, and
+final-round-only evaluation policy; only model dropout changes.
