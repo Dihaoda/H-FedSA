@@ -151,3 +151,14 @@ RFA Scaling learning-rate candidates, three H-FedSA Scaling low-dropout
 candidates, and three stronger H-FedSA Trim retention-floor extensions. It
 keeps at most ten unique configurations active. Partial logs from stopped runs
 remain on the server. The server must remain powered on.
+
+
+### Prior-result reuse and queue pruning (2026-11-16 19:50 CST)
+
+Existing formal final-round seeds now satisfy MSGuard clean (15.21% and 15.35%)
+and H-FedSA Scaling (formal-set minimum 15.46%) under the current single-seed,
+error-only rule. Four MSGuard clean and three H-FedSA Scaling calibration
+trainers were terminated as redundant; partial logs remain. The consolidated
+supervisor continues the three RFA Scaling learning-rate candidates and the
+three H-FedSA Trim stronger-retention extensions. The active backlog is 23
+cells. The server must remain powered on.
