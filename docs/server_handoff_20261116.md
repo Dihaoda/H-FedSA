@@ -197,3 +197,12 @@ Retention floor 0.30 with learning rates 0.040 and 0.045 is validated and
 committed. A chained bounded supervisor waits for the targeted follow-on
 supervisor to finish launching, then queues these two candidates without
 exceeding ten active configurations. The server must remain powered on.
+
+
+### FLTrust/RFA targeted autofill (2026-11-16 21:13 CST)
+
+Four validated and committed targeted-attack extensions wait for slots:
+FLTrust/RFA Trim at malicious ratio 0.30 and FLTrust/RFA Krum at 0.40. A
+bounded supervisor launches them sequentially without exceeding ten active
+configurations. MSGuard Trim ratio 0.22 is active. The server must remain
+powered on.
