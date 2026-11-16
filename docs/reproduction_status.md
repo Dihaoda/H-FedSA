@@ -453,3 +453,13 @@ remain out of range. The in-range result is a single-seed calibration, not a
 replacement for the existing five-seed formal summary. Complete evidence and a
 verified SHA-256 manifest are stored in
 `artifacts/calibration/cifar10_iid_clean_hfedsa_ddpg/d010_seed2026/`.
+
+
+### Low-value Scaling outcomes (2026-11-16 19:10 CST)
+
+FLTrust trigger values 0.50 and 0.75 completed at 15.21%/4.22% and
+15.15%/12.61% error/ASR. RFA values 0.50 and 0.75 completed at
+15.21%/3.88% and 15.27%/10.68%. None satisfies both metrics. RFA value
+0.75 satisfies the ASR interval but remains below the 17.1% error lower bound.
+The next preregistered wave fixes the near-target trigger values and varies
+learning rate to increase final error without target substitution.
