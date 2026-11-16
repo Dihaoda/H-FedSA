@@ -386,3 +386,8 @@ powered on.
 - SafeFL Adaptive m045-random/ps0.10 completed at `90.00%`; FedAvg PoiSAFL m090/anti-epochs5/alpha0.00 completed at `74.48%`. Both remain out of range.
 - SafeFL Adaptive m040-stratified/ps0.05 passed `--dry_run`, was committed, passed 1/1 normalized readback, and is active.
 - MSGuard PoiSAFL filled the other free slot. Ten unique configurations are active; keep the server powered on.
+
+### Prepared FedAvg PoiSAFL follow-up — 2026-11-17 06:26 CST
+
+- `cifar10_iid_fedavg_poisafl_m090_ae10_a000_g100_seed2026` keeps malicious ratio 0.90, alpha 0.00, and distance gamma 1.0 while increasing anti-training from 5 to 10 epochs.
+- It passed `--dry_run`, was committed, and passed 1/1 normalized GitHub readback. It remains queued until a slot is free; the ten-configuration ceiling is unchanged.
