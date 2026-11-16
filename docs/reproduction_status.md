@@ -536,3 +536,12 @@ Fixed-seed learning rates 0.025 and 0.030 completed at 16.54% and 15.87%
 final error (ASR 2.96% and 4.33%). Both are below the 17.1--19.3% paper error
 interval. Learning rate 0.020 is validated and queued as the next boundary
 probe.
+
+### 2026-11-16 21:46 CST — MSGuard + Trim m025 completed
+
+- Candidate: `cifar10_iid_msguard_trim_targeted_m025_seed2026`
+- Reproducibility: seed `2026`, real CIFAR-10, final round `250/250`, fixed stratified participation, `malicious_ratio=0.25`.
+- Measured final accuracy/error: `43.43% / 56.57%` (`final_attack_success_rate: NA`).
+- Paper error interval: `23.7%–26.3%`; result is out of range and is **not** archived as a paper-aligned result.
+- Diagnostic conclusion: with 10 participants/round, stratified sampling rounds the malicious count from 2 to 3 between the nearby m022 and m025 probes, producing a discontinuous response. The follow-on m025 random-participation probes are explicitly labeled `malicious_ratio_0.25_participant_sampling_random`; their configs were dry-run validated and committed before execution.
+- Outstanding paper-cell count remains `23`.
