@@ -117,3 +117,14 @@ Ten trainers are active: four H-FedSA Trim retention-floor extensions, four
 MSGuard clean calibration candidates, and two joint FLTrust Scaling
 learning-rate candidates. Four additional joint FLTrust/RFA candidates are
 queued for automatic slot refill. The server must remain powered on.
+
+
+### Follow-on queue state (2026-11-16 19:17 CST)
+
+Three lower-dropout H-FedSA Scaling candidates (`d000`, `d005`, and `d010`)
+were added under `configs/calibration/hfedsa_scaling_grid_20261116/`, copied to
+the active server, and validated with `--dry_run`. A follow-on autofill
+supervisor waits for the current joint-learning-rate supervisor to finish
+launching its queue, then starts these candidates only when fewer than ten
+unique configurations are active. The current ten trainers remain healthy.
+The server must remain powered on.
