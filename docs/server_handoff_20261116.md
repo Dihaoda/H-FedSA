@@ -367,3 +367,10 @@ powered on.
 - Three adjacent configs (H-FedSA Krum lr0.0496, RFA Adaptive m033/ps0.20, and MSGuard Adaptive m033/ps0.25) passed `--dry_run`, were committed to GitHub, and are active.
 - RFA PoiSAFL is also active. Ten unique configurations remain the concurrency ceiling; outstanding paper-cell count remains `14`.
 - Monitoring is event-driven/low-frequency. Keep the server powered on until the final audit and shutdown gate are satisfied.
+
+### Queue checkpoint — 2026-11-17 05:49 CST
+
+- FLTrust Adaptive lr0.0010 finished at `39.40%`, RFA Krum m031-random at `90.00%`, and FLTrust PoiSAFL at `19.80%`; all are outside their paper intervals.
+- FLTrust Adaptive lr0.0008 and RFA Krum m030/lambda0.7 passed `--dry_run`, were committed, and are active. Normalized GitHub readback for both new configs passed 2/2.
+- SafeFL-compatible SignGuard PoiSAFL filled the remaining free slot. Ten unique configurations are active; outstanding count remains `14`.
+- Continue low-frequency monitoring and keep the server powered on.
