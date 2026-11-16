@@ -543,3 +543,10 @@ the remaining RFA Krum extension is chained after it.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `10.00% / 90.00%`.
 - Paper error interval: `22.8%–25.4%`; above range, not accepted.
 - The validated lambda0.0008/norm5 boundary probe is active. Current outstanding paper-cell count remains **14**.
+
+### 2026-11-17 05:00 CST — SafeFL Adaptive m050 ps010 completed
+
+- Candidate: `cifar10_iid_safefl_signguard_adaptive_m050_ps010_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `10.00% / 90.00%`.
+- Paper error interval: `26.5%–29.5%`; above range, not accepted.
+- Combined with m040/ps0.10 at `18.87%`, this brackets a discrete boundary. The validated m045 random-participation/ps0.10 interpolation is active. Current outstanding paper-cell count remains **14**.
