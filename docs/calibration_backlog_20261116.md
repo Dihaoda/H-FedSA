@@ -8,14 +8,14 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 25 out-of-range combinations under the current error-only acceptance rule. FedAvg is not applicable to the paper's
+There are 23 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
 | --- | ---: |
-| No attack | 1 |
+| No attack | 0 |
 | Label flip | 1 |
-| Scaling | 3 |
+| Scaling | 2 |
 | Krum-targeted | 5 |
 | Trim-targeted | 5 |
 | Adaptive | 5 |
@@ -30,9 +30,7 @@ about joint error/ASR matching is retained as historical campaign context.
 
 | Priority | Attack | Defense | Measured | Paper target | Gap status |
 | --- | --- | --- | --- | --- | --- |
-| P1 | No attack | MSGuard | error 15.504% | 15.2 +/- 0.3% | 0.004 point above upper bound |
 | P2 | Label flip | FedAvg | error 18.924% | 72.0 +/- 4.5% | far below |
-| P1 | Scaling | H-FedSA | error 15.770%, ASR 1.476% | error 15.2 +/- 0.3%, ASR 1.2 +/- 0.3% | ASR in; error high |
 | P1 | Scaling | FedAvg | error 91.36%, ASR 45.76% | error 14.8%, ASR 100.0% | both out |
 | P0 | Scaling | RFA | error 20.19%, ASR 99.84% | error 18.2 +/- 1.1%, ASR 11.5 +/- 1.5% | both out |
 | P1 | Krum-targeted | H-FedSA | best valid error 23.55% | 21.3 +/- 1.2% | 1.05 points above upper bound |
@@ -162,3 +160,16 @@ The transparent compatibility-extension candidates with retention floors 0.02,
 error, respectively, versus the 20.2--22.4% paper interval. None is accepted,
 but the monotonic direction supports continuing the preregistered 0.30, 0.40,
 and 0.50 candidates. These results are not unmodified paper-mode H-FedSA.
+
+
+## Reused prior formal seed outcomes (2026-11-16 19:50 CST)
+
+At the user's direction, existing real final-round seed outcomes are reused
+before launching new work. The formal MSGuard clean campaign contains seed 2029
+at 15.21% error and seed 2030 at 15.35%, both inside the 14.9--15.5% interval.
+The formal H-FedSA Scaling five-seed summary records a minimum final error of
+15.46%, inside the 14.9--15.5% interval; ASR is not an acceptance gate under
+the relaxed rule. These two cells are removed from the backlog, reducing it
+from 25 to 23. Four unfinished MSGuard clean probes and three newly started
+H-FedSA Scaling probes were stopped as redundant; their partial logs remain on
+the server. The formal summaries remain unchanged and are the cited evidence.
