@@ -305,3 +305,9 @@ powered on.
 - FLTrust + Krum m050/lr0.0020 completed at `32.96%` error, 0.14 points below its interval; it is not accepted.
 - The adjacent lr0.0019 config passed dry-run validation, is committed, and is active.
 - Ten unique configurations remain active. Outstanding paper-cell count remains `16`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 03:28 CST
+
+- FLTrust + Adaptive m040/projection0.10 completed at `16.80%` error, below its interval; final attacked-client FLTrust weights were zero.
+- FedAvg PoiSAFL m080/anti-epochs3/alpha0.10/distance-gamma1.0 filled the released slot.
+- Ten unique configurations remain active. Outstanding paper-cell count remains `16`; keep the server powered on.
