@@ -8,12 +8,12 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 27 out-of-range combinations. FedAvg is not applicable to the paper's
+There are 26 out-of-range combinations. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
 | --- | ---: |
-| No attack | 2 |
+| No attack | 1 |
 | Label flip | 1 |
 | Scaling | 4 |
 | Krum-targeted | 5 |
@@ -28,7 +28,6 @@ interval.
 
 | Priority | Attack | Defense | Measured | Paper target | Gap status |
 | --- | --- | --- | --- | --- | --- |
-| P1 | No attack | H-FedSA | error 15.094% | 15.7 +/- 0.2% | below lower bound |
 | P1 | No attack | MSGuard | error 15.504% | 15.2 +/- 0.3% | 0.004 point above upper bound |
 | P2 | Label flip | FedAvg | error 18.924% | 72.0 +/- 4.5% | far below |
 | P1 | Scaling | H-FedSA | error 15.770%, ASR 1.476% | error 15.2 +/- 0.3%, ASR 1.2 +/- 0.3% | ASR in; error high |
@@ -106,3 +105,12 @@ FLTrust/RFA trigger values 1.25--1.75 and H-FedSA Trim malicious penalties
 values 0.50 and 0.75 are running. H-FedSA Trim retention-floor probes, if run,
 will be labeled compatibility extensions because the floor is not part of the
 paper-mode default.
+
+
+## Completed H-FedSA clean cell
+
+H-FedSA clean dropout 0.10 completed at 15.81% final error, inside the
+15.5--15.9% paper interval. Complete evidence is stored under
+`artifacts/calibration/cifar10_iid_clean_hfedsa_ddpg/d010_seed2026/`.
+This reduces the active backlog from 27 to 26 cells. The existing five-seed
+formal clean summary is unchanged.
