@@ -892,3 +892,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - `cifar10_iid_fltrust_adaptive_m040_ps010_lr0008_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `41.00%`; target `42.8%–47.4%`, out of range. lr0.0007 is active.
 - `cifar10_iid_safefl_signguard_krum_targeted_m050_lm000075_nu50_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `90.00%`; target `22.8%–25.4%`, out of range. lambda0.000795 is active.
 - Neither is paper-aligned; outstanding count remains **14**.
+
+### 2026-11-17 07:12 CST — RFA Krum m030/lambda0.7 outcome
+
+- Candidate: `cifar10_iid_rfa_krum_targeted_m030_lm070_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final error `21.53%`; target `36.1%–40.3%`, out of range.
+- m031-random/lambda1.5 is validated and queued. The completed result is not paper-aligned; outstanding count remains **14**.
