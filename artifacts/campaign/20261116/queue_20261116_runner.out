@@ -1,0 +1,23 @@
+2026-11-16 00:46:13 | launching configs/pilot/cifar10_iid_fltrust_krum_targeted_seed2026.yaml -> logs/pilot/cifar10_iid_fltrust_krum_targeted_seed2026_20261116.log
+2026-11-16 00:46:47 | launching configs/pilot/cifar10_iid_rfa_krum_targeted_seed2026.yaml -> logs/pilot/cifar10_iid_rfa_krum_targeted_seed2026_20261116.log
+2026-11-16 00:50:50 | launching configs/pilot/cifar10_iid_safefl_signguard_krum_targeted_seed2026.yaml -> logs/pilot/cifar10_iid_safefl_signguard_krum_targeted_seed2026_20261116.log
+2026-11-16 00:51:52 | launching configs/pilot/cifar10_iid_msguard_krum_targeted_seed2026.yaml -> logs/pilot/cifar10_iid_msguard_krum_targeted_seed2026_20261116.log
+2026-11-16 00:53:24 | launching configs/pilot/cifar10_iid_fltrust_trim_targeted_seed2026.yaml -> logs/pilot/cifar10_iid_fltrust_trim_targeted_seed2026_20261116.log
+2026-11-16 00:55:26 | launching configs/pilot/cifar10_iid_rfa_trim_targeted_seed2026.yaml -> logs/pilot/cifar10_iid_rfa_trim_targeted_seed2026_20261116.log
+2026-11-16 00:58:28 | launching configs/pilot/cifar10_iid_safefl_signguard_trim_targeted_seed2026.yaml -> logs/pilot/cifar10_iid_safefl_signguard_trim_targeted_seed2026_20261116.log
+2026-11-16 01:09:00 | launching configs/pilot/cifar10_iid_msguard_trim_targeted_seed2026.yaml -> logs/pilot/cifar10_iid_msguard_trim_targeted_seed2026_20261116.log
+2026-11-16 01:19:33 | launching configs/pilot/cifar10_iid_fltrust_adaptive_seed2026.yaml -> logs/pilot/cifar10_iid_fltrust_adaptive_seed2026_20261116.log
+2026-11-16 01:24:35 | launching configs/pilot/cifar10_iid_rfa_adaptive_seed2026.yaml -> logs/pilot/cifar10_iid_rfa_adaptive_seed2026_20261116.log
+2026-11-16 01:53:37 | launching configs/pilot/cifar10_iid_safefl_signguard_adaptive_seed2026.yaml -> logs/pilot/cifar10_iid_safefl_signguard_adaptive_seed2026_20261116.log
+2026-11-16 01:54:09 | launching configs/pilot/cifar10_iid_msguard_adaptive_seed2026.yaml -> logs/pilot/cifar10_iid_msguard_adaptive_seed2026_20261116.log
+2026-11-16 01:59:11 | launching configs/pilot/cifar10_iid_fedavg_poisafl_seed2026.yaml -> logs/pilot/cifar10_iid_fedavg_poisafl_seed2026_20261116.log
+2026-11-16 02:00:13 | launching configs/pilot/cifar10_iid_fltrust_poisafl_seed2026.yaml -> logs/pilot/cifar10_iid_fltrust_poisafl_seed2026_20261116.log
+2026-11-16 02:01:16 | launching configs/pilot/cifar10_iid_rfa_poisafl_seed2026.yaml -> logs/pilot/cifar10_iid_rfa_poisafl_seed2026_20261116.log
+2026-11-16 02:07:49 | launching configs/pilot/cifar10_iid_safefl_signguard_poisafl_seed2026.yaml -> logs/pilot/cifar10_iid_safefl_signguard_poisafl_seed2026_20261116.log
+2026-11-16 02:08:51 | launching configs/pilot/cifar10_iid_msguard_poisafl_seed2026.yaml -> logs/pilot/cifar10_iid_msguard_poisafl_seed2026_20261116.log
+2026-11-16 02:14:23 | launching configs/pilot/cifar10_iid_fedavg_scaling_seed2026.yaml -> logs/pilot/cifar10_iid_fedavg_scaling_seed2026_20261116.log
+2026-11-16 02:26:25 | launching configs/pilot/cifar10_iid_fltrust_scaling_seed2026.yaml -> logs/pilot/cifar10_iid_fltrust_scaling_seed2026_20261116.log
+2026-11-16 02:38:28 | launching configs/pilot/cifar10_iid_rfa_scaling_seed2026.yaml -> logs/pilot/cifar10_iid_rfa_scaling_seed2026_20261116.log
+2026-11-16 02:56:01 | launching configs/pilot/cifar10_iid_safefl_signguard_scaling_seed2026.yaml -> logs/pilot/cifar10_iid_safefl_signguard_scaling_seed2026_20261116.log
+2026-11-16 03:02:03 | launching configs/pilot/cifar10_iid_msguard_scaling_seed2026.yaml -> logs/pilot/cifar10_iid_msguard_scaling_seed2026_20261116.log
+2026-11-16 03:02:05 | all preregistered queue entries launched
