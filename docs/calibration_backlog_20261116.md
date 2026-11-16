@@ -429,3 +429,9 @@ the remaining RFA Krum extension is chained after it.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `35.39% / 64.61%`.
 - Paper error interval: `67.5%–76.5%`; below the lower bound by `2.89` percentage points, not accepted.
 - Measured fixed-stratified m070/m080 errors are `64.61% / 80.68%`. A dry-run-validated m074 random-participation interpolation launched at 01:56 CST. Current outstanding paper-cell count remains **20**.
+
+### 2026-11-17 01:59 CST — RFA Krum lambda1.5 and FedAvg Adaptive m080 completed
+
+- RFA Krum `m030_lm150_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds; final accuracy/error `78.75% / 21.25%`. Paper interval `36.1%–40.3%`; below range, not accepted. The dry-run-validated m035 random-participation interpolation is now active.
+- FedAvg Adaptive `m080_seed2026`: final accuracy/error `72.60% / 27.40%`. Paper interval `83.5%–91.5%`; below range, not accepted. The next explicitly labeled compatibility probe keeps m080 and reduces adaptive `projection_strength` from `0.50` to `0.10`; it is now active.
+- Both use real CIFAR-10 and final-round-only selection. Current outstanding paper-cell count remains **20**.
