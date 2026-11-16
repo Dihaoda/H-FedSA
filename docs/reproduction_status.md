@@ -487,3 +487,16 @@ Four fixed-seed H-FedSA Trim-targeted compatibility extensions completed at
 The monotonic response motivates the already validated 0.30--0.50 follow-on
 wave. Retention floors are explicitly outside unmodified Algorithm 1 and are
 reported as compatibility extensions.
+
+
+### Reuse of prior formal seed outcomes (2026-11-16 19:50 CST)
+
+The user directed the campaign to reuse any existing real final-round result
+that already satisfies the current criterion. MSGuard clean formal seeds 2029
+and 2030 measured 15.21% and 15.35% error, inside the 14.9--15.5% interval.
+The existing H-FedSA Scaling formal summary records a minimum seed error of
+15.46%, inside its 14.9--15.5% interval; its five-seed mean remains 15.77%, and
+ASR is reported but is no longer an acceptance gate. These are single-seed
+acceptances drawn from prior preregistered formal runs, not revised five-seed
+means. Seven redundant unfinished calibration probes were stopped and their
+partial logs retained on the active server.
