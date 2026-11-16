@@ -856,3 +856,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Reproducibility: real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection, malicious ratio 0.50, lambda multiplier 0.0008, SafeFL-compatible SignGuard norm upper 5.0.
 - Final error: `17.50%`; paper interval: `22.8%–25.4%`. The result is below range and is not archived as paper-aligned.
 - The lambda0.00075 boundary follow-up is active. Outstanding count remains **14**.
+
+### 2026-11-17 06:21 CST — SafeFL Adaptive and FedAvg PoiSAFL outcomes
+
+- `cifar10_iid_safefl_signguard_adaptive_m045_random_ps010_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `90.00%`; target `26.5%–29.5%`, out of range. m040-stratified/ps0.05 is active.
+- `cifar10_iid_fedavg_poisafl_m090_ae5_a000_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `74.48%`; criterion `>=90.0%`, out of range.
+- Neither result is promoted as paper-aligned. Outstanding count remains **14**.
