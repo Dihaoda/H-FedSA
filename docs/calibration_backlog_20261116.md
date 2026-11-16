@@ -8,7 +8,7 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 15 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
+There are 14 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
@@ -16,7 +16,7 @@ Krum-targeted and Trim-targeted rows and is therefore excluded.
 | No attack | 0 |
 | Label flip | 0 |
 | Scaling | 1 |
-| Krum-targeted | 4 |
+| Krum-targeted | 3 |
 | Trim-targeted | 1 |
 | Adaptive | 4 |
 | PoiSAFL | 5 |
@@ -521,3 +521,11 @@ the remaining RFA Krum extension is chained after it.
 - FedAvg Adaptive `m080_ps015_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `10.00% / 90.00%`. Paper interval `83.5%–91.5%`; **accepted in range**. Evidence: `artifacts/calibration/cifar10_iid_fedavg_adaptive/m080_ps015_seed2026/` (12/12 normalized GitHub readback comparisons passed). Archive SHA-256: `9cc13196ee9e927edd4a5d1eff755d37672e0293d79b9da9f11409c4cfd234ec`.
 - RFA Krum `m032_random_seed2026`: final accuracy/error `10.00% / 90.00%`; paper interval `36.1%–40.3%`; above range, not accepted. The validated m031-random interpolation is active.
 - FLTrust Adaptive m040/ps0.10/lr0.0010 filled the other released slot. Current outstanding paper-cell count: **15**.
+
+### 2026-11-17 04:30 CST — FLTrust Krum lr0019 accepted
+
+- Candidate: `cifar10_iid_fltrust_krum_targeted_m050_lr0019_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `66.70% / 33.30%`.
+- Paper error interval: `33.1%–36.9%`; **accepted in range**.
+- Evidence: `artifacts/calibration/cifar10_iid_fltrust_krum_targeted/m050_lr0019_seed2026/` (13/13 normalized GitHub readback comparisons passed). Archive SHA-256: `ca1a31fd5d95927f8bcd9b075790309eac63b7c20306c5a5a398aba37babeaee`.
+- FLTrust PoiSAFL m050/anti-epochs3/alpha0.10/distance-gamma1.0 filled the released slot. Current outstanding paper-cell count: **14**.
