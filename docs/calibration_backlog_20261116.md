@@ -415,3 +415,10 @@ the remaining RFA Krum extension is chained after it.
 - FLTrust Trim `m050_lr0025_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds; final accuracy/error `69.12% / 30.88%`. Paper interval `36.7%–40.7%`; below range, not accepted. The next explicitly labeled compatibility probe uses learning rate `0.0010`.
 - SafeFL-compatible SignGuard Krum `m050_lm0002_nu100_seed2026`: final accuracy/error `82.48% / 17.52%`. Paper interval `22.8%–25.4%`; below range, not accepted. The next compatibility probe uses lambda multiplier `0.010` and norm upper bound `50.0`.
 - Both use final-round-only selection. The two follow-on configs passed dry-run validation and launched at 01:28 CST. Current outstanding paper-cell count remains **20**.
+
+### 2026-11-17 01:35 CST — RFA Trim m040 completed
+
+- Candidate: `cifar10_iid_rfa_trim_targeted_m040_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `49.81% / 50.19%`.
+- Paper error interval: `39.6%–44.0%`; above range, not accepted.
+- The measured m030/m040 errors are `27.60% / 50.19%`. A dry-run-validated m035 random-participation interpolation launched at 01:35 CST. Current outstanding paper-cell count remains **20**.
