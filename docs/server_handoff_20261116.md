@@ -397,3 +397,9 @@ powered on.
 - H-FedSA Krum lr0.0496 completed at `22.64%`, 0.14 points above its interval.
 - lr0.0497 passed `--dry_run`, was committed, passed 1/1 normalized readback, and is active.
 - Ten unique configurations remain active; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 06:42 CST
+
+- MSGuard Adaptive m033/ps0.25 ended at `17.05%`; RFA Adaptive m033/ps0.20 ended at `26.81%`. Both are below their intervals.
+- MSGuard and RFA m040/ps0.30 follow-ups passed `--dry_run`, were committed, and passed 2/2 normalized readback. MSGuard is active; RFA is queued.
+- FedAvg PoiSAFL anti-epochs10 filled the other released slot. Ten unique configurations are active; keep the server powered on.
