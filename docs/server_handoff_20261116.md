@@ -250,3 +250,9 @@ powered on.
 - FedAvg + Label Flip m070 completed at `64.61%` error, below the `67.5%–76.5%` paper interval; it is not accepted.
 - The m074 random-participation interpolation passed dry-run validation and is active. Ten unique configurations remain active.
 - Outstanding paper-cell count remains `20`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 01:59 CST
+
+- RFA + Krum m030/lambda1.5 completed at `21.25%` error and FedAvg + Adaptive m080 completed at `27.40%`; both are below their paper intervals and not accepted.
+- The RFA Krum m035-random and FedAvg Adaptive m080/projection0.10 follow-ons passed dry-run validation and are active.
+- Ten unique configurations remain active; outstanding paper-cell count remains `20`. Keep the server powered on.
