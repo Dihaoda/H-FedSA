@@ -536,3 +536,10 @@ the remaining RFA Krum extension is chained after it.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `69.70% / 30.30%`.
 - Paper criterion: error `>=90.0%`; result is below threshold and not accepted.
 - The stronger m090/anti-epochs5/alpha0.00/distance-gamma1.0 config passed dry-run validation, is committed, and is active. Current outstanding paper-cell count remains **14**.
+
+### 2026-11-17 04:55 CST — SafeFL Krum lambda0.0006 completed
+
+- Candidate: `cifar10_iid_safefl_signguard_krum_targeted_m050_lm00006_nu50_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `10.00% / 90.00%`.
+- Paper error interval: `22.8%–25.4%`; above range, not accepted.
+- The validated lambda0.0008/norm5 boundary probe is active. Current outstanding paper-cell count remains **14**.
