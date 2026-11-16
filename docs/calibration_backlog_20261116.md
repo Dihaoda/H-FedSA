@@ -396,3 +396,9 @@ the remaining RFA Krum extension is chained after it.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `19.32% / 80.68%`.
 - Paper error interval: `67.5%–76.5%`; above range by 4.18 percentage points, not accepted.
 - The next probe changes only malicious ratio from 0.80 to 0.70. Current outstanding paper-cell count remains **20**.
+
+### 2026-11-17 01:11 CST — FLTrust Krum lr0035 and H-FedSA Krum lr055 completed
+
+- FLTrust Krum `m050_lr0035_seed2026`: final accuracy/error `71.10% / 28.90%`; paper interval `33.1%–36.9%`; below range, not accepted. The next continuous probe uses lr0.0025.
+- H-FedSA Krum `lambda1495_lr055_seed2028`: final accuracy/error `72.15% / 27.85%`; paper interval `20.1%–22.5%`; above range, not accepted. Historical lr0.05 at the same seed/lambda produced `23.55%`, so the next probe reverses direction to lr0.045.
+- Both use real CIFAR-10 and final-round-only selection. Current outstanding paper-cell count remains **20**.
