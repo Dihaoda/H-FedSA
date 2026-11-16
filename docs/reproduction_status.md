@@ -799,3 +799,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `48.12% / 51.88%`.
 - Paper error interval: `39.6%–44.0%`; above range, not accepted.
 - The validated m031-random boundary interpolation is active. Current outstanding paper-cell count remains **16**.
+
+### 2026-11-17 04:27 CST — FedAvg Adaptive accepted; RFA Krum m032-random rejected
+
+- FedAvg Adaptive `m080_ps015_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `10.00% / 90.00%`. Paper interval `83.5%–91.5%`; **accepted in range**. Evidence: `artifacts/calibration/cifar10_iid_fedavg_adaptive/m080_ps015_seed2026/` (12/12 normalized GitHub readback comparisons passed). Archive SHA-256: `9cc13196ee9e927edd4a5d1eff755d37672e0293d79b9da9f11409c4cfd234ec`.
+- RFA Krum `m032_random_seed2026`: final accuracy/error `10.00% / 90.00%`; paper interval `36.1%–40.3%`; above range, not accepted. The validated m031-random interpolation is active.
+- FLTrust Adaptive m040/ps0.10/lr0.0010 filled the other released slot. Current outstanding paper-cell count: **15**.
