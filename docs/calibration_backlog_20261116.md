@@ -229,3 +229,13 @@ Retention floors 0.30, 0.40, and 0.50 completed at 19.65%, 19.73%, and
 response has saturated. The queued floor-0.30 learning-rate 0.040/0.045
 candidates therefore become the next active direction. All retention-floor
 runs remain compatibility extensions.
+
+
+## Targeted m030 outcomes (2026-11-16 21:12 CST)
+
+The four malicious-ratio 0.30 extensions completed as follows: SafeFL-compatible
+SignGuard Krum 17.21%, MSGuard Krum 18.39%, SafeFL-compatible SignGuard Trim
+31.26%, and MSGuard Trim 58.72% final error. The Krum cells remain below their
+paper intervals, while both Trim cells overshoot. The active follow-on therefore
+uses 40% for Krum and 25% (plus a dedicated 22% MSGuard interpolation) for
+Trim. None of the m030 cells is accepted.
