@@ -280,3 +280,9 @@ powered on.
 - FLTrust + Trim lr0.0010 completed in range at `38.68%` error. Evidence is in `artifacts/calibration/cifar10_iid_fltrust_trim_targeted/m050_lr0010_seed2026/`; 13/13 normalized readback comparisons passed. Archive SHA-256: `29dccedd2f1fd524193cf4f4d9f3228ad76f8c858be95aa35ca44700a5ae839b`.
 - H-FedSA + Krum lr0.045 (`24.48%`) and SafeFL-compatible SignGuard + Krum lambda0.010/norm50 (`17.91%`) remain out of range. H-FedSA lr0.0495 is active.
 - RFA and SafeFL Adaptive m040/projection0.10 filled the other two released slots. Outstanding paper-cell count is now `17`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 02:49 CST
+
+- FedAvg + Label Flip m074-random completed in range at `73.70%` error. Evidence is in `artifacts/calibration/cifar10_iid_fedavg_label_flip/m074_random_seed2026/`; 11/11 normalized readback comparisons passed. Archive SHA-256: `99b0947d88714bb8b1c216943c7b18472ed1a4096e4d60f1922e14ac93c9daf6`.
+- RFA + Trim m035-random completed at `62.51%`, above its paper interval; m032-random is active.
+- SafeFL-compatible SignGuard Krum m050/lambda0.0002/norm5 filled the other released slot. Outstanding paper-cell count is now `16`; keep the server powered on.
