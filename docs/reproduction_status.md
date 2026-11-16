@@ -792,3 +792,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - MSGuard Adaptive `m040_ps010_seed2026`: final accuracy/error `47.18% / 52.82%`; paper interval `25.3%–28.1%`; above range. The weaker m030/ps0.30 interpolation is active.
 - SafeFL-compatible SignGuard Krum `m050_lm00002_nu50_seed2026`: final accuracy/error `10.00% / 90.00%`; paper interval `22.8%–25.4%`; above range. Together with lambda0.001 at `16.81%`, this brackets a boundary; lambda0.0006/norm5 is active.
 - All use real CIFAR-10 and final-round-only selection. Current outstanding paper-cell count remains **16**.
+
+### 2026-11-17 04:02 CST — RFA Trim m032-random completed
+
+- Candidate: `cifar10_iid_rfa_trim_targeted_m032_random_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `48.12% / 51.88%`.
+- Paper error interval: `39.6%–44.0%`; above range, not accepted.
+- The validated m031-random boundary interpolation is active. Current outstanding paper-cell count remains **16**.
