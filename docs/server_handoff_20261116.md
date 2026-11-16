@@ -409,3 +409,9 @@ powered on.
 - SafeFL PoiSAFL completed at `16.74%`; RFA PoiSAFL completed at `36.80%`. Both are below their intervals.
 - Stronger SafeFL m050, RFA m060, and FLTrust m070 PoiSAFL configs with anti-epochs5/alpha0.00 passed `--dry_run`, were committed, and passed 3/3 normalized readback.
 - SafeFL follow-up is active; RFA and FLTrust are queued. Ten unique configurations remain active; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 07:08 CST
+
+- FLTrust Adaptive lr0.0008 ended at `41.00%`; SafeFL Krum lambda0.00075/norm5 ended at `90.00%`. Both remain out of range.
+- FLTrust lr0.0007 and SafeFL lambda0.000795 passed `--dry_run`, were committed, passed 2/2 normalized readback, and are active.
+- Ten unique configurations are active; keep the server powered on.
