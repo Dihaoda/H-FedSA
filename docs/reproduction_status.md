@@ -403,3 +403,25 @@ evidence. The active ten-way wave now prioritizes H-FedSA Scaling, clean, and
 Krum-targeted candidates from
 `configs/calibration/hfedsa_scaling_grid_20261116/` and
 `configs/calibration/hfedsa_priority_grid_20261116/`.
+
+
+### H-FedSA priority boundary wave (2026-11-16 17:10 CST)
+
+The fixed-seed H-FedSA priority wave completed four Scaling candidates, three
+clean candidates, and three Krum-targeted candidates. None newly entered its
+paper interval.
+
+- Scaling dropout/weight-decay candidates measured 15.78--16.34% error and
+  1.13--1.36% ASR. Every ASR is inside the paper interval, but every error is
+  above the 15.5% upper bound. Dropout 0.20 is closest at 15.78% error and
+  1.23% ASR.
+- Clean candidates measured 14.68--14.88% error, below the 15.5% lower bound;
+  these changes moved farther from the paper interval.
+- Krum-targeted seed-2026 multipliers 1.45, 1.50, and 1.55 measured 27.82%,
+  26.00%, and 32.32% error versus 21.3 +/- 1.2%. The earlier seed-2028
+  multiplier 1.495 result at 23.55% remains the closest valid measured point.
+
+The active ten-way wave now consists of six FLTrust/RFA Scaling trigger-value
+interpolations and four H-FedSA Trim-targeted malicious-penalty candidates. Six
+additional H-FedSA clean/Scaling dropout boundary candidates are validated and
+queued behind that wave.
