@@ -415,3 +415,9 @@ powered on.
 - FLTrust Adaptive lr0.0008 ended at `41.00%`; SafeFL Krum lambda0.00075/norm5 ended at `90.00%`. Both remain out of range.
 - FLTrust lr0.0007 and SafeFL lambda0.000795 passed `--dry_run`, were committed, passed 2/2 normalized readback, and are active.
 - Ten unique configurations are active; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 07:12 CST
+
+- RFA Krum m030/lambda0.7 completed at `21.53%`, below its interval.
+- m031-random/lambda1.5 passed `--dry_run`, was committed, passed 1/1 normalized readback, and is queued.
+- RFA PoiSAFL m060 follow-up filled the free slot. Ten unique configurations are active; keep the server powered on.
