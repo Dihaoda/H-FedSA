@@ -97,3 +97,12 @@ The current ten-way wave contains six FLTrust/RFA Scaling trigger-value
 interpolations and four H-FedSA Trim-targeted malicious-penalty candidates.
 A following six-candidate H-FedSA clean/Scaling dropout boundary wave is
 validated and waits for available slots.
+
+
+## Calibration outcome update (2026-11-16 18:11 CST)
+
+FLTrust/RFA trigger values 1.25--1.75 and H-FedSA Trim malicious penalties
+0.0--0.6 all completed outside their paper intervals. Lower FLTrust/RFA trigger
+values 0.50 and 0.75 are running. H-FedSA Trim retention-floor probes, if run,
+will be labeled compatibility extensions because the floor is not part of the
+paper-mode default.
