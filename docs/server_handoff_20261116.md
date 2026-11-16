@@ -337,3 +337,8 @@ powered on.
 - FedAvg + Adaptive m080/projection0.15 completed in range at `90.00%` error. Evidence is in `artifacts/calibration/cifar10_iid_fedavg_adaptive/m080_ps015_seed2026/`; 12/12 normalized readback comparisons passed. Archive SHA-256: `9cc13196ee9e927edd4a5d1eff755d37672e0293d79b9da9f11409c4cfd234ec`.
 - RFA + Krum m032-random ended at `90.00%`; m031-random is active.
 - FLTrust Adaptive m040/ps0.10/lr0.0010 filled the other released slot. Outstanding paper-cell count is now `15`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 04:30 CST
+
+- FLTrust + Krum m050/lr0.0019 completed in range at `33.30%` error. Evidence is in `artifacts/calibration/cifar10_iid_fltrust_krum_targeted/m050_lr0019_seed2026/`; 13/13 normalized readback comparisons passed. Archive SHA-256: `ca1a31fd5d95927f8bcd9b075790309eac63b7c20306c5a5a398aba37babeaee`.
+- FLTrust PoiSAFL m050/anti-epochs3/alpha0.10/distance-gamma1.0 filled the released slot. Outstanding paper-cell count is now `14`; keep the server powered on.
