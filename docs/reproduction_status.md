@@ -463,3 +463,17 @@ FLTrust trigger values 0.50 and 0.75 completed at 15.21%/4.22% and
 0.75 satisfies the ASR interval but remains below the 17.1% error lower bound.
 The next preregistered wave fixes the near-target trigger values and varies
 learning rate to increase final error without target substitution.
+
+
+### Relaxed error-only Scaling acceptance (2026-11-16 19:32 CST)
+
+At the user's direction, subsequent calibration status uses final-round error
+only: ASR continues to be measured and published but no longer determines
+whether a Scaling cell is marked accepted. Historical joint-metric conclusions
+above remain unchanged and should be read under their original criterion.
+
+Under the relaxed rule, the fixed-seed FLTrust trigger-value 1.50 candidate is
+accepted at 15.72% final error, inside the paper's 15.6--17.4% error interval.
+Its measured ASR is 39.22%, outside the paper ASR interval, and is not presented
+as matching. Complete evidence with a verified SHA-256 manifest is stored in
+`artifacts/calibration/cifar10_iid_fltrust_scaling/scale010_p001_t2_v150_seed2026/`.
