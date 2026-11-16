@@ -256,3 +256,9 @@ powered on.
 - RFA + Krum m030/lambda1.5 completed at `21.25%` error and FedAvg + Adaptive m080 completed at `27.40%`; both are below their paper intervals and not accepted.
 - The RFA Krum m035-random and FedAvg Adaptive m080/projection0.10 follow-ons passed dry-run validation and are active.
 - Ten unique configurations remain active; outstanding paper-cell count remains `20`. Keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 02:07 CST
+
+- MSGuard + Krum m040/lr0.033 completed in range at `22.87%` error.
+- Complete evidence is stored at `artifacts/calibration/cifar10_iid_msguard_krum_targeted/m040_lr033_seed2026/`; 12/12 normalized GitHub readback comparisons passed. Archive SHA-256: `930781e4fdd0df5161f1640bad12a308f79f6e2be9883cd446e2cbbdfc308c46`.
+- Outstanding paper-cell count is now `19`. Continue the active calibration queue and keep the server powered on.
