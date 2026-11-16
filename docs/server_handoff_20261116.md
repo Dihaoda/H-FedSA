@@ -274,3 +274,9 @@ powered on.
 - MSGuard + Trim m014-random completed in range at `24.68%` error.
 - Complete evidence is stored at `artifacts/calibration/cifar10_iid_msguard_trim_targeted/m014_random_seed2026/`; 12/12 normalized GitHub readback comparisons passed. Archive SHA-256: `dc4e5c525cefc544b539e9b290c6d425ddda22a416ebbac6d5c3466a4a9d9f06`.
 - Outstanding paper-cell count is now `18`. MSGuard Adaptive m040/projection0.10 has filled the released slot; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 02:30 CST
+
+- FLTrust + Trim lr0.0010 completed in range at `38.68%` error. Evidence is in `artifacts/calibration/cifar10_iid_fltrust_trim_targeted/m050_lr0010_seed2026/`; 13/13 normalized readback comparisons passed. Archive SHA-256: `29dccedd2f1fd524193cf4f4d9f3228ad76f8c858be95aa35ca44700a5ae839b`.
+- H-FedSA + Krum lr0.045 (`24.48%`) and SafeFL-compatible SignGuard + Krum lambda0.010/norm50 (`17.91%`) remain out of range. H-FedSA lr0.0495 is active.
+- RFA and SafeFL Adaptive m040/projection0.10 filled the other two released slots. Outstanding paper-cell count is now `17`; keep the server powered on.
