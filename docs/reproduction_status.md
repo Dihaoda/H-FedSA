@@ -500,3 +500,12 @@ ASR is reported but is no longer an acceptance gate. These are single-seed
 acceptances drawn from prior preregistered formal runs, not revised five-seed
 means. Seven redundant unfinished calibration probes were stopped and their
 partial logs retained on the active server.
+
+
+### RFA Scaling learning-rate boundary (2026-11-16 20:36 CST)
+
+Fixed-seed RFA Scaling candidates at learning rates 0.035, 0.040, and 0.045
+completed at 15.54%, 15.42%, and 15.13% final error. All are below the paper's
+17.1--19.3% error interval under the error-only acceptance rule. Their measured
+ASRs (6.41%, 7.59%, and 9.84%) are retained. Lower learning rates 0.025 and
+0.030 are now active.
