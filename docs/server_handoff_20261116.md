@@ -286,3 +286,10 @@ powered on.
 - FedAvg + Label Flip m074-random completed in range at `73.70%` error. Evidence is in `artifacts/calibration/cifar10_iid_fedavg_label_flip/m074_random_seed2026/`; 11/11 normalized readback comparisons passed. Archive SHA-256: `99b0947d88714bb8b1c216943c7b18472ed1a4096e4d60f1922e14ac93c9daf6`.
 - RFA + Trim m035-random completed at `62.51%`, above its paper interval; m032-random is active.
 - SafeFL-compatible SignGuard Krum m050/lambda0.0002/norm5 filled the other released slot. Outstanding paper-cell count is now `16`; keep the server powered on.
+
+### Prepared queue checkpoint — 2026-11-17 02:52 CST
+
+- Ten unique calibration configs are active.
+- Five PoiSAFL compatibility-extension configs and four adjacent interpolation configs passed dry-run validation and are committed under `configs/calibration/followup_ready_20261117/`.
+- Launch only still-needed candidates as slots free; do not launch a backup after its paper cell has already succeeded.
+- Outstanding paper-cell count remains `16`; keep the server powered on.
