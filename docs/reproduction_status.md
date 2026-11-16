@@ -874,3 +874,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Reproducibility: real CIFAR-10, seed 2028, 250/250 rounds, lambda multiplier 1.495, local learning rate 0.0496, final-round-only selection.
 - Final error `22.64%`; target `20.1%–22.5%`. It misses by 0.14 points and is not archived as paper-aligned. lr0.0497 is active.
 - Outstanding count remains **14**.
+
+### 2026-11-17 06:42 CST — MSGuard and RFA Adaptive outcomes
+
+- `cifar10_iid_msguard_adaptive_m033_ps025_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `17.05%`; target `25.3%–28.1%`, out of range. m040/ps0.30 is active.
+- `cifar10_iid_rfa_adaptive_m033_ps020_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `26.81%`; target `46.0%–51.0%`, out of range. m040/ps0.30 is validated and queued.
+- Neither result is paper-aligned; outstanding count remains **14**.
