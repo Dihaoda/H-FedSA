@@ -226,3 +226,9 @@ powered on.
 - H-FedSA + Trim accepted at `21.15%` error; evidence readback passed 15/15 and archive SHA-256 is recorded in reproduction status.
 - RFA Trim m050 rejected at `78.52%`; m040 interpolation is active.
 - Outstanding paper-cell count is now `20`. Server remains powered on with ten active configurations.
+
+### Queue checkpoint — 2026-11-17 01:20 CST
+
+- MSGuard + Trim m015-random completed at `26.81%` error, 0.51 points above the paper interval; it is not accepted.
+- The adjacent m014-random compatibility probe is active. Nine other calibration configurations continue, keeping the ceiling at ten.
+- Outstanding paper-cell count remains `20`; keep the server powered on.
