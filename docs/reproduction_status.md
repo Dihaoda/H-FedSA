@@ -326,3 +326,39 @@ documented synchronous PoiSAFL adaptation is much weaker against these
 baselines than the paper's effective protocol. Full evidence is retained under
 the corresponding `artifacts/pilot/cifar10_iid_*_poisafl/default_seed2026/`
 directories; values were not replaced or target-substituted.
+
+
+### Completed one-seed scaling baseline matrix (2026-11-16 04:00 CST)
+
+All five paper baseline methods completed 250 rounds with fixed seed 2026 and
+final-round-only selection. Error and ASR are evaluated independently.
+
+| Defense | Measured error | Paper error | Measured ASR | Paper ASR |
+| --- | ---: | ---: | ---: | ---: |
+| FedAvg | 91.36% | 14.8 +/- 0.0% | 45.76% | 100.0 +/- 0.0% |
+| FLTrust | 17.75% | 16.5 +/- 0.9% | 99.94% | 9.8 +/- 1.1% |
+| RFA | 20.19% | 18.2 +/- 1.1% | 99.84% | 11.5 +/- 1.5% |
+| SafeFL-compatible SignGuard | 16.04% | 16.0 +/- 0.8% | 1.16% | 8.0 +/- 1.0% |
+| MSGuard | 15.80% | 15.7 +/- 0.7% | 1.32% | 4.5 +/- 0.7% |
+
+SafeFL-compatible SignGuard and MSGuard error rates lie inside their paper
+intervals, but their ASRs do not. FLTrust and RFA have modest error-rate gaps
+but ASRs near 100%, unlike the paper. FedAvg collapsed to 8.64% accuracy while
+reaching only 45.76% ASR. No baseline matches both paper metrics. Complete
+evidence is under the corresponding
+`artifacts/pilot/cifar10_iid_*_scaling/default_seed2026/` directories.
+
+The existing five-seed H-FedSA scaling result remains
+`15.770 +/- 0.317%` error and `1.476 +/- 0.172%` ASR versus the paper's
+`15.2 +/- 0.3%` and `1.2 +/- 0.3%`: its ASR mean lies inside the paper
+interval, while its error mean does not.
+
+### Campaign terminal state (2026-11-16 04:00 CST)
+
+The preregistered queue contained 22 entries; all 22 were launched and completed,
+the scheduler emitted its terminal marker, and no trainer process remained.
+Every newly completed run was archived with its submitted/resolved
+configuration, final-round metrics, diagnostics where applicable, training log,
+and SHA-256 manifest. Scheduler and runner logs are stored in
+`artifacts/campaign/20261116/`. This campaign is complete; no queue entry
+should be replayed wholesale on a future server.
