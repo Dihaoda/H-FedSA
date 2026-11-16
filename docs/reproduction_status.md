@@ -689,3 +689,9 @@ probe.
 - Real CIFAR-10, seed 2026, 250/250 rounds, random participant sampling; final accuracy/error `73.19% / 26.81%`.
 - Paper error interval: `23.7%–26.3%`; above the upper bound by `0.51` percentage points, not accepted.
 - The next explicitly labeled interpolation changes only the global malicious ratio from `0.15` to `0.14`; it launched at 01:20 CST. Current outstanding paper-cell count remains **20**.
+
+### 2026-11-17 01:26 CST — FLTrust Trim lr0025 and SafeFL Krum lambda/norm probe completed
+
+- FLTrust Trim `m050_lr0025_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds; final accuracy/error `69.12% / 30.88%`. Paper interval `36.7%–40.7%`; below range, not accepted. The next explicitly labeled compatibility probe uses learning rate `0.0010`.
+- SafeFL-compatible SignGuard Krum `m050_lm0002_nu100_seed2026`: final accuracy/error `82.48% / 17.52%`. Paper interval `22.8%–25.4%`; below range, not accepted. The next compatibility probe uses lambda multiplier `0.010` and norm upper bound `50.0`.
+- Both use final-round-only selection. The two follow-on configs passed dry-run validation and launched at 01:28 CST. Current outstanding paper-cell count remains **20**.
