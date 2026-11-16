@@ -201,3 +201,13 @@ Learning rates 0.035, 0.040, and 0.045 completed at 15.54%, 15.42%, and
 15.13% final error, respectively, below the 17.1--19.3% paper interval. Their
 ASRs were 6.41%, 7.59%, and 9.84% and remain diagnostics only. The validated
 0.025 and 0.030 candidates launched automatically at 20:35 CST.
+
+
+## Targeted malicious-ratio follow-on (2026-11-16 20:38 CST)
+
+Late-round m030 trends suggest that 30% is too strong for Trim-targeted but too
+weak for Krum-targeted. Four fixed-seed extensions are therefore validated and
+queued: SafeFL-compatible SignGuard/MSGuard Trim at 25%, and the same two
+methods under Krum-targeted at 40%. Configurations are stored under
+`configs/calibration/targeted_followon_20261116/` and launch only when the
+bounded queue has free slots.
