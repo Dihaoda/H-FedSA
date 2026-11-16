@@ -655,3 +655,10 @@ probe.
 - MSGuard Krum `m040_random_seed2026`: final accuracy/error `10.00% / 90.00%`; paper interval `22.3%–24.7%`; above range, not accepted. The fixed m040/lr035 probe remains active and is the continuous direction.
 - SafeFL-compatible SignGuard Krum `m050_lm0001_nu50_seed2026`: final accuracy/error `83.19% / 16.81%`; paper interval `22.8%–25.4%`; below range, not accepted. The next explicitly labeled probe uses lambda 0.002 and norm upper bound 10.
 - All use real CIFAR-10, final-round-only selection. Current outstanding paper-cell count remains **20**.
+
+### 2026-11-17 00:34 CST — RFA Krum m030 completed
+
+- Candidate: `cifar10_iid_rfa_krum_targeted_m030_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `77.18% / 22.82%`.
+- Paper error interval: `36.1%–40.3%`; below range, not accepted. Fixed m040 produced `90.00%`, establishing a discrete malicious-count failure boundary.
+- The next explicitly labeled continuous probe keeps m030 and increases `krum_targeted.lambda_multiplier` from 1.0 to 1.5. Current outstanding paper-cell count remains **20**.
