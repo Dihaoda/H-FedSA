@@ -368,3 +368,10 @@ the remaining RFA Krum extension is chained after it.
 - H-FedSA evidence: `artifacts/calibration/cifar10_iid_hfedsa_ddpg_trim_targeted/rf030_lr025_seed2026/` (15/15 GitHub readback comparisons passed). Server archive SHA-256: `30bce21ab1622ef28ec1894994bbdd84f2eb36c778942a50c9d634043620582b`.
 - RFA Trim `m050_seed2026`: final accuracy/error `21.48% / 78.52%`. Paper error interval `39.6%–44.0%`; above range, not accepted. The m040 interpolation probe launched at 00:11 CST.
 - MSGuard Trim m015-random and FedAvg Label Flip m080 also launched at 00:11 CST. Current outstanding paper-cell count: **20**.
+
+### 2026-11-17 00:24 CST — FLTrust Trim lr005, MSGuard Krum m040-random, SafeFL Krum lambda/norm probe completed
+
+- FLTrust Trim `m050_lr005_seed2026`: final accuracy/error `73.65% / 26.35%`; paper interval `36.7%–40.7%`; below range, not accepted. The next compatibility probe uses lr0.0025.
+- MSGuard Krum `m040_random_seed2026`: final accuracy/error `10.00% / 90.00%`; paper interval `22.3%–24.7%`; above range, not accepted. The fixed m040/lr035 probe remains active and is the continuous direction.
+- SafeFL-compatible SignGuard Krum `m050_lm0001_nu50_seed2026`: final accuracy/error `83.19% / 16.81%`; paper interval `22.8%–25.4%`; below range, not accepted. The next explicitly labeled probe uses lambda 0.002 and norm upper bound 10.
+- All use real CIFAR-10, final-round-only selection. Current outstanding paper-cell count remains **20**.
