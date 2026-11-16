@@ -715,3 +715,12 @@ probe.
 - RFA Krum `m030_lm150_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds; final accuracy/error `78.75% / 21.25%`. Paper interval `36.1%–40.3%`; below range, not accepted. The dry-run-validated m035 random-participation interpolation is now active.
 - FedAvg Adaptive `m080_seed2026`: final accuracy/error `72.60% / 27.40%`. Paper interval `83.5%–91.5%`; below range, not accepted. The next explicitly labeled compatibility probe keeps m080 and reduces adaptive `projection_strength` from `0.50` to `0.10`; it is now active.
 - Both use real CIFAR-10 and final-round-only selection. Current outstanding paper-cell count remains **20**.
+
+### 2026-11-17 02:07 CST — MSGuard Krum lr033 accepted
+
+- Candidate: `cifar10_iid_msguard_krum_targeted_m040_lr033_seed2026`.
+- Reproducibility: real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; `malicious_ratio=0.40`, fixed stratified participation, local learning rate `0.033`.
+- Final accuracy/error: `77.13% / 22.87%` (`final_attack_success_rate: NA`).
+- Paper error interval: `22.3%–24.7%`; **accepted in range**.
+- Evidence: `artifacts/calibration/cifar10_iid_msguard_krum_targeted/m040_lr033_seed2026/` (12/12 GitHub normalized readback comparisons passed). Server archive SHA-256: `930781e4fdd0df5161f1640bad12a308f79f6e2be9883cd446e2cbbdfc308c46`.
+- Current outstanding paper-cell count: **19**.
