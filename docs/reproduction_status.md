@@ -834,3 +834,11 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `10.00% / 90.00%`.
 - Paper error interval: `26.5%–29.5%`; above range, not accepted.
 - Combined with m040/ps0.10 at `18.87%`, this brackets a discrete boundary. The validated m045 random-participation/ps0.10 interpolation is active. Current outstanding paper-cell count remains **14**.
+
+### 2026-11-17 05:19 CST — boundary calibration outcomes
+
+- `cifar10_iid_hfedsa_ddpg_krum_targeted_lambda1495_lr0493_seed2028`: real CIFAR-10, seed 2028, 250/250 rounds, final error `24.59%`; target `20.1%–22.5%`, out of range. Adjacent lr0.0496 is active.
+- `cifar10_iid_rfa_adaptive_m030_ps020_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `27.61%`; target `46.0%–51.0%`, out of range. m033/ps0.20 is active.
+- `cifar10_iid_msguard_adaptive_m030_ps030_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `17.24%`; target `25.3%–28.1%`, out of range. m033/ps0.25 is active.
+- `cifar10_iid_rfa_trim_targeted_m031_random_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `48.02%`; target `39.6%–44.0%`, out of range.
+- All four are retained as immutable calibration measurements and are not promoted as paper-aligned evidence. Outstanding paper-cell count remains **14**.
