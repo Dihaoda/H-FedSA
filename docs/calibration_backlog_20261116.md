@@ -558,3 +558,10 @@ the remaining RFA Krum extension is chained after it.
 - MSGuard + Adaptive m030/ps0.30 completed at `17.24%` error, below the `25.3%–28.1%` interval; m033/ps0.25 passed dry-run validation, is committed, and is active.
 - RFA + Trim m031-random completed at `48.02%` error, above the `39.6%–44.0%` interval. It remains pending and is not archived as paper-aligned.
 - RFA PoiSAFL m050/anti-epochs3/alpha0.10/distance-gamma1.0 filled the remaining slot. Ten unique configurations are active; the outstanding paper-cell count remains **14**.
+
+### Follow-up checkpoint — 2026-11-17 05:49 CST
+
+- FLTrust + Adaptive m040/ps0.10/lr0.0010 completed at `39.40%` error, below the `42.8%–47.4%` interval. The adjacent lr0.0008 config passed dry-run validation, was committed with verified 2-file config readback, and is active.
+- RFA + Krum m031-random completed at `90.00%` error, above the `36.1%–40.3%` interval. The stratified m030/lambda0.7 follow-up passed dry-run validation, was committed, and is active.
+- FLTrust + PoiSAFL m050/anti-epochs3/alpha0.10/distance-gamma1.0 completed at `19.80%` error, below the `52.4%–58.0%` interval; the cell remains pending.
+- SafeFL-compatible SignGuard PoiSAFL launched into the remaining slot. Ten unique configurations are active; outstanding paper-cell count remains **14**.
