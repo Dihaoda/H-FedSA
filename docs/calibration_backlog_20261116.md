@@ -184,3 +184,12 @@ pilots, only `malicious_ratio` changes from 0.20 to 0.30. The configs are under
 calibration extensions, because the paper target uses the original scenario.
 They fill four slots released by prior-result reuse; the server remains at ten
 active configurations.
+
+
+## RFA Scaling lower-learning-rate follow-on (2026-11-16 20:25 CST)
+
+The active learning-rate 0.035--0.045 candidates remain below the paper error
+interval late in training. Two otherwise identical fixed-seed candidates at
+0.025 and 0.030 passed dry-run validation, are committed in the existing
+Scaling grid, and wait for automatic slot refill. Acceptance uses final-round
+error only.
