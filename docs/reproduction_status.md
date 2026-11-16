@@ -886,3 +886,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - `cifar10_iid_safefl_signguard_poisafl_m040_ae2_a030_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `16.74%`; target `33.7%–37.5%`, out of range.
 - `cifar10_iid_rfa_poisafl_m050_ae3_a010_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `36.80%`; target `55.0%–61.0%`, out of range.
 - Stronger SafeFL, RFA, and FLTrust PoiSAFL configs are validated and preserved; SafeFL is active. Outstanding count remains **14**.
+
+### 2026-11-17 07:08 CST — FLTrust Adaptive and SafeFL Krum outcomes
+
+- `cifar10_iid_fltrust_adaptive_m040_ps010_lr0008_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `41.00%`; target `42.8%–47.4%`, out of range. lr0.0007 is active.
+- `cifar10_iid_safefl_signguard_krum_targeted_m050_lm000075_nu50_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `90.00%`; target `22.8%–25.4%`, out of range. lambda0.000795 is active.
+- Neither is paper-aligned; outstanding count remains **14**.
