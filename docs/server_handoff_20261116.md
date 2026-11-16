@@ -128,3 +128,13 @@ supervisor waits for the current joint-learning-rate supervisor to finish
 launching its queue, then starts these candidates only when fewer than ten
 unique configurations are active. The current ten trainers remain healthy.
 The server must remain powered on.
+
+
+### Stronger Trim follow-on (2026-11-16 19:21 CST)
+
+Three additional transparent H-FedSA Trim compatibility-extension candidates
+with retention floors 0.30, 0.40, and 0.50 were validated and committed. Their
+autofill supervisor waits for the lower-dropout H-FedSA Scaling supervisor to
+finish launching, then observes the same ten-configuration concurrency limit.
+These are not paper-mode defaults and must remain labeled as compatibility
+extensions in any result report.
