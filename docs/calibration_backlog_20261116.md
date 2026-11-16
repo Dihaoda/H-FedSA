@@ -493,3 +493,10 @@ the remaining RFA Krum extension is chained after it.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `83.20% / 16.80%`.
 - Paper error interval: `42.8%–47.4%`; below range, not accepted. Final FLTrust weights were zero for the attacked clients, confirming that this negative-direction probe was suppressed.
 - FedAvg PoiSAFL m080/anti-epochs3/alpha0.10/distance-gamma1.0 filled the released slot. Current outstanding paper-cell count remains **16**.
+
+### 2026-11-17 03:45 CST — RFA Adaptive m040 ps010 completed
+
+- Candidate: `cifar10_iid_rfa_adaptive_m040_ps010_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `7.33% / 92.67%`.
+- Paper error interval: `46.0%–51.0%`; above range, not accepted.
+- The validated weaker interpolation changes malicious ratio from `0.40` to `0.30` and projection strength from `0.10` to `0.20`; it is active. Current outstanding paper-cell count remains **16**.
