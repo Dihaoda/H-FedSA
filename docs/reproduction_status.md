@@ -757,3 +757,9 @@ probe.
 ### Prepared follow-on queue at 02:52 CST
 
 Five PoiSAFL compatibility-extension configs and four adjacent interpolation configs passed server dry-run validation and are committed under `configs/calibration/followup_ready_20261117/`. The PoiSAFL wave changes malicious ratio plus anti-training strength and is explicitly not an unmodified paper scenario. It remains queued until the ten-config ceiling has free slots. The interpolation backups cover FedAvg Adaptive/Label Flip and RFA Krum/Trim; redundant candidates will not be launched after a cell succeeds.
+
+### 2026-11-17 03:13 CST — FedAvg Adaptive ps010 and RFA Krum m035-random completed
+
+- FedAvg Adaptive `m080_ps010_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds; final accuracy/error `6.67% / 93.33%`. Paper interval `83.5%–91.5%`; above range by `1.83` points, not accepted. The validated projection-strength `0.15` interpolation is active.
+- RFA Krum `m035_random_seed2026`: final accuracy/error `10.00% / 90.00%`. Paper interval `36.1%–40.3%`; above range, not accepted. Combined with fixed m030 at `22.82%`, this brackets a discrete failure boundary; the validated m032-random interpolation is active.
+- Both use final-round-only selection. Current outstanding paper-cell count remains **16**.
