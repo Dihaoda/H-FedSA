@@ -162,3 +162,14 @@ trainers were terminated as redundant; partial logs remain. The consolidated
 supervisor continues the three RFA Scaling learning-rate candidates and the
 three H-FedSA Trim stronger-retention extensions. The active backlog is 23
 cells. The server must remain powered on.
+
+
+### Targeted m030 extension wave (2026-11-16 19:57 CST)
+
+The active set is back to ten configurations: three RFA Scaling learning-rate
+candidates, three H-FedSA Trim stronger-retention extensions, and four
+SafeFL/MSGuard Krum/Trim candidates with malicious ratio 0.30. All four new
+configs passed dry-run validation and are committed under
+`configs/calibration/targeted_m030_20261116/`. They are compatibility
+extensions, not the paper's original 20% malicious-client scenario. The server
+must remain powered on.
