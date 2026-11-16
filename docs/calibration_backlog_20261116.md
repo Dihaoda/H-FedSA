@@ -589,3 +589,9 @@ the remaining RFA Krum extension is chained after it.
 - H-FedSA + Krum lr0.0496 completed at `22.64%` error, 0.14 points above the `20.1%–22.5%` interval, so it is not accepted.
 - The adjacent lr0.0497 config passed dry-run validation, was committed, passed 1/1 normalized GitHub readback, and is active.
 - Ten unique configurations are active; outstanding paper-cell count remains **14**.
+
+### Adaptive follow-up checkpoint — 2026-11-17 06:42 CST
+
+- MSGuard + Adaptive m033/ps0.25 completed at `17.05%` error, below the `25.3%–28.1%` interval. m040/ps0.30 passed dry-run validation, was committed, and is active.
+- RFA + Adaptive m033/ps0.20 completed at `26.81%` error, below the `46.0%–51.0%` interval. m040/ps0.30 passed dry-run validation, was committed, and is queued.
+- Normalized GitHub readback for the two new configs passed 2/2. FedAvg PoiSAFL anti-epochs10 filled the released slot; ten unique configurations are active. Outstanding count remains **14**.
