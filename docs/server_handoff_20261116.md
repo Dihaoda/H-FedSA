@@ -88,3 +88,16 @@ separate configuration and evidence paths.
   and stored in GitHub but are not yet launched.
 - Out-of-range results remain on the server; only in-range results are promoted
   into the calibration evidence directories.
+
+
+### Live queue state (2026-11-16 17:10 CST)
+
+- Ten trainers are active: six FLTrust/RFA Scaling interpolations and four
+  H-FedSA Trim-targeted malicious-penalty candidates.
+- The previous H-FedSA Scaling/clean/Krum boundary wave completed without a new
+  in-range result; actual final values are recorded in
+  `docs/reproduction_status.md`.
+- Six validated H-FedSA clean/Scaling boundary candidates are queued by
+  `logs/calibration/hfedsa_boundary_autofill_20261116.log` after the current
+  queue.
+- The server must remain powered on.
