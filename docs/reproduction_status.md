@@ -867,3 +867,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 
 - `cifar10_iid_fedavg_poisafl_m090_ae10_a000_g100_seed2026` keeps malicious ratio 0.90, alpha 0.00, and distance gamma 1.0 while increasing anti-training from 5 to 10 epochs.
 - It passed `--dry_run`, was committed, and passed 1/1 normalized GitHub readback. It remains queued until a slot is free; the ten-configuration ceiling is unchanged.
+
+### 2026-11-17 06:36 CST — H-FedSA Krum lr0.0496 outcome
+
+- Candidate: `cifar10_iid_hfedsa_ddpg_krum_targeted_lambda1495_lr0496_seed2028`.
+- Reproducibility: real CIFAR-10, seed 2028, 250/250 rounds, lambda multiplier 1.495, local learning rate 0.0496, final-round-only selection.
+- Final error `22.64%`; target `20.1%–22.5%`. It misses by 0.14 points and is not archived as paper-aligned. lr0.0497 is active.
+- Outstanding count remains **14**.
