@@ -849,3 +849,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - `cifar10_iid_rfa_krum_targeted_m031_random_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `90.00%`; target `36.1%–40.3%`, out of range. m030/lambda0.7 is active.
 - `cifar10_iid_fltrust_poisafl_m050_ae3_a010_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `19.80%`; target `52.4%–58.0%`, out of range.
 - These measurements remain immutable calibration evidence and are not promoted as paper-aligned. Outstanding paper-cell count remains **14**.
+
+### 2026-11-17 06:02 CST — SafeFL Krum lambda0.0008 outcome
+
+- Candidate: `cifar10_iid_safefl_signguard_krum_targeted_m050_lm00008_nu50_seed2026`.
+- Reproducibility: real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection, malicious ratio 0.50, lambda multiplier 0.0008, SafeFL-compatible SignGuard norm upper 5.0.
+- Final error: `17.50%`; paper interval: `22.8%–25.4%`. The result is below range and is not archived as paper-aligned.
+- The lambda0.00075 boundary follow-up is active. Outstanding count remains **14**.
