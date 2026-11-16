@@ -376,3 +376,30 @@ factors `1.0`, `2.0`, and `4.0`; SafeFL-compatible SignGuard and
 MSGuard scale factors `12.0` and `16.0`. These are labeled
 `single_seed_calibration`, keep separate output paths, and use actual
 final-round metrics. The server must remain powered on during this extension.
+
+
+### In-range scaling calibration outcomes (2026-11-16 15:53 CST)
+
+Two fixed-seed, 250-round, final-round-only calibration candidates now satisfy
+both Table II(d) scaling metrics:
+
+| Defense | Candidate | Error | Paper error interval | ASR | Paper ASR interval |
+| --- | --- | ---: | ---: | ---: | ---: |
+| SafeFL-compatible SignGuard | trigger size 16, scale 12 | 15.74% | 15.2--16.8% | 7.67% | 7.0--9.0% |
+| MSGuard | trigger size 12, scale 12 | 15.74% | 15.0--16.4% | 4.02% | 3.8--5.2% |
+
+Their complete measured evidence and SHA-256 manifests are stored under
+`artifacts/calibration/cifar10_iid_safefl_signguard_scaling/scale120_t16_seed2026/`
+and
+`artifacts/calibration/cifar10_iid_msguard_scaling/scale120_t12_seed2026/`.
+These are transparent single-seed calibration results, not five-seed formal
+summaries.
+
+Neighboring SafeFL trigger size 12 completed at 16.04% error and 6.30% ASR.
+MSGuard trigger size 16 completed at 16.21% error and 7.74% ASR. Three FLTrust
+small-trigger candidates and three corresponding RFA candidates did not satisfy
+both metrics; their actual final results remain on the server as calibration
+evidence. The active ten-way wave now prioritizes H-FedSA Scaling, clean, and
+Krum-targeted candidates from
+`configs/calibration/hfedsa_scaling_grid_20261116/` and
+`configs/calibration/hfedsa_priority_grid_20261116/`.
