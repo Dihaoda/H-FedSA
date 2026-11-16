@@ -518,3 +518,13 @@ Compatibility-extension retention floors 0.30, 0.40, and 0.50 completed at
 interval. None is accepted. The near-flat response indicates saturation, so
 the next queued probes retain floor 0.30 and lower the learning rate to 0.040
 or 0.045.
+
+
+### Targeted malicious-ratio 0.30 results (2026-11-16 21:12 CST)
+
+SafeFL-compatible SignGuard and MSGuard completed Krum-targeted at 17.21% and
+18.39% final error, both below their 22.8--25.4% and 22.3--24.7% intervals.
+The same methods completed Trim-targeted at 31.26% and 58.72%, above their
+24.7--27.5% and 23.7--26.3% intervals. These transparent compatibility
+extensions demonstrate opposite attack-specific responses; no m030 result is
+marked accepted. Attack-specific malicious-ratio follow-ons are active.
