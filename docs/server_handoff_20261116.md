@@ -232,3 +232,9 @@ powered on.
 - MSGuard + Trim m015-random completed at `26.81%` error, 0.51 points above the paper interval; it is not accepted.
 - The adjacent m014-random compatibility probe is active. Nine other calibration configurations continue, keeping the ceiling at ten.
 - Outstanding paper-cell count remains `20`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 01:28 CST
+
+- FLTrust + Trim lr0.0025 completed at `30.88%` error and SafeFL-compatible SignGuard + Krum lambda0.002/norm10 completed at `17.52%`; both are below their paper intervals and not accepted.
+- Follow-on lr0.0010 and lambda0.010/norm50 compatibility probes passed dry-run validation and are active.
+- Ten unique configurations remain active; outstanding paper-cell count remains `20`. Keep the server powered on.
