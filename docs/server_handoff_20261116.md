@@ -138,3 +138,16 @@ autofill supervisor waits for the lower-dropout H-FedSA Scaling supervisor to
 finish launching, then observes the same ten-configuration concurrency limit.
 These are not paper-mode defaults and must remain labeled as compatibility
 extensions in any result report.
+
+
+### Error-only queue consolidation (2026-11-16 19:34 CST)
+
+The user relaxed Scaling acceptance to final-round error only; ASR remains
+reported but is not an acceptance gate. Existing FLTrust value-1.50 evidence
+was promoted at 15.72% error and 39.22% ASR, with no claim that ASR matches.
+Two now-redundant unfinished FLTrust learning-rate trainers and the three old
+supervisors were stopped. One consolidated bounded supervisor now queues three
+RFA Scaling learning-rate candidates, three H-FedSA Scaling low-dropout
+candidates, and three stronger H-FedSA Trim retention-floor extensions. It
+keeps at most ten unique configurations active. Partial logs from stopped runs
+remain on the server. The server must remain powered on.
