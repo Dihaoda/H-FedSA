@@ -173,3 +173,14 @@ the relaxed rule. These two cells are removed from the backlog, reducing it
 from 25 to 23. Four unfinished MSGuard clean probes and three newly started
 H-FedSA Scaling probes were stopped as redundant; their partial logs remain on
 the server. The formal summaries remain unchanged and are the cited evidence.
+
+
+## Targeted-attack malicious-ratio extension wave (2026-11-16 19:57 CST)
+
+Four fixed-seed candidates are active for SafeFL-compatible SignGuard and
+MSGuard under Krum-targeted and Trim-targeted attacks. Relative to the existing
+pilots, only `malicious_ratio` changes from 0.20 to 0.30. The configs are under
+`configs/calibration/targeted_m030_20261116/` and are explicitly labeled
+calibration extensions, because the paper target uses the original scenario.
+They fill four slots released by prior-result reuse; the server remains at ten
+active configurations.
