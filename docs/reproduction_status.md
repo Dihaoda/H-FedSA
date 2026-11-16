@@ -813,3 +813,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Paper error interval: `33.1%–36.9%`; **accepted in range**.
 - Evidence: `artifacts/calibration/cifar10_iid_fltrust_krum_targeted/m050_lr0019_seed2026/` (13/13 normalized GitHub readback comparisons passed). Archive SHA-256: `ca1a31fd5d95927f8bcd9b075790309eac63b7c20306c5a5a398aba37babeaee`.
 - FLTrust PoiSAFL m050/anti-epochs3/alpha0.10/distance-gamma1.0 filled the released slot. Current outstanding paper-cell count: **14**.
+
+### 2026-11-17 04:45 CST — FedAvg PoiSAFL m080 ae3 completed
+
+- Candidate: `cifar10_iid_fedavg_poisafl_m080_ae3_a010_g100_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `69.70% / 30.30%`.
+- Paper criterion: error `>=90.0%`; result is below threshold and not accepted.
+- The stronger m090/anti-epochs5/alpha0.00/distance-gamma1.0 config passed dry-run validation, is committed, and is active. Current outstanding paper-cell count remains **14**.
