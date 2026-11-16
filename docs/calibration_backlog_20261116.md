@@ -8,14 +8,14 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 29 out-of-range combinations. FedAvg is not applicable to the paper's
+There are 27 out-of-range combinations. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
 | --- | ---: |
 | No attack | 2 |
 | Label flip | 1 |
-| Scaling | 6 |
+| Scaling | 4 |
 | Krum-targeted | 5 |
 | Trim-targeted | 5 |
 | Adaptive | 5 |
@@ -35,8 +35,6 @@ interval.
 | P1 | Scaling | FedAvg | error 91.36%, ASR 45.76% | error 14.8%, ASR 100.0% | both out |
 | P0 | Scaling | FLTrust | error 17.75%, ASR 99.94% | error 16.5 +/- 0.9%, ASR 9.8 +/- 1.1% | both out |
 | P0 | Scaling | RFA | error 20.19%, ASR 99.84% | error 18.2 +/- 1.1%, ASR 11.5 +/- 1.5% | both out |
-| P0 | Scaling | SafeFL-compatible SignGuard | error 16.04%, ASR 1.16% | error 16.0 +/- 0.8%, ASR 8.0 +/- 1.0% | error in; ASR low |
-| P0 | Scaling | MSGuard | error 15.80%, ASR 1.32% | error 15.7 +/- 0.7%, ASR 4.5 +/- 0.7% | error in; ASR low |
 | P1 | Krum-targeted | H-FedSA | best valid error 23.55% | 21.3 +/- 1.2% | 1.05 points above upper bound |
 | P2 | Krum-targeted | FLTrust | error 15.90% | 35.0 +/- 1.9% | below |
 | P2 | Krum-targeted | RFA | error 19.24% | 38.2 +/- 2.1% | below |
@@ -58,17 +56,30 @@ interval.
 | P2 | PoiSAFL | SafeFL-compatible SignGuard | error 15.66% | 35.6 +/- 1.9% | below |
 | P2 | PoiSAFL | MSGuard | error 15.94% | 33.1 +/- 1.7% | below |
 
-## Active first wave
+## Completed in-range scaling cells
 
-Ten scaling candidates are running concurrently:
+The following fixed-seed calibration candidates satisfy both required scaling
+metrics and have complete GitHub evidence with SHA-256 manifests:
 
-- FLTrust scale factors 1.0, 2.0, and 4.0.
-- RFA scale factors 1.0, 2.0, and 4.0.
-- SafeFL-compatible SignGuard scale factors 12.0 and 16.0.
-- MSGuard scale factors 12.0 and 16.0.
+- SafeFL-compatible SignGuard, scale 12, trigger size 16: 15.74% error and
+  7.67% ASR.
+- MSGuard, scale 12, trigger size 12: 15.74% error and 4.02% ASR.
+
+Their original out-of-range pilots remain immutable. These two cells are removed
+from the active backlog, reducing the total from 29 to 27.
+
+## Active H-FedSA priority wave
+
+Ten H-FedSA candidates are running concurrently:
+
+- four small training-hyperparameter changes for Scaling, whose ASR was already
+  inside the paper interval but whose error was high;
+- three clean candidates adjusting dropout or weight decay;
+- three seed-2026 Krum-targeted multiplier candidates.
 
 Configurations are under
-`configs/calibration/scaling_grid_20261116/`. The first wave is intended to
-estimate each defense's response curve; a narrower second wave will be
-preregistered from those measurements. A candidate is marked in-range only from
-its actual final round.
+`configs/calibration/hfedsa_scaling_grid_20261116/` and
+`configs/calibration/hfedsa_priority_grid_20261116/`. A further ten Scaling
+interpolation configurations are validated and stored under
+`configs/calibration/scaling_grid_20261116/`; they remain queued until the
+current H-FedSA priority wave produces final-round results.
