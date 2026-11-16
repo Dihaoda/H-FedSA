@@ -114,3 +114,11 @@ H-FedSA clean dropout 0.10 completed at 15.81% final error, inside the
 `artifacts/calibration/cifar10_iid_clean_hfedsa_ddpg/d010_seed2026/`.
 This reduces the active backlog from 27 to 26 cells. The existing five-seed
 formal clean summary is unchanged.
+
+
+## Low-value Scaling update (2026-11-16 19:10 CST)
+
+FLTrust and RFA values 0.50/0.75 completed outside the joint error/ASR
+criteria. RFA value 0.75 reached 10.68% ASR but only 15.27% error. A six-run
+joint learning-rate wave is active/queued with FLTrust value 0.65 and RFA
+value 0.75.
