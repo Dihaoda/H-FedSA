@@ -565,3 +565,10 @@ the remaining RFA Krum extension is chained after it.
 - RFA + Krum m031-random completed at `90.00%` error, above the `36.1%–40.3%` interval. The stratified m030/lambda0.7 follow-up passed dry-run validation, was committed, and is active.
 - FLTrust + PoiSAFL m050/anti-epochs3/alpha0.10/distance-gamma1.0 completed at `19.80%` error, below the `52.4%–58.0%` interval; the cell remains pending.
 - SafeFL-compatible SignGuard PoiSAFL launched into the remaining slot. Ten unique configurations are active; outstanding paper-cell count remains **14**.
+
+### SafeFL Krum boundary checkpoint — 2026-11-17 06:02 CST
+
+- SafeFL-compatible SignGuard + Krum lambda0.0008/norm5 completed at `17.50%` final error, below the `22.8%–25.4%` interval.
+- The measured neighboring values now bracket a discontinuity: lambda0.0006 produced `90.00%`, while lambda0.0008 produced `17.50%`.
+- The lambda0.00075/norm5 boundary config passed dry-run validation, was committed, passed 1/1 normalized GitHub readback, and is active.
+- Ten unique configurations are active; outstanding paper-cell count remains **14**.
