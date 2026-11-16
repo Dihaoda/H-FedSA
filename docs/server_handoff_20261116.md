@@ -262,3 +262,9 @@ powered on.
 - MSGuard + Krum m040/lr0.033 completed in range at `22.87%` error.
 - Complete evidence is stored at `artifacts/calibration/cifar10_iid_msguard_krum_targeted/m040_lr033_seed2026/`; 12/12 normalized GitHub readback comparisons passed. Archive SHA-256: `930781e4fdd0df5161f1640bad12a308f79f6e2be9883cd446e2cbbdfc308c46`.
 - Outstanding paper-cell count is now `19`. Continue the active calibration queue and keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 02:17 CST
+
+- FLTrust + Krum m050/lr0.0025 completed at `31.07%` error, below the `33.1%–36.9%` paper interval; it is not accepted.
+- The adjacent lr0.0020 probe passed dry-run validation and is active. Ten unique configurations remain active.
+- Outstanding paper-cell count remains `19`; keep the server powered on.
