@@ -324,3 +324,10 @@ the remaining RFA Krum extension is chained after it.
 - Final accuracy/error: `79.92% / 20.08%`. Paper error interval `20.2%–22.4%`; below the lower bound by 0.12 percentage points, so it is recorded as a near miss and not accepted.
 - Measured rf030 errors at lr045/lr040/lr035 are `19.84% / 20.02% / 20.08%`; lr025 is the next preregistered extrapolation probe.
 - MSGuard Krum m040-random launched at 23:07 CST. Current outstanding paper-cell count remains **22**.
+
+### 2026-11-16 23:19 CST — RFA Krum m040, SafeFL Krum m050, and FLTrust Trim m050 completed
+
+- RFA Krum `m040_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds; final accuracy/error `10.00% / 90.00%`. Paper error interval `36.1%–40.3%`; above range, not accepted. The m030 interpolation probe remains active.
+- SafeFL-compatible SignGuard Krum `m050_seed2026`: final accuracy/error `82.65% / 17.35%`. Paper error interval `22.8%–25.4%`; below range, not accepted. Attack trace shows final malicious update norms near `482` while original update norms are near `0.1`, explaining norm-filter rejection; the next compatibility probe will reduce attack lambda and explicitly adjust the norm bound.
+- FLTrust Trim `m050_seed2026`: final accuracy/error `82.36% / 17.64%`. Paper error interval `36.7%–40.7%`; below range, not accepted. Increasing m030 to m050 did not close the gap, so the next explicitly labeled probe uses a lower local learning rate rather than another malicious-ratio increase.
+- All use final-round-only selection. Current outstanding paper-cell count remains **22**.
