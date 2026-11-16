@@ -354,3 +354,9 @@ powered on.
 - SafeFL-compatible SignGuard + Krum lambda0.0006/norm5 completed at `90.00%` error, above its interval.
 - The lambda0.0008/norm5 boundary probe passed dry-run validation, is committed, and is active.
 - Ten unique configurations remain active. Outstanding paper-cell count remains `14`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 05:00 CST
+
+- SafeFL-compatible SignGuard + Adaptive m050/ps0.10 completed at `90.00%` error, above its interval.
+- The m045 random-participation/ps0.10 interpolation passed dry-run validation, is committed, and is active.
+- Ten unique configurations remain active. Outstanding paper-cell count remains `14`; keep the server powered on.
