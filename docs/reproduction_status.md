@@ -747,3 +747,9 @@ probe.
 - H-FedSA Krum `lambda1495_lr045_seed2028`: final accuracy/error `75.52% / 24.48%`; paper interval `20.1%–22.5%`; above range, not accepted. The validated lr0.0495 adjacent probe is active.
 - SafeFL-compatible SignGuard Krum `m050_lm0010_nu500_seed2026`: final accuracy/error `82.09% / 17.91%`; paper interval `22.8%–25.4%`; below range, not accepted. The lambda/norm response has saturated and its attack trace will guide the next probe.
 - Current outstanding paper-cell count: **17**.
+
+### 2026-11-17 02:49 CST — FedAvg Label Flip accepted; RFA Trim m035-random rejected
+
+- FedAvg Label Flip `m074_random_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, random participant-role sampling; final accuracy/error `26.30% / 73.70%`. Paper interval `67.5%–76.5%`; **accepted in range**. Evidence: `artifacts/calibration/cifar10_iid_fedavg_label_flip/m074_random_seed2026/` (11/11 normalized GitHub readback comparisons passed). Archive SHA-256: `99b0947d88714bb8b1c216943c7b18472ed1a4096e4d60f1922e14ac93c9daf6`.
+- RFA Trim `m035_random_seed2026`: final accuracy/error `37.49% / 62.51%`; paper interval `39.6%–44.0%`; above range, not accepted. The validated m032-random interpolation is active.
+- The unused FedAvg m076-random config remains a reproducible backup and was not launched after m074 succeeded. Current outstanding paper-cell count: **16**.
