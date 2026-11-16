@@ -220,3 +220,9 @@ powered on.
 - RFA + Scaling accepted at `17.44%` error; evidence readback passed 11/11 and archive SHA-256 is recorded in reproduction status.
 - Outstanding paper-cell count is now `21`.
 - Continue active calibration queue; do not shut down until all active and queued runs finish, GitHub evidence/status updates are verified, and no further required cells remain.
+
+### Queue checkpoint — 2026-11-17 00:15 CST
+
+- H-FedSA + Trim accepted at `21.15%` error; evidence readback passed 15/15 and archive SHA-256 is recorded in reproduction status.
+- RFA Trim m050 rejected at `78.52%`; m040 interpolation is active.
+- Outstanding paper-cell count is now `20`. Server remains powered on with ten active configurations.
