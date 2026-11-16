@@ -51,6 +51,17 @@ The current server may be powered off only after all of the following are true:
 - this handoff file is updated with the terminal queue state;
 - a final read-back check confirms the GitHub files exist.
 
-Status at creation: campaign still running. This line will be replaced with the
-terminal state before the server is powered off.
+Terminal state (2026-11-16 04:00 CST):
+
+- All 22 preregistered queue entries were launched and completed.
+- The scheduler emitted `all preregistered queue entries launched`.
+- The final trainer count was zero.
+- All newly completed evidence directories and the two campaign logs were
+  uploaded to GitHub.
+- Local SHA-256 verification succeeded before final shutdown.
+- The server was cleared for an actual system power-off after GitHub read-back.
+
+For future recovery, use the repository evidence and status document as
+canonical state. Do not replay `configs/pilot/queue_20261116.txt` wholesale;
+construct a fresh queue only for experiments explicitly marked pending.
 
