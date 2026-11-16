@@ -299,3 +299,9 @@ powered on.
 - FedAvg + Adaptive m080/projection0.10 completed at `93.33%` error, 1.83 points above its interval; projection0.15 is active.
 - RFA + Krum m035-random collapsed to `90.00%` error; m032-random is active.
 - Ten unique configurations remain active. Outstanding paper-cell count remains `16`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 03:24 CST
+
+- FLTrust + Krum m050/lr0.0020 completed at `32.96%` error, 0.14 points below its interval; it is not accepted.
+- The adjacent lr0.0019 config passed dry-run validation, is committed, and is active.
+- Ten unique configurations remain active. Outstanding paper-cell count remains `16`; keep the server powered on.
