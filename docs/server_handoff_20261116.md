@@ -331,3 +331,9 @@ powered on.
 - RFA + Trim m032-random completed at `51.88%` error, above its interval.
 - The m031-random boundary interpolation passed dry-run validation, is committed, and is active.
 - Ten unique configurations remain active. Outstanding paper-cell count remains `16`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 04:27 CST
+
+- FedAvg + Adaptive m080/projection0.15 completed in range at `90.00%` error. Evidence is in `artifacts/calibration/cifar10_iid_fedavg_adaptive/m080_ps015_seed2026/`; 12/12 normalized readback comparisons passed. Archive SHA-256: `9cc13196ee9e927edd4a5d1eff755d37672e0293d79b9da9f11409c4cfd234ec`.
+- RFA + Krum m032-random ended at `90.00%`; m031-random is active.
+- FLTrust Adaptive m040/ps0.10/lr0.0010 filled the other released slot. Outstanding paper-cell count is now `15`; keep the server powered on.
