@@ -75,3 +75,16 @@ paper intervals. Do not run a shutdown command until the user explicitly
 requests it again and the extension queue has completed or been stopped.
 Previously archived out-of-range evidence remains immutable; new candidates use
 separate configuration and evidence paths.
+
+
+### Live extension state (2026-11-16 15:53 CST)
+
+- The server remains powered on and must not be shut down.
+- SafeFL-compatible SignGuard Scaling (scale 12, trigger size 16) and MSGuard
+  Scaling (scale 12, trigger size 12) are inside both paper intervals and have
+  complete GitHub evidence with verified SHA-256 manifests.
+- Ten H-FedSA calibration candidates are active at the time of this update.
+- Ten additional Scaling interpolation candidates are configured, validated,
+  and stored in GitHub but are not yet launched.
+- Out-of-range results remain on the server; only in-range results are promoted
+  into the calibration evidence directories.
