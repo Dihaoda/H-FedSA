@@ -509,3 +509,12 @@ completed at 15.54%, 15.42%, and 15.13% final error. All are below the paper's
 17.1--19.3% error interval under the error-only acceptance rule. Their measured
 ASRs (6.41%, 7.59%, and 9.84%) are retained. Lower learning rates 0.025 and
 0.030 are now active.
+
+
+### Stronger H-FedSA Trim retention results (2026-11-16 20:53 CST)
+
+Compatibility-extension retention floors 0.30, 0.40, and 0.50 completed at
+19.65%, 19.73%, and 19.75% final error versus the paper's 20.2--22.4%
+interval. None is accepted. The near-flat response indicates saturation, so
+the next queued probes retain floor 0.30 and lower the learning rate to 0.040
+or 0.045.
