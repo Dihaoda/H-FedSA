@@ -316,3 +316,11 @@ the remaining RFA Krum extension is chained after it.
 - MSGuard Trim `m025_random_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, random participant sampling; final accuracy/error `9.99% / 90.01%`. Paper error interval `23.7%–26.3%`; out of range, not accepted. The m020-random probe launched at 22:59 CST.
 - SafeFL-compatible SignGuard Trim `m025_random_seed2026`: final accuracy/error `63.97% / 36.03%`. Paper error interval `24.7%–27.5%`; out of range. This does not alter the already accepted fixed-stratified m025 result at `27.23%`.
 - RFA Krum m030 launched at 22:59 CST. The queued MSGuard Krum m040-random probe will take the next freed slot. Current outstanding paper-cell count remains **22**.
+
+### 2026-11-16 23:06 CST — H-FedSA Trim rf030 lr035 completed
+
+- Candidate: `cifar10_iid_hfedsa_ddpg_trim_targeted_rf030_lr035_seed2026`.
+- Reproducibility: real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; explicitly labeled retention-floor/learning-rate compatibility extension.
+- Final accuracy/error: `79.92% / 20.08%`. Paper error interval `20.2%–22.4%`; below the lower bound by 0.12 percentage points, so it is recorded as a near miss and not accepted.
+- Measured rf030 errors at lr045/lr040/lr035 are `19.84% / 20.02% / 20.08%`; lr025 is the next preregistered extrapolation probe.
+- MSGuard Krum m040-random launched at 23:07 CST. Current outstanding paper-cell count remains **22**.
