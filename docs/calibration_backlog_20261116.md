@@ -602,3 +602,9 @@ the remaining RFA Krum extension is chained after it.
 - RFA + PoiSAFL m050/anti-epochs3/alpha0.10 completed at `36.80%` error, below the `55.0%–61.0%` interval.
 - Stronger follow-ups passed dry-run and were committed: SafeFL m050/anti-epochs5/alpha0.00 (active), RFA m060/anti-epochs5/alpha0.00 (queued), and FLTrust m070/anti-epochs5/alpha0.00 (queued). Normalized GitHub readback passed 3/3.
 - Ten unique configurations are active; outstanding count remains **14**.
+
+### FLTrust Adaptive and SafeFL Krum boundary checkpoint — 2026-11-17 07:08 CST
+
+- FLTrust + Adaptive lr0.0008 completed at `41.00%` error, 1.8 points below the `42.8%–47.4%` interval. lr0.0007 passed dry-run, was committed, and is active.
+- SafeFL-compatible SignGuard + Krum lambda0.00075/norm5 completed at `90.00%`; lambda0.0008 previously produced `17.50%`. The lambda0.000795 binary-search point passed dry-run, was committed, and is active.
+- Normalized GitHub readback for both new configs passed 2/2. Ten unique configurations are active; outstanding count remains **14**.
