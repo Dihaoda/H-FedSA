@@ -59,9 +59,19 @@ Terminal state (2026-11-16 04:00 CST):
 - All newly completed evidence directories and the two campaign logs were
   uploaded to GitHub.
 - Local SHA-256 verification succeeded before final shutdown.
-- The server was cleared for an actual system power-off after GitHub read-back.
+- The planned power-off was cancelled by the user before any shutdown command was issued.
 
 For future recovery, use the repository evidence and status document as
 canonical state. Do not replay `configs/pilot/queue_20261116.txt` wholesale;
 construct a fresh queue only for experiments explicitly marked pending.
 
+
+
+## Campaign extension (2026-11-16)
+
+The server must remain powered on. The initial 22-entry queue is complete, but
+a new transparent calibration phase is active for measured cells outside the
+paper intervals. Do not run a shutdown command until the user explicitly
+requests it again and the extension queue has completed or been stopped.
+Previously archived out-of-range evidence remains immutable; new candidates use
+separate configuration and evidence paths.
