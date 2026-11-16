@@ -354,3 +354,10 @@ the remaining RFA Krum extension is chained after it.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `82.39% / 17.61%`.
 - Paper error interval: `33.1%–36.9%`; below range, not accepted. Increasing fixed malicious ratio from m040 (`16.68%`) to m050 (`17.61%`) did not close the gap.
 - The next explicitly labeled compatibility probe keeps m050 and lowers local learning rate to 0.0035. Current outstanding paper-cell count remains **21**.
+
+### 2026-11-17 00:09 CST — MSGuard Trim m020-random completed
+
+- Candidate: `cifar10_iid_msguard_trim_targeted_m020_random_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, random participant sampling; final accuracy/error `62.87% / 37.13%`.
+- Paper error interval: `23.7%–26.3%`; above range, not accepted. Fixed-stratified two-malicious-client behavior produced `15.44%`, so the next explicitly labeled interpolation reduces the global malicious ratio to 0.15 under random participation.
+- Current outstanding paper-cell count remains **21**.
