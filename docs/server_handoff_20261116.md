@@ -403,3 +403,9 @@ powered on.
 - MSGuard Adaptive m033/ps0.25 ended at `17.05%`; RFA Adaptive m033/ps0.20 ended at `26.81%`. Both are below their intervals.
 - MSGuard and RFA m040/ps0.30 follow-ups passed `--dry_run`, were committed, and passed 2/2 normalized readback. MSGuard is active; RFA is queued.
 - FedAvg PoiSAFL anti-epochs10 filled the other released slot. Ten unique configurations are active; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 06:56 CST
+
+- SafeFL PoiSAFL completed at `16.74%`; RFA PoiSAFL completed at `36.80%`. Both are below their intervals.
+- Stronger SafeFL m050, RFA m060, and FLTrust m070 PoiSAFL configs with anti-epochs5/alpha0.00 passed `--dry_run`, were committed, and passed 3/3 normalized readback.
+- SafeFL follow-up is active; RFA and FLTrust are queued. Ten unique configurations remain active; keep the server powered on.
