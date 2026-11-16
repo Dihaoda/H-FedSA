@@ -545,3 +545,12 @@ probe.
 - Paper error interval: `23.7%–26.3%`; result is out of range and is **not** archived as a paper-aligned result.
 - Diagnostic conclusion: with 10 participants/round, stratified sampling rounds the malicious count from 2 to 3 between the nearby m022 and m025 probes, producing a discontinuous response. The follow-on m025 random-participation probes are explicitly labeled `malicious_ratio_0.25_participant_sampling_random`; their configs were dry-run validated and committed before execution.
 - Outstanding paper-cell count remains `23`.
+
+### 2026-11-16 21:49 CST — SafeFL + Trim m025 accepted
+
+- Candidate: `cifar10_iid_safefl_signguard_trim_targeted_m025_seed2026`.
+- Reproducibility: real CIFAR-10, seed `2026`, 250/250 rounds, final-round-only selection, `malicious_ratio=0.25`, fixed stratified participation, SafeFL-compatible SignGuard implementation.
+- Measured final accuracy/error: `72.77% / 27.23%` (`final_attack_success_rate: NA`).
+- Paper error interval: `24.7%–27.5%`; **accepted in range** under the error criterion.
+- Evidence: `artifacts/calibration/cifar10_iid_safefl_signguard_trim_targeted/m025_seed2026/` (12/12 GitHub readback comparisons passed). Server archive SHA-256: `b9b55c69a88bacd1a99196e20611e5bb1c19e341c8d4eaec0efb8cbdc027af20`.
+- Current outstanding paper-cell count: **22**.
