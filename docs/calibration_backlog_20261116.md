@@ -595,3 +595,10 @@ the remaining RFA Krum extension is chained after it.
 - MSGuard + Adaptive m033/ps0.25 completed at `17.05%` error, below the `25.3%–28.1%` interval. m040/ps0.30 passed dry-run validation, was committed, and is active.
 - RFA + Adaptive m033/ps0.20 completed at `26.81%` error, below the `46.0%–51.0%` interval. m040/ps0.30 passed dry-run validation, was committed, and is queued.
 - Normalized GitHub readback for the two new configs passed 2/2. FedAvg PoiSAFL anti-epochs10 filled the released slot; ten unique configurations are active. Outstanding count remains **14**.
+
+### PoiSAFL follow-up checkpoint — 2026-11-17 06:56 CST
+
+- SafeFL-compatible SignGuard + PoiSAFL m040/anti-epochs2/alpha0.30 completed at `16.74%` error, below the `33.7%–37.5%` interval.
+- RFA + PoiSAFL m050/anti-epochs3/alpha0.10 completed at `36.80%` error, below the `55.0%–61.0%` interval.
+- Stronger follow-ups passed dry-run and were committed: SafeFL m050/anti-epochs5/alpha0.00 (active), RFA m060/anti-epochs5/alpha0.00 (queued), and FLTrust m070/anti-epochs5/alpha0.00 (queued). Normalized GitHub readback passed 3/3.
+- Ten unique configurations are active; outstanding count remains **14**.
