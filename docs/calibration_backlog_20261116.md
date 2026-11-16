@@ -338,3 +338,12 @@ the remaining RFA Krum extension is chained after it.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `10.00% / 90.00%`.
 - Paper error interval: `22.3%–24.7%`; above range, not accepted. Fixed-stratified m040 produced `21.11%`, so m040-to-m050 is a discrete failure boundary.
 - The active m040-random probe is retained as measured evidence, while the next continuous probe keeps fixed m040 and uses a lower learning rate rather than increasing malicious count. Current outstanding paper-cell count remains **22**.
+
+### 2026-11-16 23:44 CST — RFA + Scaling lr018 accepted
+
+- Candidate: `cifar10_iid_rfa_scaling_scale010_p001_t2_v075_lr018_seed2026`.
+- Reproducibility: real CIFAR-10, seed `2026`, final round `250/250`, final-round-only selection; scale `1.0`, poison fraction `0.01`, 2x2 trigger value `0.75`, local learning rate `0.018`.
+- Final accuracy/error/ASR: `82.56% / 17.44% / 2.38%`.
+- Paper error interval: `17.1%–19.3%`; **accepted in range** under the error-only criterion. ASR is reported but is not a gate.
+- Evidence: `artifacts/calibration/cifar10_iid_rfa_scaling/scale010_p001_t2_v075_lr018_seed2026/` (11/11 GitHub readback comparisons passed). Server archive SHA-256: `1f3fe39748b45900a8d125038a43975d5b28acaa1671b0a212ee20f2e545b153`.
+- Current outstanding paper-cell count: **21**.
