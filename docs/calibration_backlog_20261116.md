@@ -282,3 +282,11 @@ the remaining RFA Krum extension is chained after it.
 - Measured final accuracy/error: `79.98% / 20.02%` (`final_attack_success_rate: NA`).
 - Paper error interval: `20.2%–22.4%`; result misses the lower bound by `0.18` percentage points and is therefore recorded as a near miss, **not** accepted or archived as paper-aligned.
 - The adjacent rf030/lr045 probe remains active. Current outstanding paper-cell count remains **22**.
+
+### 2026-11-16 22:01 CST — SafeFL + Krum m040 completed
+
+- Candidate: `cifar10_iid_safefl_signguard_krum_targeted_m040_seed2026`.
+- Reproducibility: real CIFAR-10, seed `2026`, final round `250/250`, fixed stratified participation, `malicious_ratio=0.40`, SafeFL-compatible SignGuard implementation.
+- Measured final accuracy/error: `81.37% / 18.63%` (`final_attack_success_rate: NA`).
+- Paper error interval: `22.8%–25.4%`; result is out of range and is not archived as paper-aligned.
+- Measured m030/m040 errors are `17.21% / 18.63%`; the next preregistered discrete malicious-count probe is m050. Current outstanding paper-cell count remains **22**.
