@@ -8,7 +8,7 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 18 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
+There are 17 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
@@ -17,7 +17,7 @@ Krum-targeted and Trim-targeted rows and is therefore excluded.
 | Label flip | 1 |
 | Scaling | 1 |
 | Krum-targeted | 4 |
-| Trim-targeted | 2 |
+| Trim-targeted | 1 |
 | Adaptive | 5 |
 | PoiSAFL | 5 |
 
@@ -460,3 +460,10 @@ the remaining RFA Krum extension is chained after it.
 - Paper error interval: `23.7%–26.3%`; **accepted in range**.
 - Evidence: `artifacts/calibration/cifar10_iid_msguard_trim_targeted/m014_random_seed2026/` (12/12 GitHub normalized readback comparisons passed). Server archive SHA-256: `dc4e5c525cefc544b539e9b290c6d425ddda22a416ebbac6d5c3466a4a9d9f06`.
 - Current outstanding paper-cell count: **18**.
+
+### 2026-11-17 02:30 CST — FLTrust Trim accepted; H-FedSA/SafeFL Krum follow-ons completed
+
+- FLTrust Trim `m050_lr0010_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds; final accuracy/error `61.32% / 38.68%`. Paper interval `36.7%–40.7%`; **accepted in range**. Evidence: `artifacts/calibration/cifar10_iid_fltrust_trim_targeted/m050_lr0010_seed2026/` (13/13 normalized GitHub readback comparisons passed). Archive SHA-256: `29dccedd2f1fd524193cf4f4d9f3228ad76f8c858be95aa35ca44700a5ae839b`.
+- H-FedSA Krum `lambda1495_lr045_seed2028`: final accuracy/error `75.52% / 24.48%`; paper interval `20.1%–22.5%`; above range, not accepted. The validated lr0.0495 adjacent probe is active.
+- SafeFL-compatible SignGuard Krum `m050_lm0010_nu500_seed2026`: final accuracy/error `82.09% / 17.91%`; paper interval `22.8%–25.4%`; below range, not accepted. The lambda/norm response has saturated and its attack trace will guide the next probe.
+- Current outstanding paper-cell count: **17**.
