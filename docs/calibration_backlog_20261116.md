@@ -130,3 +130,11 @@ Because the higher-dropout boundary wave did not lower final error enough,
 three seed-2026 candidates with dropout 0.00, 0.05, and 0.10 are validated and
 queued. They retain the same attack, defense, optimizer, 250-round budget, and
 final-round-only evaluation policy; only model dropout changes.
+
+
+## H-FedSA Trim stronger-retention follow-on (2026-11-16 19:21 CST)
+
+The current 0.02--0.20 compatibility-extension wave shows the expected
+mid-run monotonic direction, so retention floors 0.30, 0.40, and 0.50 are
+validated and queued. Selection remains based only on the final round; these
+runs are explicitly not unmodified paper-mode H-FedSA.
