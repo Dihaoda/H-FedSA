@@ -391,3 +391,9 @@ powered on.
 
 - `cifar10_iid_fedavg_poisafl_m090_ae10_a000_g100_seed2026` keeps malicious ratio 0.90, alpha 0.00, and distance gamma 1.0 while increasing anti-training from 5 to 10 epochs.
 - It passed `--dry_run`, was committed, and passed 1/1 normalized GitHub readback. It remains queued until a slot is free; the ten-configuration ceiling is unchanged.
+
+### Queue checkpoint — 2026-11-17 06:36 CST
+
+- H-FedSA Krum lr0.0496 completed at `22.64%`, 0.14 points above its interval.
+- lr0.0497 passed `--dry_run`, was committed, passed 1/1 normalized readback, and is active.
+- Ten unique configurations remain active; keep the server powered on.
