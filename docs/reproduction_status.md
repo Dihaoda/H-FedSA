@@ -910,3 +910,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Candidate: `cifar10_iid_safefl_signguard_adaptive_m040_ps005_seed2026`.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final error `19.68%`; target `26.5%–29.5%`, out of range.
 - m040/ps0.00 is validated and queued. Outstanding count remains **14**.
+
+### 2026-11-17 07:54 CST — H-FedSA Krum lr0.0497 outcome
+
+- Candidate: `cifar10_iid_hfedsa_ddpg_krum_targeted_lambda1495_lr0497_seed2028`.
+- Real CIFAR-10, seed 2028, 250/250 rounds, final error `28.92%`; target `20.1%–22.5%`, out of range.
+- lr0.0496/weight-decay0.00045 is validated and queued. Outstanding count remains **14**.
