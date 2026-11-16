@@ -473,3 +473,9 @@ the remaining RFA Krum extension is chained after it.
 - FedAvg Label Flip `m074_random_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, random participant-role sampling; final accuracy/error `26.30% / 73.70%`. Paper interval `67.5%–76.5%`; **accepted in range**. Evidence: `artifacts/calibration/cifar10_iid_fedavg_label_flip/m074_random_seed2026/` (11/11 normalized GitHub readback comparisons passed). Archive SHA-256: `99b0947d88714bb8b1c216943c7b18472ed1a4096e4d60f1922e14ac93c9daf6`.
 - RFA Trim `m035_random_seed2026`: final accuracy/error `37.49% / 62.51%`; paper interval `39.6%–44.0%`; above range, not accepted. The validated m032-random interpolation is active.
 - The unused FedAvg m076-random config remains a reproducible backup and was not launched after m074 succeeded. Current outstanding paper-cell count: **16**.
+
+### 2026-11-17 03:13 CST — FedAvg Adaptive ps010 and RFA Krum m035-random completed
+
+- FedAvg Adaptive `m080_ps010_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds; final accuracy/error `6.67% / 93.33%`. Paper interval `83.5%–91.5%`; above range by `1.83` points, not accepted. The validated projection-strength `0.15` interpolation is active.
+- RFA Krum `m035_random_seed2026`: final accuracy/error `10.00% / 90.00%`. Paper interval `36.1%–40.3%`; above range, not accepted. Combined with fixed m030 at `22.82%`, this brackets a discrete failure boundary; the validated m032-random interpolation is active.
+- Both use final-round-only selection. Current outstanding paper-cell count remains **16**.
