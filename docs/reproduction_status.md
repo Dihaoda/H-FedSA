@@ -477,3 +477,13 @@ accepted at 15.72% final error, inside the paper's 15.6--17.4% error interval.
 Its measured ASR is 39.22%, outside the paper ASR interval, and is not presented
 as matching. Complete evidence with a verified SHA-256 manifest is stored in
 `artifacts/calibration/cifar10_iid_fltrust_scaling/scale010_p001_t2_v150_seed2026/`.
+
+
+### H-FedSA Trim retention boundary wave (2026-11-16 19:45 CST)
+
+Four fixed-seed H-FedSA Trim-targeted compatibility extensions completed at
+16.68%, 17.73%, 18.40%, and 19.07% final error for retention floors 0.02,
+0.05, 0.10, and 0.20. All remain below the paper's 20.2--22.4% interval.
+The monotonic response motivates the already validated 0.30--0.50 follow-on
+wave. Retention floors are explicitly outside unmodified Algorithm 1 and are
+reported as compatibility extensions.
