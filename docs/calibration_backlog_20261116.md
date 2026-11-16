@@ -211,3 +211,12 @@ queued: SafeFL-compatible SignGuard/MSGuard Trim at 25%, and the same two
 methods under Krum-targeted at 40%. Configurations are stored under
 `configs/calibration/targeted_followon_20261116/` and launch only when the
 bounded queue has free slots.
+
+
+## H-FedSA Trim learning-rate follow-on (2026-11-16 20:42 CST)
+
+Retention-floor 0.30 is closest late in training but may finish below the paper
+interval. Two otherwise identical candidates at learning rates 0.040 and 0.045
+are validated, committed, and chained behind the targeted follow-on queue.
+They remain transparent compatibility extensions and use final-round-only
+selection.
