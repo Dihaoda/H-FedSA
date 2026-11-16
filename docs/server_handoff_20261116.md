@@ -181,3 +181,11 @@ RFA Scaling learning rates 0.025 and 0.030 are validated, committed, copied to
 the server, and queued under a bounded autofill supervisor. They launch only
 when fewer than ten unique configurations are active. The server must remain
 powered on.
+
+
+### Targeted follow-on autofill (2026-11-16 20:38 CST)
+
+Four validated and committed compatibility extensions wait behind the active
+ten runs: SafeFL/MSGuard Trim at malicious ratio 0.25 and SafeFL/MSGuard Krum
+at 0.40. The supervisor enforces a ten-configuration limit. The server must
+remain powered on.
