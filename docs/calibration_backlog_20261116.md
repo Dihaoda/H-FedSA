@@ -153,3 +153,12 @@ its ASR is explicitly not claimed to match. Complete verified evidence is in
 This reduces the active backlog from 26 to 25 cells. Two redundant unfinished
 FLTrust learning-rate probes were stopped and the queue was consolidated around
 RFA Scaling and the remaining H-FedSA candidates.
+
+
+## H-FedSA Trim retention outcomes (2026-11-16 19:45 CST)
+
+The transparent compatibility-extension candidates with retention floors 0.02,
+0.05, 0.10, and 0.20 completed at 16.68%, 17.73%, 18.40%, and 19.07% final
+error, respectively, versus the 20.2--22.4% paper interval. None is accepted,
+but the monotonic direction supports continuing the preregistered 0.30, 0.40,
+and 0.50 candidates. These results are not unmodified paper-mode H-FedSA.
