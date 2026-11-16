@@ -293,3 +293,9 @@ powered on.
 - Five PoiSAFL compatibility-extension configs and four adjacent interpolation configs passed dry-run validation and are committed under `configs/calibration/followup_ready_20261117/`.
 - Launch only still-needed candidates as slots free; do not launch a backup after its paper cell has already succeeded.
 - Outstanding paper-cell count remains `16`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 03:13 CST
+
+- FedAvg + Adaptive m080/projection0.10 completed at `93.33%` error, 1.83 points above its interval; projection0.15 is active.
+- RFA + Krum m035-random collapsed to `90.00%` error; m032-random is active.
+- Ten unique configurations remain active. Outstanding paper-cell count remains `16`; keep the server powered on.
