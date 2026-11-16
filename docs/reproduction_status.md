@@ -362,3 +362,17 @@ configuration, final-round metrics, diagnostics where applicable, training log,
 and SHA-256 manifest. Scheduler and runner logs are stored in
 `artifacts/campaign/20261116/`. This campaign is complete; no queue entry
 should be replayed wholesale on a future server.
+
+
+### Calibration extension active (2026-11-16)
+
+The original 22-entry preregistered queue is complete, but the planned server
+shutdown was cancelled before any shutdown command was issued. A new
+fixed-seed calibration phase is active for the 29 cells listed in
+`docs/calibration_backlog_20261116.md`.
+
+The first wave runs ten scaling candidates concurrently: FLTrust and RFA scale
+factors `1.0`, `2.0`, and `4.0`; SafeFL-compatible SignGuard and
+MSGuard scale factors `12.0` and `16.0`. These are labeled
+`single_seed_calibration`, keep separate output paths, and use actual
+final-round metrics. The server must remain powered on during this extension.
