@@ -83,3 +83,17 @@ Configurations are under
 interpolation configurations are validated and stored under
 `configs/calibration/scaling_grid_20261116/`; they remain queued until the
 current H-FedSA priority wave produces final-round results.
+
+
+## Active wave update (2026-11-16 17:10 CST)
+
+The first H-FedSA priority boundary wave completed without reducing the
+27-cell backlog. Scaling dropout 0.20 was closest at 15.78% error and 1.23%
+ASR; clean candidates ranged from 14.68% to 14.88%; and seed-2026
+Krum-targeted multipliers 1.45, 1.50, and 1.55 produced 27.82%, 26.00%, and
+32.32% error.
+
+The current ten-way wave contains six FLTrust/RFA Scaling trigger-value
+interpolations and four H-FedSA Trim-targeted malicious-penalty candidates.
+A following six-candidate H-FedSA clean/Scaling dropout boundary wave is
+validated and waits for available slots.
