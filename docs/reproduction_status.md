@@ -528,3 +528,11 @@ The same methods completed Trim-targeted at 31.26% and 58.72%, above their
 24.7--27.5% and 23.7--26.3% intervals. These transparent compatibility
 extensions demonstrate opposite attack-specific responses; no m030 result is
 marked accepted. Attack-specific malicious-ratio follow-ons are active.
+
+
+### RFA Scaling lower-learning-rate results (2026-11-16 21:35 CST)
+
+Fixed-seed learning rates 0.025 and 0.030 completed at 16.54% and 15.87%
+final error (ASR 2.96% and 4.33%). Both are below the 17.1--19.3% paper error
+interval. Learning rate 0.020 is validated and queued as the next boundary
+probe.
