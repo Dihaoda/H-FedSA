@@ -220,3 +220,12 @@ interval. Two otherwise identical candidates at learning rates 0.040 and 0.045
 are validated, committed, and chained behind the targeted follow-on queue.
 They remain transparent compatibility extensions and use final-round-only
 selection.
+
+
+## Stronger H-FedSA Trim retention outcomes (2026-11-16 20:53 CST)
+
+Retention floors 0.30, 0.40, and 0.50 completed at 19.65%, 19.73%, and
+19.75% final error. All remain below the 20.2--22.4% paper interval, and the
+response has saturated. The queued floor-0.30 learning-rate 0.040/0.045
+candidates therefore become the next active direction. All retention-floor
+runs remain compatibility extensions.
