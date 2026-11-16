@@ -577,3 +577,9 @@ probe.
 - `cifar10_iid_msguard_krum_targeted_m040_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds; final accuracy/error `78.89% / 21.11%`. Paper error interval `22.3%–24.7%`; below range, not accepted.
 - MSGuard Krum measured m030/m040 errors are `18.39% / 21.11%`; m050 is the preregistered next discrete malicious-count probe.
 - H-FedSA rf030/lr035 launched at 22:04 CST; SafeFL Krum m050 launched at 22:08 CST. Current outstanding paper-cell count remains **22**.
+
+### 2026-11-16 22:25 CST — MSGuard Trim m022 and FLTrust Trim m030 completed
+
+- `cifar10_iid_msguard_trim_targeted_m022_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds; final accuracy/error `84.56% / 15.44%`. Paper error interval `23.7%–26.3%`; below range, not accepted. Together with stratified m025 at `56.57%`, this confirms the 2-to-3 malicious-client discontinuity; the explicitly labeled random-participation m025 probe remains active.
+- `cifar10_iid_fltrust_trim_targeted_m030_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds; final accuracy/error `83.34% / 16.66%`. Paper error interval `36.7%–40.7%`; below range, not accepted. The preregistered m050 probe launched at 22:18 CST.
+- MSGuard Krum m050 launched at 22:15 CST. Ten unique configurations remain active. Current outstanding paper-cell count remains **22**.
