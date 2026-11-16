@@ -173,3 +173,11 @@ configs passed dry-run validation and are committed under
 `configs/calibration/targeted_m030_20261116/`. They are compatibility
 extensions, not the paper's original 20% malicious-client scenario. The server
 must remain powered on.
+
+
+### Queued RFA lower-learning-rate probes (2026-11-16 20:25 CST)
+
+RFA Scaling learning rates 0.025 and 0.030 are validated, committed, copied to
+the server, and queued under a bounded autofill supervisor. They launch only
+when fewer than ten unique configurations are active. The server must remain
+powered on.
