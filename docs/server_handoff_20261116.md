@@ -360,3 +360,10 @@ powered on.
 - SafeFL-compatible SignGuard + Adaptive m050/ps0.10 completed at `90.00%` error, above its interval.
 - The m045 random-participation/ps0.10 interpolation passed dry-run validation, is committed, and is active.
 - Ten unique configurations remain active. Outstanding paper-cell count remains `14`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 05:19 CST
+
+- H-FedSA Krum lr0.0493 (`24.59%`), RFA Adaptive m030/ps0.20 (`27.61%`), MSGuard Adaptive m030/ps0.30 (`17.24%`), and RFA Trim m031-random (`48.02%`) completed outside their paper intervals.
+- Three adjacent configs (H-FedSA Krum lr0.0496, RFA Adaptive m033/ps0.20, and MSGuard Adaptive m033/ps0.25) passed `--dry_run`, were committed to GitHub, and are active.
+- RFA PoiSAFL is also active. Ten unique configurations remain the concurrency ceiling; outstanding paper-cell count remains `14`.
+- Monitoring is event-driven/low-frequency. Keep the server powered on until the final audit and shutdown gate are satisfied.
