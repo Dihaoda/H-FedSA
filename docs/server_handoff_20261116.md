@@ -380,3 +380,9 @@ powered on.
 - SafeFL-compatible SignGuard Krum lambda0.0008/norm5 completed at `17.50%`, below its paper interval.
 - Lambda0.00075/norm5 passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is active.
 - Ten unique configurations are active. Continue low-frequency monitoring; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 06:21 CST
+
+- SafeFL Adaptive m045-random/ps0.10 completed at `90.00%`; FedAvg PoiSAFL m090/anti-epochs5/alpha0.00 completed at `74.48%`. Both remain out of range.
+- SafeFL Adaptive m040-stratified/ps0.05 passed `--dry_run`, was committed, passed 1/1 normalized readback, and is active.
+- MSGuard PoiSAFL filled the other free slot. Ten unique configurations are active; keep the server powered on.
