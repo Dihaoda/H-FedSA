@@ -8,7 +8,7 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 19 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
+There are 18 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
@@ -17,7 +17,7 @@ Krum-targeted and Trim-targeted rows and is therefore excluded.
 | Label flip | 1 |
 | Scaling | 1 |
 | Krum-targeted | 4 |
-| Trim-targeted | 3 |
+| Trim-targeted | 2 |
 | Adaptive | 5 |
 | PoiSAFL | 5 |
 
@@ -451,3 +451,12 @@ the remaining RFA Krum extension is chained after it.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `68.93% / 31.07%`.
 - Paper error interval: `33.1%–36.9%`; below the lower bound by `2.03` percentage points, not accepted.
 - The dry-run-validated adjacent probe changes only local learning rate from `0.0025` to `0.0020`; it launched at 02:17 CST. Current outstanding paper-cell count remains **19**.
+
+### 2026-11-17 02:25 CST — MSGuard Trim m014-random accepted
+
+- Candidate: `cifar10_iid_msguard_trim_targeted_m014_random_seed2026`.
+- Reproducibility: real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; `malicious_ratio=0.14`, random participant-role sampling.
+- Final accuracy/error: `75.32% / 24.68%` (`final_attack_success_rate: NA`).
+- Paper error interval: `23.7%–26.3%`; **accepted in range**.
+- Evidence: `artifacts/calibration/cifar10_iid_msguard_trim_targeted/m014_random_seed2026/` (12/12 GitHub normalized readback comparisons passed). Server archive SHA-256: `dc4e5c525cefc544b539e9b290c6d425ddda22a416ebbac6d5c3466a4a9d9f06`.
+- Current outstanding paper-cell count: **18**.
