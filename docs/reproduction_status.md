@@ -904,3 +904,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Candidate: `cifar10_iid_msguard_poisafl_m040_ae2_a030_g100_seed2026`.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final error `23.10%`; target `31.4%–34.8%`, out of range.
 - m050/anti-epochs5/alpha0.00 is validated and queued. Outstanding count remains **14**.
+
+### 2026-11-17 07:42 CST — SafeFL Adaptive ps0.05 outcome
+
+- Candidate: `cifar10_iid_safefl_signguard_adaptive_m040_ps005_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final error `19.68%`; target `26.5%–29.5%`, out of range.
+- m040/ps0.00 is validated and queued. Outstanding count remains **14**.
