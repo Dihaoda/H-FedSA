@@ -862,3 +862,8 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - `cifar10_iid_safefl_signguard_adaptive_m045_random_ps010_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `90.00%`; target `26.5%–29.5%`, out of range. m040-stratified/ps0.05 is active.
 - `cifar10_iid_fedavg_poisafl_m090_ae5_a000_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `74.48%`; criterion `>=90.0%`, out of range.
 - Neither result is promoted as paper-aligned. Outstanding count remains **14**.
+
+### Prepared FedAvg PoiSAFL follow-up — 2026-11-17 06:26 CST
+
+- `cifar10_iid_fedavg_poisafl_m090_ae10_a000_g100_seed2026` keeps malicious ratio 0.90, alpha 0.00, and distance gamma 1.0 while increasing anti-training from 5 to 10 epochs.
+- It passed `--dry_run`, was committed, and passed 1/1 normalized GitHub readback. It remains queued until a slot is free; the ten-configuration ceiling is unchanged.
