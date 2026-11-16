@@ -442,3 +442,14 @@ versus 21.3 +/- 1.1%. This parameter had negligible effect because
 high-malicious-probability updates still received near-zero base weight. Any
 subsequent retention-floor experiment is labeled a compatibility extension,
 not an unmodified Algorithm 1 result.
+
+
+### In-range H-FedSA clean calibration (2026-11-16 18:44 CST)
+
+The fixed-seed H-FedSA clean candidate with model dropout 0.10 completed all
+250 rounds at 15.81% final error, inside the Table II(d) interval
+15.7 +/- 0.2%. Dropout 0.15 and 0.20 completed at 15.16% and 14.99% and
+remain out of range. The in-range result is a single-seed calibration, not a
+replacement for the existing five-seed formal summary. Complete evidence and a
+verified SHA-256 manifest are stored in
+`artifacts/calibration/cifar10_iid_clean_hfedsa_ddpg/d010_seed2026/`.
