@@ -361,3 +361,10 @@ the remaining RFA Krum extension is chained after it.
 - Real CIFAR-10, seed 2026, 250/250 rounds, random participant sampling; final accuracy/error `62.87% / 37.13%`.
 - Paper error interval: `23.7%–26.3%`; above range, not accepted. Fixed-stratified two-malicious-client behavior produced `15.44%`, so the next explicitly labeled interpolation reduces the global malicious ratio to 0.15 under random participation.
 - Current outstanding paper-cell count remains **21**.
+
+### 2026-11-17 00:11 CST — H-FedSA Trim lr025 accepted; RFA Trim m050 rejected
+
+- H-FedSA Trim `rf030_lr025_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `78.85% / 21.15%`. Paper error interval `20.2%–22.4%`; **accepted in range**. This remains explicitly labeled as a retention-floor/learning-rate compatibility extension.
+- H-FedSA evidence: `artifacts/calibration/cifar10_iid_hfedsa_ddpg_trim_targeted/rf030_lr025_seed2026/` (15/15 GitHub readback comparisons passed). Server archive SHA-256: `30bce21ab1622ef28ec1894994bbdd84f2eb36c778942a50c9d634043620582b`.
+- RFA Trim `m050_seed2026`: final accuracy/error `21.48% / 78.52%`. Paper error interval `39.6%–44.0%`; above range, not accepted. The m040 interpolation probe launched at 00:11 CST.
+- MSGuard Trim m015-random and FedAvg Label Flip m080 also launched at 00:11 CST. Current outstanding paper-cell count: **20**.
