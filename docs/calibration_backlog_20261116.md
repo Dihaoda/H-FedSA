@@ -347,3 +347,10 @@ the remaining RFA Krum extension is chained after it.
 - Paper error interval: `17.1%–19.3%`; **accepted in range** under the error-only criterion. ASR is reported but is not a gate.
 - Evidence: `artifacts/calibration/cifar10_iid_rfa_scaling/scale010_p001_t2_v075_lr018_seed2026/` (11/11 GitHub readback comparisons passed). Server archive SHA-256: `1f3fe39748b45900a8d125038a43975d5b28acaa1671b0a212ee20f2e545b153`.
 - Current outstanding paper-cell count: **21**.
+
+### 2026-11-16 23:59 CST — FLTrust Krum m050 completed
+
+- Candidate: `cifar10_iid_fltrust_krum_targeted_m050_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `82.39% / 17.61%`.
+- Paper error interval: `33.1%–36.9%`; below range, not accepted. Increasing fixed malicious ratio from m040 (`16.68%`) to m050 (`17.61%`) did not close the gap.
+- The next explicitly labeled compatibility probe keeps m050 and lowers local learning rate to 0.0035. Current outstanding paper-cell count remains **21**.
