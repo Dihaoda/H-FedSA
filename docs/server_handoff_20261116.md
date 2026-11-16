@@ -206,3 +206,11 @@ FLTrust/RFA Trim at malicious ratio 0.30 and FLTrust/RFA Krum at 0.40. A
 bounded supervisor launches them sequentially without exceeding ten active
 configurations. MSGuard Trim ratio 0.22 is active. The server must remain
 powered on.
+
+### Queue checkpoint — 2026-11-16 21:49 CST
+
+- SafeFL + Trim m025 completed in range at `27.23%` error; evidence path and archive checksum are recorded in the reproduction status.
+- MSGuard + Trim m025 completed out of range at `56.57%` error.
+- RFA Scaling lr020 and RFA Krum m040 have auto-launched into the two freed slots.
+- Two validated random-participation Trim m025 probes are chained behind the RFA Krum supervisor: MSGuard first, then SafeFL. Configs are committed under `configs/calibration/targeted_followon_20261116/`.
+- Keep the server powered on; ten unique calibration configs remain the concurrency ceiling.
