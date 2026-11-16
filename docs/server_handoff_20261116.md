@@ -433,3 +433,9 @@ powered on.
 - SafeFL Adaptive m040/ps0.05 completed at `19.68%`, below its interval.
 - m040/ps0.00 passed `--dry_run`, was committed, passed 1/1 normalized readback, and is queued.
 - RFA Krum m031-random/lambda1.5 filled the free slot. Ten unique configurations are active; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 07:54 CST
+
+- H-FedSA Krum lr0.0497 ended at `28.92%`, confirming a non-monotonic boundary.
+- lr0.0496/weight-decay0.00045 passed `--dry_run`, was committed, passed 1/1 normalized readback, and is queued.
+- SafeFL Adaptive ps0.00 filled the free slot. Ten unique configurations are active; keep the server powered on.
