@@ -268,3 +268,9 @@ powered on.
 - FLTrust + Krum m050/lr0.0025 completed at `31.07%` error, below the `33.1%–36.9%` paper interval; it is not accepted.
 - The adjacent lr0.0020 probe passed dry-run validation and is active. Ten unique configurations remain active.
 - Outstanding paper-cell count remains `19`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 02:25 CST
+
+- MSGuard + Trim m014-random completed in range at `24.68%` error.
+- Complete evidence is stored at `artifacts/calibration/cifar10_iid_msguard_trim_targeted/m014_random_seed2026/`; 12/12 normalized GitHub readback comparisons passed. Archive SHA-256: `dc4e5c525cefc544b539e9b290c6d425ddda22a416ebbac6d5c3466a4a9d9f06`.
+- Outstanding paper-cell count is now `18`. MSGuard Adaptive m040/projection0.10 has filled the released slot; keep the server powered on.
