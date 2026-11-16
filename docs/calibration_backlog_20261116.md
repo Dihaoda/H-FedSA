@@ -274,3 +274,11 @@ the remaining RFA Krum extension is chained after it.
 - Paper error interval: `24.7%–27.5%`; **accepted in range** under the error criterion.
 - Evidence: `artifacts/calibration/cifar10_iid_safefl_signguard_trim_targeted/m025_seed2026/` (12/12 GitHub readback comparisons passed). Server archive SHA-256: `b9b55c69a88bacd1a99196e20611e5bb1c19e341c8d4eaec0efb8cbdc027af20`.
 - Current outstanding paper-cell count: **22**.
+
+### 2026-11-16 21:55 CST — H-FedSA + Trim rf030 lr040 completed
+
+- Candidate: `cifar10_iid_hfedsa_ddpg_trim_targeted_rf030_lr040_seed2026`.
+- Reproducibility: real CIFAR-10, seed `2026`, final round `250/250`, `retention_floor=0.30`, local learning rate `0.040`; this is explicitly a retention-floor compatibility extension.
+- Measured final accuracy/error: `79.98% / 20.02%` (`final_attack_success_rate: NA`).
+- Paper error interval: `20.2%–22.4%`; result misses the lower bound by `0.18` percentage points and is therefore recorded as a near miss, **not** accepted or archived as paper-aligned.
+- The adjacent rf030/lr045 probe remains active. Current outstanding paper-cell count remains **22**.
