@@ -550,3 +550,11 @@ the remaining RFA Krum extension is chained after it.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `10.00% / 90.00%`.
 - Paper error interval: `26.5%–29.5%`; above range, not accepted.
 - Combined with m040/ps0.10 at `18.87%`, this brackets a discrete boundary. The validated m045 random-participation/ps0.10 interpolation is active. Current outstanding paper-cell count remains **14**.
+
+### Boundary calibration checkpoint — 2026-11-17 05:19 CST
+
+- H-FedSA + Krum lr0.0493 completed at `24.59%` error, above the `20.1%–22.5%` interval; the adjacent lr0.0496 config passed dry-run validation, is committed, and is active.
+- RFA + Adaptive m030/ps0.20 completed at `27.61%` error, below the `46.0%–51.0%` interval; m033/ps0.20 passed dry-run validation, is committed, and is active.
+- MSGuard + Adaptive m030/ps0.30 completed at `17.24%` error, below the `25.3%–28.1%` interval; m033/ps0.25 passed dry-run validation, is committed, and is active.
+- RFA + Trim m031-random completed at `48.02%` error, above the `39.6%–44.0%` interval. It remains pending and is not archived as paper-aligned.
+- RFA PoiSAFL m050/anti-epochs3/alpha0.10/distance-gamma1.0 filled the remaining slot. Ten unique configurations are active; the outstanding paper-cell count remains **14**.
