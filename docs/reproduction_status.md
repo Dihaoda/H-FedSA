@@ -682,3 +682,10 @@ probe.
 - FLTrust Krum `m050_lr0035_seed2026`: final accuracy/error `71.10% / 28.90%`; paper interval `33.1%–36.9%`; below range, not accepted. The next continuous probe uses lr0.0025.
 - H-FedSA Krum `lambda1495_lr055_seed2028`: final accuracy/error `72.15% / 27.85%`; paper interval `20.1%–22.5%`; above range, not accepted. Historical lr0.05 at the same seed/lambda produced `23.55%`, so the next probe reverses direction to lr0.045.
 - Both use real CIFAR-10 and final-round-only selection. Current outstanding paper-cell count remains **20**.
+
+### 2026-11-17 01:15 CST — MSGuard Trim m015-random completed
+
+- Candidate: `cifar10_iid_msguard_trim_targeted_m015_random_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, random participant sampling; final accuracy/error `73.19% / 26.81%`.
+- Paper error interval: `23.7%–26.3%`; above the upper bound by `0.51` percentage points, not accepted.
+- The next explicitly labeled interpolation changes only the global malicious ratio from `0.15` to `0.14`; it launched at 01:20 CST. Current outstanding paper-cell count remains **20**.
