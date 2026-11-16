@@ -626,3 +626,9 @@ the remaining RFA Krum extension is chained after it.
 - SafeFL-compatible SignGuard + Adaptive m040/ps0.05 completed at `19.68%` error, below the `26.5%–29.5%` interval.
 - The m040/ps0.00 follow-up passed dry-run, was committed, passed 1/1 normalized GitHub readback, and is queued.
 - RFA Krum m031-random/lambda1.5 filled the released slot. Ten unique configurations are active; outstanding count remains **14**.
+
+### H-FedSA Krum non-monotonic checkpoint — 2026-11-17 07:54 CST
+
+- H-FedSA + Krum lr0.0497 completed at `28.92%` error, above the `20.1%–22.5%` interval and substantially worse than lr0.0496 at `22.64%`.
+- The next candidate returns to lr0.0496 and changes weight decay from 0.0005 to 0.00045. It passed dry-run, was committed, passed 1/1 normalized GitHub readback, and is queued.
+- SafeFL Adaptive m040/ps0.00 filled the released slot. Ten unique configurations are active; outstanding count remains **14**.
