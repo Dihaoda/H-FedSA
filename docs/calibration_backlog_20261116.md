@@ -193,3 +193,11 @@ interval late in training. Two otherwise identical fixed-seed candidates at
 0.025 and 0.030 passed dry-run validation, are committed in the existing
 Scaling grid, and wait for automatic slot refill. Acceptance uses final-round
 error only.
+
+
+## RFA Scaling learning-rate outcomes (2026-11-16 20:36 CST)
+
+Learning rates 0.035, 0.040, and 0.045 completed at 15.54%, 15.42%, and
+15.13% final error, respectively, below the 17.1--19.3% paper interval. Their
+ASRs were 6.41%, 7.59%, and 9.84% and remain diagnostics only. The validated
+0.025 and 0.030 candidates launched automatically at 20:35 CST.
