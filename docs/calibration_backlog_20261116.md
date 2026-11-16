@@ -614,3 +614,9 @@ the remaining RFA Krum extension is chained after it.
 - RFA + Krum m030/lambda0.7 completed at `21.53%` error, below the `36.1%–40.3%` interval and also below the prior m030/default result.
 - The next candidate uses the collapse-side m031 random participation with lambda1.5. It passed dry-run, was committed, passed 1/1 normalized GitHub readback, and is queued.
 - RFA PoiSAFL m060/anti-epochs5/alpha0.00 filled the released slot. Ten unique configurations are active; outstanding count remains **14**.
+
+### MSGuard PoiSAFL checkpoint — 2026-11-17 07:34 CST
+
+- MSGuard + PoiSAFL m040/anti-epochs2/alpha0.30 completed at `23.10%` error, below the `31.4%–34.8%` interval.
+- The stronger m050/anti-epochs5/alpha0.00 config passed dry-run, was committed, passed 1/1 normalized GitHub readback, and is queued.
+- FLTrust PoiSAFL m070/anti-epochs5/alpha0.00 filled the released slot. Ten unique configurations are active; outstanding count remains **14**.
