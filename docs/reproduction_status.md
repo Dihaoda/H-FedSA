@@ -590,3 +590,9 @@ probe.
 - FLTrust Krum `m040_seed2026`: final accuracy/error `83.32% / 16.68%`; paper error interval `33.1%–36.9%`; below range, not accepted. The m050 probe launched at 22:47 CST.
 - RFA Trim `m030_seed2026`: final accuracy/error `72.40% / 27.60%`; paper error interval `39.6%–44.0%`; below range, not accepted. The m050 probe launched at 22:47 CST.
 - All results use real CIFAR-10, seed 2026, final-round-only selection. Ten unique configurations remain active. Current outstanding paper-cell count remains **22**.
+
+### 2026-11-16 23:05 CST — random-participation Trim probes completed
+
+- MSGuard Trim `m025_random_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, random participant sampling; final accuracy/error `9.99% / 90.01%`. Paper error interval `23.7%–26.3%`; out of range, not accepted. The m020-random probe launched at 22:59 CST.
+- SafeFL-compatible SignGuard Trim `m025_random_seed2026`: final accuracy/error `63.97% / 36.03%`. Paper error interval `24.7%–27.5%`; out of range. This does not alter the already accepted fixed-stratified m025 result at `27.23%`.
+- RFA Krum m030 launched at 22:59 CST. The queued MSGuard Krum m040-random probe will take the next freed slot. Current outstanding paper-cell count remains **22**.
