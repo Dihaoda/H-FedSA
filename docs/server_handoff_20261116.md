@@ -214,3 +214,9 @@ powered on.
 - RFA Scaling lr020 and RFA Krum m040 have auto-launched into the two freed slots.
 - Two validated random-participation Trim m025 probes are chained behind the RFA Krum supervisor: MSGuard first, then SafeFL. Configs are committed under `configs/calibration/targeted_followon_20261116/`.
 - Keep the server powered on; ten unique calibration configs remain the concurrency ceiling.
+
+### Queue checkpoint — 2026-11-16 23:46 CST
+
+- RFA + Scaling accepted at `17.44%` error; evidence readback passed 11/11 and archive SHA-256 is recorded in reproduction status.
+- Outstanding paper-cell count is now `21`.
+- Continue active calibration queue; do not shut down until all active and queued runs finish, GitHub evidence/status updates are verified, and no further required cells remain.
