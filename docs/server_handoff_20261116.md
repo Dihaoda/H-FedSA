@@ -311,3 +311,9 @@ powered on.
 - FLTrust + Adaptive m040/projection0.10 completed at `16.80%` error, below its interval; final attacked-client FLTrust weights were zero.
 - FedAvg PoiSAFL m080/anti-epochs3/alpha0.10/distance-gamma1.0 filled the released slot.
 - Ten unique configurations remain active. Outstanding paper-cell count remains `16`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 03:45 CST
+
+- RFA + Adaptive m040/projection0.10 completed at `92.67%` error, above its interval.
+- The weaker m030/projection0.20 interpolation passed dry-run validation, is committed, and is active.
+- Ten unique configurations remain active. Outstanding paper-cell count remains `16`; keep the server powered on.
