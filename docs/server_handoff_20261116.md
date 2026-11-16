@@ -317,3 +317,11 @@ powered on.
 - RFA + Adaptive m040/projection0.10 completed at `92.67%` error, above its interval.
 - The weaker m030/projection0.20 interpolation passed dry-run validation, is committed, and is active.
 - Ten unique configurations remain active. Outstanding paper-cell count remains `16`; keep the server powered on.
+
+### H-FedSA Krum and Adaptive boundary checkpoint — 2026-11-17 03:52 CST
+
+- H-FedSA Krum lr0.0495 ended at `22.66%`, 0.16 points above its interval; lr0.0493 is active.
+- SafeFL Adaptive m040/ps0.10 ended at `18.87%`; stronger m050/ps0.10 is active.
+- MSGuard Adaptive m040/ps0.10 ended at `52.82%`; weaker m030/ps0.30 is active.
+- SafeFL Krum lambda0.0002/norm5 collapsed to `90.00%`; the boundary interpolation lambda0.0006/norm5 is active.
+- Ten unique configurations remain active. Outstanding paper-cell count remains `16`; keep the server powered on.
