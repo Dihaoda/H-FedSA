@@ -342,3 +342,9 @@ powered on.
 
 - FLTrust + Krum m050/lr0.0019 completed in range at `33.30%` error. Evidence is in `artifacts/calibration/cifar10_iid_fltrust_krum_targeted/m050_lr0019_seed2026/`; 13/13 normalized readback comparisons passed. Archive SHA-256: `ca1a31fd5d95927f8bcd9b075790309eac63b7c20306c5a5a398aba37babeaee`.
 - FLTrust PoiSAFL m050/anti-epochs3/alpha0.10/distance-gamma1.0 filled the released slot. Outstanding paper-cell count is now `14`; keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 04:45 CST
+
+- FedAvg + PoiSAFL m080/anti-epochs3/alpha0.10 completed at `30.30%` error, below the `>=90%` criterion.
+- The stronger m090/anti-epochs5/alpha0.00 config passed dry-run validation, is committed, and is active.
+- Ten unique configurations remain active. Outstanding paper-cell count remains `14`; keep the server powered on.
