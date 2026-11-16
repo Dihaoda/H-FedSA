@@ -669,3 +669,10 @@ probe.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `77.78% / 22.22%`.
 - Paper error interval: `22.3%–24.7%`; below the lower bound by 0.08 percentage points, so it is recorded as a near miss and not accepted.
 - The next continuous probe changes only local learning rate from 0.035 to 0.033. Current outstanding paper-cell count remains **20**.
+
+### 2026-11-17 01:04 CST — FedAvg Label Flip m080 completed
+
+- Candidate: `cifar10_iid_fedavg_label_flip_m080_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `19.32% / 80.68%`.
+- Paper error interval: `67.5%–76.5%`; above range by 4.18 percentage points, not accepted.
+- The next probe changes only malicious ratio from 0.80 to 0.70. Current outstanding paper-cell count remains **20**.
