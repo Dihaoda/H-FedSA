@@ -753,3 +753,7 @@ probe.
 - FedAvg Label Flip `m074_random_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, random participant-role sampling; final accuracy/error `26.30% / 73.70%`. Paper interval `67.5%–76.5%`; **accepted in range**. Evidence: `artifacts/calibration/cifar10_iid_fedavg_label_flip/m074_random_seed2026/` (11/11 normalized GitHub readback comparisons passed). Archive SHA-256: `99b0947d88714bb8b1c216943c7b18472ed1a4096e4d60f1922e14ac93c9daf6`.
 - RFA Trim `m035_random_seed2026`: final accuracy/error `37.49% / 62.51%`; paper interval `39.6%–44.0%`; above range, not accepted. The validated m032-random interpolation is active.
 - The unused FedAvg m076-random config remains a reproducible backup and was not launched after m074 succeeded. Current outstanding paper-cell count: **16**.
+
+### Prepared follow-on queue at 02:52 CST
+
+Five PoiSAFL compatibility-extension configs and four adjacent interpolation configs passed server dry-run validation and are committed under `configs/calibration/followup_ready_20261117/`. The PoiSAFL wave changes malicious ratio plus anti-training strength and is explicitly not an unmodified paper scenario. It remains queued until the ten-config ceiling has free slots. The interpolation backups cover FedAvg Adaptive/Label Flip and RFA Krum/Trim; redundant candidates will not be launched after a cell succeeds.
