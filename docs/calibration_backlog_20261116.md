@@ -422,3 +422,10 @@ the remaining RFA Krum extension is chained after it.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `49.81% / 50.19%`.
 - Paper error interval: `39.6%–44.0%`; above range, not accepted.
 - The measured m030/m040 errors are `27.60% / 50.19%`. A dry-run-validated m035 random-participation interpolation launched at 01:35 CST. Current outstanding paper-cell count remains **20**.
+
+### 2026-11-17 01:56 CST — FedAvg Label Flip m070 completed
+
+- Candidate: `cifar10_iid_fedavg_label_flip_m070_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final-round-only selection; final accuracy/error `35.39% / 64.61%`.
+- Paper error interval: `67.5%–76.5%`; below the lower bound by `2.89` percentage points, not accepted.
+- Measured fixed-stratified m070/m080 errors are `64.61% / 80.68%`. A dry-run-validated m074 random-participation interpolation launched at 01:56 CST. Current outstanding paper-cell count remains **20**.
