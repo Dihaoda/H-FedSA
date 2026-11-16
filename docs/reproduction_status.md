@@ -425,3 +425,20 @@ The active ten-way wave now consists of six FLTrust/RFA Scaling trigger-value
 interpolations and four H-FedSA Trim-targeted malicious-penalty candidates. Six
 additional H-FedSA clean/Scaling dropout boundary candidates are validated and
 queued behind that wave.
+
+
+### Scaling interpolation and Trim penalty outcomes (2026-11-16 18:11 CST)
+
+FLTrust trigger-value candidates 1.25, 1.50, and 1.75 completed at
+15.08%/31.70%, 15.72%/39.22%, and 15.43%/48.63% error/ASR,
+respectively. RFA candidates at the same values completed at
+15.26%/27.12%, 15.31%/35.87%, and 15.28%/46.02%. None satisfies both
+paper metrics. The monotonic ASR response motivates separately preregistered
+lower values 0.50 and 0.75, which are now running.
+
+H-FedSA Trim-targeted malicious-penalty candidates 0.6, 0.4, 0.2, and 0.0
+completed at 16.09%, 16.01%, 16.09%, and 15.93% error, respectively,
+versus 21.3 +/- 1.1%. This parameter had negligible effect because
+high-malicious-probability updates still received near-zero base weight. Any
+subsequent retention-floor experiment is labeled a compatibility extension,
+not an unmodified Algorithm 1 result.
