@@ -646,3 +646,8 @@ the remaining RFA Krum extension is chained after it.
 - RFA + Adaptive m040/ps0.30 completed on real CIFAR-10 at `26.30%` final error, below the `46.0%–51.0%` interval. The m040/ps0.20 midpoint passed `--dry_run`, was committed, passed normalized GitHub readback, and is queued.
 - SafeFL-compatible SignGuard + PoiSAFL m050/anti-epochs5/alpha0.00 completed at `98.77%` final error, above the `33.7%–37.5%` interval. The interpolated m045/anti-epochs3/alpha0.15 candidate passed `--dry_run`, was committed, passed normalized GitHub readback, and is queued.
 - SafeFL Krum lambda0.0007925 filled the released slot; ten unique configurations are active. Both completed cells remain pending, so the outstanding count remains **14**.
+
+### FLTrust Adaptive near-miss checkpoint — 2026-11-17 08:27 CST
+
+- FLTrust + Adaptive lr0.0007 completed on real CIFAR-10 at `41.86%` final error, 0.94 points below the `42.8%–47.4%` interval, so it is not accepted.
+- The lr0.0006 follow-up passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued. RFA Adaptive m040/ps0.20 filled the released slot; ten unique configurations are active and the outstanding count remains **14**.
