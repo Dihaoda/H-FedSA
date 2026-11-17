@@ -956,3 +956,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Candidate: `cifar10_iid_fltrust_poisafl_m070_ae5_a000_g100_seed2026`.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final error `23.15%`; target `52.4%–58.0%`. It is out of range and is not promoted as paper-aligned.
 - m090/anti-epochs15/alpha0.00 is explicitly labeled as a calibration extension; it passed dry-run, commit, and normalized GitHub readback and is queued. Outstanding count remains **14**.
+
+### 2026-11-17 09:12 CST — SafeFL Adaptive ps0.00 outcome
+
+- Candidate: `cifar10_iid_safefl_signguard_adaptive_m040_ps000_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final error `26.21%`; target `26.5%–29.5%`. The 0.29-point near miss is not promoted as paper-aligned.
+- m040/ps0.00/lr0.049 is explicitly labeled as a calibration extension; it passed dry-run, commit, and normalized GitHub readback and is queued. Outstanding count remains **14**.
