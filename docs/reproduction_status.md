@@ -1174,3 +1174,8 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - FLTrust-PoiSAFL m0.8790/0.8810/0.8830 ended at `33.79%`/`33.74%`/`33.44%`; m0.8875/0.8890/0.8900/0.8910/0.8925 are active against m0.90's `90.00%` high result.
 - Three RFA-Adaptive boundary probes remain active. Queue commit `b7eac631b058ef16222f850b3fece91173358f31`, 115 lines, SHA-256 `fc5fbd47b15b7c5050d26d58b6003e64dff158f9698ee904d206e0f2205732f7`. Two cells remain and eight candidates are active.
 
+### 2026-11-18 07:30 CST — final ten-way threshold wave
+
+- RFA-Adaptive ps0.202872/0.202875/0.202880 ended at `37.35%`/`36.40%`/`89.95%`; ps0.2028755/0.2028760/0.2028765/0.2028770/0.2028780 are active.
+- Five FLTrust-PoiSAFL candidates remain active. Queue commit `1d26a7723854f28a6c936309ac800e5ffb63deb4`, 120 lines, SHA-256 `90e1f0279d2906473a2d27ceb07b3ad9e8eb3f8e57c0816d1f852383b12e449e`. Two cells remain and 10 candidates are active.
+
