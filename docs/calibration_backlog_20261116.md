@@ -8,14 +8,14 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 6 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
+There are 5 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
 | --- | ---: |
 | No attack | 0 |
 | Label flip | 0 |
-| Scaling | 1 |
+| Scaling | 0 |
 | Krum-targeted | 1 |
 | Trim-targeted | 0 |
 | Adaptive | 1 |
@@ -31,7 +31,7 @@ about joint error/ASR matching is retained as historical campaign context.
 | Priority | Attack | Defense | Measured | Paper target | Gap status |
 | --- | --- | --- | --- | --- | --- |
 | P2 | Label flip | FedAvg | error 18.924% | 72.0 +/- 4.5% | far below |
-| P1 | Scaling | FedAvg | latest error 15.05%, ASR 37.91% | error 14.8%, ASR 100.0% | error 0.25 points high; ASR descriptive |
+| Done | Scaling | FedAvg | near-aligned error 14.97% | error 14.8%, ASR descriptive | 0.17-point gap; evidence archived |
 | P0 | Scaling | RFA | error 20.19%, ASR 99.84% | error 18.2 +/- 1.1%, ASR 11.5 +/- 1.5% | both out |
 | Done | Krum-targeted | H-FedSA | accepted calibration error 22.26% | 21.3 +/- 1.2% | in range; evidence archived |
 | P2 | Krum-targeted | FLTrust | error 15.90% | 35.0 +/- 1.9% | below |
@@ -812,3 +812,9 @@ the remaining RFA Krum extension is chained after it.
 - New out-of-range outcomes and active interpolations: RFA-PoiSAFL `96.92%` -> m0.665; Scaling `15.37%` -> wd0.00065; SafeFL-Krum `20.18%` -> norm5.074; FLTrust-PoiSAFL `22.82%` -> m0.796; RFA-Adaptive `35.57%` -> ps0.2044; SafeFL-PoiSAFL `29.91%` -> alpha0.317.
 - Queue commit `c9b6447b7d221017bba042acea91fa03455e7456` has 60 lines and synchronized SHA-256 `0ed1392e1f89f6969e62a6514920508bb95b9e3b72482e59f8cc38f50885b1b7`. All six outstanding cells are active.
 - Accepting MSGuard-PoiSAFL reduces the outstanding count from 7 to **6**: Scaling 1, Krum 1, Adaptive 1, PoiSAFL 3.
+
+### 2026-11-17 19:09 CST — FedAvg Scaling near-aligned
+
+- **Near-aligned under the user-approved no-large-gap rule:** FedAvg + Scaling completed at `14.97%` final error versus the paper point target `14.80%`, an absolute gap of only `0.17` percentage points. This is explicitly not described as inside a zero-width interval.
+- Real run evidence is frozen at `artifacts/calibration/cifar10_iid_fedavg_scaling/s010_p001_t2_v150_lr0510_wd0650_seed2026/`; 11/11 normalized GitHub readbacks and the downloaded SHA256SUMS verification passed. Archive SHA-256: `dcbb12f659a928757c797fbca2c40025bef0421709c94dfce1b3702aeb28347a`.
+- Under the user's stated “within range or not a large difference” criterion, this closes the final Scaling cell and reduces the outstanding count from 6 to **5**: Krum 1, Adaptive 1, PoiSAFL 3.
