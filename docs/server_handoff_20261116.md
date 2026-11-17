@@ -689,3 +689,9 @@ powered on.
 - Three RFA-Adaptive probes launched at 05:54 CST. Queue commit `71a341454c407e81e08bf5adccee638c873760b9`, 110 lines, synchronized SHA-256 `95b26c39459792b3dd341dd20493fafdafc7399194d65364a36a67167ccc7055`.
 - Two cells remain and six configs are active. Keep the daemon and server powered on.
 
+### 2026-11-18 06:43 CST — final two-cell operational wave
+
+- FLTrust-PoiSAFL m0.8790/0.8810/0.8830 ended at `33.79%`/`33.74%`/`33.44%`; five interpolated candidates launched at 06:39 CST.
+- Three RFA-Adaptive candidates remain active. Queue commit `b7eac631b058ef16222f850b3fece91173358f31`, 115 lines, synchronized SHA-256 `fc5fbd47b15b7c5050d26d58b6003e64dff158f9698ee904d206e0f2205732f7`.
+- Two cells remain and eight configs are active. Keep the daemon and server powered on.
+
