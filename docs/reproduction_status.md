@@ -1028,4 +1028,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - RFA-PoiSAFL gamma0.50 ended at `97.42%` error (target `55.0%–61.0%`) and SafeFL-compatible SignGuard-PoiSAFL gamma0.75 ended at `16.72%` (target `33.7%–37.5%`); neither is accepted.
 - New real-data final-round candidates change participant sampling for RFA and alpha for SafeFL because the paired gamma trials showed negligible movement.
 - Both candidate files and the queue passed dry-run/synchronization/GitHub readback, and the queue runner launched them at 12:49 CST. Ten unique configurations are active; outstanding count remains **10**.
+### 2026-11-17 13:49 CST — RFA Krum evidence accepted
+
+- RFA-Krum m030/lr0.003 produced `39.70%` real-CIFAR-10 final-round error, inside the `36.1%–40.3%` paper interval, and is accepted.
+- The immutable evidence directory is `artifacts/calibration/cifar10_iid_rfa_krum_targeted/m030_lr0003_seed2026/`; 12/12 normalized GitHub readbacks passed. Archive SHA-256 is `6b013d21b5235a53506f67fdf486579a7bda9c8f36004e2a0cd70cd2b48d3d76` on both server and downloaded copy, with zero local manifest failures.
+- Six other new final-round results remain explicitly out of range: Scaling `15.26%`, RFA-Adaptive `31.86%`, SafeFL-Krum `90.00%`, RFA-Trim `46.28%`, H-FedSA-Krum `23.79%`, and MSGuard-PoiSAFL `35.07%`.
+- Nine configs are active after the 13:49 CST refill. Outstanding paper-cell count is now **9**.
 
