@@ -1023,4 +1023,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Seven traceable follow-ups now cover RFA-Krum lr0.003, SafeFL-Krum norm-upper6, FedAvg-Scaling weak-trigger calibration, RFA-Trim m030 random sampling, FLTrust-PoiSAFL random role sampling, H-FedSA-Krum lr0.04962, and MSGuard-PoiSAFL alpha0.20. Each config passed `--dry_run`, commit, synchronization, and normalized GitHub readback.
 - The daemon recorded ten unique active configurations after its 12:24 CST refill. Selection remains fixed-seed, real-data, 250/250 rounds, final-round-only, and error-only; ASR remains descriptive.
 - Outstanding paper-cell count remains **10**.
+### 2026-11-17 12:49 CST — PoiSAFL boundary update
+
+- RFA-PoiSAFL gamma0.50 ended at `97.42%` error (target `55.0%–61.0%`) and SafeFL-compatible SignGuard-PoiSAFL gamma0.75 ended at `16.72%` (target `33.7%–37.5%`); neither is accepted.
+- New real-data final-round candidates change participant sampling for RFA and alpha for SafeFL because the paired gamma trials showed negligible movement.
+- Both candidate files and the queue passed dry-run/synchronization/GitHub readback, and the queue runner launched them at 12:49 CST. Ten unique configurations are active; outstanding count remains **10**.
 
