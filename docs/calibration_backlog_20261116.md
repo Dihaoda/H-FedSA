@@ -632,3 +632,11 @@ the remaining RFA Krum extension is chained after it.
 - H-FedSA + Krum lr0.0497 completed at `28.92%` error, above the `20.1%–22.5%` interval and substantially worse than lr0.0496 at `22.64%`.
 - The next candidate returns to lr0.0496 and changes weight decay from 0.0005 to 0.00045. It passed dry-run, was committed, passed 1/1 normalized GitHub readback, and is queued.
 - SafeFL Adaptive m040/ps0.00 filled the released slot. Ten unique configurations are active; outstanding count remains **14**.
+
+### MSGuard Adaptive, SafeFL Krum, and MSGuard stability checkpoint — 2026-11-17 08:13 CST
+
+- MSGuard + Adaptive m040/ps0.30 completed on real CIFAR-10 at `20.54%` final error, below the `25.3%–28.1%` interval. The interpolated m040/ps0.26 candidate passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is active.
+- SafeFL-compatible SignGuard + Krum lambda0.000795/norm5 completed at `17.67%` final error, below the `22.8%–25.4%` interval. The lambda0.0007925 boundary candidate passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued.
+- MSGuard + PoiSAFL m050/anti-epochs5/alpha0.00 stopped at round 3 because `torch.linalg.eigh` did not converge on an ill-conditioned client Gram matrix. No metric was accepted from the incomplete run.
+- MSGuard spectral scoring now symmetrizes the 10x10 Gram matrix, evaluates it on CPU in float64, and uses a deterministic SVD backup on eigensolver non-convergence. The focused suite passes locally and on AutoDL (`5 passed`), both changed source/test files passed 2/2 normalized GitHub readback, and the same config has restarted with the failed log preserved separately.
+- H-FedSA Krum lr0.0496/weight-decay0.00045 also entered the released slot. Ten unique configurations are active; outstanding paper-cell count remains **14**.
