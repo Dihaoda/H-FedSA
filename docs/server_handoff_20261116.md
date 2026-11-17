@@ -547,4 +547,10 @@ powered on.
 - Queue commit `7003b32ee8a9dc1daae4cd5a151ed2b36615b232` adds RFA-PoiSAFL random role sampling and SafeFL-PoiSAFL alpha0.30. Both configs passed dry-run and normalized readback.
 - The daemon launched both at 12:49:02 CST and restored the ten-config ceiling. Queue file now has 29 lines including its header.
 - Outstanding count remains `10`; continue low-frequency monitoring and do not shut down.
+### 2026-11-17 13:49 CST operational checkpoint
+
+- RFA-Krum m030/lr0.003 is accepted at `39.70%`; evidence path is `artifacts/calibration/cifar10_iid_rfa_krum_targeted/m030_lr0003_seed2026/`, with 12/12 GitHub readbacks and archive SHA-256 `6b013d21b5235a53506f67fdf486579a7bda9c8f36004e2a0cd70cd2b48d3d76`.
+- Queue commits `c8b9b57d283168d7368cb1039b3eef665754e473`, `da26abff69e27ffb7d17a3cafac869f5f4aedbf9`, and `b0fcde7af3fa1c7b1b2e6fd056ffcde0a3b316b7` added the six immediate refinements; every new config and queue revision passed normalized readback.
+- The daemon launched MSGuard-PoiSAFL alpha0.205 and H-FedSA-Krum m0.19/lr0.0496 at 13:49 CST. Nine unique configs are active and correspond to the nine outstanding cells.
+- Outstanding composition is Scaling 1, Krum 2, Trim 1, Adaptive 1, PoiSAFL 4. Continue low-frequency monitoring; do not shut down.
 
