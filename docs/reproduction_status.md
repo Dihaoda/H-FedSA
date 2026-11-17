@@ -986,5 +986,5 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 
 - `cifar10_iid_fltrust_adaptive_m040_ps010_lr0006_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `42.87%`; target `42.8%–47.4%`. **Accepted in range.** Evidence: `artifacts/calibration/cifar10_iid_fltrust_adaptive/m040_ps010_lr0006_seed2026/`; 13/13 normalized GitHub readbacks passed; archive SHA-256 `44b1b58fad11ec63e99ac52c297ee42e7ecbfc0c3b7f251e241b163a67549fa5`.
 - `cifar10_iid_safefl_signguard_poisafl_m045_ae3_a015_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `82.47%`; target `33.7%–37.5%`, out of range.
-- The next SafeFL PoiSAFL calibration extension is `cifar10_iid_safefl_signguard_poisafl_m040_ae3_a040_g050_seed2026`; it passed `--dry_run`, commit, 2/2 config/queue normalized GitHub readback, and server synchronization. Selection remains final-round-only and synthetic fallback remains disabled.
+- The next SafeFL PoiSAFL calibration extension is `cifar10_iid_safefl_signguard_poisafl_m040_ae3_a040_g050_seed2026`; it passed `--dry_run`, commit, 2/2 config/queue normalized GitHub readback, and server synchronization. The queue runner launched it at 10:14:00 CST and restored ten active configs. Selection remains final-round-only and synthetic fallback remains disabled.
 - Outstanding paper-cell count is now **12**.
