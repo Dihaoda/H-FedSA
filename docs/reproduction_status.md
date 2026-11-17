@@ -924,3 +924,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - The first `cifar10_iid_msguard_poisafl_m050_ae5_a000_g100_seed2026` attempt ended at round 3 without a summary because symmetric eigendecomposition did not converge. It is recorded as a failed/incomplete run and contributes no result.
 - The MSGuard implementation now uses a symmetrized CPU-float64 Gram matrix plus an SVD fallback. The relevant suite passed locally and on AutoDL (`5 passed`); source and test readback passed 2/2. The unchanged experiment config has restarted under source revision `21b42995b926c930f00e4289314c2b14199663f2`, preserving the original failed log.
 - Neither completed metric is paper-aligned. Outstanding paper-cell count remains **14**.
+
+### 2026-11-17 08:18 CST — RFA Adaptive and SafeFL PoiSAFL outcomes
+
+- `cifar10_iid_rfa_adaptive_m040_ps030_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `26.30%`; target `46.0%–51.0%`, out of range. m040/ps0.20 is validated, committed, read back, and queued.
+- `cifar10_iid_safefl_signguard_poisafl_m050_ae5_a000_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `98.77%`; target `33.7%–37.5%`, out of range. m045/anti-epochs3/alpha0.15 is validated, committed, read back, and queued.
+- Neither result is paper-aligned. Outstanding paper-cell count remains **14**.
