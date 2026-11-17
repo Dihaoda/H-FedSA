@@ -36,7 +36,7 @@ about joint error/ASR matching is retained as historical campaign context.
 | Done | Krum-targeted | H-FedSA | accepted calibration error 22.26% | 21.3 +/- 1.2% | in range; evidence archived |
 | P2 | Krum-targeted | FLTrust | error 15.90% | 35.0 +/- 1.9% | below |
 | Done | Krum-targeted | RFA | accepted calibration error 39.70% | 38.2 +/- 2.1% | in range; evidence archived |
-| P2 | Krum-targeted | SafeFL-compatible SignGuard | norm5.0948 error 30.58% | 24.1 +/- 1.3% | above; narrowed interpolation norm5.0911 active |
+| P2 | Krum-targeted | SafeFL-compatible SignGuard | norm5.0911 error 30.58% | 24.1 +/- 1.3% | above plateau; narrowed interpolation norm5.0898 active |
 | P2 | Krum-targeted | MSGuard | error 16.09% | 23.5 +/- 1.2% | below |
 | P2 | Trim-targeted | H-FedSA | best grid error 16.21% | 21.3 +/- 1.1% | below |
 | P2 | Trim-targeted | FLTrust | error 15.97% | 38.7 +/- 2.0% | below |
@@ -51,7 +51,7 @@ about joint error/ASR matching is retained as historical campaign context.
 | Done | PoiSAFL | FedAvg | accepted calibration error 92.90% | >=90.0% | criterion met; evidence archived |
 | P2 | PoiSAFL | FLTrust | random m0.796 error 25.82% | 55.2 +/- 2.8% | below; bracket interpolation m0.8436 active |
 | P2 | PoiSAFL | RFA | random m0.7122 error 52.16% | 58.0 +/- 3.0% | bracket interpolation m0.7263 active |
-| P2 | PoiSAFL | SafeFL-compatible SignGuard | alpha0.3205 error 30.79% | 35.6 +/- 1.9% | narrowed interpolation alpha0.3198 active |
+| P2 | PoiSAFL | SafeFL-compatible SignGuard | alpha0.3198 error 29.87% | 35.6 +/- 1.9% | below; narrowed interpolation alpha0.3191 active |
 | Done | PoiSAFL | MSGuard | accepted calibration error 32.61% | 33.1 +/- 1.7% | in range; evidence archived |
 
 ## Completed in-range scaling cells
@@ -851,5 +851,12 @@ the remaining RFA Krum extension is chained after it.
 - RFA + PoiSAFL random m0.7122 completed at `52.16%`, below `55.0%–61.0%`; m0.7263 is the next interpolation against the high m0.82 result.
 - Both replacements passed dry-run, immutable commit, normalized GitHub readback, and synchronization, then launched at 23:34 CST.
 - Queue commit `eb3017950021b0675413c90f85b8444c1e988473` has 74 lines; synchronized SHA-256 `863af4965f015a1371532c5e725c750847505c50702c15e15cccdc6adf364859`.
+- Outstanding count remains **5**; five configs are active.
+### 2026-11-18 00:19 CST — two SafeFL threshold refinements
+
+- SafeFL-compatible SignGuard + Krum norm5.0911 completed at `30.58%`, matching the high-side plateau and remaining above `22.8%–25.4%`; norm5.0898 narrows the boundary against norm5.089's `20.37%`.
+- SafeFL-compatible SignGuard + PoiSAFL alpha0.3198 completed at `29.87%`, below `33.7%–37.5%`; alpha0.3191 narrows the boundary against alpha0.317's `53.81%`.
+- Both replacements passed dry-run, immutable commit, normalized GitHub readback, and synchronization. Krum launched at 00:14 CST and PoiSAFL at 00:19 CST.
+- Queue commit `0c51c5e0bba386acbb17f3a493133f09ec05dbec` has 76 lines; synchronized SHA-256 `df58434981d1216c6fe372923077a055f113d31a14b14623d1abc0c5f9078139`.
 - Outstanding count remains **5**; five configs are active.
 
