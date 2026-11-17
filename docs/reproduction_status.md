@@ -1038,4 +1038,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 
 - SafeFL-PoiSAFL alpha0.30 ended at `51.38%`, above the `33.7%–37.5%` error interval and is not accepted.
 - Alpha0.35 passed validation/readback and launched at 14:09 CST. Nine configs remain active; outstanding count stays **9**.
+### 2026-11-17 14:44 CST — three boundary refinements
+
+- New final-round errors are FedAvg-Scaling `15.05%`, RFA-PoiSAFL `38.87%`, and SafeFL-Krum `90.00%`; all remain outside their strict paper intervals.
+- The next candidates are Scaling lr0.0522, RFA-PoiSAFL random m0.60, and diagnostic-guided SafeFL-Krum norm-upper5.32. All passed validation/readback and are active.
+- Nine configs remain active; outstanding count stays **9**.
 
