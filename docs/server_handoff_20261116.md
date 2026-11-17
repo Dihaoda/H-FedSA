@@ -495,3 +495,10 @@ powered on.
 - H-FedSA Krum lr0.0496/wd0.00045 ended at `23.55%`, above its interval.
 - The wd0.00055 follow-up passed dry-run and GitHub readback and is queued.
 - At 09:28:59 CST the runner launched SafeFL Adaptive m040/ps0.00/lr0.049, restoring ten active configs. Continue low-frequency monitoring and keep the server powered on.
+
+### Accepted evidence and queue checkpoint — 2026-11-17 09:44 CST
+
+- MSGuard Adaptive m040/ps0.26 is accepted at `25.43%` error. Evidence path: `artifacts/calibration/cifar10_iid_msguard_adaptive/m040_ps026_seed2026/`; GitHub readback 12/12; archive SHA-256 `72e47780c16a7f50c75cfe2262085eefe7198abab6e69d0ee187bb667488c4a3`.
+- MSGuard PoiSAFL m050/ae5 ended at `89.99%`; RFA Adaptive ps0.20 ended at `90.48%`. Both are above their intervals.
+- At 09:43:59 CST the runner launched MSGuard PoiSAFL m045/ae3/alpha0.15. RFA Adaptive ps0.265 remains queued; ten configs are active.
+- Outstanding count is `13`. Keep the server powered on until all remaining cells, evidence, queue entries, and final audits are complete.
