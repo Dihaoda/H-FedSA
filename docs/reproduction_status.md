@@ -1034,4 +1034,8 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - The immutable evidence directory is `artifacts/calibration/cifar10_iid_rfa_krum_targeted/m030_lr0003_seed2026/`; 12/12 normalized GitHub readbacks passed. Archive SHA-256 is `6b013d21b5235a53506f67fdf486579a7bda9c8f36004e2a0cd70cd2b48d3d76` on both server and downloaded copy, with zero local manifest failures.
 - Six other new final-round results remain explicitly out of range: Scaling `15.26%`, RFA-Adaptive `31.86%`, SafeFL-Krum `90.00%`, RFA-Trim `46.28%`, H-FedSA-Krum `23.79%`, and MSGuard-PoiSAFL `35.07%`.
 - Nine configs are active after the 13:49 CST refill. Outstanding paper-cell count is now **9**.
+### 2026-11-17 14:09 CST — SafeFL PoiSAFL follow-up
+
+- SafeFL-PoiSAFL alpha0.30 ended at `51.38%`, above the `33.7%–37.5%` error interval and is not accepted.
+- Alpha0.35 passed validation/readback and launched at 14:09 CST. Nine configs remain active; outstanding count stays **9**.
 
