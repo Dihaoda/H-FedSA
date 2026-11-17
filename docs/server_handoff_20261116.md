@@ -489,3 +489,9 @@ powered on.
 - SafeFL Krum lambda0.0007925/norm5 ended at `18.38%`, below its paper interval.
 - The same attack/defense settings with local lr0.030 passed dry-run and GitHub readback and are queued.
 - At 09:18:59 CST the runner launched FLTrust PoiSAFL m090/ae15, restoring ten active configs. Continue low-frequency monitoring and keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 09:33 CST
+
+- H-FedSA Krum lr0.0496/wd0.00045 ended at `23.55%`, above its interval.
+- The wd0.00055 follow-up passed dry-run and GitHub readback and is queued.
+- At 09:28:59 CST the runner launched SafeFL Adaptive m040/ps0.00/lr0.049, restoring ten active configs. Continue low-frequency monitoring and keep the server powered on.
