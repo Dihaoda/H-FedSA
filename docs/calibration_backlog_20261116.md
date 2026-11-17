@@ -8,7 +8,7 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 12 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
+There are 11 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
@@ -18,7 +18,7 @@ Krum-targeted and Trim-targeted rows and is therefore excluded.
 | Scaling | 1 |
 | Krum-targeted | 3 |
 | Trim-targeted | 1 |
-| Adaptive | 2 |
+| Adaptive | 1 |
 | PoiSAFL | 5 |
 
 ## Detailed backlog
@@ -46,7 +46,7 @@ about joint error/ASR matching is retained as historical campaign context.
 | P2 | Adaptive | FedAvg | error 16.46% | 87.5 +/- 4.0% | below |
 | Done | Adaptive | FLTrust | accepted calibration error 42.87% | 45.1 +/- 2.3% | in range; evidence archived |
 | P2 | Adaptive | RFA | error 16.69% | 48.5 +/- 2.5% | below |
-| P2 | Adaptive | SafeFL-compatible SignGuard | error 16.98% | 28.0 +/- 1.5% | below |
+| Done | Adaptive | SafeFL-compatible SignGuard | accepted calibration error 26.76% | 28.0 +/- 1.5% | in range; evidence archived |
 | Done | Adaptive | MSGuard | accepted calibration error 25.43% | 26.7 +/- 1.4% | in range; evidence archived |
 | P2 | PoiSAFL | FedAvg | error 15.19% | >=90.0% | below |
 | P2 | PoiSAFL | FLTrust | error 15.47% | 55.2 +/- 2.8% | below |
@@ -712,3 +712,13 @@ the remaining RFA Krum extension is chained after it.
 - Lowering local lr from 0.05 to 0.02 moved the measured error toward the target. The next continuous calibration extension keeps all other settings fixed and uses lr0.0075.
 - The lr0.0075 config passed `--dry_run`, was committed, and the config plus queue passed 2/2 normalized GitHub readback. The daemon launched it at 10:29:00 CST and restored ten active configurations.
 - The RFA Krum cell remains pending; outstanding count remains **12**.
+
+### SafeFL Adaptive accepted and targeted/PoiSAFL follow-ups — 2026-11-17 11:04 CST
+
+- SafeFL-compatible SignGuard + Adaptive m040/ps0.00/lr0.049 completed on real CIFAR-10 at `26.76%` final error, inside the `26.5%–29.5%` interval. It is **accepted in range**.
+- Evidence is frozen at `artifacts/calibration/cifar10_iid_safefl_signguard_adaptive/m040_ps000_lr0490_seed2026/`; all 12/12 normalized GitHub readback comparisons passed. Archive SHA-256: `8a5a37a7f78a0dab8b2c334e24f8de936307b338ba1fcb446ef72c55882b9ebb`.
+- SafeFL + Krum lr0.030 completed at `18.01%`, below `22.8%–25.4%`; its sign-fraction0.05 follow-up launched at 10:54 CST.
+- RFA + PoiSAFL m055/ae4/alpha0.05/gamma1.0 completed at `95.75%`, above `55.0%–61.0%`; its gamma0.50 follow-up launched at 10:54 CST.
+- H-FedSA + Krum lr0.0496/wd0.00055 completed at `27.55%`, above `20.1%–22.5%`; its lr0.04958/wd0.00050 follow-up launched at 10:59 CST.
+- MSGuard + PoiSAFL m045/ae3/alpha0.15/gamma1.0 completed at `39.70%`, above `31.4%–34.8%`; its gamma0.80 follow-up launched at 11:04 CST.
+- All four follow-up configs passed dry-run and normalized config/queue readback. Nine configurations are active. Accepting SafeFL Adaptive reduces the outstanding count from 12 to **11**.
