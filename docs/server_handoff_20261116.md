@@ -564,3 +564,9 @@ powered on.
 - Queue commit `d9329161dee1c33aa6ea130c604ea2ac70260059` launched Scaling lr0.0522 and RFA-PoiSAFL random m0.60 at 14:34 CST. Queue commit `0864340839ffcc03179cf8a1076262757b4cfa38` launched SafeFL-Krum norm5.32 at 14:44 CST.
 - Queue has 39 lines including the header. Nine configs are active; outstanding count remains `9`.
 
+### 2026-11-17 15:14 CST — RFA boundary refinements and Krum/PoiSAFL follow-ups
+
+- At 15:09 CST the daemon launched RFA-Trim m0.276/random and RFA-Adaptive ps0.2075. At 15:14 CST it launched H-FedSA-Krum m0.18/lr0.05 and MSGuard-PoiSAFL alpha0.199, restoring nine active configurations.
+- Predecessor final errors are `44.15%`, `33.42%`, `23.18%`, and `36.62%`, respectively; none is silently promoted as paper-aligned.
+- Current queue commit is `e571bd1007f7cd70474ddc683e230cfecc528236`; local/server queue SHA-256 is `484ca3dee72af96e050c2c9956e83bf1ea4c0ae83c08b82f0818fa03e41bf94d`, and normalized GitHub readback passed for all new configs and the 43-line queue.
+- Keep low-frequency monitoring. Do not power off until every outstanding cell is either accepted with archived evidence or explicitly audited, all GitHub readbacks pass, and the process/queue shutdown gate is clear.
