@@ -452,3 +452,9 @@ powered on.
 - RFA Adaptive m040/ps0.30 ended at `26.30%`, below its interval; SafeFL PoiSAFL m050/anti-epochs5/alpha0.00 ended at `98.77%`, above its interval.
 - RFA m040/ps0.20 and SafeFL m045/anti-epochs3/alpha0.15 passed `--dry_run`, were committed, passed 2/2 normalized GitHub readback, and are queued.
 - SafeFL Krum lambda0.0007925 filled the available slot. Ten unique configurations are active; continue low-frequency/event-driven monitoring and keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 08:27 CST
+
+- FLTrust Adaptive lr0.0007 ended at `41.86%`, 0.94 points below its interval.
+- lr0.0006 passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued.
+- RFA Adaptive m040/ps0.20 filled the released slot. Ten unique configurations are active; continue low-frequency/event-driven monitoring and keep the server powered on.
