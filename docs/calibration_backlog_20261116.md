@@ -36,7 +36,7 @@ about joint error/ASR matching is retained as historical campaign context.
 | Done | Krum-targeted | H-FedSA | accepted calibration error 22.26% | 21.3 +/- 1.2% | in range; evidence archived |
 | P2 | Krum-targeted | FLTrust | error 15.90% | 35.0 +/- 1.9% | below |
 | Done | Krum-targeted | RFA | accepted calibration error 39.70% | 38.2 +/- 2.1% | in range; evidence archived |
-| P2 | Krum-targeted | SafeFL-compatible SignGuard | norm5.074 error 17.97% | 24.1 +/- 1.3% | below; adjacent norm5.105 active |
+| P2 | Krum-targeted | SafeFL-compatible SignGuard | norm5.105 error 30.58% | 24.1 +/- 1.3% | above; bracket interpolation norm5.089 active |
 | P2 | Krum-targeted | MSGuard | error 16.09% | 23.5 +/- 1.2% | below |
 | P2 | Trim-targeted | H-FedSA | best grid error 16.21% | 21.3 +/- 1.1% | below |
 | P2 | Trim-targeted | FLTrust | error 15.97% | 38.7 +/- 2.0% | below |
@@ -45,7 +45,7 @@ about joint error/ASR matching is retained as historical campaign context.
 | P2 | Trim-targeted | MSGuard | error 15.49% | 25.0 +/- 1.3% | below |
 | P2 | Adaptive | FedAvg | error 16.46% | 87.5 +/- 4.0% | below |
 | Done | Adaptive | FLTrust | accepted calibration error 42.87% | 45.1 +/- 2.3% | in range; evidence archived |
-| P2 | Adaptive | RFA | latest completed error 35.57% | 48.5 +/- 2.5% | below; ps0.2044 active |
+| P2 | Adaptive | RFA | ps0.2044 error 34.77% | 48.5 +/- 2.5% | below; threshold interpolation ps0.2033 active |
 | Done | Adaptive | SafeFL-compatible SignGuard | accepted calibration error 26.76% | 28.0 +/- 1.5% | in range; evidence archived |
 | Done | Adaptive | MSGuard | accepted calibration error 25.43% | 26.7 +/- 1.4% | in range; evidence archived |
 | Done | PoiSAFL | FedAvg | accepted calibration error 92.90% | >=90.0% | criterion met; evidence archived |
@@ -825,4 +825,10 @@ the remaining RFA Krum extension is chained after it.
 - SafeFL-compatible SignGuard + PoiSAFL alpha0.317 completed at `53.81%`, above `33.7%–37.5%`; threshold interpolation alpha0.3216 passed server dry-run, immutable config commit, normalized GitHub readback, and server synchronization, then launched at 19:59 CST.
 - FLTrust + PoiSAFL random m0.796 and RFA + Adaptive ps0.2044 remain active. Queue commit `ff73efbd7dc7943189e34b6af491fa813b801737` has 63 lines; local/server SHA-256 is `7e9a53e9a19dcf0895bd0018ae8c748366291bdb9e82529e97cf77b4eb897482`, and normalized GitHub readback passed.
 - No paper cell is newly accepted in this checkpoint. Outstanding count remains **5**: Krum 1, Adaptive 1, PoiSAFL 3.
+### 2026-11-17 20:34 CST — Adaptive and SafeFL Krum bracket updates
+
+- RFA + Adaptive ps0.2044 completed on real CIFAR-10 at `34.77%`, below `46.0%–51.0%`. Interpolation against ps0.2000 (`90.48%`) produced ps0.2033; it passed dry-run, commit, readback, synchronization, and launched at 20:24 CST.
+- SafeFL-compatible SignGuard + Krum norm5.105 completed at `30.58%`, above `22.8%–25.4%`. Together with norm5.074 (`17.97%`) it brackets the target; norm5.089 passed the same validation chain and launched at 20:34 CST.
+- Queue commit `a6054467c7a5164519ebd3aac18a5d5a05242c3b` has 65 lines; local/server SHA-256 is `f57da620cf423f00e764981f16534e8e1bd98b26bab56a0ef520a9e5d8a0ca3d`, with normalized GitHub readback passed.
+- No cell is newly accepted; five cells and five active configs remain.
 
