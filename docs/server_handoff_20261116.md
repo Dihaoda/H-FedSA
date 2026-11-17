@@ -502,3 +502,9 @@ powered on.
 - MSGuard PoiSAFL m050/ae5 ended at `89.99%`; RFA Adaptive ps0.20 ended at `90.48%`. Both are above their intervals.
 - At 09:43:59 CST the runner launched MSGuard PoiSAFL m045/ae3/alpha0.15. RFA Adaptive ps0.265 remains queued; ten configs are active.
 - Outstanding count is `13`. Keep the server powered on until all remaining cells, evidence, queue entries, and final audits are complete.
+
+### Accepted evidence and queue checkpoint — 2026-11-17 10:14 CST
+
+- FLTrust Adaptive m040/ps0.10/lr0.0006 is accepted at `42.87%` final error. Evidence path: `artifacts/calibration/cifar10_iid_fltrust_adaptive/m040_ps010_lr0006_seed2026/`; GitHub readback 13/13; archive SHA-256 `44b1b58fad11ec63e99ac52c297ee42e7ecbfc0c3b7f251e241b163a67549fa5`.
+- SafeFL PoiSAFL m045/ae3/alpha0.15/gamma1.0 ended at `82.47%`, above its interval. The m040/ae3/alpha0.40/gamma0.50 follow-up passed dry-run, commit, config/queue readback, and AutoDL synchronization.
+- Outstanding count is `12`. Continue low-frequency/event-driven monitoring; do not shut down until the queue, experiment processes, evidence backlog, GitHub readback, and final audit are all empty and verified.
