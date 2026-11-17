@@ -651,3 +651,10 @@ the remaining RFA Krum extension is chained after it.
 
 - FLTrust + Adaptive lr0.0007 completed on real CIFAR-10 at `41.86%` final error, 0.94 points below the `42.8%–47.4%` interval, so it is not accepted.
 - The lr0.0006 follow-up passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued. RFA Adaptive m040/ps0.20 filled the released slot; ten unique configurations are active and the outstanding count remains **14**.
+
+### Low-frequency queue runner — 2026-11-17 08:49 CST
+
+- Added `scripts/run_calibration_queue.sh` and `configs/calibration/followup_queue_20261117.tsv` so validated follow-ups can fill released slots on the server without frequent interactive polling.
+- The runner uses an exclusive `flock`, counts unique `src.main --config` processes, enforces the ten-configuration ceiling, polls every 300 seconds, records start/source-revision events, and preserves one log per candidate.
+- Server syntax and dry-run planning passed; the live daemon is PID `135810`. Its first authoritative cycle recorded `active=10 | limit=10`; SafeFL PoiSAFL m045/ae3/alpha0.15 and FLTrust Adaptive lr0.0006 remain queued.
+- Both new files passed 2/2 normalized GitHub readback. Result acceptance, evidence archival, and final shutdown remain gated on later audited checks.
