@@ -1157,3 +1157,8 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - RFA-Adaptive ps0.20285/0.20292/0.20298 ended at `35.39%`/`90.00%`/`36.17%`; ps0.202867/0.202900/0.202966 are active. Queue commit `0d30ead95a405e3458bede4f07123854ca750157`, 103 lines, SHA-256 `7be6245d143175daf7c935e16c2edf0e8dd605ae685070a430c0e038f8dea9a1`.
 - Outstanding paper-cell count is now **3**: Krum 1, Adaptive 1, PoiSAFL 1.
 
+### 2026-11-18 04:55 CST — SafeFL-Krum sign-fraction sweep refill
+
+- SafeFL-Krum sign-fraction0.06/0.08 ended at `20.79%`/`17.91%`; 0.09/0.095 and 0.04/0.05 are active at the same m0.50/norm5.0898/lambda0.0007925 setup.
+- Queue commit `e4496a6f57ef057f6644fa36a8a99e5509d8c923`, 107 lines, SHA-256 `96de7d3c076b1fc107badadd0b9c7186d8af660f2f3923d08f1a87945390304e`. Three cells remain and 10 candidates are active.
+
