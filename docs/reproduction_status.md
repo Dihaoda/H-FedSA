@@ -1104,4 +1104,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Out-of-range final errors preserved: FLTrust-PoiSAFL m0.796 `25.82%`, RFA-PoiSAFL m0.694 `51.44%`, SafeFL-Krum norm5.089 `20.37%`, RFA-Adaptive ps0.2033 `36.11%`, and SafeFL-PoiSAFL alpha0.3216 `29.89%`.
 - Active interpolations: m0.8436, m0.7122, norm5.0948, ps0.20255, and alpha0.3205 respectively. All passed dry-run, commit, normalized readback, and server synchronization.
 - Queue commit `aaa9e0f7c4f041c29b1416058523b1b380d288b6`, 70 lines, SHA-256 `0baf4099a92b400a685eb01835de6e14fd72e9af5643ab8dcf4da3516bd22bd2`. Outstanding count remains **5**.
+### 2026-11-17 23:04 CST — two SafeFL bracket refinements
+
+- SafeFL-PoiSAFL alpha0.3205 completed at `30.79%`; alpha0.3198 is active between this low regime and alpha0.317's `53.81%`.
+- SafeFL-Krum norm5.0948 completed at `30.58%`; norm5.0911 is active between this high regime and norm5.089's `20.37%`.
+- Queue commit `77fc6278b7063149e4c495c1aeadaddb5dbc881f`, 72 lines, SHA-256 `6771a21435a837fb4568476b16df88464bcee902947302f2eb31cda9a2573571`. Five cells remain.
 
