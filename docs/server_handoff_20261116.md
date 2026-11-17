@@ -514,3 +514,10 @@ powered on.
 - RFA Krum m030/lr0.020 ended at `25.62%`, below its `36.1%–40.3%` interval.
 - The m030/lr0.0075 follow-up passed dry-run, commit, config/queue readback, and AutoDL synchronization. The queue daemon launched it at 10:29:00 CST and restored ten active configurations.
 - Outstanding count remains `12`. Continue low-frequency/event-driven monitoring and keep the server powered on.
+
+### Accepted evidence and queue checkpoint — 2026-11-17 11:04 CST
+
+- SafeFL-compatible SignGuard Adaptive m040/ps0.00/lr0.049 is accepted at `26.76%`. Evidence: `artifacts/calibration/cifar10_iid_safefl_signguard_adaptive/m040_ps000_lr0490_seed2026/`; readback 12/12; archive SHA-256 `8a5a37a7f78a0dab8b2c334e24f8de936307b338ba1fcb446ef72c55882b9ebb`.
+- Out-of-range results: SafeFL Krum lr0.030 `18.01%`, RFA PoiSAFL gamma1.0 `95.75%`, H-FedSA Krum wd0.00055 `27.55%`, and MSGuard PoiSAFL gamma1.0 `39.70%`.
+- Their validated follow-ups are active: SafeFL sign-fraction0.05, RFA gamma0.50, H-FedSA lr0.04958/wd0.00050, and MSGuard gamma0.80. All config/queue readbacks passed.
+- Nine configurations are active; outstanding count is `11`. Continue low-frequency monitoring and keep the server powered on.
