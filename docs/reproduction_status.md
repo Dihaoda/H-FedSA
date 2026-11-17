@@ -1099,4 +1099,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - SafeFL-compatible SignGuard Krum norm5.105 completed at `30.58%` versus `22.8%–25.4%`; norm5.089 is active between norm5.074 (`17.97%`) and norm5.105.
 - Both replacement configs passed dry-run, immutable commit, normalized GitHub readback, and server synchronization. Queue commit `a6054467c7a5164519ebd3aac18a5d5a05242c3b`, 65 lines, SHA-256 `f57da620cf423f00e764981f16534e8e1bd98b26bab56a0ef520a9e5d8a0ca3d`.
 - Outstanding count remains **5**.
+### 2026-11-17 22:00 CST — five narrowed brackets launched
+
+- Out-of-range final errors preserved: FLTrust-PoiSAFL m0.796 `25.82%`, RFA-PoiSAFL m0.694 `51.44%`, SafeFL-Krum norm5.089 `20.37%`, RFA-Adaptive ps0.2033 `36.11%`, and SafeFL-PoiSAFL alpha0.3216 `29.89%`.
+- Active interpolations: m0.8436, m0.7122, norm5.0948, ps0.20255, and alpha0.3205 respectively. All passed dry-run, commit, normalized readback, and server synchronization.
+- Queue commit `aaa9e0f7c4f041c29b1416058523b1b380d288b6`, 70 lines, SHA-256 `0baf4099a92b400a685eb01835de6e14fd72e9af5643ab8dcf4da3516bd22bd2`. Outstanding count remains **5**.
 
