@@ -1150,3 +1150,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - FLTrust-PoiSAFL m0.8678 ended at `31.51%`; m0.8790/0.8810/0.8830 are active. Four SafeFL-Krum higher-malicious-ratio candidates all ended at `90.00%`; sign-fraction0.06/0.08 replacements at m0.50/norm5.0898 are active.
 - Three RFA-Adaptive and two RFA-PoiSAFL candidates remain active. Queue commit `356de44de063bebce7b5002bb70216de2a33fa49`, 100 lines, SHA-256 `3dd30be8526a0e024e58d78b5157f35df061d5dc7b7fdf9e151d6affd4c96dc2`. Four cells remain and 10 candidates are active.
 
+### 2026-11-18 04:30 CST — RFA PoiSAFL accepted
+
+- RFA + PoiSAFL m0.7312/ae4/alpha0.05/gamma0.50/random/seed2026 is accepted: real CIFAR-10, 250/250 rounds, final error `55.31%`, target `55.0%–61.0%`. Neighbor m0.7330 independently confirmed `55.84%`.
+- Evidence path: `artifacts/calibration/cifar10_iid_rfa_poisafl/m07312_ae4_a005_g050_random_seed2026/`. Twelve files passed normalized GitHub readback; downloaded manifest verification had zero failures. Archive SHA-256: `036d880fb0fa6252a21f367fb989fe90e1fecf316f816fe13b8b11d95abb7657`.
+- RFA-Adaptive ps0.20285/0.20292/0.20298 ended at `35.39%`/`90.00%`/`36.17%`; ps0.202867/0.202900/0.202966 are active. Queue commit `0d30ead95a405e3458bede4f07123854ca750157`, 103 lines, SHA-256 `7be6245d143175daf7c935e16c2edf0e8dd605ae685070a430c0e038f8dea9a1`.
+- Outstanding paper-cell count is now **3**: Krum 1, Adaptive 1, PoiSAFL 1.
+
