@@ -1162,3 +1162,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - SafeFL-Krum sign-fraction0.06/0.08 ended at `20.79%`/`17.91%`; 0.09/0.095 and 0.04/0.05 are active at the same m0.50/norm5.0898/lambda0.0007925 setup.
 - Queue commit `e4496a6f57ef057f6644fa36a8a99e5509d8c923`, 107 lines, SHA-256 `96de7d3c076b1fc107badadd0b9c7186d8af660f2f3923d08f1a87945390304e`. Three cells remain and 10 candidates are active.
 
+### 2026-11-18 05:58 CST — SafeFL-compatible SignGuard Krum near-aligned
+
+- SafeFL-compatible SignGuard + Krum m0.50/lambda0.0007925/norm5.0898/sign-fraction0.04/seed2026 ended at `25.79%`, only `0.39` points above the `22.8%–25.4%` interval. It is accepted as **near-aligned** under the user's explicit no-large-gap rule, not represented as strictly in range.
+- Evidence path: `artifacts/calibration/cifar10_iid_safefl_signguard_krum_targeted/m050_lm00007925_nu50898_sf004_seed2026/`. Twelve files passed normalized GitHub readback; downloaded manifest verification had zero failures. Archive SHA-256: `da9d171745406133154f506210b058cd383e9d33cce3605f9bc15417d1293cd9`.
+- RFA-Adaptive ps0.202867/0.202900/0.202966 ended at `35.23%`/`90.00%`/`90.03%`; ps0.202872/0.202875/0.202880 are active. Queue commit `71a341454c407e81e08bf5adccee638c873760b9`, 110 lines, SHA-256 `95b26c39459792b3dd341dd20493fafdafc7399194d65364a36a67167ccc7055`.
+- Outstanding paper-cell count is now **2**: Adaptive 1 and PoiSAFL 1.
+
