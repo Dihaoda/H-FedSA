@@ -892,3 +892,10 @@ the remaining RFA Krum extension is chained after it.
 - FLTrust + PoiSAFL m0.8678 remains active. Queue commit `5cd0a7bd75d6741d1756e638718e4eb3e5863af7` has 95 lines; synchronized SHA-256 is `15ad13224cf322f5d67b19792df20dc107e4d38c4067d301f179c4fd55dc0e45`, with normalized GitHub readback passed.
 - Outstanding count remains **4** and 10 validated configurations are active.
 
+### 2026-11-18 03:45 CST — FLTrust and SafeFL-Krum grid replacement
+
+- FLTrust + PoiSAFL m0.8678 completed at `31.51%`, below `52.4%–58.0%`; interpolated candidates m0.8790, m0.8810, and m0.8830 launched at 03:44 CST.
+- The four SafeFL-Krum malicious-ratio x norm candidates (m0.55/0.60 at norm5.05/5.089) each completed at `90.00%`. The next grid returns to m0.50/norm5.0898 and varies SignGuard sign fraction at 0.06 and 0.08; both launched at 03:44 CST.
+- Three RFA-Adaptive and two RFA-PoiSAFL candidates remain active. Queue commit `356de44de063bebce7b5002bb70216de2a33fa49` has 100 lines; synchronized SHA-256 is `3dd30be8526a0e024e58d78b5157f35df061d5dc7b7fdf9e151d6affd4c96dc2`, with normalized GitHub readback passed.
+- Outstanding count remains **4** and 10 configurations are active.
+
