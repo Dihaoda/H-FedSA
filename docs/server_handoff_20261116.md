@@ -570,3 +570,9 @@ powered on.
 - Predecessor final errors are `44.15%`, `33.42%`, `23.18%`, and `36.62%`, respectively; none is silently promoted as paper-aligned.
 - Current queue commit is `e571bd1007f7cd70474ddc683e230cfecc528236`; local/server queue SHA-256 is `484ca3dee72af96e050c2c9956e83bf1ea4c0ae83c08b82f0818fa03e41bf94d`, and normalized GitHub readback passed for all new configs and the 43-line queue.
 - Keep low-frequency monitoring. Do not power off until every outstanding cell is either accepted with archived evidence or explicitly audited, all GitHub readbacks pass, and the process/queue shutdown gate is clear.
+
+### 2026-11-17 15:54 CST — four adjacent refinements launched
+
+- Completed predecessors: Scaling `15.28%`, FLTrust-PoiSAFL `90.00%`, SafeFL-Krum `90.00%`, and SafeFL-PoiSAFL `29.51%`; all remain out of range.
+- The daemon launched the four adjacent replacements at 15:54 CST from queue commit `f4d2d933312460fdb1c66087f2ca43a0d0da1ddf`.
+- The 47-line queue passed normalized GitHub readback; local/server SHA-256 is `d60887c65c0eace47718a71a747301c389cf7957238647028f4e267159c7c97f`. Nine configs are active. Keep the server powered on and continue low-frequency monitoring.
