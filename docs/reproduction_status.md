@@ -1044,3 +1044,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - The next candidates are Scaling lr0.0522, RFA-PoiSAFL random m0.60, and diagnostic-guided SafeFL-Krum norm-upper5.32. All passed validation/readback and are active.
 - Nine configs remain active; outstanding count stays **9**.
 
+### 2026-11-17 15:14 CST — RFA boundary refinements and Krum/PoiSAFL follow-ups
+
+- New measured real-CIFAR-10, 250/250-round outcomes: H-FedSA-Krum `23.18%` final error (target `20.1%–22.5%`) and MSGuard-PoiSAFL `36.62%` (target `31.4%–34.8%`). Both remain explicitly out of range and are not reported as reproduced.
+- Earlier adjacent outcomes used for the next RFA probes are RFA-Trim m0.28/random `44.15%` versus `39.6%–44.0%`, and RFA-Adaptive ps0.215 `33.42%` versus `46.0%–51.0%`.
+- Four traceable follow-ups passed server `--dry_run`, normalized GitHub readback, and synchronized queue checks: RFA-Trim m0.276/random, RFA-Adaptive ps0.2075, H-FedSA-Krum m0.18/lr0.05, and MSGuard-PoiSAFL alpha0.199.
+- The RFA pair launched at 15:09 CST and the Krum/PoiSAFL pair at 15:14 CST. Selection remains `final_round_only`; ASR is descriptive under the user-approved error-only acceptance rule.
+- Queue commit: `e571bd1007f7cd70474ddc683e230cfecc528236`. Nine unique configs are active, and the outstanding count remains **9**.
