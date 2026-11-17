@@ -676,3 +676,9 @@ powered on.
 - Three RFA-Adaptive boundary probes launched at 04:19 CST. Queue commit `0d30ead95a405e3458bede4f07123854ca750157`, 103 lines, synchronized SHA-256 `7be6245d143175daf7c935e16c2edf0e8dd605ae685070a430c0e038f8dea9a1`.
 - Three cells remain. Keep the daemon and server powered on.
 
+### 2026-11-18 04:55 CST — SafeFL-Krum sweep operational checkpoint
+
+- SafeFL-Krum sign-fraction0.06/0.08 ended at `20.79%`/`17.91%`; four sign-fraction probes (0.09/0.095/0.04/0.05) are active.
+- Queue commit `e4496a6f57ef057f6644fa36a8a99e5509d8c923`, 107 lines, synchronized SHA-256 `96de7d3c076b1fc107badadd0b9c7186d8af660f2f3923d08f1a87945390304e`.
+- Three cells remain and 10 configs are active. Keep the daemon and server powered on.
+
