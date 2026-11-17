@@ -907,3 +907,10 @@ the remaining RFA Krum extension is chained after it.
 - Queue commit `0d30ead95a405e3458bede4f07123854ca750157` has 103 lines; synchronized SHA-256 is `7be6245d143175daf7c935e16c2edf0e8dd605ae685070a430c0e038f8dea9a1`, with normalized GitHub readback passed.
 - Outstanding count is now **3**: Krum 1, Adaptive 1, PoiSAFL 1. The server remains powered on.
 
+### 2026-11-18 04:55 CST — SafeFL-Krum sign-fraction sweep refill
+
+- SafeFL-compatible SignGuard + Krum sign-fraction0.06 and 0.08 completed at `20.79%` and `17.91%`, below `22.8%–25.4%`.
+- Sign-fraction0.09 and 0.095 launched at 04:39 CST; lower-side probes 0.04 and 0.05 launched at 04:54 CST. All use m0.50, norm5.0898, lambda multiplier0.0007925, and seed2026.
+- Queue commit `e4496a6f57ef057f6644fa36a8a99e5509d8c923` has 107 lines; synchronized SHA-256 is `96de7d3c076b1fc107badadd0b9c7186d8af660f2f3923d08f1a87945390304e`, with normalized GitHub readback passed.
+- Outstanding count remains **3** and 10 configurations are active.
+
