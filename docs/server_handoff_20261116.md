@@ -669,3 +669,10 @@ powered on.
 - Five RFA candidates remain active. Queue commit `356de44de063bebce7b5002bb70216de2a33fa49`, 100 lines, synchronized SHA-256 `3dd30be8526a0e024e58d78b5157f35df061d5dc7b7fdf9e151d6affd4c96dc2`.
 - Four cells remain and 10 configs are active. Keep the daemon and server powered on.
 
+### 2026-11-18 04:30 CST — RFA PoiSAFL accepted
+
+- RFA + PoiSAFL m0.7312 is accepted at `55.31%` versus `55.0%–61.0%`; m0.7330 independently produced `55.84%`.
+- Evidence path: `artifacts/calibration/cifar10_iid_rfa_poisafl/m07312_ae4_a005_g050_random_seed2026/`, 12/12 normalized GitHub readbacks. Local/remote archive SHA-256: `036d880fb0fa6252a21f367fb989fe90e1fecf316f816fe13b8b11d95abb7657`; downloaded manifest verification had zero failures.
+- Three RFA-Adaptive boundary probes launched at 04:19 CST. Queue commit `0d30ead95a405e3458bede4f07123854ca750157`, 103 lines, synchronized SHA-256 `7be6245d143175daf7c935e16c2edf0e8dd605ae685070a430c0e038f8dea9a1`.
+- Three cells remain. Keep the daemon and server powered on.
+
