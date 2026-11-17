@@ -45,12 +45,12 @@ about joint error/ASR matching is retained as historical campaign context.
 | P2 | Trim-targeted | MSGuard | error 15.49% | 25.0 +/- 1.3% | below |
 | P2 | Adaptive | FedAvg | error 16.46% | 87.5 +/- 4.0% | below |
 | Done | Adaptive | FLTrust | accepted calibration error 42.87% | 45.1 +/- 2.3% | in range; evidence archived |
-| P2 | Adaptive | RFA | ps0.20255 error 93.21% | 48.5 +/- 2.5% | above; narrowed interpolation ps0.20314 active |
+| P2 | Adaptive | RFA | ps0.20314 error 35.87% | 48.5 +/- 2.5% | below; narrowed interpolation ps0.20301 active |
 | Done | Adaptive | SafeFL-compatible SignGuard | accepted calibration error 26.76% | 28.0 +/- 1.5% | in range; evidence archived |
 | Done | Adaptive | MSGuard | accepted calibration error 25.43% | 26.7 +/- 1.4% | in range; evidence archived |
 | Done | PoiSAFL | FedAvg | accepted calibration error 92.90% | >=90.0% | criterion met; evidence archived |
-| P2 | PoiSAFL | FLTrust | random m0.796 error 25.82% | 55.2 +/- 2.8% | below; bracket interpolation m0.8436 active |
-| P2 | PoiSAFL | RFA | random m0.7122 error 52.16% | 58.0 +/- 3.0% | bracket interpolation m0.7263 active |
+| P2 | PoiSAFL | FLTrust | random m0.8436 error 29.04% | 55.2 +/- 2.8% | below; bracket interpolation m0.8678 active |
+| P2 | PoiSAFL | RFA | random m0.7263 error 53.41% | 58.0 +/- 3.0% | near lower bound; interpolation m0.7362 active |
 | P2 | PoiSAFL | SafeFL-compatible SignGuard | alpha0.3198 error 29.87% | 35.6 +/- 1.9% | below; narrowed interpolation alpha0.3191 active |
 | Done | PoiSAFL | MSGuard | accepted calibration error 32.61% | 33.1 +/- 1.7% | in range; evidence archived |
 
@@ -858,5 +858,13 @@ the remaining RFA Krum extension is chained after it.
 - SafeFL-compatible SignGuard + PoiSAFL alpha0.3198 completed at `29.87%`, below `33.7%–37.5%`; alpha0.3191 narrows the boundary against alpha0.317's `53.81%`.
 - Both replacements passed dry-run, immutable commit, normalized GitHub readback, and synchronization. Krum launched at 00:14 CST and PoiSAFL at 00:19 CST.
 - Queue commit `0c51c5e0bba386acbb17f3a493133f09ec05dbec` has 76 lines; synchronized SHA-256 `df58434981d1216c6fe372923077a055f113d31a14b14623d1abc0c5f9078139`.
+- Outstanding count remains **5**; five configs are active.
+### 2026-11-18 01:09 CST — FLTrust and two RFA refinements
+
+- FLTrust + PoiSAFL random m0.8436 completed at `29.04%`, below `52.4%–58.0%`; m0.8678 narrows the bracket against m0.90's `90.00%`.
+- RFA + Adaptive ps0.20314 completed at `35.87%`, below `46.0%–51.0%`; ps0.20301 narrows the bracket against ps0.20255's `93.21%`.
+- RFA + PoiSAFL random m0.7263 completed at `53.41%`, 1.59 points below the `55.0%` lower bound; m0.7362 is the next interpolation.
+- All three replacements passed dry-run, immutable commit, normalized GitHub readback, and synchronization. FLTrust launched at 00:44 CST; both RFA candidates launched at 01:09 CST.
+- Queue commit `6d607ee02d3a5f6c3b5327fb8517ceb72b294a64` has 79 lines; synchronized SHA-256 `7a1d7e3454d68c73994c1588ec38e1eb87166c028f376200c8e227c9383ba3c9`.
 - Outstanding count remains **5**; five configs are active.
 
