@@ -1057,3 +1057,11 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Real-CIFAR-10 final-round errors: FedAvg-Scaling `15.28%`, FLTrust-PoiSAFL `90.00%`, SafeFL-Krum `90.00%`, and SafeFL-PoiSAFL `29.51%`. Their targets are `14.8%`, `52.4%–58.0%`, `22.8%–25.4%`, and `33.7%–37.5%`; none is accepted.
 - Traceable next candidates are Scaling poison-fraction0.008/lr0.051, FLTrust-PoiSAFL m0.70/random, SafeFL-Krum norm-upper5.24, and SafeFL-PoiSAFL alpha0.333. Each passed server `--dry_run`, 4/4 normalized config readback, queue readback, and server synchronization.
 - Queue commit `f4d2d933312460fdb1c66087f2ca43a0d0da1ddf` launched all four at 15:54 CST. Final-round-only selection and real-result provenance remain unchanged; outstanding count **9**.
+
+### 2026-11-17 17:09 CST — H-FedSA Krum accepted and eight-cell follow-up wave
+
+- H-FedSA + Krum m0.18/lr0.05/seed2028 is reproduced for the current single-seed calibration rule: real CIFAR-10, 250/250 rounds, final error `22.26%`, target `20.1%–22.5%`, ASR descriptive/NA.
+- Evidence path: `artifacts/calibration/cifar10_iid_hfedsa_ddpg_krum_targeted/m018_lambda1495_lr05000_wd0500_seed2028/`. Sixteen files and their manifest passed normalized GitHub readback; the independently downloaded archive passed 0-failure manifest verification with SHA-256 `ef6dfe1f563ef6dcea2bf382a071e9437aae29c4310f3a323d0cb07bff50d46f`.
+- Newly measured out-of-range final errors are RFA-PoiSAFL `41.93%`, RFA-Trim `46.10%`, RFA-Adaptive `34.47%`, MSGuard-PoiSAFL `35.11%`, FedAvg-Scaling `15.14%`, SafeFL-Krum `51.10%`, and SafeFL-PoiSAFL `29.17%`. None is silently promoted.
+- Eight replacements are active: FLTrust-PoiSAFL m0.70/random, RFA-PoiSAFL m0.82/random, RFA-Trim m0.28/lr0.0505, RFA-Adaptive ps0.2057, MSGuard-PoiSAFL alpha0.20/gamma0.65, Scaling lr0.051/wd0.0003, SafeFL-Krum norm5.05, and SafeFL-PoiSAFL alpha0.323.
+- Queue commit `03149db612f4e5510ecfbd56b62a109b907251f1`; all configs passed dry-run/readback/synchronization. Outstanding paper-cell count: **8**.
