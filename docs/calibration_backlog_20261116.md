@@ -8,7 +8,7 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 11 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
+There are 10 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
@@ -19,7 +19,7 @@ Krum-targeted and Trim-targeted rows and is therefore excluded.
 | Krum-targeted | 3 |
 | Trim-targeted | 1 |
 | Adaptive | 1 |
-| PoiSAFL | 5 |
+| PoiSAFL | 4 |
 
 ## Detailed backlog
 
@@ -48,7 +48,7 @@ about joint error/ASR matching is retained as historical campaign context.
 | P2 | Adaptive | RFA | error 16.69% | 48.5 +/- 2.5% | below |
 | Done | Adaptive | SafeFL-compatible SignGuard | accepted calibration error 26.76% | 28.0 +/- 1.5% | in range; evidence archived |
 | Done | Adaptive | MSGuard | accepted calibration error 25.43% | 26.7 +/- 1.4% | in range; evidence archived |
-| P2 | PoiSAFL | FedAvg | error 15.19% | >=90.0% | below |
+| Done | PoiSAFL | FedAvg | accepted calibration error 92.90% | >=90.0% | criterion met; evidence archived |
 | P2 | PoiSAFL | FLTrust | error 15.47% | 55.2 +/- 2.8% | below |
 | P2 | PoiSAFL | RFA | error 15.34% | 58.0 +/- 3.0% | below |
 | P2 | PoiSAFL | SafeFL-compatible SignGuard | error 15.66% | 35.6 +/- 1.9% | below |
@@ -728,3 +728,10 @@ the remaining RFA Krum extension is chained after it.
 - SafeFL-compatible SignGuard + PoiSAFL m040/ae3/alpha0.40/gamma0.50 completed on real CIFAR-10 at `17.16%`, below the `33.7%–37.5%` interval.
 - The gamma0.75 continuous interpolation passed `--dry_run`, commit, and 2/2 config/queue normalized GitHub readback. The low-frequency daemon launched it at 11:24:01 CST.
 - Nine configurations are active; the SafeFL PoiSAFL cell remains pending and outstanding count remains **11**.
+
+### FedAvg PoiSAFL accepted; RFA Adaptive ps0.265 outcome — 2026-11-17 11:46 CST
+
+- FedAvg + PoiSAFL m090/ae15/alpha0.00/gamma1.0 completed on real CIFAR-10 at `92.90%` final error, satisfying the paper criterion `>=90.0%`. It is **accepted in range**.
+- Evidence is frozen at `artifacts/calibration/cifar10_iid_fedavg_poisafl/m090_ae15_a000_g100_seed2026/`; all 12/12 normalized GitHub readback comparisons passed. Archive SHA-256: `428788a4f2c2e77113ca50600e34a374e59a3d94a4ceca8c7679a317a6edd2c1`.
+- RFA + Adaptive m040/ps0.265 completed at `28.34%`, below the `46.0%–51.0%` interval. The ps0.23 midpoint passed `--dry_run`, commit, and 2/2 config/queue normalized GitHub readback and is synchronized for the next daemon cycle.
+- Accepting FedAvg PoiSAFL reduces the outstanding paper-cell count from 11 to **10**; PoiSAFL backlog is now **4**.
