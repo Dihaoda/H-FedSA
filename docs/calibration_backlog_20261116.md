@@ -658,3 +658,10 @@ the remaining RFA Krum extension is chained after it.
 - The runner uses an exclusive `flock`, counts unique `src.main --config` processes, enforces the ten-configuration ceiling, polls every 300 seconds, records start/source-revision events, and preserves one log per candidate.
 - Server syntax and dry-run planning passed; the live daemon is PID `135810`. Its first authoritative cycle recorded `active=10 | limit=10`; SafeFL PoiSAFL m045/ae3/alpha0.15 and FLTrust Adaptive lr0.0006 remain queued.
 - Both new files passed 2/2 normalized GitHub readback. Result acceptance, evidence archival, and final shutdown remain gated on later audited checks.
+
+### FedAvg/RFA outcomes and daemon refill — 2026-11-17 08:56 CST
+
+- FedAvg + PoiSAFL m090/anti-epochs10/alpha0.00 completed on real CIFAR-10 at `82.48%` final error, below the `>=90.0%` criterion. The ae15 follow-up passed `--dry_run`, was committed, passed normalized GitHub readback, and is active.
+- RFA + Krum m031-random/lambda1.5 completed at `90.00%`, above the `36.1%–40.3%` interval. Because m030 configurations stay near 21–23% while m031-random collapses, the next labeled calibration extension keeps m030 and lowers local learning rate to 0.020; it passed validation/readback and is queued.
+- RFA + PoiSAFL m060/anti-epochs5/alpha0.00 completed at `98.88%`, above the `55.0%–61.0%` interval. The midpoint m055/anti-epochs4/alpha0.05 passed validation/readback and is queued.
+- At 08:53:59 CST the daemon observed `active=7` and correctly launched SafeFL PoiSAFL m045, FLTrust Adaptive lr0.0006, and FedAvg PoiSAFL ae15, restoring `active=10`. The queue update passed GitHub readback; outstanding paper-cell count remains **14**.
