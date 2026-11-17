@@ -8,7 +8,7 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 13 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
+There are 12 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
@@ -18,7 +18,7 @@ Krum-targeted and Trim-targeted rows and is therefore excluded.
 | Scaling | 1 |
 | Krum-targeted | 3 |
 | Trim-targeted | 1 |
-| Adaptive | 3 |
+| Adaptive | 2 |
 | PoiSAFL | 5 |
 
 ## Detailed backlog
@@ -44,7 +44,7 @@ about joint error/ASR matching is retained as historical campaign context.
 | P2 | Trim-targeted | SafeFL-compatible SignGuard | error 19.90% | 26.1 +/- 1.4% | below |
 | P2 | Trim-targeted | MSGuard | error 15.49% | 25.0 +/- 1.3% | below |
 | P2 | Adaptive | FedAvg | error 16.46% | 87.5 +/- 4.0% | below |
-| P2 | Adaptive | FLTrust | error 19.71% | 45.1 +/- 2.3% | below |
+| Done | Adaptive | FLTrust | accepted calibration error 42.87% | 45.1 +/- 2.3% | in range; evidence archived |
 | P2 | Adaptive | RFA | error 16.69% | 48.5 +/- 2.5% | below |
 | P2 | Adaptive | SafeFL-compatible SignGuard | error 16.98% | 28.0 +/- 1.5% | below |
 | Done | Adaptive | MSGuard | accepted calibration error 25.43% | 26.7 +/- 1.4% | in range; evidence archived |
@@ -697,3 +697,11 @@ the remaining RFA Krum extension is chained after it.
 - MSGuard + PoiSAFL m050/ae5/alpha0.00 completed at `89.99%`, above the `31.4%–34.8%` interval. The m045/ae3/alpha0.15 midpoint passed dry-run/readback and was launched by the daemon at 09:43:59 CST.
 - RFA + Adaptive m040/ps0.20 completed at `90.48%`, above the `46.0%–51.0%` interval. The ps0.265 midpoint passed dry-run/readback and remains queued.
 - Ten configs are active. Accepting MSGuard Adaptive reduces the outstanding paper-cell count from 14 to **13**.
+
+### FLTrust Adaptive accepted and SafeFL PoiSAFL follow-up — 2026-11-17 10:14 CST
+
+- FLTrust + Adaptive m040/ps0.10/lr0.0006 completed on real CIFAR-10 at `42.87%` final error, inside the `42.8%–47.4%` interval. It is **accepted in range** under the final-round error-only rule.
+- Evidence is frozen at `artifacts/calibration/cifar10_iid_fltrust_adaptive/m040_ps010_lr0006_seed2026/`; all 13/13 normalized GitHub readback comparisons passed. The verified archive SHA-256 is `44b1b58fad11ec63e99ac52c297ee42e7ecbfc0c3b7f251e241b163a67549fa5`.
+- SafeFL-compatible SignGuard + PoiSAFL m045/anti-epochs3/alpha0.15/distance-gamma1.0 completed at `82.47%`, above the `33.7%–37.5%` interval. The next transparent calibration extension uses m040/anti-epochs3/alpha0.40/distance-gamma0.50.
+- The new config and updated queue passed 2/2 normalized GitHub readback comparisons and were synchronized to AutoDL. The low-frequency queue runner will launch it when a slot is available.
+- Accepting FLTrust Adaptive reduces the outstanding paper-cell count from 13 to **12**; the Adaptive backlog is now **2**.
