@@ -655,3 +655,10 @@ powered on.
 - Evidence path: `artifacts/calibration/cifar10_iid_safefl_signguard_poisafl/m045_ae3_a03189_g100_seed2026/`, 12/12 normalized GitHub readbacks. Local/remote archive SHA-256: `f05ae223c051fb7b6af690ebda5de17415c636f0af07e481341a8b2613417c30`; downloaded manifest verification had zero failures.
 - Four cells remain. Continue the active runs and do not power off before the final evidence/readback and empty-process audit.
 
+### 2026-11-18 02:49 CST — ten-way four-cell operational wave
+
+- SafeFL-Krum norm-only results were discontinuous (`90.00%`, `17.62%`, `17.35%`, `17.35%`); four malicious-ratio x norm candidates launched at 02:34 CST.
+- RFA-Adaptive ps0.20301 ended at `37.27%`; three neighboring scales launched at 02:44 CST. RFA-PoiSAFL m0.7362 ended at `62.50%`; m0.7312 and m0.7330 launched at 02:49 CST.
+- FLTrust-PoiSAFL m0.8678 remains active. Queue commit `5cd0a7bd75d6741d1756e638718e4eb3e5863af7`, 95 lines, synchronized SHA-256 `15ad13224cf322f5d67b19792df20dc107e4d38c4067d301f179c4fd55dc0e45`.
+- Four cells remain and 10 configs are active. Keep the daemon and server powered on.
+
