@@ -521,3 +521,9 @@ powered on.
 - Out-of-range results: SafeFL Krum lr0.030 `18.01%`, RFA PoiSAFL gamma1.0 `95.75%`, H-FedSA Krum wd0.00055 `27.55%`, and MSGuard PoiSAFL gamma1.0 `39.70%`.
 - Their validated follow-ups are active: SafeFL sign-fraction0.05, RFA gamma0.50, H-FedSA lr0.04958/wd0.00050, and MSGuard gamma0.80. All config/queue readbacks passed.
 - Nine configurations are active; outstanding count is `11`. Continue low-frequency monitoring and keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 11:24 CST
+
+- SafeFL PoiSAFL m040/ae3/alpha0.40/gamma0.50 ended at `17.16%`, below its paper interval.
+- The gamma0.75 follow-up passed dry-run, commit, readback, and synchronization; the daemon launched it at 11:24:01 CST.
+- Nine configurations are active; outstanding count remains `11`. Continue low-frequency monitoring and keep the server powered on.
