@@ -962,3 +962,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Candidate: `cifar10_iid_safefl_signguard_adaptive_m040_ps000_seed2026`.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final error `26.21%`; target `26.5%–29.5%`. The 0.29-point near miss is not promoted as paper-aligned.
 - m040/ps0.00/lr0.049 is explicitly labeled as a calibration extension; it passed dry-run, commit, and normalized GitHub readback and is queued. Outstanding count remains **14**.
+
+### 2026-11-17 09:22 CST — SafeFL Krum lambda0.0007925 outcome
+
+- Candidate: `cifar10_iid_safefl_signguard_krum_targeted_m050_lm00007925_nu50_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final error `18.38%`; target `22.8%–25.4%`. It is out of range and is not paper-aligned.
+- Because the adjacent lambda boundary jumps to 90%, the next calibration extension holds lambda/norm fixed and uses local lr0.030. It passed dry-run, commit, and normalized GitHub readback and is queued. Outstanding count remains **14**.
