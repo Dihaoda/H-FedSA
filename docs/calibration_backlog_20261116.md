@@ -923,3 +923,10 @@ the remaining RFA Krum extension is chained after it.
 - Queue commit `71a341454c407e81e08bf5adccee638c873760b9` has 110 lines; synchronized SHA-256 is `95b26c39459792b3dd341dd20493fafdafc7399194d65364a36a67167ccc7055`, with normalized GitHub readback passed.
 - Outstanding count is now **2**: Adaptive 1 and PoiSAFL 1. Six validated configs are active.
 
+### 2026-11-18 06:43 CST — final two-cell parallel wave
+
+- FLTrust + PoiSAFL m0.8790, m0.8810, and m0.8830 completed at `33.79%`, `33.74%`, and `33.44%`, below `52.4%–58.0%`.
+- Five interpolation candidates m0.8875, m0.8890, m0.8900, m0.8910, and m0.8925 launched at 06:39 CST between the measured low regime and m0.90's `90.00%` high result.
+- RFA + Adaptive ps0.202872, ps0.202875, and ps0.202880 remain active. Queue commit `b7eac631b058ef16222f850b3fece91173358f31` has 115 lines; synchronized SHA-256 is `fc5fbd47b15b7c5050d26d58b6003e64dff158f9698ee904d206e0f2205732f7`, with normalized GitHub readback passed.
+- Outstanding count remains **2** and eight validated configs are active.
+
