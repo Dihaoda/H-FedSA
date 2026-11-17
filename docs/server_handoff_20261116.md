@@ -649,3 +649,9 @@ powered on.
 - Queue commit `0bbaf0f14f1d538acedd3e8999be9985dc6015d9`, 86 lines, synchronized SHA-256 `b686cecf8e35f941357ffd07d3f37c164b824c1035d53b79e5de6da0aa035853`.
 - Five cells remain. Keep PID `135810` and the server running; power off only after all accepted evidence is archived/read back and both the queue and trainer-process audit are empty.
 
+### 2026-11-18 02:37 CST — SafeFL PoiSAFL accepted
+
+- SafeFL-compatible SignGuard + PoiSAFL alpha0.3189 is accepted at `36.48%` versus `33.7%–37.5%`; alpha0.3187 ended out of range at `59.34%`.
+- Evidence path: `artifacts/calibration/cifar10_iid_safefl_signguard_poisafl/m045_ae3_a03189_g100_seed2026/`, 12/12 normalized GitHub readbacks. Local/remote archive SHA-256: `f05ae223c051fb7b6af690ebda5de17415c636f0af07e481341a8b2613417c30`; downloaded manifest verification had zero failures.
+- Four cells remain. Continue the active runs and do not power off before the final evidence/readback and empty-process audit.
+
