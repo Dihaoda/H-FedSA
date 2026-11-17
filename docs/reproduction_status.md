@@ -974,3 +974,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Candidate: `cifar10_iid_hfedsa_ddpg_krum_targeted_lambda1495_lr0496_wd0450_seed2028`.
 - Real CIFAR-10, seed 2028, 250/250 rounds, final error `23.55%`; target `20.1%–22.5%`. It is out of range and is not promoted as paper-aligned.
 - The lr0.0496/wd0.00055 adjacent candidate passed dry-run, commit, and normalized GitHub readback and is queued. Outstanding count remains **14**.
+
+### 2026-11-17 09:44 CST — MSGuard Adaptive accepted and adjacent outcomes
+
+- `cifar10_iid_msguard_adaptive_m040_ps026_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `25.43%`; target `25.3%–28.1%`. **Accepted in range.** Evidence: `artifacts/calibration/cifar10_iid_msguard_adaptive/m040_ps026_seed2026/`; 12/12 normalized GitHub readbacks passed; archive SHA-256 `72e47780c16a7f50c75cfe2262085eefe7198abab6e69d0ee187bb667488c4a3`.
+- `cifar10_iid_msguard_poisafl_m050_ae5_a000_g100_seed2026` retry: real CIFAR-10, seed 2026, 250/250 rounds, final error `89.99%`; target `31.4%–34.8%`, out of range. The m045/ae3/alpha0.15 midpoint is active.
+- `cifar10_iid_rfa_adaptive_m040_ps020_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `90.48%`; target `46.0%–51.0%`, out of range. The ps0.265 midpoint is validated and queued.
+- Outstanding paper-cell count is now **13**.
