@@ -558,4 +558,9 @@ powered on.
 - SafeFL-PoiSAFL alpha0.30 completed at `51.38%`; alpha0.35 is the next single-parameter midpoint.
 - Config commit is `55dc99012fe7b680fac04292d3c26147a63bef4d`; queue commit is `63310bd9b3b4ff1297c0635b6e81de943f4aea26`. Config and queue readbacks passed.
 - The daemon launched the candidate at 14:09:03 CST. Nine configs are active and outstanding count remains `9`.
+### 2026-11-17 14:44 CST operational checkpoint
+
+- FedAvg-Scaling lr0.051 ended at `15.05%`; RFA-PoiSAFL random m0.55 at `38.87%`; SafeFL-Krum norm5.5 at `90.00%`. None is accepted.
+- Queue commit `d9329161dee1c33aa6ea130c604ea2ac70260059` launched Scaling lr0.0522 and RFA-PoiSAFL random m0.60 at 14:34 CST. Queue commit `0864340839ffcc03179cf8a1076262757b4cfa38` launched SafeFL-Krum norm5.32 at 14:44 CST.
+- Queue has 39 lines including the header. Nine configs are active; outstanding count remains `9`.
 
