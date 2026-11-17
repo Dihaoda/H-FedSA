@@ -773,3 +773,10 @@ the remaining RFA Krum extension is chained after it.
 - All three follow-ups passed dry-run, synchronization, and normalized config/queue readback. They launched at 14:34/14:44 CST and restored nine active configs.
 - Outstanding count remains **9**.
 
+### 2026-11-17 15:14 CST — RFA boundary refinements and Krum/PoiSAFL follow-ups
+
+- RFA + Trim m0.28 with random role sampling completed at `44.15%` final error, 0.15 points above the `39.6%–44.0%` interval. The adjacent m0.276 config passed dry-run, GitHub readback, and synchronization, then launched at 15:09 CST.
+- RFA + Adaptive ps0.215 completed at `33.42%` final error, below the `46.0%–51.0%` interval. The boundary midpoint ps0.2075 passed the same validation chain and launched at 15:09 CST.
+- H-FedSA + Krum m0.19/lr0.0496 completed at `23.18%` final error, 0.68 points above `20.1%–22.5%`. The m0.18/lr0.05 refinement is committed at `deada9bd40f585ade31c1f4c8a28d7a64bda1836` and launched at 15:14 CST.
+- MSGuard + PoiSAFL alpha0.205 completed at `36.62%` final error, above `31.4%–34.8%`. The interpolated alpha0.199 refinement is committed at `fd2da50006c87007c3271dc7632183530a87f5a3` and launched at 15:14 CST.
+- Queue commit `e571bd1007f7cd70474ddc683e230cfecc528236` has 43 lines and passed normalized GitHub readback plus server SHA-256 synchronization. Nine configurations are active; the outstanding paper-cell count remains **9**.
