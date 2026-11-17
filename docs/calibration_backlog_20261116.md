@@ -914,3 +914,12 @@ the remaining RFA Krum extension is chained after it.
 - Queue commit `e4496a6f57ef057f6644fa36a8a99e5509d8c923` has 107 lines; synchronized SHA-256 is `96de7d3c076b1fc107badadd0b9c7186d8af660f2f3923d08f1a87945390304e`, with normalized GitHub readback passed.
 - Outstanding count remains **3** and 10 configurations are active.
 
+### 2026-11-18 05:58 CST — SafeFL-compatible SignGuard + Krum near-aligned
+
+- SafeFL-compatible SignGuard + Krum m0.50/lambda0.0007925/norm5.0898/sign-fraction0.04/seed2026 completed at round 250/250 with final error `25.79%`. This is `0.39` points above the paper interval's `25.4%` upper bound and is closed only under the user's explicit “within range or no large difference” rule; it is labeled **near-aligned**, not strictly in range.
+- Evidence path: `artifacts/calibration/cifar10_iid_safefl_signguard_krum_targeted/m050_lm00007925_nu50898_sf004_seed2026/`. All 12 files passed normalized GitHub readback; the independently downloaded archive passed its manifest with zero failures. Archive SHA-256: `da9d171745406133154f506210b058cd383e9d33cce3605f9bc15417d1293cd9`.
+- Sign-fraction0.05 independently ended at `17.43%`; the previously launched 0.09/0.095 comparisons are preserved as measured out-of-range results.
+- RFA + Adaptive ps0.202867/0.202900/0.202966 completed at `35.23%`/`90.00%`/`90.03%`; ps0.202872, ps0.202875, and ps0.202880 launched at 05:54 CST.
+- Queue commit `71a341454c407e81e08bf5adccee638c873760b9` has 110 lines; synchronized SHA-256 is `95b26c39459792b3dd341dd20493fafdafc7399194d65364a36a67167ccc7055`, with normalized GitHub readback passed.
+- Outstanding count is now **2**: Adaptive 1 and PoiSAFL 1. Six validated configs are active.
+
