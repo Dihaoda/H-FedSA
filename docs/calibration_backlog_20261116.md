@@ -868,3 +868,11 @@ the remaining RFA Krum extension is chained after it.
 - Queue commit `6d607ee02d3a5f6c3b5327fb8517ceb72b294a64` has 79 lines; synchronized SHA-256 `7a1d7e3454d68c73994c1588ec38e1eb87166c028f376200c8e227c9383ba3c9`.
 - Outstanding count remains **5**; five configs are active.
 
+### 2026-11-18 01:36 CST — ten-way parallel threshold sweep
+
+- SafeFL-compatible SignGuard + Krum norm5.0898 completed on real CIFAR-10 at `30.58%`, still above the paper interval `22.8%–25.4%`. Four boundary points are now active: norm5.08915, norm5.0893, norm5.08945, and norm5.08965.
+- SafeFL-compatible SignGuard + PoiSAFL alpha0.3191 completed at `28.86%`, below `33.7%–37.5%`. Three bracket points are active: alpha0.3185, alpha0.3187, and alpha0.3189.
+- FLTrust + PoiSAFL m0.8678, RFA + Adaptive ps0.20301, and RFA + PoiSAFL m0.7362 remain active, bringing the validated parallel sweep to 10/10 configurations.
+- Every added config passed server dry-run, immutable GitHub commit, normalized readback, and synchronization. Queue commit `0bbaf0f14f1d538acedd3e8999be9985dc6015d9` has 86 lines; local/server SHA-256 is `b686cecf8e35f941357ffd07d3f37c164b824c1035d53b79e5de6da0aa035853`.
+- Outstanding count remains **5**. Keep the daemon and server powered on until accepted-evidence archival, documentation readback, queue exhaustion, and a zero-process audit are complete.
+
