@@ -641,3 +641,11 @@ powered on.
 - Queue commit `6d607ee02d3a5f6c3b5327fb8517ceb72b294a64`, 79 lines, synchronized SHA-256 `7a1d7e3454d68c73994c1588ec38e1eb87166c028f376200c8e227c9383ba3c9`.
 - Five active configs remain. Keep the daemon and server powered on.
 
+### 2026-11-18 01:36 CST — ten-way parallel operational checkpoint
+
+- SafeFL-Krum norm5.0898 ended at `30.58%`; four boundary candidates (5.08915/5.0893/5.08945/5.08965) are active.
+- SafeFL-PoiSAFL alpha0.3191 ended at `28.86%`; three bracket candidates (0.3185/0.3187/0.3189) are active.
+- FLTrust-PoiSAFL m0.8678, RFA-Adaptive ps0.20301, and RFA-PoiSAFL m0.7362 are also active, for 10/10 concurrent runs.
+- Queue commit `0bbaf0f14f1d538acedd3e8999be9985dc6015d9`, 86 lines, synchronized SHA-256 `b686cecf8e35f941357ffd07d3f37c164b824c1035d53b79e5de6da0aa035853`.
+- Five cells remain. Keep PID `135810` and the server running; power off only after all accepted evidence is archived/read back and both the queue and trainer-process audit are empty.
+
