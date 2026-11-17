@@ -943,3 +943,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - The server-side runner is protected by an exclusive lock, checks every 300 seconds, and will not exceed ten unique experiment configs. Syntax validation and dry-run planning passed.
 - Live runner PID: `135810`; first production cycle: `active=10 | limit=10`. The two queued candidates are SafeFL PoiSAFL m045/ae3/alpha0.15 and FLTrust Adaptive lr0.0006.
 - GitHub readback passed 2/2. The automation launches experiments only; it does not declare acceptance or fabricate/transform metrics.
+
+### 2026-11-17 08:56 CST — FedAvg and RFA calibration outcomes
+
+- `cifar10_iid_fedavg_poisafl_m090_ae10_a000_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `82.48%`; criterion `>=90.0%`, out of range. The ae15 compatibility extension is validated, committed, read back, and active.
+- `cifar10_iid_rfa_krum_targeted_m031_random_lm150_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `90.00%`; target `36.1%–40.3%`, out of range. The m030/lr0.020 calibration extension is validated, committed, read back, and queued.
+- `cifar10_iid_rfa_poisafl_m060_ae5_a000_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `98.88%`; target `55.0%–61.0%`, out of range. The m055/ae4/alpha0.05 midpoint is validated, committed, read back, and queued.
+- The queue daemon launched three preserved candidates at 08:53:59 CST and restored ten-way utilization. None of these completed results is paper-aligned; outstanding count remains **14**.
