@@ -695,3 +695,9 @@ powered on.
 - Three RFA-Adaptive candidates remain active. Queue commit `b7eac631b058ef16222f850b3fece91173358f31`, 115 lines, synchronized SHA-256 `fc5fbd47b15b7c5050d26d58b6003e64dff158f9698ee904d206e0f2205732f7`.
 - Two cells remain and eight configs are active. Keep the daemon and server powered on.
 
+### 2026-11-18 07:30 CST — final ten-way operational wave
+
+- RFA-Adaptive ps0.202872/0.202875/0.202880 ended at `37.35%`/`36.40%`/`89.95%`; five fine-grid candidates launched at 07:29 CST.
+- Five FLTrust-PoiSAFL candidates remain active. Queue commit `1d26a7723854f28a6c936309ac800e5ffb63deb4`, 120 lines, synchronized SHA-256 `90e1f0279d2906473a2d27ceb07b3ad9e8eb3f8e57c0816d1f852383b12e449e`.
+- Two cells remain and 10 configs are active. Keep the daemon and server powered on.
+
