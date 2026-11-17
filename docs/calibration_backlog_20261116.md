@@ -665,3 +665,9 @@ the remaining RFA Krum extension is chained after it.
 - RFA + Krum m031-random/lambda1.5 completed at `90.00%`, above the `36.1%–40.3%` interval. Because m030 configurations stay near 21–23% while m031-random collapses, the next labeled calibration extension keeps m030 and lowers local learning rate to 0.020; it passed validation/readback and is queued.
 - RFA + PoiSAFL m060/anti-epochs5/alpha0.00 completed at `98.88%`, above the `55.0%–61.0%` interval. The midpoint m055/anti-epochs4/alpha0.05 passed validation/readback and is queued.
 - At 08:53:59 CST the daemon observed `active=7` and correctly launched SafeFL PoiSAFL m045, FLTrust Adaptive lr0.0006, and FedAvg PoiSAFL ae15, restoring `active=10`. The queue update passed GitHub readback; outstanding paper-cell count remains **14**.
+
+### FLTrust PoiSAFL checkpoint — 2026-11-17 09:02 CST
+
+- FLTrust + PoiSAFL m070/anti-epochs5/alpha0.00 completed on real CIFAR-10 at `23.15%` final error, below the `52.4%–58.0%` interval.
+- The stronger m090/anti-epochs15/alpha0.00 calibration extension passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued.
+- At 08:58:59 CST the daemon observed one free slot and launched RFA Krum m030/lr0.020, restoring ten active configs. RFA PoiSAFL m055 and the new FLTrust PoiSAFL candidate remain queued; outstanding paper-cell count remains **14**.
