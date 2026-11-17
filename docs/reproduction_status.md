@@ -1065,3 +1065,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Newly measured out-of-range final errors are RFA-PoiSAFL `41.93%`, RFA-Trim `46.10%`, RFA-Adaptive `34.47%`, MSGuard-PoiSAFL `35.11%`, FedAvg-Scaling `15.14%`, SafeFL-Krum `51.10%`, and SafeFL-PoiSAFL `29.17%`. None is silently promoted.
 - Eight replacements are active: FLTrust-PoiSAFL m0.70/random, RFA-PoiSAFL m0.82/random, RFA-Trim m0.28/lr0.0505, RFA-Adaptive ps0.2057, MSGuard-PoiSAFL alpha0.20/gamma0.65, Scaling lr0.051/wd0.0003, SafeFL-Krum norm5.05, and SafeFL-PoiSAFL alpha0.323.
 - Queue commit `03149db612f4e5510ecfbd56b62a109b907251f1`; all configs passed dry-run/readback/synchronization. Outstanding paper-cell count: **8**.
+
+### 2026-11-17 17:40 CST — RFA Trim accepted
+
+- RFA + Trim-targeted m0.28/random/lr0.0505/seed2026 is accepted: real CIFAR-10, 250/250 rounds, final error `43.32%`, target `39.6%–44.0%`, final-round-only selection.
+- Evidence path: `artifacts/calibration/cifar10_iid_rfa_trim_targeted/m028_lr0505_random_seed2026/`. Twelve files passed normalized GitHub readback and the independently downloaded archive passed a zero-failure manifest verification.
+- Archive SHA-256: `68147dd95e2db57db858b5f95eafbbf709cfb18ae717489e1fcff0a7d0cf38f5`.
+- Outstanding paper-cell count is now **7**: Scaling 1, Krum 1, Adaptive 1, PoiSAFL 4.
