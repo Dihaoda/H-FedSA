@@ -439,3 +439,10 @@ powered on.
 - H-FedSA Krum lr0.0497 ended at `28.92%`, confirming a non-monotonic boundary.
 - lr0.0496/weight-decay0.00045 passed `--dry_run`, was committed, passed 1/1 normalized readback, and is queued.
 - SafeFL Adaptive ps0.00 filled the free slot. Ten unique configurations are active; keep the server powered on.
+
+### Queue and stability checkpoint — 2026-11-17 08:13 CST
+
+- MSGuard Adaptive m040/ps0.30 ended at `20.54%`; SafeFL Krum lambda0.000795/norm5 ended at `17.67%`. Both are below their paper intervals.
+- MSGuard Adaptive m040/ps0.26 passed `--dry_run`, was committed, passed 1/1 normalized readback, and is active. SafeFL Krum lambda0.0007925 passed the same checks and is queued.
+- MSGuard PoiSAFL m050 failed at round 3 on an ill-conditioned `torch.linalg.eigh`; the incomplete run is not a result. The Gram calculation was hardened with symmetry, CPU float64, and deterministic SVD fallback. The focused suite passed locally and on AutoDL (`5 passed`), and source/test GitHub readback passed 2/2.
+- MSGuard PoiSAFL has restarted with a separate retry log, and H-FedSA Krum lr0.0496/weight-decay0.00045 is active. Ten unique configurations are running. Keep low-frequency/event-driven monitoring and keep the server powered on until the final audit and shutdown gate.
