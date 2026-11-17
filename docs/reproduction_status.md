@@ -1126,3 +1126,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - RFA-PoiSAFL m0.7263 completed at `53.41%`; m0.7362 is active and targets the nearby `55.0%–61.0%` interval.
 - Queue commit `6d607ee02d3a5f6c3b5327fb8517ceb72b294a64`, 79 lines, SHA-256 `7a1d7e3454d68c73994c1588ec38e1eb87166c028f376200c8e227c9383ba3c9`. Five cells remain.
 
+### 2026-11-18 01:36 CST — ten-way parallel threshold sweep
+
+- SafeFL-Krum norm5.0898 ended at `30.58%`; norm5.08915, norm5.0893, norm5.08945, and norm5.08965 are active around the measured boundary.
+- SafeFL-PoiSAFL alpha0.3191 ended at `28.86%`; alpha0.3185, alpha0.3187, and alpha0.3189 are active between this low regime and alpha0.317's `53.81%`.
+- FLTrust-PoiSAFL m0.8678, RFA-Adaptive ps0.20301, and RFA-PoiSAFL m0.7362 remain active. Ten validated real-CIFAR-10 candidates are running concurrently.
+- Queue commit `0bbaf0f14f1d538acedd3e8999be9985dc6015d9`, 86 lines, synchronized SHA-256 `b686cecf8e35f941357ffd07d3f37c164b824c1035d53b79e5de6da0aa035853`. Five cells remain.
+
