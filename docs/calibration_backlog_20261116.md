@@ -735,3 +735,14 @@ the remaining RFA Krum extension is chained after it.
 - Evidence is frozen at `artifacts/calibration/cifar10_iid_fedavg_poisafl/m090_ae15_a000_g100_seed2026/`; all 12/12 normalized GitHub readback comparisons passed. Archive SHA-256: `428788a4f2c2e77113ca50600e34a374e59a3d94a4ceca8c7679a317a6edd2c1`.
 - RFA + Adaptive m040/ps0.265 completed at `28.34%`, below the `46.0%–51.0%` interval. The ps0.23 midpoint passed `--dry_run`, commit, and 2/2 config/queue normalized GitHub readback and is synchronized for the next daemon cycle.
 - Accepting FedAvg PoiSAFL reduces the outstanding paper-cell count from 11 to **10**; PoiSAFL backlog is now **4**.
+### 2026-11-17 12:24 CST — ten-slot refill and three refinement candidates
+
+- RFA + Krum m030/lr0.0075 completed on real CIFAR-10 at `31.38%` final error, below the `36.1%–40.3%` interval. The next transparent boundary candidate uses lr0.003.
+- SafeFL-compatible SignGuard + Krum sign-fraction0.05/norm-upper5 completed at `17.43%`, below the `22.8%–25.4%` interval. The follow-up restores sign-fraction0.10 and raises norm-upper to 6.0.
+- FLTrust + PoiSAFL m090/ae15/alpha0/gamma1 completed at `32.88%`, below the `52.4%–58.0%` interval. The next candidate keeps the attack parameters fixed and changes participant-role sampling from stratified to random.
+- H-FedSA + Krum lr0.04958/wd0.0005 completed at `23.87%`, above the `20.1%–22.5%` interval. The adjacent lr0.04962/wd0.0005 candidate is the next boundary check.
+- MSGuard + PoiSAFL m045/ae3/alpha0.15/gamma0.80 completed at `39.22%`, above the `31.4%–34.8%` interval. Because gamma1.0 previously gave `39.70%`, the next candidate keeps gamma0.80 and changes alpha to 0.20.
+- The four remaining-cell configs and all three immediate refinements passed server `--dry_run`, were committed with immutable source revisions, synchronized to AutoDL, and passed normalized GitHub readback together with the queue.
+- The queue runner launched RFA-Krum, SafeFL-Krum, FedAvg-Scaling, and RFA-Trim at 12:19 CST, then FLTrust-PoiSAFL, H-FedSA-Krum, and MSGuard-PoiSAFL at 12:24 CST. Ten unique configurations are active.
+- No new paper cell was accepted in this checkpoint; outstanding count remains **10** (Scaling 1, Krum 3, Trim 1, Adaptive 1, PoiSAFL 4).
+
