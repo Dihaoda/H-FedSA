@@ -527,3 +527,9 @@ powered on.
 - SafeFL PoiSAFL m040/ae3/alpha0.40/gamma0.50 ended at `17.16%`, below its paper interval.
 - The gamma0.75 follow-up passed dry-run, commit, readback, and synchronization; the daemon launched it at 11:24:01 CST.
 - Nine configurations are active; outstanding count remains `11`. Continue low-frequency monitoring and keep the server powered on.
+
+### Accepted evidence and queue checkpoint — 2026-11-17 11:46 CST
+
+- FedAvg PoiSAFL m090/ae15/alpha0.00/gamma1.0 is accepted at `92.90%`, meeting the `>=90.0%` rule. Evidence: `artifacts/calibration/cifar10_iid_fedavg_poisafl/m090_ae15_a000_g100_seed2026/`; readback 12/12; archive SHA-256 `428788a4f2c2e77113ca50600e34a374e59a3d94a4ceca8c7679a317a6edd2c1`.
+- RFA Adaptive ps0.265 ended at `28.34%`, below its interval. The ps0.23 follow-up passed dry-run, commit, readback, and synchronization and is queued.
+- Outstanding count is `10`. Keep the daemon and server running; continue low-frequency monitoring.
