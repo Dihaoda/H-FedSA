@@ -189,15 +189,26 @@ class MSGuard:
         sign_negative = (sign_values < 0).float().mean(dim=1)
 
         centered = normalized - normalized.mean(dim=0, keepdim=True)
+        spectral_fallback_reason = ""
         if torch.linalg.norm(centered).item() <= 1e-12:
             spectral = torch.zeros(len(updates), dtype=torch.float32)
         else:
             # Only the small client-by-client Gram matrix is decomposed, so the
             # cost stays linear in the model dimension for a fixed client count.
-            gram = centered @ centered.T
-            eigenvalues, eigenvectors = torch.linalg.eigh(gram)
-            top_left = eigenvectors[:, int(torch.argmax(eigenvalues).item())]
-            spectral = top_left.square()
+            # Symmetrize and solve the tiny matrix on CPU in float64.  CUDA/float32
+            # ``eigh`` can fail to converge for repeated eigenvalues, which occurs
+            # with near-identical poisoned updates.  SVD is a deterministic backup
+            # for that numerical failure and returns the same principal subspace.
+            gram = (centered @ centered.T).detach().cpu().double()
+            gram = torch.nan_to_num(0.5 * (gram + gram.T))
+            try:
+                eigenvalues, eigenvectors = torch.linalg.eigh(gram)
+                top_left = eigenvectors[:, int(torch.argmax(eigenvalues).item())]
+            except RuntimeError:
+                left_vectors, _, _ = torch.linalg.svd(gram, full_matrices=False)
+                top_left = left_vectors[:, 0]
+                spectral_fallback_reason = "spectral_eigh_svd_fallback"
+            spectral = top_left.square().float()
 
         median_norm = torch.median(norms).clamp_min(1e-12)
         norm_ratio = norms / median_norm
@@ -227,13 +238,15 @@ class MSGuard:
         retained = np.where(labels == benign_label)[0].tolist()
 
         minimum = max(1, int(math.ceil(len(updates) * self.min_retained_fraction)))
-        self.last_fallback_reason = ""
+        self.last_fallback_reason = spectral_fallback_reason
         if len(retained) < minimum:
             # Keep the most benign feature scores rather than silently failing
             # when Mean-Shift creates many tiny clusters on highly non-IID data.
             ranking_score = raw_features[:, 0] - raw_features[:, 4] - 0.1 * np.abs(raw_features[:, 5])
             retained = np.argsort(-ranking_score)[:minimum].tolist()
-            self.last_fallback_reason = "minimum_retention_floor"
+            self.last_fallback_reason = "+".join(
+                reason for reason in (spectral_fallback_reason, "minimum_retention_floor") if reason
+            )
 
         aggregate, diagnostics = _uniform_aggregate(updates, retained)
         retained_set = set(retained)
