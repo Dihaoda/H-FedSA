@@ -36,7 +36,7 @@ about joint error/ASR matching is retained as historical campaign context.
 | Done | Krum-targeted | H-FedSA | accepted calibration error 22.26% | 21.3 +/- 1.2% | in range; evidence archived |
 | P2 | Krum-targeted | FLTrust | error 15.90% | 35.0 +/- 1.9% | below |
 | Done | Krum-targeted | RFA | accepted calibration error 39.70% | 38.2 +/- 2.1% | in range; evidence archived |
-| P2 | Krum-targeted | SafeFL-compatible SignGuard | norm5.105 error 30.58% | 24.1 +/- 1.3% | above; bracket interpolation norm5.089 active |
+| P2 | Krum-targeted | SafeFL-compatible SignGuard | norm5.089 error 20.37% | 24.1 +/- 1.3% | below; bracket interpolation norm5.0948 active |
 | P2 | Krum-targeted | MSGuard | error 16.09% | 23.5 +/- 1.2% | below |
 | P2 | Trim-targeted | H-FedSA | best grid error 16.21% | 21.3 +/- 1.1% | below |
 | P2 | Trim-targeted | FLTrust | error 15.97% | 38.7 +/- 2.0% | below |
@@ -45,13 +45,13 @@ about joint error/ASR matching is retained as historical campaign context.
 | P2 | Trim-targeted | MSGuard | error 15.49% | 25.0 +/- 1.3% | below |
 | P2 | Adaptive | FedAvg | error 16.46% | 87.5 +/- 4.0% | below |
 | Done | Adaptive | FLTrust | accepted calibration error 42.87% | 45.1 +/- 2.3% | in range; evidence archived |
-| P2 | Adaptive | RFA | ps0.2044 error 34.77% | 48.5 +/- 2.5% | below; threshold interpolation ps0.2033 active |
+| P2 | Adaptive | RFA | ps0.2033 error 36.11% | 48.5 +/- 2.5% | below; threshold interpolation ps0.20255 active |
 | Done | Adaptive | SafeFL-compatible SignGuard | accepted calibration error 26.76% | 28.0 +/- 1.5% | in range; evidence archived |
 | Done | Adaptive | MSGuard | accepted calibration error 25.43% | 26.7 +/- 1.4% | in range; evidence archived |
 | Done | PoiSAFL | FedAvg | accepted calibration error 92.90% | >=90.0% | criterion met; evidence archived |
-| P2 | PoiSAFL | FLTrust | latest completed error 22.82% | 55.2 +/- 2.8% | below; random m0.796 active |
-| P2 | PoiSAFL | RFA | random m0.665 error 48.87% | 58.0 +/- 3.0% | random m0.694 active |
-| P2 | PoiSAFL | SafeFL-compatible SignGuard | alpha0.317 error 53.81% | 35.6 +/- 1.9% | threshold interpolation alpha0.3216 active |
+| P2 | PoiSAFL | FLTrust | random m0.796 error 25.82% | 55.2 +/- 2.8% | below; bracket interpolation m0.8436 active |
+| P2 | PoiSAFL | RFA | random m0.694 error 51.44% | 58.0 +/- 3.0% | bracket interpolation m0.7122 active |
+| P2 | PoiSAFL | SafeFL-compatible SignGuard | alpha0.3216 error 29.89% | 35.6 +/- 1.9% | threshold interpolation alpha0.3205 active |
 | Done | PoiSAFL | MSGuard | accepted calibration error 32.61% | 33.1 +/- 1.7% | in range; evidence archived |
 
 ## Completed in-range scaling cells
@@ -831,4 +831,11 @@ the remaining RFA Krum extension is chained after it.
 - SafeFL-compatible SignGuard + Krum norm5.105 completed at `30.58%`, above `22.8%–25.4%`. Together with norm5.074 (`17.97%`) it brackets the target; norm5.089 passed the same validation chain and launched at 20:34 CST.
 - Queue commit `a6054467c7a5164519ebd3aac18a5d5a05242c3b` has 65 lines; local/server SHA-256 is `f57da620cf423f00e764981f16534e8e1bd98b26bab56a0ef520a9e5d8a0ca3d`, with normalized GitHub readback passed.
 - No cell is newly accepted; five cells and five active configs remain.
+### 2026-11-17 22:00 CST — five narrowed brackets launched
+
+- Completed real-CIFAR-10 final errors: FLTrust + PoiSAFL m0.796 `25.82%`, RFA + PoiSAFL m0.694 `51.44%`, SafeFL-compatible SignGuard + Krum norm5.089 `20.37%`, RFA + Adaptive ps0.2033 `36.11%`, and SafeFL + PoiSAFL alpha0.3216 `29.89%`. All remain outside their paper intervals and are retained as measured evidence.
+- New bracket interpolations are FLTrust-PoiSAFL m0.8436, RFA-PoiSAFL m0.7122, SafeFL-Krum norm5.0948, RFA-Adaptive ps0.20255, and SafeFL-PoiSAFL alpha0.3205.
+- Every config passed server dry-run, immutable GitHub commit, normalized readback, and synchronization. Alpha0.3205 launched at 21:49 CST; the other four launched at 21:59 CST.
+- Queue commit `aaa9e0f7c4f041c29b1416058523b1b380d288b6` has 70 lines; local/server SHA-256 is `0baf4099a92b400a685eb01835de6e14fd72e9af5643ab8dcf4da3516bd22bd2`.
+- Outstanding count remains **5** and five configs are active.
 
