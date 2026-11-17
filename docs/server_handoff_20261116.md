@@ -614,4 +614,9 @@ powered on.
 - SafeFL-Krum norm5.105 ended at `30.58%`; bracket interpolation norm5.089 launched at 20:34 CST from config commit `e170efb0f3626c7b72fd82025aa144597ddf297b`.
 - Current queue commit `a6054467c7a5164519ebd3aac18a5d5a05242c3b`, 65 lines, synchronized SHA-256 `f57da620cf423f00e764981f16534e8e1bd98b26bab56a0ef520a9e5d8a0ca3d`; normalized readback passed.
 - Five active configs remain. Keep the daemon and server powered on.
+### 2026-11-17 22:00 CST — five-cell operational checkpoint
+
+- Completed out of range: FLTrust-PoiSAFL m0.796 `25.82%`, RFA-PoiSAFL m0.694 `51.44%`, SafeFL-Krum norm5.089 `20.37%`, RFA-Adaptive ps0.2033 `36.11%`, and SafeFL-PoiSAFL alpha0.3216 `29.89%`.
+- Active replacements: FLTrust m0.8436, RFA-PoiSAFL m0.7122, SafeFL-Krum norm5.0948, RFA-Adaptive ps0.20255, and SafeFL-PoiSAFL alpha0.3205.
+- Queue commit `aaa9e0f7c4f041c29b1416058523b1b380d288b6`, 70 lines, synchronized SHA-256 `0baf4099a92b400a685eb01835de6e14fd72e9af5643ab8dcf4da3516bd22bd2`. Five configs are active; keep the daemon and server powered on.
 
