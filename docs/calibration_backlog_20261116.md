@@ -745,4 +745,11 @@ the remaining RFA Krum extension is chained after it.
 - The four remaining-cell configs and all three immediate refinements passed server `--dry_run`, were committed with immutable source revisions, synchronized to AutoDL, and passed normalized GitHub readback together with the queue.
 - The queue runner launched RFA-Krum, SafeFL-Krum, FedAvg-Scaling, and RFA-Trim at 12:19 CST, then FLTrust-PoiSAFL, H-FedSA-Krum, and MSGuard-PoiSAFL at 12:24 CST. Ten unique configurations are active.
 - No new paper cell was accepted in this checkpoint; outstanding count remains **10** (Scaling 1, Krum 3, Trim 1, Adaptive 1, PoiSAFL 4).
+### 2026-11-17 12:49 CST — RFA/SafeFL PoiSAFL follow-ups
+
+- RFA + PoiSAFL m055/ae4/alpha0.05/gamma0.50 completed on real CIFAR-10 at `97.42%` final error, above the `55.0%–61.0%` interval. Gamma1.0 previously gave `95.75%`, so gamma is not the useful boundary for this cell.
+- SafeFL-compatible SignGuard + PoiSAFL m040/ae3/alpha0.40/gamma0.75 completed at `16.72%`, below the `33.7%–37.5%` interval. Gamma0.50 previously gave `17.16%`, so gamma is likewise not the useful boundary here.
+- The next RFA candidate keeps m055/ae4/alpha0.05/gamma0.50 and changes participant-role sampling to random. The next SafeFL candidate uses m045/ae3/alpha0.30/gamma1.0 between the measured low and high regimes.
+- Both configs passed `--dry_run`, commit, synchronization, and normalized GitHub config/queue readback. The daemon launched both at 12:49 CST and restored ten active configurations.
+- No paper cell was accepted; outstanding count remains **10**.
 
