@@ -994,3 +994,12 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - `cifar10_iid_rfa_krum_targeted_m030_lr0020_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `25.62%`; target `36.1%–40.3%`, out of range.
 - The next continuous calibration extension, `cifar10_iid_rfa_krum_targeted_m030_lr00075_seed2026`, changes only local lr to 0.0075. It passed `--dry_run`, commit, 2/2 config/queue normalized GitHub readback, and AutoDL synchronization.
 - The low-frequency daemon launched it at 10:29:00 CST and restored ten active configs. Outstanding paper-cell count remains **12**.
+
+### 2026-11-17 11:04 CST — SafeFL Adaptive accepted and four adjacent outcomes
+
+- `cifar10_iid_safefl_signguard_adaptive_m040_ps000_lr0490_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `26.76%`; target `26.5%–29.5%`. **Accepted in range.** Evidence: `artifacts/calibration/cifar10_iid_safefl_signguard_adaptive/m040_ps000_lr0490_seed2026/`; 12/12 normalized GitHub readbacks passed; archive SHA-256 `8a5a37a7f78a0dab8b2c334e24f8de936307b338ba1fcb446ef72c55882b9ebb`.
+- SafeFL Krum lr0.030 ended at `18.01%` versus `22.8%–25.4%`; the lr0.05/sign-fraction0.05 follow-up is active.
+- RFA PoiSAFL m055/ae4/alpha0.05/gamma1.0 ended at `95.75%` versus `55.0%–61.0%`; the gamma0.50 follow-up is active.
+- H-FedSA Krum lr0.0496/wd0.00055 ended at `27.55%` versus `20.1%–22.5%`; the lr0.04958/wd0.00050 follow-up is active.
+- MSGuard PoiSAFL m045/ae3/alpha0.15/gamma1.0 ended at `39.70%` versus `31.4%–34.8%`; the gamma0.80 follow-up is active.
+- Each new config passed `--dry_run`, GitHub commit/readback, and AutoDL queue synchronization. Nine configs are active; outstanding paper-cell count is now **11**.
