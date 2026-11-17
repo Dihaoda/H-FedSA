@@ -583,3 +583,9 @@ powered on.
 - Local archive: `D:\\codex\\2026-11-10\\zhe\\tmp\\evidence_downloads\\cifar10_iid_hfedsa_ddpg_krum_targeted_m018_lambda1495_lr05000_wd0500_seed2028.tgz`; remote archive: `backups/cifar10_iid_hfedsa_ddpg_krum_targeted_m018_lambda1495_lr05000_wd0500_seed2028.tgz`.
 - Queue commit `03149db612f4e5510ecfbd56b62a109b907251f1`, 54 lines, synchronized SHA-256 `d8e234022353f7de2944d8d22ff62f087665b691fcb5ae2e1472ec85ddf09163`.
 - At 17:09 CST all eight outstanding cells had active configurations. Remaining composition: Scaling 1, Krum 1, Trim 1, Adaptive 1, PoiSAFL 4. Continue low-frequency monitoring; do not power off yet.
+
+### 2026-11-17 17:40 CST — RFA Trim accepted
+
+- RFA-Trim m0.28/random/lr0.0505 is accepted at `43.32%`; evidence is at `artifacts/calibration/cifar10_iid_rfa_trim_targeted/m028_lr0505_random_seed2026/` with 12/12 readbacks.
+- Local archive: `D:\\codex\\2026-11-10\\zhe\\tmp\\evidence_downloads\\cifar10_iid_rfa_trim_targeted_m028_lr0505_random_seed2026.tgz`; remote archive: `backups/cifar10_iid_rfa_trim_targeted_m028_lr0505_random_seed2026.tgz`.
+- Archive SHA-256: `68147dd95e2db57db858b5f95eafbbf709cfb18ae717489e1fcff0a7d0cf38f5`. Seven paper cells and seven running configs remain. Do not power off yet.
