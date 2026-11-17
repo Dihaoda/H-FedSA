@@ -936,3 +936,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Candidate: `cifar10_iid_fltrust_adaptive_m040_ps010_lr0007_seed2026`.
 - Real CIFAR-10, seed 2026, 250/250 rounds, final error `41.86%`; target `42.8%–47.4%`. It is out of range and is not promoted as paper-aligned.
 - lr0.0006 passed `--dry_run`, was committed, passed normalized GitHub readback, and is queued. Outstanding paper-cell count remains **14**.
+
+### 2026-11-17 08:49 CST — Low-frequency queue automation
+
+- `scripts/run_calibration_queue.sh` and `configs/calibration/followup_queue_20261117.tsv` were added to preserve reproducible, source-revision-tagged follow-up launches while reducing interactive polling.
+- The server-side runner is protected by an exclusive lock, checks every 300 seconds, and will not exceed ten unique experiment configs. Syntax validation and dry-run planning passed.
+- Live runner PID: `135810`; first production cycle: `active=10 | limit=10`. The two queued candidates are SafeFL PoiSAFL m045/ae3/alpha0.15 and FLTrust Adaptive lr0.0006.
+- GitHub readback passed 2/2. The automation launches experiments only; it does not declare acceptance or fabricate/transform metrics.
