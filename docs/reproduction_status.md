@@ -1086,3 +1086,11 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - FedAvg + Scaling seed2026 completed at `14.97%` final error versus the paper point target `14.80%` (absolute gap `0.17` points). It is accepted only under the user's explicit “within range or no large difference” rule and is labeled **near-aligned**, not strictly in a zero-width interval.
 - Evidence path: `artifacts/calibration/cifar10_iid_fedavg_scaling/s010_p001_t2_v150_lr0510_wd0650_seed2026/`; 11/11 normalized GitHub readbacks and a zero-failure downloaded manifest check passed.
 - Archive SHA-256: `dcbb12f659a928757c797fbca2c40025bef0421709c94dfce1b3702aeb28347a`. Outstanding count is now **5**: Krum 1, Adaptive 1, PoiSAFL 3.
+### 2026-11-17 19:59 CST — five-cell threshold refinements
+
+- SafeFL-compatible SignGuard Krum norm5.074 completed at `17.97%` (target `22.8%–25.4%`); norm5.105 is active.
+- RFA PoiSAFL random m0.665 completed at `48.87%` (target `55.0%–61.0%`); m0.694 is active.
+- SafeFL-compatible SignGuard PoiSAFL alpha0.317 completed at `53.81%` (target `33.7%–37.5%`); alpha0.3216 is active between the measured high and low regimes.
+- FLTrust PoiSAFL random m0.796 and RFA Adaptive ps0.2044 remain active. Each replacement config passed dry-run, commit, synchronization, and normalized GitHub readback.
+- Queue commit `ff73efbd7dc7943189e34b6af491fa813b801737`, 63 lines, synchronized SHA-256 `7e9a53e9a19dcf0895bd0018ae8c748366291bdb9e82529e97cf77b4eb897482`. Outstanding count remains **5**.
+
