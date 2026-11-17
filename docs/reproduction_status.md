@@ -1016,3 +1016,11 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - `cifar10_iid_rfa_adaptive_m040_ps0265_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `28.34%`; target `46.0%–51.0%`, out of range.
 - The ps0.23 midpoint passed dry-run, commit, 2/2 config/queue normalized GitHub readback, and AutoDL synchronization; it is queued for the next daemon cycle.
 - Outstanding paper-cell count is now **10**.
+### 2026-11-17 12:24 CST — continued calibration status
+
+- Newly completed real-CIFAR-10 final-round errors are FLTrust-PoiSAFL `32.88%`, H-FedSA-Krum `23.87%`, and MSGuard-PoiSAFL `39.22%`; none is inside its paper error interval, so none is reported as reproduced.
+- Earlier boundary outcomes RFA-Krum `31.38%` and SafeFL-compatible SignGuard-Krum `17.43%` also remain out of range.
+- Seven traceable follow-ups now cover RFA-Krum lr0.003, SafeFL-Krum norm-upper6, FedAvg-Scaling weak-trigger calibration, RFA-Trim m030 random sampling, FLTrust-PoiSAFL random role sampling, H-FedSA-Krum lr0.04962, and MSGuard-PoiSAFL alpha0.20. Each config passed `--dry_run`, commit, synchronization, and normalized GitHub readback.
+- The daemon recorded ten unique active configurations after its 12:24 CST refill. Selection remains fixed-seed, real-data, 250/250 rounds, final-round-only, and error-only; ASR remains descriptive.
+- Outstanding paper-cell count remains **10**.
+
