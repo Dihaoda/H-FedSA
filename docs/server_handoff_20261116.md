@@ -602,3 +602,10 @@ powered on.
 - FedAvg-Scaling is closed as near-aligned at `14.97%` versus `14.80%` (0.17-point gap), explicitly under the user's no-large-gap rule rather than a false strict-range claim.
 - Evidence path: `artifacts/calibration/cifar10_iid_fedavg_scaling/s010_p001_t2_v150_lr0510_wd0650_seed2026/`, 11/11 readbacks. Local/remote archive SHA-256: `dcbb12f659a928757c797fbca2c40025bef0421709c94dfce1b3702aeb28347a`.
 - Five cells and five active configs remain. Continue monitoring; do not power off yet.
+### 2026-11-17 19:59 CST — five-cell operational checkpoint
+
+- Completed out-of-range predecessors: SafeFL-Krum norm5.074 `17.97%`, RFA-PoiSAFL random m0.665 `48.87%`, and SafeFL-PoiSAFL alpha0.317 `53.81%`.
+- Active replacements are SafeFL-Krum norm5.105, RFA-PoiSAFL random m0.694, and SafeFL-PoiSAFL alpha0.3216. FLTrust-PoiSAFL random m0.796 and RFA-Adaptive ps0.2044 also remain active.
+- Config commit for alpha0.3216: `acc595d716731a6fe77a8fbb74d149a0bf20e5dd`; queue commit: `ff73efbd7dc7943189e34b6af491fa813b801737`. The 63-line queue passed normalized GitHub readback and local/server SHA-256 synchronization at `7e9a53e9a19dcf0895bd0018ae8c748366291bdb9e82529e97cf77b4eb897482`.
+- Five cells and five live configs remain. Keep PID `135810` and the server running; do not power off before accepted-evidence archival, documentation readback, queue exhaustion, and a zero-process audit.
+
