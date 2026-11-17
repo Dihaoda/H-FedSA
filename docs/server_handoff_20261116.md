@@ -541,4 +541,10 @@ powered on.
 - Immediate measured predecessors were RFA-Krum `31.38%`, SafeFL-Krum `17.43%`, FLTrust-PoiSAFL `32.88%`, H-FedSA-Krum `23.87%`, and MSGuard-PoiSAFL `39.22%`; all are preserved as out-of-range evidence.
 - All seven active follow-up config paths and the final queue revision passed normalized GitHub readback. The final queue commit is `84d3db55484aff07f7d98889964555b95604b8f2`.
 - Outstanding count remains `10`. Keep the daemon and server running and resume with low-frequency final-round audits; do not shut down before evidence archival, documentation reconciliation, queue exhaustion, and zero-process verification.
+### 2026-11-17 12:49 CST operational checkpoint
+
+- RFA-PoiSAFL gamma0.50 and SafeFL-PoiSAFL gamma0.75 completed at `97.42%` and `16.72%`, respectively; both are preserved as out-of-range results.
+- Queue commit `7003b32ee8a9dc1daae4cd5a151ed2b36615b232` adds RFA-PoiSAFL random role sampling and SafeFL-PoiSAFL alpha0.30. Both configs passed dry-run and normalized readback.
+- The daemon launched both at 12:49:02 CST and restored the ten-config ceiling. Queue file now has 29 lines including its header.
+- Outstanding count remains `10`; continue low-frequency monitoring and do not shut down.
 
