@@ -8,7 +8,7 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 8 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
+There are 7 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
@@ -16,8 +16,8 @@ Krum-targeted and Trim-targeted rows and is therefore excluded.
 | No attack | 0 |
 | Label flip | 0 |
 | Scaling | 1 |
-| Krum-targeted | 2 |
-| Trim-targeted | 1 |
+| Krum-targeted | 1 |
+| Trim-targeted | 0 |
 | Adaptive | 1 |
 | PoiSAFL | 4 |
 
@@ -33,14 +33,14 @@ about joint error/ASR matching is retained as historical campaign context.
 | P2 | Label flip | FedAvg | error 18.924% | 72.0 +/- 4.5% | far below |
 | P1 | Scaling | FedAvg | latest error 15.05%, ASR 37.91% | error 14.8%, ASR 100.0% | error 0.25 points high; ASR descriptive |
 | P0 | Scaling | RFA | error 20.19%, ASR 99.84% | error 18.2 +/- 1.1%, ASR 11.5 +/- 1.5% | both out |
-| P1 | Krum-targeted | H-FedSA | best valid error 22.64% | 21.3 +/- 1.2% | 0.14 points above upper bound |
+| Done | Krum-targeted | H-FedSA | accepted calibration error 22.26% | 21.3 +/- 1.2% | in range; evidence archived |
 | P2 | Krum-targeted | FLTrust | error 15.90% | 35.0 +/- 1.9% | below |
 | Done | Krum-targeted | RFA | accepted calibration error 39.70% | 38.2 +/- 2.1% | in range; evidence archived |
 | P2 | Krum-targeted | SafeFL-compatible SignGuard | norm5.5 error 90.00% | 24.1 +/- 1.3% | diagnostic-guided norm5.32 active |
 | P2 | Krum-targeted | MSGuard | error 16.09% | 23.5 +/- 1.2% | below |
 | P2 | Trim-targeted | H-FedSA | best grid error 16.21% | 21.3 +/- 1.1% | below |
 | P2 | Trim-targeted | FLTrust | error 15.97% | 38.7 +/- 2.0% | below |
-| P2 | Trim-targeted | RFA | latest error 46.28% | 41.8 +/- 2.2% | above; m0.28 random active |
+| Done | Trim-targeted | RFA | accepted calibration error 43.32% | 41.8 +/- 2.2% | in range; evidence archived |
 | P2 | Trim-targeted | SafeFL-compatible SignGuard | error 19.90% | 26.1 +/- 1.4% | below |
 | P2 | Trim-targeted | MSGuard | error 15.49% | 25.0 +/- 1.3% | below |
 | P2 | Adaptive | FedAvg | error 16.46% | 87.5 +/- 4.0% | below |
@@ -797,3 +797,10 @@ the remaining RFA Krum extension is chained after it.
 - Scaling poison-fraction0.008/lr0.051 completed at `15.14%` -> p0.01/lr0.051/wd0.0003. SafeFL-Krum norm5.24 completed at `51.10%` -> norm5.05. SafeFL-PoiSAFL alpha0.333 completed at `29.17%` -> alpha0.323.
 - Queue commit `03149db612f4e5510ecfbd56b62a109b907251f1` has 54 lines and passed normalized GitHub plus local/server SHA-256 checks (`d8e234022353f7de2944d8d22ff62f087665b691fcb5ae2e1472ec85ddf09163`). All eight outstanding cells now have active configs.
 - Accepting H-FedSA-Krum reduces the outstanding count from 9 to **8**: Scaling 1, Krum 1, Trim 1, Adaptive 1, PoiSAFL 4.
+
+### 2026-11-17 17:40 CST — RFA Trim accepted
+
+- **Accepted:** RFA + Trim-targeted m0.28/random/lr0.0505 completed on real CIFAR-10 at `43.32%` final error, inside the paper interval `39.6%–44.0%`.
+- Evidence is frozen at `artifacts/calibration/cifar10_iid_rfa_trim_targeted/m028_lr0505_random_seed2026/`; all 12 files passed normalized GitHub readback and the downloaded archive passed its SHA256SUMS manifest with zero failures.
+- Remote/local archive SHA-256: `68147dd95e2db57db858b5f95eafbbf709cfb18ae717489e1fcff0a7d0cf38f5`.
+- Accepting RFA-Trim reduces the outstanding count from 8 to **7**: Scaling 1, Krum 1, Adaptive 1, PoiSAFL 4. Seven configs remain active; no replacement Trim run will be launched.
