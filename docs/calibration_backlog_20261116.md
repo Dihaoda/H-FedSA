@@ -876,3 +876,11 @@ the remaining RFA Krum extension is chained after it.
 - Every added config passed server dry-run, immutable GitHub commit, normalized readback, and synchronization. Queue commit `0bbaf0f14f1d538acedd3e8999be9985dc6015d9` has 86 lines; local/server SHA-256 is `b686cecf8e35f941357ffd07d3f37c164b824c1035d53b79e5de6da0aa035853`.
 - Outstanding count remains **5**. Keep the daemon and server powered on until accepted-evidence archival, documentation readback, queue exhaustion, and a zero-process audit are complete.
 
+### 2026-11-18 02:37 CST — SafeFL-compatible SignGuard + PoiSAFL accepted
+
+- SafeFL-compatible SignGuard + PoiSAFL alpha0.3189 completed on real CIFAR-10 at round 250/250 with final error `36.48%`, inside the paper interval `33.7%–37.5%`. Selection uses the final round only; ASR remains descriptive per the current acceptance rule.
+- The adjacent alpha0.3187 candidate completed at `59.34%` and is retained as out-of-range evidence of the sharp boundary. Alpha0.3185 is allowed to finish as an already-running comparison.
+- Accepted evidence path: `artifacts/calibration/cifar10_iid_safefl_signguard_poisafl/m045_ae3_a03189_g100_seed2026/`. All 12 files passed normalized GitHub readback; the independently downloaded archive passed its manifest with zero failures.
+- Local/remote archive SHA-256: `f05ae223c051fb7b6af690ebda5de17415c636f0af07e481341a8b2613417c30`.
+- Outstanding count is now **4**: Krum 1, Adaptive 1, PoiSAFL 2. The server remains powered on.
+
