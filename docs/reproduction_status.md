@@ -916,3 +916,11 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Candidate: `cifar10_iid_hfedsa_ddpg_krum_targeted_lambda1495_lr0497_seed2028`.
 - Real CIFAR-10, seed 2028, 250/250 rounds, final error `28.92%`; target `20.1%–22.5%`, out of range.
 - lr0.0496/weight-decay0.00045 is validated and queued. Outstanding count remains **14**.
+
+### 2026-11-17 08:13 CST — MSGuard Adaptive, SafeFL Krum, and numerical-stability outcomes
+
+- `cifar10_iid_msguard_adaptive_m040_ps030_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `20.54%`; target `25.3%–28.1%`, out of range. The m040/ps0.26 calibration extension is validated, committed, read back, and active.
+- `cifar10_iid_safefl_signguard_krum_targeted_m050_lm0000795_nu50_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `17.67%`; target `22.8%–25.4%`, out of range. Lambda0.0007925 is validated, committed, read back, and queued.
+- The first `cifar10_iid_msguard_poisafl_m050_ae5_a000_g100_seed2026` attempt ended at round 3 without a summary because symmetric eigendecomposition did not converge. It is recorded as a failed/incomplete run and contributes no result.
+- The MSGuard implementation now uses a symmetrized CPU-float64 Gram matrix plus an SVD fallback. The relevant suite passed locally and on AutoDL (`5 passed`); source and test readback passed 2/2. The unchanged experiment config has restarted under source revision `21b42995b926c930f00e4289314c2b14199663f2`, preserving the original failed log.
+- Neither completed metric is paper-aligned. Outstanding paper-cell count remains **14**.
