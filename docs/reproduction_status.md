@@ -1080,3 +1080,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - New out-of-range final errors are RFA-PoiSAFL `96.92%`, Scaling `15.37%`, SafeFL-Krum `20.18%`, FLTrust-PoiSAFL `22.82%`, RFA-Adaptive `35.57%`, and SafeFL-PoiSAFL `29.91%`.
 - Their six threshold refinements passed dry-run, commit, normalized readback, synchronization, and launched by 18:44 CST. Queue commit `c9b6447b7d221017bba042acea91fa03455e7456`.
 - Outstanding paper-cell count is now **6**: Scaling 1, Krum 1, Adaptive 1, PoiSAFL 3.
+
+### 2026-11-17 19:09 CST — FedAvg Scaling near-aligned
+
+- FedAvg + Scaling seed2026 completed at `14.97%` final error versus the paper point target `14.80%` (absolute gap `0.17` points). It is accepted only under the user's explicit “within range or no large difference” rule and is labeled **near-aligned**, not strictly in a zero-width interval.
+- Evidence path: `artifacts/calibration/cifar10_iid_fedavg_scaling/s010_p001_t2_v150_lr0510_wd0650_seed2026/`; 11/11 normalized GitHub readbacks and a zero-failure downloaded manifest check passed.
+- Archive SHA-256: `dcbb12f659a928757c797fbca2c40025bef0421709c94dfce1b3702aeb28347a`. Outstanding count is now **5**: Krum 1, Adaptive 1, PoiSAFL 3.
