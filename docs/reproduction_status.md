@@ -1003,3 +1003,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - H-FedSA Krum lr0.0496/wd0.00055 ended at `27.55%` versus `20.1%–22.5%`; the lr0.04958/wd0.00050 follow-up is active.
 - MSGuard PoiSAFL m045/ae3/alpha0.15/gamma1.0 ended at `39.70%` versus `31.4%–34.8%`; the gamma0.80 follow-up is active.
 - Each new config passed `--dry_run`, GitHub commit/readback, and AutoDL queue synchronization. Nine configs are active; outstanding paper-cell count is now **11**.
+
+### 2026-11-17 11:24 CST — SafeFL PoiSAFL gamma0.50 outcome
+
+- `cifar10_iid_safefl_signguard_poisafl_m040_ae3_a040_g050_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `17.16%`; target `33.7%–37.5%`, out of range.
+- The gamma0.75 continuous interpolation passed dry-run, commit, 2/2 config/queue normalized GitHub readback, and AutoDL synchronization. It launched at 11:24:01 CST.
+- Nine configs are active; outstanding paper-cell count remains **11**.
