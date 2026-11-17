@@ -683,3 +683,9 @@ the remaining RFA Krum extension is chained after it.
 - SafeFL-compatible SignGuard + Krum lambda0.0007925/norm5 completed on real CIFAR-10 at `18.38%` final error, below the `22.8%–25.4%` interval.
 - The lambda boundary is discontinuous: lambda0.00075 produced 90.00%, while 0.0007925–0.0008 stays near 17.5–18.4%. The next transparent continuous calibration therefore fixes lambda0.0007925/norm5 and lowers local learning rate to 0.030.
 - The lr0.030 config passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued. At 09:18:59 CST the daemon launched FLTrust PoiSAFL m090/ae15 into the free slot and restored ten active configs. Outstanding count remains **14**.
+
+### H-FedSA Krum weight-decay checkpoint — 2026-11-17 09:33 CST
+
+- H-FedSA + Krum lr0.0496/weight-decay0.00045 completed on real CIFAR-10 at `23.55%` final error, above the `20.1%–22.5%` interval.
+- The same lr0.0496 with default weight decay 0.00050 previously produced `22.64%`; the next adjacent candidate therefore moves in the opposite direction to weight decay 0.00055.
+- The wd0.00055 config passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued. At 09:28:59 CST the daemon launched SafeFL Adaptive lr0.049 and restored ten active configs. Outstanding count remains **14**.
