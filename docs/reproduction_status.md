@@ -1133,3 +1133,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - FLTrust-PoiSAFL m0.8678, RFA-Adaptive ps0.20301, and RFA-PoiSAFL m0.7362 remain active. Ten validated real-CIFAR-10 candidates are running concurrently.
 - Queue commit `0bbaf0f14f1d538acedd3e8999be9985dc6015d9`, 86 lines, synchronized SHA-256 `b686cecf8e35f941357ffd07d3f37c164b824c1035d53b79e5de6da0aa035853`. Five cells remain.
 
+### 2026-11-18 02:37 CST — SafeFL-compatible SignGuard PoiSAFL accepted
+
+- SafeFL-compatible SignGuard + PoiSAFL m0.45/ae3/alpha0.3189/gamma1.0/seed2026 is accepted: real CIFAR-10, 250/250 rounds, final error `36.48%`, target `33.7%–37.5%`.
+- Evidence path: `artifacts/calibration/cifar10_iid_safefl_signguard_poisafl/m045_ae3_a03189_g100_seed2026/`. Twelve files passed normalized GitHub readback; the independently downloaded archive had zero manifest failures.
+- Archive SHA-256: `f05ae223c051fb7b6af690ebda5de17415c636f0af07e481341a8b2613417c30`. Outstanding paper-cell count is now **4**: Krum 1, Adaptive 1, PoiSAFL 2.
+
