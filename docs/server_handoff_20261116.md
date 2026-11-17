@@ -471,3 +471,9 @@ powered on.
 - Completed out of range: FedAvg PoiSAFL ae10 `82.48%`, RFA Krum m031-random/lambda1.5 `90.00%`, and RFA PoiSAFL m060/ae5/alpha0.00 `98.88%`.
 - At 08:53:59 CST PID `135810` observed seven active configs and launched SafeFL PoiSAFL m045/ae3/alpha0.15, FLTrust Adaptive lr0.0006, and FedAvg PoiSAFL ae15, restoring ten active configs without exceeding the ceiling.
 - Newly queued after successful dry-run and GitHub readback: RFA Krum m030/lr0.020 and RFA PoiSAFL m055/ae4/alpha0.05. Continue low-frequency monitoring and keep the server powered on.
+
+### Queue checkpoint — 2026-11-17 09:02 CST
+
+- FLTrust PoiSAFL m070/ae5/alpha0.00 ended at `23.15%`, below its paper interval.
+- The m090/ae15/alpha0.00 follow-up passed dry-run and GitHub readback and is queued behind RFA PoiSAFL m055.
+- At 08:58:59 CST the queue runner launched RFA Krum m030/lr0.020 into the free slot, returning to ten active configs. Keep the server powered on and continue low-frequency monitoring.
