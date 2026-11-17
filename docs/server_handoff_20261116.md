@@ -446,3 +446,9 @@ powered on.
 - MSGuard Adaptive m040/ps0.26 passed `--dry_run`, was committed, passed 1/1 normalized readback, and is active. SafeFL Krum lambda0.0007925 passed the same checks and is queued.
 - MSGuard PoiSAFL m050 failed at round 3 on an ill-conditioned `torch.linalg.eigh`; the incomplete run is not a result. The Gram calculation was hardened with symmetry, CPU float64, and deterministic SVD fallback. The focused suite passed locally and on AutoDL (`5 passed`), and source/test GitHub readback passed 2/2.
 - MSGuard PoiSAFL has restarted with a separate retry log, and H-FedSA Krum lr0.0496/weight-decay0.00045 is active. Ten unique configurations are running. Keep low-frequency/event-driven monitoring and keep the server powered on until the final audit and shutdown gate.
+
+### Queue checkpoint — 2026-11-17 08:18 CST
+
+- RFA Adaptive m040/ps0.30 ended at `26.30%`, below its interval; SafeFL PoiSAFL m050/anti-epochs5/alpha0.00 ended at `98.77%`, above its interval.
+- RFA m040/ps0.20 and SafeFL m045/anti-epochs3/alpha0.15 passed `--dry_run`, were committed, passed 2/2 normalized GitHub readback, and are queued.
+- SafeFL Krum lambda0.0007925 filled the available slot. Ten unique configurations are active; continue low-frequency/event-driven monitoring and keep the server powered on.
