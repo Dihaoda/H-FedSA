@@ -682,3 +682,10 @@ powered on.
 - Queue commit `e4496a6f57ef057f6644fa36a8a99e5509d8c923`, 107 lines, synchronized SHA-256 `96de7d3c076b1fc107badadd0b9c7186d8af660f2f3923d08f1a87945390304e`.
 - Three cells remain and 10 configs are active. Keep the daemon and server powered on.
 
+### 2026-11-18 05:58 CST — SafeFL Krum near-aligned
+
+- SafeFL-compatible SignGuard + Krum sign-fraction0.04 is closed as near-aligned at `25.79%`, 0.39 points above the paper upper bound; it is not mislabeled as strictly in range.
+- Evidence path: `artifacts/calibration/cifar10_iid_safefl_signguard_krum_targeted/m050_lm00007925_nu50898_sf004_seed2026/`, 12/12 normalized GitHub readbacks. Local/remote archive SHA-256: `da9d171745406133154f506210b058cd383e9d33cce3605f9bc15417d1293cd9`; downloaded manifest verification had zero failures.
+- Three RFA-Adaptive probes launched at 05:54 CST. Queue commit `71a341454c407e81e08bf5adccee638c873760b9`, 110 lines, synchronized SHA-256 `95b26c39459792b3dd341dd20493fafdafc7399194d65364a36a67167ccc7055`.
+- Two cells remain and six configs are active. Keep the daemon and server powered on.
+
