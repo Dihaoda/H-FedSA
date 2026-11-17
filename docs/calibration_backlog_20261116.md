@@ -8,7 +8,7 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 10 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
+There are 9 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
@@ -16,7 +16,7 @@ Krum-targeted and Trim-targeted rows and is therefore excluded.
 | No attack | 0 |
 | Label flip | 0 |
 | Scaling | 1 |
-| Krum-targeted | 3 |
+| Krum-targeted | 2 |
 | Trim-targeted | 1 |
 | Adaptive | 1 |
 | PoiSAFL | 4 |
@@ -31,28 +31,28 @@ about joint error/ASR matching is retained as historical campaign context.
 | Priority | Attack | Defense | Measured | Paper target | Gap status |
 | --- | --- | --- | --- | --- | --- |
 | P2 | Label flip | FedAvg | error 18.924% | 72.0 +/- 4.5% | far below |
-| P1 | Scaling | FedAvg | error 91.36%, ASR 45.76% | error 14.8%, ASR 100.0% | both out |
+| P1 | Scaling | FedAvg | latest error 15.26%, ASR 38.93% | error 14.8%, ASR 100.0% | error 0.46 points high; ASR descriptive |
 | P0 | Scaling | RFA | error 20.19%, ASR 99.84% | error 18.2 +/- 1.1%, ASR 11.5 +/- 1.5% | both out |
-| P1 | Krum-targeted | H-FedSA | best valid error 23.55% | 21.3 +/- 1.2% | 1.05 points above upper bound |
+| P1 | Krum-targeted | H-FedSA | best valid error 22.64% | 21.3 +/- 1.2% | 0.14 points above upper bound |
 | P2 | Krum-targeted | FLTrust | error 15.90% | 35.0 +/- 1.9% | below |
-| P2 | Krum-targeted | RFA | error 19.24% | 38.2 +/- 2.1% | below |
-| P2 | Krum-targeted | SafeFL-compatible SignGuard | error 16.35% | 24.1 +/- 1.3% | below |
+| Done | Krum-targeted | RFA | accepted calibration error 39.70% | 38.2 +/- 2.1% | in range; evidence archived |
+| P2 | Krum-targeted | SafeFL-compatible SignGuard | boundary outcomes 18.38% / 90.00% | 24.1 +/- 1.3% | norm-boundary follow-up active |
 | P2 | Krum-targeted | MSGuard | error 16.09% | 23.5 +/- 1.2% | below |
 | P2 | Trim-targeted | H-FedSA | best grid error 16.21% | 21.3 +/- 1.1% | below |
 | P2 | Trim-targeted | FLTrust | error 15.97% | 38.7 +/- 2.0% | below |
-| P2 | Trim-targeted | RFA | error 19.08% | 41.8 +/- 2.2% | below |
+| P2 | Trim-targeted | RFA | latest error 46.28% | 41.8 +/- 2.2% | above; m0.28 random active |
 | P2 | Trim-targeted | SafeFL-compatible SignGuard | error 19.90% | 26.1 +/- 1.4% | below |
 | P2 | Trim-targeted | MSGuard | error 15.49% | 25.0 +/- 1.3% | below |
 | P2 | Adaptive | FedAvg | error 16.46% | 87.5 +/- 4.0% | below |
 | Done | Adaptive | FLTrust | accepted calibration error 42.87% | 45.1 +/- 2.3% | in range; evidence archived |
-| P2 | Adaptive | RFA | error 16.69% | 48.5 +/- 2.5% | below |
+| P2 | Adaptive | RFA | latest error 31.86% | 48.5 +/- 2.5% | below; ps0.215 active |
 | Done | Adaptive | SafeFL-compatible SignGuard | accepted calibration error 26.76% | 28.0 +/- 1.5% | in range; evidence archived |
 | Done | Adaptive | MSGuard | accepted calibration error 25.43% | 26.7 +/- 1.4% | in range; evidence archived |
 | Done | PoiSAFL | FedAvg | accepted calibration error 92.90% | >=90.0% | criterion met; evidence archived |
-| P2 | PoiSAFL | FLTrust | error 15.47% | 55.2 +/- 2.8% | below |
-| P2 | PoiSAFL | RFA | error 15.34% | 58.0 +/- 3.0% | below |
-| P2 | PoiSAFL | SafeFL-compatible SignGuard | error 15.66% | 35.6 +/- 1.9% | below |
-| P2 | PoiSAFL | MSGuard | error 15.94% | 33.1 +/- 1.7% | below |
+| P2 | PoiSAFL | FLTrust | latest error 32.88% | 55.2 +/- 2.8% | below; random-role follow-up active |
+| P2 | PoiSAFL | RFA | boundary outcomes 36.80% / 97.42% | 58.0 +/- 3.0% | random-role follow-up active |
+| P2 | PoiSAFL | SafeFL-compatible SignGuard | boundary outcomes 16.72% / 82.47% | 35.6 +/- 1.9% | alpha0.30 follow-up active |
+| P2 | PoiSAFL | MSGuard | latest error 35.07% | 33.1 +/- 1.7% | 0.27 points high; alpha0.205 active |
 
 ## Completed in-range scaling cells
 
@@ -752,4 +752,12 @@ the remaining RFA Krum extension is chained after it.
 - The next RFA candidate keeps m055/ae4/alpha0.05/gamma0.50 and changes participant-role sampling to random. The next SafeFL candidate uses m045/ae3/alpha0.30/gamma1.0 between the measured low and high regimes.
 - Both configs passed `--dry_run`, commit, synchronization, and normalized GitHub config/queue readback. The daemon launched both at 12:49 CST and restored ten active configurations.
 - No paper cell was accepted; outstanding count remains **10**.
+### 2026-11-17 13:49 CST — RFA Krum accepted and nine-cell continuation
+
+- RFA + Krum m030/lr0.003 completed on real CIFAR-10 at `39.70%` final error, inside the paper interval `36.1%–40.3%`; it is **accepted in range**.
+- Evidence is frozen at `artifacts/calibration/cifar10_iid_rfa_krum_targeted/m030_lr0003_seed2026/`. All 12/12 normalized GitHub readback comparisons passed. The server and downloaded archive both have SHA-256 `6b013d21b5235a53506f67fdf486579a7bda9c8f36004e2a0cd70cd2b48d3d76`, and local manifest verification has zero failures.
+- Other completed outcomes in this wave remain pending: FedAvg-Scaling `15.26%`, RFA-Adaptive `31.86%`, SafeFL-Krum `90.00%`, RFA-Trim `46.28%`, H-FedSA-Krum `23.79%`, and MSGuard-PoiSAFL `35.07%`.
+- Diagnostic-supported follow-ups are active for Scaling lr0.051, RFA-Adaptive ps0.215, SafeFL-Krum norm-upper5.5, RFA-Trim m0.28 random, H-FedSA-Krum m0.19/lr0.0496, and MSGuard-PoiSAFL alpha0.205. Each config passed dry-run, synchronization, and normalized readback.
+- At 13:49 CST the daemon launched the final two refinements. Nine unique configurations are active, one for each remaining cell.
+- Accepting RFA-Krum reduces the outstanding count from 10 to **9**: Scaling 1, Krum 2, Trim 1, Adaptive 1, PoiSAFL 4.
 
