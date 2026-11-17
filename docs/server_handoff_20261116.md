@@ -506,5 +506,5 @@ powered on.
 ### Accepted evidence and queue checkpoint — 2026-11-17 10:14 CST
 
 - FLTrust Adaptive m040/ps0.10/lr0.0006 is accepted at `42.87%` final error. Evidence path: `artifacts/calibration/cifar10_iid_fltrust_adaptive/m040_ps010_lr0006_seed2026/`; GitHub readback 13/13; archive SHA-256 `44b1b58fad11ec63e99ac52c297ee42e7ecbfc0c3b7f251e241b163a67549fa5`.
-- SafeFL PoiSAFL m045/ae3/alpha0.15/gamma1.0 ended at `82.47%`, above its interval. The m040/ae3/alpha0.40/gamma0.50 follow-up passed dry-run, commit, config/queue readback, and AutoDL synchronization.
+- SafeFL PoiSAFL m045/ae3/alpha0.15/gamma1.0 ended at `82.47%`, above its interval. The m040/ae3/alpha0.40/gamma0.50 follow-up passed dry-run, commit, config/queue readback, and AutoDL synchronization; the queue runner launched it at 10:14:00 CST and restored ten active configs.
 - Outstanding count is `12`. Continue low-frequency/event-driven monitoring; do not shut down until the queue, experiment processes, evidence backlog, GitHub readback, and final audit are all empty and verified.
