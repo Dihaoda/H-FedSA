@@ -465,3 +465,9 @@ powered on.
 - It polls every 300 seconds under `flock`, counts unique active configs, and enforces `max_parallel=10`. First live cycle recorded `active=10 | limit=10`.
 - Queued next: SafeFL PoiSAFL m045/ae3/alpha0.15, then FLTrust Adaptive lr0.0006. Script and queue passed server validation and 2/2 normalized GitHub readback.
 - Keep the daemon and server running. Do not shut down until the experiment queue, result/evidence backlog, GitHub readback, and process audit are all empty and verified.
+
+### Queue checkpoint — 2026-11-17 08:56 CST
+
+- Completed out of range: FedAvg PoiSAFL ae10 `82.48%`, RFA Krum m031-random/lambda1.5 `90.00%`, and RFA PoiSAFL m060/ae5/alpha0.00 `98.88%`.
+- At 08:53:59 CST PID `135810` observed seven active configs and launched SafeFL PoiSAFL m045/ae3/alpha0.15, FLTrust Adaptive lr0.0006, and FedAvg PoiSAFL ae15, restoring ten active configs without exceeding the ceiling.
+- Newly queued after successful dry-run and GitHub readback: RFA Krum m030/lr0.020 and RFA PoiSAFL m055/ae4/alpha0.05. Continue low-frequency monitoring and keep the server powered on.
