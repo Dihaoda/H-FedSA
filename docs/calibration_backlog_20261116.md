@@ -722,3 +722,9 @@ the remaining RFA Krum extension is chained after it.
 - H-FedSA + Krum lr0.0496/wd0.00055 completed at `27.55%`, above `20.1%–22.5%`; its lr0.04958/wd0.00050 follow-up launched at 10:59 CST.
 - MSGuard + PoiSAFL m045/ae3/alpha0.15/gamma1.0 completed at `39.70%`, above `31.4%–34.8%`; its gamma0.80 follow-up launched at 11:04 CST.
 - All four follow-up configs passed dry-run and normalized config/queue readback. Nine configurations are active. Accepting SafeFL Adaptive reduces the outstanding count from 12 to **11**.
+
+### SafeFL PoiSAFL gamma checkpoint — 2026-11-17 11:24 CST
+
+- SafeFL-compatible SignGuard + PoiSAFL m040/ae3/alpha0.40/gamma0.50 completed on real CIFAR-10 at `17.16%`, below the `33.7%–37.5%` interval.
+- The gamma0.75 continuous interpolation passed `--dry_run`, commit, and 2/2 config/queue normalized GitHub readback. The low-frequency daemon launched it at 11:24:01 CST.
+- Nine configurations are active; the SafeFL PoiSAFL cell remains pending and outstanding count remains **11**.
