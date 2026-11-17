@@ -988,3 +988,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - `cifar10_iid_safefl_signguard_poisafl_m045_ae3_a015_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `82.47%`; target `33.7%–37.5%`, out of range.
 - The next SafeFL PoiSAFL calibration extension is `cifar10_iid_safefl_signguard_poisafl_m040_ae3_a040_g050_seed2026`; it passed `--dry_run`, commit, 2/2 config/queue normalized GitHub readback, and server synchronization. The queue runner launched it at 10:14:00 CST and restored ten active configs. Selection remains final-round-only and synthetic fallback remains disabled.
 - Outstanding paper-cell count is now **12**.
+
+### 2026-11-17 10:29 CST — RFA Krum lr0.020 outcome
+
+- `cifar10_iid_rfa_krum_targeted_m030_lr0020_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `25.62%`; target `36.1%–40.3%`, out of range.
+- The next continuous calibration extension, `cifar10_iid_rfa_krum_targeted_m030_lr00075_seed2026`, changes only local lr to 0.0075. It passed `--dry_run`, commit, 2/2 config/queue normalized GitHub readback, and AutoDL synchronization.
+- The low-frequency daemon launched it at 10:29:00 CST and restored ten active configs. Outstanding paper-cell count remains **12**.
