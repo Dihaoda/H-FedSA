@@ -705,3 +705,10 @@ the remaining RFA Krum extension is chained after it.
 - SafeFL-compatible SignGuard + PoiSAFL m045/anti-epochs3/alpha0.15/distance-gamma1.0 completed at `82.47%`, above the `33.7%–37.5%` interval. The next transparent calibration extension uses m040/anti-epochs3/alpha0.40/distance-gamma0.50.
 - The new config and updated queue passed 2/2 normalized GitHub readback comparisons and were synchronized to AutoDL. The low-frequency queue runner launched it at 10:14:00 CST; ten unique configurations are active.
 - Accepting FLTrust Adaptive reduces the outstanding paper-cell count from 13 to **12**; the Adaptive backlog is now **2**.
+
+### RFA Krum lr0.020 checkpoint — 2026-11-17 10:29 CST
+
+- RFA + Krum m030/lr0.020 completed on real CIFAR-10 at `25.62%` final error, below the `36.1%–40.3%` interval, so it is not accepted.
+- Lowering local lr from 0.05 to 0.02 moved the measured error toward the target. The next continuous calibration extension keeps all other settings fixed and uses lr0.0075.
+- The lr0.0075 config passed `--dry_run`, was committed, and the config plus queue passed 2/2 normalized GitHub readback. The daemon launched it at 10:29:00 CST and restored ten active configurations.
+- The RFA Krum cell remains pending; outstanding count remains **12**.
