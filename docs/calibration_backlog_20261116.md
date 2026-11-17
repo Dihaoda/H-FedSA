@@ -8,7 +8,7 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 7 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
+There are 6 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
@@ -19,7 +19,7 @@ Krum-targeted and Trim-targeted rows and is therefore excluded.
 | Krum-targeted | 1 |
 | Trim-targeted | 0 |
 | Adaptive | 1 |
-| PoiSAFL | 4 |
+| PoiSAFL | 3 |
 
 ## Detailed backlog
 
@@ -52,7 +52,7 @@ about joint error/ASR matching is retained as historical campaign context.
 | P2 | PoiSAFL | FLTrust | latest error 32.88% | 55.2 +/- 2.8% | below; random-role follow-up active |
 | P2 | PoiSAFL | RFA | random m0.55 error 38.87% | 58.0 +/- 3.0% | random m0.60 active |
 | P2 | PoiSAFL | SafeFL-compatible SignGuard | alpha0.30 error 51.38% | 35.6 +/- 1.9% | alpha0.35 follow-up active |
-| P2 | PoiSAFL | MSGuard | latest error 35.07% | 33.1 +/- 1.7% | 0.27 points high; alpha0.205 active |
+| Done | PoiSAFL | MSGuard | accepted calibration error 32.61% | 33.1 +/- 1.7% | in range; evidence archived |
 
 ## Completed in-range scaling cells
 
@@ -804,3 +804,11 @@ the remaining RFA Krum extension is chained after it.
 - Evidence is frozen at `artifacts/calibration/cifar10_iid_rfa_trim_targeted/m028_lr0505_random_seed2026/`; all 12 files passed normalized GitHub readback and the downloaded archive passed its SHA256SUMS manifest with zero failures.
 - Remote/local archive SHA-256: `68147dd95e2db57db858b5f95eafbbf709cfb18ae717489e1fcff0a7d0cf38f5`.
 - Accepting RFA-Trim reduces the outstanding count from 8 to **7**: Scaling 1, Krum 1, Adaptive 1, PoiSAFL 4. Seven configs remain active; no replacement Trim run will be launched.
+
+### 2026-11-17 18:44 CST — MSGuard PoiSAFL accepted and six-cell wave
+
+- **Accepted:** MSGuard + PoiSAFL m0.45/ae3/alpha0.20/gamma0.65 completed on real CIFAR-10 at `32.61%` final error, inside `31.4%–34.8%`.
+- Evidence is frozen at `artifacts/calibration/cifar10_iid_msguard_poisafl/m045_ae3_a020_g065_seed2026/`; 12/12 GitHub readbacks and the downloaded SHA256SUMS verification passed. Archive SHA-256: `88587afcc6cb608e67d9ccd1a7ace8a2b4480406924a1d251685561e2674471b`.
+- New out-of-range outcomes and active interpolations: RFA-PoiSAFL `96.92%` -> m0.665; Scaling `15.37%` -> wd0.00065; SafeFL-Krum `20.18%` -> norm5.074; FLTrust-PoiSAFL `22.82%` -> m0.796; RFA-Adaptive `35.57%` -> ps0.2044; SafeFL-PoiSAFL `29.91%` -> alpha0.317.
+- Queue commit `c9b6447b7d221017bba042acea91fa03455e7456` has 60 lines and synchronized SHA-256 `0ed1392e1f89f6969e62a6514920508bb95b9e3b72482e59f8cc38f50885b1b7`. All six outstanding cells are active.
+- Accepting MSGuard-PoiSAFL reduces the outstanding count from 7 to **6**: Scaling 1, Krum 1, Adaptive 1, PoiSAFL 3.
