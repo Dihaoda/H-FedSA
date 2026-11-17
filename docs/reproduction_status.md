@@ -1009,3 +1009,10 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - `cifar10_iid_safefl_signguard_poisafl_m040_ae3_a040_g050_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `17.16%`; target `33.7%–37.5%`, out of range.
 - The gamma0.75 continuous interpolation passed dry-run, commit, 2/2 config/queue normalized GitHub readback, and AutoDL synchronization. It launched at 11:24:01 CST.
 - Nine configs are active; outstanding paper-cell count remains **11**.
+
+### 2026-11-17 11:46 CST — FedAvg PoiSAFL accepted; RFA Adaptive outcome
+
+- `cifar10_iid_fedavg_poisafl_m090_ae15_a000_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `92.90%`; paper criterion `>=90.0%`. **Accepted in range.** Evidence: `artifacts/calibration/cifar10_iid_fedavg_poisafl/m090_ae15_a000_g100_seed2026/`; 12/12 normalized GitHub readbacks passed; archive SHA-256 `428788a4f2c2e77113ca50600e34a374e59a3d94a4ceca8c7679a317a6edd2c1`.
+- `cifar10_iid_rfa_adaptive_m040_ps0265_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `28.34%`; target `46.0%–51.0%`, out of range.
+- The ps0.23 midpoint passed dry-run, commit, 2/2 config/queue normalized GitHub readback, and AutoDL synchronization; it is queued for the next daemon cycle.
+- Outstanding paper-cell count is now **10**.
