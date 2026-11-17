@@ -703,5 +703,5 @@ the remaining RFA Krum extension is chained after it.
 - FLTrust + Adaptive m040/ps0.10/lr0.0006 completed on real CIFAR-10 at `42.87%` final error, inside the `42.8%–47.4%` interval. It is **accepted in range** under the final-round error-only rule.
 - Evidence is frozen at `artifacts/calibration/cifar10_iid_fltrust_adaptive/m040_ps010_lr0006_seed2026/`; all 13/13 normalized GitHub readback comparisons passed. The verified archive SHA-256 is `44b1b58fad11ec63e99ac52c297ee42e7ecbfc0c3b7f251e241b163a67549fa5`.
 - SafeFL-compatible SignGuard + PoiSAFL m045/anti-epochs3/alpha0.15/distance-gamma1.0 completed at `82.47%`, above the `33.7%–37.5%` interval. The next transparent calibration extension uses m040/anti-epochs3/alpha0.40/distance-gamma0.50.
-- The new config and updated queue passed 2/2 normalized GitHub readback comparisons and were synchronized to AutoDL. The low-frequency queue runner will launch it when a slot is available.
+- The new config and updated queue passed 2/2 normalized GitHub readback comparisons and were synchronized to AutoDL. The low-frequency queue runner launched it at 10:14:00 CST; ten unique configurations are active.
 - Accepting FLTrust Adaptive reduces the outstanding paper-cell count from 13 to **12**; the Adaptive backlog is now **2**.
