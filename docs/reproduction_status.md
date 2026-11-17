@@ -1051,3 +1051,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Four traceable follow-ups passed server `--dry_run`, normalized GitHub readback, and synchronized queue checks: RFA-Trim m0.276/random, RFA-Adaptive ps0.2075, H-FedSA-Krum m0.18/lr0.05, and MSGuard-PoiSAFL alpha0.199.
 - The RFA pair launched at 15:09 CST and the Krum/PoiSAFL pair at 15:14 CST. Selection remains `final_round_only`; ASR is descriptive under the user-approved error-only acceptance rule.
 - Queue commit: `e571bd1007f7cd70474ddc683e230cfecc528236`. Nine unique configs are active, and the outstanding count remains **9**.
+
+### 2026-11-17 15:54 CST — four adjacent refinements launched
+
+- Real-CIFAR-10 final-round errors: FedAvg-Scaling `15.28%`, FLTrust-PoiSAFL `90.00%`, SafeFL-Krum `90.00%`, and SafeFL-PoiSAFL `29.51%`. Their targets are `14.8%`, `52.4%–58.0%`, `22.8%–25.4%`, and `33.7%–37.5%`; none is accepted.
+- Traceable next candidates are Scaling poison-fraction0.008/lr0.051, FLTrust-PoiSAFL m0.70/random, SafeFL-Krum norm-upper5.24, and SafeFL-PoiSAFL alpha0.333. Each passed server `--dry_run`, 4/4 normalized config readback, queue readback, and server synchronization.
+- Queue commit `f4d2d933312460fdb1c66087f2ca43a0d0da1ddf` launched all four at 15:54 CST. Final-round-only selection and real-result provenance remain unchanged; outstanding count **9**.
