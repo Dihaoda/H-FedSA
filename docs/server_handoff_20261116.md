@@ -477,3 +477,9 @@ powered on.
 - FLTrust PoiSAFL m070/ae5/alpha0.00 ended at `23.15%`, below its paper interval.
 - The m090/ae15/alpha0.00 follow-up passed dry-run and GitHub readback and is queued behind RFA PoiSAFL m055.
 - At 08:58:59 CST the queue runner launched RFA Krum m030/lr0.020 into the free slot, returning to ten active configs. Keep the server powered on and continue low-frequency monitoring.
+
+### Queue checkpoint — 2026-11-17 09:12 CST
+
+- SafeFL Adaptive m040/ps0.00 ended at `26.21%`, 0.29 points below its paper interval.
+- The lr0.049 follow-up passed dry-run and GitHub readback and is queued.
+- At 09:08:59 CST the runner launched RFA PoiSAFL m055/ae4/alpha0.05, restoring ten active configs. Keep the server powered on and continue low-frequency monitoring.
