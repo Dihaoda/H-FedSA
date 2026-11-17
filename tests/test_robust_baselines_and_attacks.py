@@ -32,6 +32,26 @@ def test_safefl_and_msguard_are_runnable_and_normalize_weights() -> None:
         assert all("predicted_malicious" in item for item in diagnostics)
 
 
+def test_msguard_uses_svd_when_symmetric_eigendecomposition_fails(monkeypatch) -> None:
+    updates = [
+        (0, _update([1.0, 1.1, 0.9, 1.0])),
+        (1, _update([0.9, 1.0, 1.1, 1.0])),
+        (2, _update([1.1, 0.9, 1.0, 1.0])),
+        (3, _update([-30.0, 30.0, -30.0, 30.0])),
+    ]
+
+    def _fail_eigh(_matrix):
+        raise RuntimeError("synthetic non-convergence")
+
+    monkeypatch.setattr(torch.linalg, "eigh", _fail_eigh)
+    defense = build_defense("msguard", {"msguard": {"min_retained_fraction": 0.5}})
+    aggregate, diagnostics = defense.aggregate(updates)
+
+    assert torch.isfinite(flatten_update(aggregate)).all()
+    assert len(diagnostics) == len(updates)
+    assert all("spectral_eigh_svd_fallback" in item["fallback_reason"] for item in diagnostics)
+
+
 def test_trim_targeted_is_deterministic_and_changes_only_malicious_updates() -> None:
     updates = [
         (0, _update([1.0, 2.0, 3.0])),
