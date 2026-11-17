@@ -608,4 +608,10 @@ powered on.
 - Active replacements are SafeFL-Krum norm5.105, RFA-PoiSAFL random m0.694, and SafeFL-PoiSAFL alpha0.3216. FLTrust-PoiSAFL random m0.796 and RFA-Adaptive ps0.2044 also remain active.
 - Config commit for alpha0.3216: `acc595d716731a6fe77a8fbb74d149a0bf20e5dd`; queue commit: `ff73efbd7dc7943189e34b6af491fa813b801737`. The 63-line queue passed normalized GitHub readback and local/server SHA-256 synchronization at `7e9a53e9a19dcf0895bd0018ae8c748366291bdb9e82529e97cf77b4eb897482`.
 - Five cells and five live configs remain. Keep PID `135810` and the server running; do not power off before accepted-evidence archival, documentation readback, queue exhaustion, and a zero-process audit.
+### 2026-11-17 20:34 CST — five-cell operational checkpoint
+
+- RFA-Adaptive ps0.2044 ended at `34.77%`; ps0.2033 launched at 20:24 CST from config commit `5675479413fa99c5b8444f714636e68c0fe2f6b1`.
+- SafeFL-Krum norm5.105 ended at `30.58%`; bracket interpolation norm5.089 launched at 20:34 CST from config commit `e170efb0f3626c7b72fd82025aa144597ddf297b`.
+- Current queue commit `a6054467c7a5164519ebd3aac18a5d5a05242c3b`, 65 lines, synchronized SHA-256 `f57da620cf423f00e764981f16534e8e1bd98b26bab56a0ef520a9e5d8a0ca3d`; normalized readback passed.
+- Five active configs remain. Keep the daemon and server powered on.
 
