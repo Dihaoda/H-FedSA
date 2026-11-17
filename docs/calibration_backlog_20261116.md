@@ -640,3 +640,9 @@ the remaining RFA Krum extension is chained after it.
 - MSGuard + PoiSAFL m050/anti-epochs5/alpha0.00 stopped at round 3 because `torch.linalg.eigh` did not converge on an ill-conditioned client Gram matrix. No metric was accepted from the incomplete run.
 - MSGuard spectral scoring now symmetrizes the 10x10 Gram matrix, evaluates it on CPU in float64, and uses a deterministic SVD backup on eigensolver non-convergence. The focused suite passes locally and on AutoDL (`5 passed`), both changed source/test files passed 2/2 normalized GitHub readback, and the same config has restarted with the failed log preserved separately.
 - H-FedSA Krum lr0.0496/weight-decay0.00045 also entered the released slot. Ten unique configurations are active; outstanding paper-cell count remains **14**.
+
+### RFA Adaptive and SafeFL PoiSAFL checkpoint — 2026-11-17 08:18 CST
+
+- RFA + Adaptive m040/ps0.30 completed on real CIFAR-10 at `26.30%` final error, below the `46.0%–51.0%` interval. The m040/ps0.20 midpoint passed `--dry_run`, was committed, passed normalized GitHub readback, and is queued.
+- SafeFL-compatible SignGuard + PoiSAFL m050/anti-epochs5/alpha0.00 completed at `98.77%` final error, above the `33.7%–37.5%` interval. The interpolated m045/anti-epochs3/alpha0.15 candidate passed `--dry_run`, was committed, passed normalized GitHub readback, and is queued.
+- SafeFL Krum lambda0.0007925 filled the released slot; ten unique configurations are active. Both completed cells remain pending, so the outstanding count remains **14**.
