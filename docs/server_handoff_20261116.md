@@ -533,3 +533,12 @@ powered on.
 - FedAvg PoiSAFL m090/ae15/alpha0.00/gamma1.0 is accepted at `92.90%`, meeting the `>=90.0%` rule. Evidence: `artifacts/calibration/cifar10_iid_fedavg_poisafl/m090_ae15_a000_g100_seed2026/`; readback 12/12; archive SHA-256 `428788a4f2c2e77113ca50600e34a374e59a3d94a4ceca8c7679a317a6edd2c1`.
 - RFA Adaptive ps0.265 ended at `28.34%`, below its interval. The ps0.23 follow-up passed dry-run, commit, readback, and synchronization and is queued.
 - Outstanding count is `10`. Keep the daemon and server running; continue low-frequency monitoring.
+### 2026-11-17 12:24 CST operational checkpoint
+
+- Queue daemon PID remains `135810`; the queue file now has 27 lines including its header and uses the same exclusive-lock/ten-config ceiling.
+- At 12:19 CST it launched RFA-Krum lr0.003, SafeFL-Krum norm-upper6, FedAvg-Scaling scale1/poison0.01/2x2 trigger, and RFA-Trim m030 random sampling.
+- At 12:24 CST it launched FLTrust-PoiSAFL random role sampling, H-FedSA-Krum lr0.04962/wd0.0005, and MSGuard-PoiSAFL alpha0.20, restoring ten unique active configs.
+- Immediate measured predecessors were RFA-Krum `31.38%`, SafeFL-Krum `17.43%`, FLTrust-PoiSAFL `32.88%`, H-FedSA-Krum `23.87%`, and MSGuard-PoiSAFL `39.22%`; all are preserved as out-of-range evidence.
+- All seven active follow-up config paths and the final queue revision passed normalized GitHub readback. The final queue commit is `84d3db55484aff07f7d98889964555b95604b8f2`.
+- Outstanding count remains `10`. Keep the daemon and server running and resume with low-frequency final-round audits; do not shut down before evidence archival, documentation reconciliation, queue exhaustion, and zero-process verification.
+
