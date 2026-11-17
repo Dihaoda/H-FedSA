@@ -51,7 +51,7 @@ about joint error/ASR matching is retained as historical campaign context.
 | Done | PoiSAFL | FedAvg | accepted calibration error 92.90% | >=90.0% | criterion met; evidence archived |
 | P2 | PoiSAFL | FLTrust | latest error 32.88% | 55.2 +/- 2.8% | below; random-role follow-up active |
 | P2 | PoiSAFL | RFA | boundary outcomes 36.80% / 97.42% | 58.0 +/- 3.0% | random-role follow-up active |
-| P2 | PoiSAFL | SafeFL-compatible SignGuard | boundary outcomes 16.72% / 82.47% | 35.6 +/- 1.9% | alpha0.30 follow-up active |
+| P2 | PoiSAFL | SafeFL-compatible SignGuard | alpha0.30 error 51.38% | 35.6 +/- 1.9% | alpha0.35 follow-up active |
 | P2 | PoiSAFL | MSGuard | latest error 35.07% | 33.1 +/- 1.7% | 0.27 points high; alpha0.205 active |
 
 ## Completed in-range scaling cells
@@ -760,4 +760,9 @@ the remaining RFA Krum extension is chained after it.
 - Diagnostic-supported follow-ups are active for Scaling lr0.051, RFA-Adaptive ps0.215, SafeFL-Krum norm-upper5.5, RFA-Trim m0.28 random, H-FedSA-Krum m0.19/lr0.0496, and MSGuard-PoiSAFL alpha0.205. Each config passed dry-run, synchronization, and normalized readback.
 - At 13:49 CST the daemon launched the final two refinements. Nine unique configurations are active, one for each remaining cell.
 - Accepting RFA-Krum reduces the outstanding count from 10 to **9**: Scaling 1, Krum 2, Trim 1, Adaptive 1, PoiSAFL 4.
+### 2026-11-17 14:09 CST — SafeFL PoiSAFL alpha refinement
+
+- SafeFL-compatible SignGuard + PoiSAFL m045/ae3/alpha0.30/gamma1.0 completed on real CIFAR-10 at `51.38%` final error, above the `33.7%–37.5%` interval.
+- The alpha0.35 midpoint keeps every other setting fixed. It passed dry-run, commit, synchronization, and normalized config/queue readback.
+- The daemon launched alpha0.35 at 14:09 CST, restoring one active config per outstanding cell. Outstanding count remains **9**.
 
