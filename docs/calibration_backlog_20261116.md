@@ -899,3 +899,11 @@ the remaining RFA Krum extension is chained after it.
 - Three RFA-Adaptive and two RFA-PoiSAFL candidates remain active. Queue commit `356de44de063bebce7b5002bb70216de2a33fa49` has 100 lines; synchronized SHA-256 is `3dd30be8526a0e024e58d78b5157f35df061d5dc7b7fdf9e151d6affd4c96dc2`, with normalized GitHub readback passed.
 - Outstanding count remains **4** and 10 configurations are active.
 
+### 2026-11-18 04:30 CST — RFA + PoiSAFL accepted and Adaptive boundary refill
+
+- RFA + PoiSAFL m0.7312 completed on real CIFAR-10 at round 250/250 with final error `55.31%`, inside the paper interval `55.0%–61.0%`. The independently run m0.7330 neighbor also landed inside at `55.84%`.
+- Accepted evidence path: `artifacts/calibration/cifar10_iid_rfa_poisafl/m07312_ae4_a005_g050_random_seed2026/`. All 12 files passed normalized GitHub readback; the independently downloaded archive passed its manifest with zero failures. Archive SHA-256: `036d880fb0fa6252a21f367fb989fe90e1fecf316f816fe13b8b11d95abb7657`.
+- RFA + Adaptive ps0.20285/0.20292/0.20298 completed at `35.39%`/`90.00%`/`36.17%`. Boundary probes ps0.202867, ps0.202900, and ps0.202966 launched at 04:19 CST.
+- Queue commit `0d30ead95a405e3458bede4f07123854ca750157` has 103 lines; synchronized SHA-256 is `7be6245d143175daf7c935e16c2edf0e8dd605ae685070a430c0e038f8dea9a1`, with normalized GitHub readback passed.
+- Outstanding count is now **3**: Krum 1, Adaptive 1, PoiSAFL 1. The server remains powered on.
+
