@@ -677,3 +677,9 @@ the remaining RFA Krum extension is chained after it.
 - SafeFL-compatible SignGuard + Adaptive m040/ps0.00 completed on real CIFAR-10 at `26.21%` final error, 0.29 points below the `26.5%–29.5%` interval, so it is not accepted.
 - The next continuous calibration extension keeps m040/ps0.00 and changes local learning rate from 0.050 to 0.049. It passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued.
 - At 09:08:59 CST the daemon launched RFA PoiSAFL m055/ae4/alpha0.05 into the released slot and restored ten active configs. Outstanding paper-cell count remains **14**.
+
+### SafeFL Krum learning-rate checkpoint — 2026-11-17 09:22 CST
+
+- SafeFL-compatible SignGuard + Krum lambda0.0007925/norm5 completed on real CIFAR-10 at `18.38%` final error, below the `22.8%–25.4%` interval.
+- The lambda boundary is discontinuous: lambda0.00075 produced 90.00%, while 0.0007925–0.0008 stays near 17.5–18.4%. The next transparent continuous calibration therefore fixes lambda0.0007925/norm5 and lowers local learning rate to 0.030.
+- The lr0.030 config passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued. At 09:18:59 CST the daemon launched FLTrust PoiSAFL m090/ae15 into the free slot and restored ten active configs. Outstanding count remains **14**.
