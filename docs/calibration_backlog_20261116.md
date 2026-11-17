@@ -780,3 +780,11 @@ the remaining RFA Krum extension is chained after it.
 - H-FedSA + Krum m0.19/lr0.0496 completed at `23.18%` final error, 0.68 points above `20.1%–22.5%`. The m0.18/lr0.05 refinement is committed at `deada9bd40f585ade31c1f4c8a28d7a64bda1836` and launched at 15:14 CST.
 - MSGuard + PoiSAFL alpha0.205 completed at `36.62%` final error, above `31.4%–34.8%`. The interpolated alpha0.199 refinement is committed at `fd2da50006c87007c3271dc7632183530a87f5a3` and launched at 15:14 CST.
 - Queue commit `e571bd1007f7cd70474ddc683e230cfecc528236` has 43 lines and passed normalized GitHub readback plus server SHA-256 synchronization. Nine configurations are active; the outstanding paper-cell count remains **9**.
+
+### 2026-11-17 15:54 CST — four adjacent refinements launched
+
+- FedAvg + Scaling lr0.0522 completed at `15.28%` final error versus the paper value/range `14.8%`; it remains pending. A lower-intensity poison-fraction0.008/lr0.051 candidate is active.
+- FLTrust + PoiSAFL m0.90/random completed at `90.00%` versus `52.4%–58.0%`; m0.70/random is active to bracket the collapse boundary.
+- SafeFL-compatible SignGuard + Krum norm-upper5.32 completed at `90.00%` versus `22.8%–25.4%`; norm-upper5.24 is active immediately below the observed first-round malicious norm boundary.
+- SafeFL-compatible SignGuard + PoiSAFL alpha0.35 completed at `29.51%` versus `33.7%–37.5%`; alpha0.333 is active between the prior alpha0.30 and alpha0.35 outcomes.
+- All four replacements passed dry-run, normalized config/queue readback, and synchronization. Queue commit `f4d2d933312460fdb1c66087f2ca43a0d0da1ddf` launched them at 15:54 CST; nine configurations are active and the outstanding count remains **9**.
