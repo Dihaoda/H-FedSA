@@ -671,3 +671,9 @@ the remaining RFA Krum extension is chained after it.
 - FLTrust + PoiSAFL m070/anti-epochs5/alpha0.00 completed on real CIFAR-10 at `23.15%` final error, below the `52.4%–58.0%` interval.
 - The stronger m090/anti-epochs15/alpha0.00 calibration extension passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued.
 - At 08:58:59 CST the daemon observed one free slot and launched RFA Krum m030/lr0.020, restoring ten active configs. RFA PoiSAFL m055 and the new FLTrust PoiSAFL candidate remain queued; outstanding paper-cell count remains **14**.
+
+### SafeFL Adaptive near-boundary checkpoint — 2026-11-17 09:12 CST
+
+- SafeFL-compatible SignGuard + Adaptive m040/ps0.00 completed on real CIFAR-10 at `26.21%` final error, 0.29 points below the `26.5%–29.5%` interval, so it is not accepted.
+- The next continuous calibration extension keeps m040/ps0.00 and changes local learning rate from 0.050 to 0.049. It passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued.
+- At 09:08:59 CST the daemon launched RFA PoiSAFL m055/ae4/alpha0.05 into the released slot and restored ten active configs. Outstanding paper-cell count remains **14**.
