@@ -8,7 +8,7 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 14 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
+There are 13 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
@@ -18,7 +18,7 @@ Krum-targeted and Trim-targeted rows and is therefore excluded.
 | Scaling | 1 |
 | Krum-targeted | 3 |
 | Trim-targeted | 1 |
-| Adaptive | 4 |
+| Adaptive | 3 |
 | PoiSAFL | 5 |
 
 ## Detailed backlog
@@ -47,7 +47,7 @@ about joint error/ASR matching is retained as historical campaign context.
 | P2 | Adaptive | FLTrust | error 19.71% | 45.1 +/- 2.3% | below |
 | P2 | Adaptive | RFA | error 16.69% | 48.5 +/- 2.5% | below |
 | P2 | Adaptive | SafeFL-compatible SignGuard | error 16.98% | 28.0 +/- 1.5% | below |
-| P2 | Adaptive | MSGuard | error 16.33% | 26.7 +/- 1.4% | below |
+| Done | Adaptive | MSGuard | accepted calibration error 25.43% | 26.7 +/- 1.4% | in range; evidence archived |
 | P2 | PoiSAFL | FedAvg | error 15.19% | >=90.0% | below |
 | P2 | PoiSAFL | FLTrust | error 15.47% | 55.2 +/- 2.8% | below |
 | P2 | PoiSAFL | RFA | error 15.34% | 58.0 +/- 3.0% | below |
@@ -689,3 +689,11 @@ the remaining RFA Krum extension is chained after it.
 - H-FedSA + Krum lr0.0496/weight-decay0.00045 completed on real CIFAR-10 at `23.55%` final error, above the `20.1%–22.5%` interval.
 - The same lr0.0496 with default weight decay 0.00050 previously produced `22.64%`; the next adjacent candidate therefore moves in the opposite direction to weight decay 0.00055.
 - The wd0.00055 config passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued. At 09:28:59 CST the daemon launched SafeFL Adaptive lr0.049 and restored ten active configs. Outstanding count remains **14**.
+
+### MSGuard Adaptive accepted; MSGuard PoiSAFL and RFA Adaptive outcomes — 2026-11-17 09:44 CST
+
+- MSGuard + Adaptive m040/ps0.26 completed on real CIFAR-10 at `25.43%` final error, inside the `25.3%–28.1%` interval. It is **accepted in range** under the final-round error-only rule.
+- Evidence is frozen at `artifacts/calibration/cifar10_iid_msguard_adaptive/m040_ps026_seed2026/`; all 12/12 normalized GitHub readback comparisons passed. The verified archive SHA-256 is `72e47780c16a7f50c75cfe2262085eefe7198abab6e69d0ee187bb667488c4a3`.
+- MSGuard + PoiSAFL m050/ae5/alpha0.00 completed at `89.99%`, above the `31.4%–34.8%` interval. The m045/ae3/alpha0.15 midpoint passed dry-run/readback and was launched by the daemon at 09:43:59 CST.
+- RFA + Adaptive m040/ps0.20 completed at `90.48%`, above the `46.0%–51.0%` interval. The ps0.265 midpoint passed dry-run/readback and remains queued.
+- Ten configs are active. Accepting MSGuard Adaptive reduces the outstanding paper-cell count from 14 to **13**.
