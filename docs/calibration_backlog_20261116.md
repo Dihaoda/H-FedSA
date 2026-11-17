@@ -884,3 +884,11 @@ the remaining RFA Krum extension is chained after it.
 - Local/remote archive SHA-256: `f05ae223c051fb7b6af690ebda5de17415c636f0af07e481341a8b2613417c30`.
 - Outstanding count is now **4**: Krum 1, Adaptive 1, PoiSAFL 2. The server remains powered on.
 
+### 2026-11-18 02:49 CST — four-cell parallel follow-up wave
+
+- The first SafeFL-Krum norm-only grid completed out of range: norm5.0893 `90.00%`, norm5.08915 `17.62%`, and norm5.08945/norm5.08965 `17.35%`. Because the boundary is discontinuous, four two-dimensional candidates now vary malicious ratio 0.55/0.60 at norm5.05/5.089; all launched at 02:34 CST.
+- RFA + Adaptive ps0.20301 completed at `37.27%`, below `46.0%–51.0%`; ps0.20285, ps0.20292, and ps0.20298 launched at 02:44 CST.
+- RFA + PoiSAFL m0.7362 completed at `62.50%`, 1.50 points above the `55.0%–61.0%` interval. It is retained as near-boundary evidence while strict-range candidates m0.7312 and m0.7330 launched at 02:49 CST.
+- FLTrust + PoiSAFL m0.8678 remains active. Queue commit `5cd0a7bd75d6741d1756e638718e4eb3e5863af7` has 95 lines; synchronized SHA-256 is `15ad13224cf322f5d67b19792df20dc107e4d38c4067d301f179c4fd55dc0e45`, with normalized GitHub readback passed.
+- Outstanding count remains **4** and 10 validated configurations are active.
+
