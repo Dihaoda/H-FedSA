@@ -930,3 +930,10 @@ the remaining RFA Krum extension is chained after it.
 - RFA + Adaptive ps0.202872, ps0.202875, and ps0.202880 remain active. Queue commit `b7eac631b058ef16222f850b3fece91173358f31` has 115 lines; synchronized SHA-256 is `fc5fbd47b15b7c5050d26d58b6003e64dff158f9698ee904d206e0f2205732f7`, with normalized GitHub readback passed.
 - Outstanding count remains **2** and eight validated configs are active.
 
+### 2026-11-18 07:30 CST — final ten-way threshold wave
+
+- RFA + Adaptive ps0.202872, ps0.202875, and ps0.202880 completed at `37.35%`, `36.40%`, and `89.95%`, bracketing the `46.0%–51.0%` interval inside a width of 0.000005.
+- Five fine-grid candidates ps0.2028755, ps0.2028760, ps0.2028765, ps0.2028770, and ps0.2028780 launched at 07:29 CST.
+- Five FLTrust + PoiSAFL candidates remain active. Queue commit `1d26a7723854f28a6c936309ac800e5ffb63deb4` has 120 lines; synchronized SHA-256 is `90e1f0279d2906473a2d27ceb07b3ad9e8eb3f8e57c0816d1f852383b12e449e`, with normalized GitHub readback passed.
+- Outstanding count remains **2** and 10 validated configs are active.
+
