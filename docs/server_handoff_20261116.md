@@ -589,3 +589,10 @@ powered on.
 - RFA-Trim m0.28/random/lr0.0505 is accepted at `43.32%`; evidence is at `artifacts/calibration/cifar10_iid_rfa_trim_targeted/m028_lr0505_random_seed2026/` with 12/12 readbacks.
 - Local archive: `D:\\codex\\2026-11-10\\zhe\\tmp\\evidence_downloads\\cifar10_iid_rfa_trim_targeted_m028_lr0505_random_seed2026.tgz`; remote archive: `backups/cifar10_iid_rfa_trim_targeted_m028_lr0505_random_seed2026.tgz`.
 - Archive SHA-256: `68147dd95e2db57db858b5f95eafbbf709cfb18ae717489e1fcff0a7d0cf38f5`. Seven paper cells and seven running configs remain. Do not power off yet.
+
+### 2026-11-17 18:44 CST — MSGuard PoiSAFL accepted and six-cell wave
+
+- MSGuard-PoiSAFL alpha0.20/gamma0.65 is accepted at `32.61%`. Evidence is at `artifacts/calibration/cifar10_iid_msguard_poisafl/m045_ae3_a020_g065_seed2026/` with 12/12 readbacks.
+- Local archive: `D:\\codex\\2026-11-10\\zhe\\tmp\\evidence_downloads\\cifar10_iid_msguard_poisafl_m045_ae3_a020_g065_seed2026.tgz`; remote archive: `backups/cifar10_iid_msguard_poisafl_m045_ae3_a020_g065_seed2026.tgz`; SHA-256 `88587afcc6cb608e67d9ccd1a7ace8a2b4480406924a1d251685561e2674471b`.
+- Queue commit `c9b6447b7d221017bba042acea91fa03455e7456`, 60 lines, synchronized SHA-256 `0ed1392e1f89f6969e62a6514920508bb95b9e3b72482e59f8cc38f50885b1b7`.
+- Six cells and six active configs remain. Continue low-frequency monitoring; do not power off yet.
