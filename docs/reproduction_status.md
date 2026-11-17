@@ -1072,3 +1072,11 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Evidence path: `artifacts/calibration/cifar10_iid_rfa_trim_targeted/m028_lr0505_random_seed2026/`. Twelve files passed normalized GitHub readback and the independently downloaded archive passed a zero-failure manifest verification.
 - Archive SHA-256: `68147dd95e2db57db858b5f95eafbbf709cfb18ae717489e1fcff0a7d0cf38f5`.
 - Outstanding paper-cell count is now **7**: Scaling 1, Krum 1, Adaptive 1, PoiSAFL 4.
+
+### 2026-11-17 18:44 CST — MSGuard PoiSAFL accepted and six-cell wave
+
+- MSGuard + PoiSAFL m0.45/ae3/alpha0.20/gamma0.65/seed2026 is accepted: real CIFAR-10, 250/250 rounds, final error `32.61%`, target `31.4%–34.8%`.
+- Evidence path: `artifacts/calibration/cifar10_iid_msguard_poisafl/m045_ae3_a020_g065_seed2026/`. Twelve files passed normalized GitHub readback; local archive verification had zero manifest failures. Archive SHA-256: `88587afcc6cb608e67d9ccd1a7ace8a2b4480406924a1d251685561e2674471b`.
+- New out-of-range final errors are RFA-PoiSAFL `96.92%`, Scaling `15.37%`, SafeFL-Krum `20.18%`, FLTrust-PoiSAFL `22.82%`, RFA-Adaptive `35.57%`, and SafeFL-PoiSAFL `29.91%`.
+- Their six threshold refinements passed dry-run, commit, normalized readback, synchronization, and launched by 18:44 CST. Queue commit `c9b6447b7d221017bba042acea91fa03455e7456`.
+- Outstanding paper-cell count is now **6**: Scaling 1, Krum 1, Adaptive 1, PoiSAFL 3.
