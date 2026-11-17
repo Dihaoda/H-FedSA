@@ -1139,3 +1139,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - Evidence path: `artifacts/calibration/cifar10_iid_safefl_signguard_poisafl/m045_ae3_a03189_g100_seed2026/`. Twelve files passed normalized GitHub readback; the independently downloaded archive had zero manifest failures.
 - Archive SHA-256: `f05ae223c051fb7b6af690ebda5de17415c636f0af07e481341a8b2613417c30`. Outstanding paper-cell count is now **4**: Krum 1, Adaptive 1, PoiSAFL 2.
 
+### 2026-11-18 02:49 CST — four-cell parallel follow-up wave
+
+- SafeFL-Krum's first norm-only grid produced `90.00%` (5.0893), `17.62%` (5.08915), and `17.35%` (5.08945/5.08965); a four-point malicious-ratio x norm grid is active instead of claiming a smooth interpolation.
+- RFA-Adaptive ps0.20301 ended at `37.27%`; ps0.20285/0.20292/0.20298 are active. RFA-PoiSAFL m0.7362 ended at `62.50%`; strict-range candidates m0.7312/0.7330 are active.
+- FLTrust-PoiSAFL m0.8678 remains active. Queue commit `5cd0a7bd75d6741d1756e638718e4eb3e5863af7`, 95 lines, SHA-256 `15ad13224cf322f5d67b19792df20dc107e4d38c4067d301f179c4fd55dc0e45`. Four cells remain and 10 candidates are active.
+
