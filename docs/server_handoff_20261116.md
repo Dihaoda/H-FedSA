@@ -596,3 +596,9 @@ powered on.
 - Local archive: `D:\\codex\\2026-11-10\\zhe\\tmp\\evidence_downloads\\cifar10_iid_msguard_poisafl_m045_ae3_a020_g065_seed2026.tgz`; remote archive: `backups/cifar10_iid_msguard_poisafl_m045_ae3_a020_g065_seed2026.tgz`; SHA-256 `88587afcc6cb608e67d9ccd1a7ace8a2b4480406924a1d251685561e2674471b`.
 - Queue commit `c9b6447b7d221017bba042acea91fa03455e7456`, 60 lines, synchronized SHA-256 `0ed1392e1f89f6969e62a6514920508bb95b9e3b72482e59f8cc38f50885b1b7`.
 - Six cells and six active configs remain. Continue low-frequency monitoring; do not power off yet.
+
+### 2026-11-17 19:09 CST — FedAvg Scaling near-aligned
+
+- FedAvg-Scaling is closed as near-aligned at `14.97%` versus `14.80%` (0.17-point gap), explicitly under the user's no-large-gap rule rather than a false strict-range claim.
+- Evidence path: `artifacts/calibration/cifar10_iid_fedavg_scaling/s010_p001_t2_v150_lr0510_wd0650_seed2026/`, 11/11 readbacks. Local/remote archive SHA-256: `dcbb12f659a928757c797fbca2c40025bef0421709c94dfce1b3702aeb28347a`.
+- Five cells and five active configs remain. Continue monitoring; do not power off yet.
