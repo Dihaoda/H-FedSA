@@ -8,7 +8,7 @@ configuration/output paths, and are labeled as calibration runs.
 
 ## Summary
 
-There are 9 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
+There are 8 out-of-range combinations under the current error-only acceptance rule and the user-approved reuse of prior final-round seed results. FedAvg is not applicable to the paper's
 Krum-targeted and Trim-targeted rows and is therefore excluded.
 
 | Attack | Out-of-range combinations |
@@ -788,3 +788,12 @@ the remaining RFA Krum extension is chained after it.
 - SafeFL-compatible SignGuard + Krum norm-upper5.32 completed at `90.00%` versus `22.8%–25.4%`; norm-upper5.24 is active immediately below the observed first-round malicious norm boundary.
 - SafeFL-compatible SignGuard + PoiSAFL alpha0.35 completed at `29.51%` versus `33.7%–37.5%`; alpha0.333 is active between the prior alpha0.30 and alpha0.35 outcomes.
 - All four replacements passed dry-run, normalized config/queue readback, and synchronization. Queue commit `f4d2d933312460fdb1c66087f2ca43a0d0da1ddf` launched them at 15:54 CST; nine configurations are active and the outstanding count remains **9**.
+
+### 2026-11-17 17:09 CST — H-FedSA Krum accepted and eight-cell follow-up wave
+
+- **Accepted:** H-FedSA + Krum m0.18/lr0.05 completed on real CIFAR-10 at `22.26%` final error, inside the paper interval `20.1%–22.5%`. Final-round-only selection was used.
+- Reproducible evidence is archived under `artifacts/calibration/cifar10_iid_hfedsa_ddpg_krum_targeted/m018_lambda1495_lr05000_wd0500_seed2028/`; all 16 files passed normalized GitHub readback and the SHA256SUMS manifest. Remote/local archive SHA-256: `ef6dfe1f563ef6dcea2bf382a071e9437aae29c4310f3a323d0cb07bff50d46f`.
+- Additional completed errors and replacements: RFA-PoiSAFL m0.60/random `41.93%` -> m0.82; RFA-Trim m0.276/random `46.10%` -> m0.28/lr0.0505; RFA-Adaptive ps0.2075 `34.47%` -> ps0.2057; MSGuard-PoiSAFL alpha0.199 `35.11%` -> alpha0.20/gamma0.65.
+- Scaling poison-fraction0.008/lr0.051 completed at `15.14%` -> p0.01/lr0.051/wd0.0003. SafeFL-Krum norm5.24 completed at `51.10%` -> norm5.05. SafeFL-PoiSAFL alpha0.333 completed at `29.17%` -> alpha0.323.
+- Queue commit `03149db612f4e5510ecfbd56b62a109b907251f1` has 54 lines and passed normalized GitHub plus local/server SHA-256 checks (`d8e234022353f7de2944d8d22ff62f087665b691fcb5ae2e1472ec85ddf09163`). All eight outstanding cells now have active configs.
+- Accepting H-FedSA-Krum reduces the outstanding count from 9 to **8**: Scaling 1, Krum 1, Trim 1, Adaptive 1, PoiSAFL 4.
