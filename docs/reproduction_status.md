@@ -930,3 +930,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - `cifar10_iid_rfa_adaptive_m040_ps030_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `26.30%`; target `46.0%–51.0%`, out of range. m040/ps0.20 is validated, committed, read back, and queued.
 - `cifar10_iid_safefl_signguard_poisafl_m050_ae5_a000_g100_seed2026`: real CIFAR-10, seed 2026, 250/250 rounds, final error `98.77%`; target `33.7%–37.5%`, out of range. m045/anti-epochs3/alpha0.15 is validated, committed, read back, and queued.
 - Neither result is paper-aligned. Outstanding paper-cell count remains **14**.
+
+### 2026-11-17 08:27 CST — FLTrust Adaptive lr0.0007 outcome
+
+- Candidate: `cifar10_iid_fltrust_adaptive_m040_ps010_lr0007_seed2026`.
+- Real CIFAR-10, seed 2026, 250/250 rounds, final error `41.86%`; target `42.8%–47.4%`. It is out of range and is not promoted as paper-aligned.
+- lr0.0006 passed `--dry_run`, was committed, passed normalized GitHub readback, and is queued. Outstanding paper-cell count remains **14**.
