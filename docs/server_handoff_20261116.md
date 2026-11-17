@@ -458,3 +458,10 @@ powered on.
 - FLTrust Adaptive lr0.0007 ended at `41.86%`, 0.94 points below its interval.
 - lr0.0006 passed `--dry_run`, was committed, passed 1/1 normalized GitHub readback, and is queued.
 - RFA Adaptive m040/ps0.20 filled the released slot. Ten unique configurations are active; continue low-frequency/event-driven monitoring and keep the server powered on.
+
+### Queue-runner checkpoint — 2026-11-17 08:49 CST
+
+- Live low-frequency runner: PID `135810`, script `scripts/run_calibration_queue.sh`, queue `configs/calibration/followup_queue_20261117.tsv`.
+- It polls every 300 seconds under `flock`, counts unique active configs, and enforces `max_parallel=10`. First live cycle recorded `active=10 | limit=10`.
+- Queued next: SafeFL PoiSAFL m045/ae3/alpha0.15, then FLTrust Adaptive lr0.0006. Script and queue passed server validation and 2/2 normalized GitHub readback.
+- Keep the daemon and server running. Do not shut down until the experiment queue, result/evidence backlog, GitHub readback, and process audit are all empty and verified.
