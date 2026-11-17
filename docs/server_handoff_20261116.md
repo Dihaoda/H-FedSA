@@ -576,3 +576,10 @@ powered on.
 - Completed predecessors: Scaling `15.28%`, FLTrust-PoiSAFL `90.00%`, SafeFL-Krum `90.00%`, and SafeFL-PoiSAFL `29.51%`; all remain out of range.
 - The daemon launched the four adjacent replacements at 15:54 CST from queue commit `f4d2d933312460fdb1c66087f2ca43a0d0da1ddf`.
 - The 47-line queue passed normalized GitHub readback; local/server SHA-256 is `d60887c65c0eace47718a71a747301c389cf7957238647028f4e267159c7c97f`. Nine configs are active. Keep the server powered on and continue low-frequency monitoring.
+
+### 2026-11-17 17:09 CST — H-FedSA Krum accepted and eight-cell follow-up wave
+
+- H-FedSA-Krum m0.18/lr0.05 is accepted at `22.26%`. Evidence is committed at `artifacts/calibration/cifar10_iid_hfedsa_ddpg_krum_targeted/m018_lambda1495_lr05000_wd0500_seed2028/` with 16/16 readbacks and archive SHA-256 `ef6dfe1f563ef6dcea2bf382a071e9437aae29c4310f3a323d0cb07bff50d46f`.
+- Local archive: `D:\\codex\\2026-11-10\\zhe\\tmp\\evidence_downloads\\cifar10_iid_hfedsa_ddpg_krum_targeted_m018_lambda1495_lr05000_wd0500_seed2028.tgz`; remote archive: `backups/cifar10_iid_hfedsa_ddpg_krum_targeted_m018_lambda1495_lr05000_wd0500_seed2028.tgz`.
+- Queue commit `03149db612f4e5510ecfbd56b62a109b907251f1`, 54 lines, synchronized SHA-256 `d8e234022353f7de2944d8d22ff62f087665b691fcb5ae2e1472ec85ddf09163`.
+- At 17:09 CST all eight outstanding cells had active configurations. Remaining composition: Scaling 1, Krum 1, Trim 1, Adaptive 1, PoiSAFL 4. Continue low-frequency monitoring; do not power off yet.
