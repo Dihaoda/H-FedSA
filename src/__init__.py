@@ -1,1 +1,1 @@
-"""H-FedSA quick experiment package."""
+"""Official H-FedSA implementation package."""

@@ -5,7 +5,7 @@ from torch import nn
 
 
 class PaperCNN(nn.Module):
-    """Two-conv/two-FC CIFAR-10 CNN used for paper-target calibration."""
+    """Two-conv/two-FC CIFAR-10 CNN used for paper-aligned experiments."""
 
     def __init__(
         self,
@@ -76,7 +76,7 @@ class BasicBlock(nn.Module):
 
 
 class ResNet18CIFAR(nn.Module):
-    """CIFAR-sized ResNet-18 fallback for capacity calibration."""
+    """CIFAR-sized ResNet-18 fallback for capacity-controlled experiments."""
 
     def __init__(self, num_classes: int = 10) -> None:
         super().__init__()

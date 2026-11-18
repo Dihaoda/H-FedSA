@@ -990,7 +990,7 @@ class FederatedExperiment:
         return ""
 
     def _prepare_run_dir(self) -> Path:
-        base = Path(self.config.get("output_dir", "results/quick_dev"))
+        base = Path(self.config.get("output_dir", "results/run"))
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
         seed = int(self.config.get("seed", 0))
         run_dir = base / f"{self.config.get('experiment_name', 'experiment')}_seed{seed}_{timestamp}"
