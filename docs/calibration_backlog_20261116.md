@@ -1161,3 +1161,35 @@ All five configs and the queue passed dry-run validation before launch. They
 run with the active FLTrust refinement wave at the global limit of ten unique
 configurations.
 
+### RFA server-lr first wave and refinement (2026-11-18)
+
+The first RFA server-step wave completed with final-round-only selection:
+
+| projection_strength | server_lr | final accuracy (%) | final error (%) | decision |
+|---:|---:|---:|---:|---|
+| 0.202876672 | 0.15 | 54.16 | 45.84 | 0.16 pp below target |
+| 0.202876672 | 0.20 | 56.68 | 43.32 | outside target |
+| 0.202876672 | 0.25 | 58.36 | 41.64 | outside target |
+| 0.202876672 | 0.30 | 60.11 | 39.89 | outside target |
+| 0.202876672 | 0.40 | 62.67 | 37.33 | outside target |
+
+The evidence bundles were committed at
+`90b1fae693e9589cb321170da176a30ec4226c16`; all five remote blob SHAs
+were read back and matched.
+
+Because server_lr=0.15 missed the lower error bound by only 0.16 percentage
+points and the response was monotonic, a lower-range refinement started at
+2026-11-18 18:55:57 CST:
+
+- server-lr values: 0.08, 0.10, 0.12, 0.13, 0.14
+- fixed projection strength: 0.202876672
+- queue:
+  `configs/calibration/recovery_rfa_serverlr_refine_queue_20261118.tsv`
+- queue SHA-256:
+  `1a93d8bc0590959f49a3d4a5691175f194032d07a2b2f919cd6b0569429a949d`
+- queue commit: `fca77e2dd8898a41f5b76debb8ad68baf09f578d`
+- daemon PID: 34062
+- per-run logs: `logs/calibration/*_rfa_serverlr_refine_20261118.log`
+
+All five configs and the queue passed dry-run validation before launch.
+
