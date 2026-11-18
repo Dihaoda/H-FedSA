@@ -1,1 +1,1 @@
-"""Official H-FedSA implementation package."""
+"""H-FedSA implementation package."""

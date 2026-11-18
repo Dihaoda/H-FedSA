@@ -1,6 +1,6 @@
 # H-FedSA
 
-Official implementation of **H-FedSA: A Self-Adaptive Federated Learning Framework with Dynamic Probabilistic Client Security Analysis**.
+Implementation of **H-FedSA: A Self-Adaptive Federated Learning Framework with Dynamic Probabilistic Client Security Analysis**.
 
 Paper-aligned CIFAR-10 reproduction configurations are provided in [`configs/reproduction/`](configs/reproduction/).
 
