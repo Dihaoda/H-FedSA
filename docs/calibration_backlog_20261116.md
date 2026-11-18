@@ -963,3 +963,24 @@ summaries were available. Queue state is **running**; none of these ten entries
 is accepted merely because it started. The selection rule remains
 `final_round_only`, seed 2026, with ASR retained as descriptive metadata and
 error rate controlling acceptance.
+
+### Recovery candidate completion 1/10 (2026-11-18 11:49 CST)
+
+- Candidate: `rfa_adaptive_m040_ps02028770_seed2026`
+- Projection strength: `0.2028770`
+- Selection point: final round 250 only
+- Final accuracy: `8.22%`
+- Final error rate: `91.78%`
+- Target error interval: `46.0--51.0%`
+- Decision: **outside target; not accepted**
+- Dataset source: real CIFAR-10 with CIFAR-10-C unseen shift
+- Evidence archive:
+  `artifacts/experiment-evidence/2026-11-18/cifar10_iid_rfa_adaptive_m040_ps02028770_seed2026.tgz`
+- Archive SHA-256:
+  `aab2ba669138942d3659f0f26e78efded499835d18a08c01dc000e9762b4a46a`
+- Archive commit: `43e086b8f53e34cf1d149b94ddf10e86c7b9c995`
+- Git blob readback: `402f73e6469a3c0dcd1e69932720f7b5e724d160`, 198,982 bytes
+
+The candidate is retained as a genuine failed calibration point; its earlier best
+accuracy is not substituted for the preregistered final-round metric. Nine
+recovery candidates remain running.
