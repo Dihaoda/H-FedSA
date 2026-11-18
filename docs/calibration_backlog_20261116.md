@@ -1265,3 +1265,15 @@ settings but sets `federated.rounds: 80`. It started at
 These rounds-80 runs are explicitly calibration results and will not be
 misrepresented as 250-round paper-protocol runs.
 
+### Terminal state: no remaining cells (2026-11-18 21:34 CST)
+
+- RFA + Adaptive accepted at 49.99% final error (250 rounds, seed 2026).
+- FLTrust + PoiSAFL accepted at 55.67% final error (explicit rounds-80 fast
+  calibration, seed 2026); an independent rounds-80 candidate reached 52.87%.
+- Accepted-wave evidence commits:
+  `e81c6eb02621a4353201aa60ee98cffe5aac8aee` and
+  `e917cef71b8155cf8f2b265aa62a1d9ab21bbf37`.
+- All ten evidence blobs passed GitHub SHA readback.
+- Remaining attack-defense combinations: 0.
+- Queue daemons: 0; trainers: 0; GPU compute processes: 0.
+
