@@ -1022,3 +1022,22 @@ settings but sets `federated.rounds: 80`. It started at
 These rounds-80 runs are explicitly calibration results and will not be
 misrepresented as 250-round paper-protocol runs.
 
+### Terminal server state before power-off (2026-11-18 21:34 CST)
+
+The final two cells are closed:
+
+- RFA + Adaptive: 49.99% final error, full 250 rounds, seed 2026.
+- FLTrust + PoiSAFL: 55.67% final error, explicitly labelled 80-round fast
+  calibration, seed 2026. A second 80-round candidate reached 52.87%.
+- Evidence commits:
+  `e81c6eb02621a4353201aa60ee98cffe5aac8aee` and
+  `e917cef71b8155cf8f2b265aa62a1d9ab21bbf37`.
+- GitHub readback: 10/10 evidence blob SHAs matched.
+- Remaining attack-defense cells: 0.
+- Exact process audit: 0 queue daemons, 0 trainers, 0 GPU compute processes.
+
+The canonical final status is recorded in `docs/reproduction_status.md`.
+Configs, queues, evidence bundles, checksums, and the calibration caveat are
+stored on the default branch. The server is ready for the previously
+authorized power-off after this document is read back.
+
