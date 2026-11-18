@@ -701,3 +701,10 @@ powered on.
 - Five FLTrust-PoiSAFL candidates remain active. Queue commit `1d26a7723854f28a6c936309ac800e5ffb63deb4`, 120 lines, synchronized SHA-256 `90e1f0279d2906473a2d27ceb07b3ad9e8eb3f8e57c0816d1f852383b12e449e`.
 - Two cells remain and 10 configs are active. Keep the daemon and server powered on.
 
+### 2026-11-18 08:51 CST — unexpected AutoDL disconnect
+
+- Last verified state: 10 active final-wave configs (five RFA-Adaptive at rounds 118–127; five FLTrust-PoiSAFL at rounds 137–140).
+- SSH was closed by the remote host; three retries returned `Connection refused`. This was not the requested final power-off and no completion/process audit ran.
+- Durable state: queue commit `1d26a7723854f28a6c936309ac800e5ffb63deb4`, 120 lines, synchronized SHA-256 `90e1f0279d2906473a2d27ceb07b3ad9e8eb3f8e57c0816d1f852383b12e449e`.
+- Recovery: first inspect all 10 logs for `Summary:`. For only the incomplete and inactive configs, remove their exact paths from `logs/calibration/queue_state/followup_queue_20261117.tsv.started`, then restart `scripts/run_calibration_queue.sh` with max parallel 10 and a 300-second poll. Two cells remain; do not issue shutdown until accepted evidence/readback and empty-queue/process audit are complete.
+
