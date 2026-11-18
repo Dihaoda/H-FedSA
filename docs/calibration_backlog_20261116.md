@@ -1092,3 +1092,37 @@ All five configs and the queue passed dry-run validation before launch. They
 run alongside the five active FLTrust refinements, preserving the global
 limit of ten unique configurations.
 
+### FLTrust PoiSAFL second refinement results and third queue (2026-11-18)
+
+The second five-run FLTrust refinement wave completed with final-round-only
+selection. The paper error-rate target remains 52.4%–58.0%; ASR is
+descriptive only.
+
+| malicious_ratio | seed | final accuracy (%) | final error (%) | decision |
+|---:|---:|---:|---:|---|
+| 0.8880 | 2026 | 58.50 | 41.50 | outside target |
+| 0.8883 | 2026 | 64.48 | 35.52 | outside target |
+| 0.8885 | 2026 | 64.65 | 35.35 | outside target |
+| 0.8887 | 2026 | 65.60 | 34.40 | outside target |
+| 0.8889 | 2026 | 10.00 | 90.00 | outside target |
+
+The evidence bundles were committed at
+`488e933375f4daa46f5272f35745e40be65e353e`; all five remote blob SHAs
+were read back and matched.
+
+A third five-run refinement was launched at 2026-11-18 16:38:36 CST to
+resolve the transition between 0.8887 and 0.8889:
+
+- malicious ratios: 0.88872, 0.88876, 0.88880, 0.88884, 0.88888
+- queue: `configs/calibration/recovery_fltrust_refine3_queue_20261118.tsv`
+- queue SHA-256:
+  `46cf72680a80edf8423dced149ffe68cd4785bc89c209add25996c4c651264b4`
+- queue commit: `81c802e6434c8bce6b06749eed836662be247fe5`
+- daemon PID: 24758
+- per-run logs:
+  `logs/calibration/*poisafl_m0888??*refine3_20261118.log`
+
+All five configs and the queue passed dry-run validation before launch. They
+run alongside the five active RFA refinements, preserving the global limit of
+ten unique configurations.
+
