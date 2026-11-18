@@ -883,3 +883,38 @@ All five configs and the queue passed dry-run validation before launch. They
 run alongside the five active RFA refinements, preserving the global limit of
 ten unique configurations.
 
+### RFA adaptive third refinement and server-lr calibration (2026-11-18)
+
+The third RFA projection-strength refinement completed with final-round-only
+selection. The target error-rate interval remains 46.0%–51.0%.
+
+| projection_strength | server_lr | final accuracy (%) | final error (%) | decision |
+|---:|---:|---:|---:|---|
+| 0.202876672 | 1.00 | 64.49 | 35.51 | outside target |
+| 0.202876676 | 1.00 | 10.00 | 90.00 | outside target |
+| 0.202876680 | 1.00 | 10.58 | 89.42 | outside target |
+| 0.202876684 | 1.00 | 65.17 | 34.83 | outside target |
+| 0.202876688 | 1.00 | 63.72 | 36.28 | outside target |
+
+The non-monotonic split shows that projection-strength-only interpolation is
+not a stable calibration axis at this threshold. Evidence bundles were
+committed at `b712d09865fe3ddeb8673f977eb5a555e13998f3`; all five remote
+blob SHAs were read back and matched.
+
+The adaptive implementation does not apply `attack.scale_factor` to this
+attack. A documented server-step calibration therefore fixes the stable
+projection strength at 0.202876672 and varies `federated.server_lr`. It
+started at 2026-11-18 17:19:18 CST:
+
+- server-lr values: 0.15, 0.20, 0.25, 0.30, 0.40
+- queue: `configs/calibration/recovery_rfa_serverlr_queue_20261118.tsv`
+- queue SHA-256:
+  `451c918786176a7622bc3570be6e9b382d7dacff32f0767ce07b64578c9bd833`
+- queue commit: `3a3d8943447f5622a97091c0244fd9aaa2d0abc0`
+- daemon PID: 28059
+- per-run logs: `logs/calibration/*_rfa_serverlr_20261118.log`
+
+All five configs and the queue passed dry-run validation before launch. They
+run with the active FLTrust refinement wave at the global limit of ten unique
+configurations.
+
