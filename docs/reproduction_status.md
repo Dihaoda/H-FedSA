@@ -1209,3 +1209,36 @@ entered CUDA without an exception. This is a running-state record only:
 acceptance remains final-round-only, and no candidate is counted as measured
 evidence until its complete summary and artifact hashes are archived and read
 back from GitHub.
+
+## Terminal calibration closure (2026-11-18)
+
+The last two attack-defense cells now have measured, reproducible
+error-rate-only results.
+
+| defense | attack | accepted config | rounds | seed | final accuracy (%) | final error (%) | target error (%) |
+|---|---|---|---:|---:|---:|---:|---|
+| RFA | Adaptive | `cifar10_iid_rfa_adaptive_m040_ps0202876672_slr008_seed2026.yaml` | 250 | 2026 | 50.01 | 49.99 | 46.0–51.0 |
+| FLTrust | PoiSAFL | `cifar10_iid_fltrust_poisafl_m088880_slr004_r080_ae15_a000_g100_random_seed2026.yaml` | 80 | 2026 | 44.33 | 55.67 | 52.4–58.0 |
+
+RFA also produced four independent in-range candidates at server_lr
+0.10/0.12/0.13/0.14. FLTrust server_lr 0.006 at 80 rounds independently
+produced 52.87% final error. ASR remains descriptive and was not an acceptance
+gate.
+
+The FLTrust result is explicitly a rounds-80 fast calibration, not a
+250-round paper-protocol claim. Its complete config, final-round metrics,
+training log, attack trace, diagnostics, and checksum manifest are archived.
+The two unfinished 250-round FLTrust fallback runs and three clearly
+overshooting candidates were stopped and are not reported as completed.
+
+Evidence archive commits:
+
+- RFA accepted wave:
+  `e81c6eb02621a4353201aa60ee98cffe5aac8aee`
+- FLTrust accepted fast wave:
+  `e917cef71b8155cf8f2b265aa62a1d9ab21bbf37`
+
+All ten evidence blob SHAs were read back from GitHub and matched. Final
+server audit at 2026-11-18 21:34 CST found zero queue daemons, zero unique
+trainers, and zero GPU compute processes.
+
