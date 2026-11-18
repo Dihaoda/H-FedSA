@@ -814,3 +814,38 @@ The second refinement queue started at 2026-11-18 13:46:44 CST:
 The five configs and queue passed dry-run validation before launch. They run
 alongside the active FLTrust refinement wave, keeping ten unique configurations
 active.
+
+### RFA adaptive second refinement results and third queue (2026-11-18)
+
+The second five-run RFA refinement wave completed with final-round-only
+selection. The paper error-rate target remains 46.0%–51.0%; ASR is
+descriptive only.
+
+| projection_strength | seed | final accuracy (%) | final error (%) | decision |
+|---:|---:|---:|---:|---|
+| 0.202876661 | 2026 | 63.67 | 36.33 | outside target |
+| 0.202876663 | 2026 | 64.04 | 35.96 | outside target |
+| 0.202876665 | 2026 | 64.65 | 35.35 | outside target |
+| 0.202876667 | 2026 | 65.01 | 34.99 | outside target |
+| 0.202876669 | 2026 | 9.60 | 90.40 | outside target |
+
+The evidence bundles were committed at
+`91b8cdbc18c36cbd97991c46b00714b2f0228a83`; their remote blob SHAs were
+read back and matched the uploaded objects.
+
+A third five-run refinement was launched at 2026-11-18 15:37:25 CST to
+resolve the transition between 0.20287667 and 0.20287669:
+
+- projection strengths: 0.202876672, 0.202876676, 0.202876680,
+  0.202876684, 0.202876688
+- queue: `configs/calibration/recovery_rfa_refine3_queue_20261118.tsv`
+- queue SHA-256:
+  `36d11c0ec18bc0085c2a20fe3676240eed9a1aa776b67bd4648e01f612f1bff4`
+- queue commit: `ea5d7bcf5e7db5eb4728d1d4a29245649cde0433`
+- daemon PID: 20701
+- per-run logs: `logs/calibration/*_rfa_refine3_20261118.log`
+
+All five configs and the queue passed dry-run validation before launch. They
+run alongside the five active FLTrust refinements, preserving the global
+limit of ten unique configurations.
+
