@@ -1012,3 +1012,26 @@ at 0.20287660, 0.20287670, 0.20287680, 0.20287690, and 0.20287695. Its queue is
 commit `cd025a31904b4413708e8872564bb8467ac2b249`). It started at
 2026-11-18 12:10:15 CST in the five slots released by the completed RFA wave;
 the five FLTrust+PoiSAFL candidates continued uninterrupted.
+
+### FLTrust+PoiSAFL recovery wave result and refinement launch (2026-11-18)
+
+All five original recovery candidates completed at final round 250:
+
+| Malicious ratio | Final error | Target 52.4--58.0% | Evidence SHA-256 |
+| ---: | ---: | --- | --- |
+| 0.8875 | 37.54% | outside | `ee5e21168976c9588871c50b8c7b06cc49de7af7ae9cd27c7824a925afd81a84` |
+| 0.8890 | 90.00% | outside | `2c520fb54e7ce059b7076f2071804ebb54323562990ea9db0287072946b0a290` |
+| 0.8900 | 34.55% | outside | `f280184fb4b8143ebf2e4e46871482524af6729ff6868a89c339c361bba4a312` |
+| 0.8910 | 34.56% | outside | `30a9d58bb70139a761af6be3b4d9544b5f5b79465a6e76ca2d2b758229a8c315` |
+| 0.8925 | 38.48% | outside | `d436fe00963325d8fb6f983749f13ce379c990284470beb15c4c1c5442d02d5f` |
+
+All five bundles were committed at
+`6ce3520004bafe16c463e2051ceb2e70dbea76db` and read back with matching Git
+blob IDs and byte lengths. The 0.8875--0.8890 discontinuity motivated a
+pre-saved five-point wave at malicious ratios 0.8880, 0.8883, 0.8885, 0.8887,
+and 0.8889. Its queue is
+`configs/calibration/recovery_fltrust_refine_queue_20261118.tsv` (SHA-256
+`2e012da4c124f4ad7e810c9d6d99a7f87374c95c1178723abca66df65b954d2e`;
+commit `fabb3eb224180f9b2e6e41bf2c15fc4557a896d4`). The queue was prepared
+without preemption and started all five entries at 2026-11-18 13:29:09 CST
+after the original FLTrust processes exited.
