@@ -984,3 +984,31 @@ error rate controlling acceptance.
 The candidate is retained as a genuine failed calibration point; its earlier best
 accuracy is not substituted for the preregistered final-round metric. Nine
 recovery candidates remain running.
+
+### RFA+Adaptive recovery wave result and refinement launch (2026-11-18)
+
+All five original recovery candidates completed at the preregistered final round:
+
+| Projection strength | Final error | Target 46.0--51.0% | Evidence SHA-256 |
+| ---: | ---: | --- | --- |
+| 0.2028755 | 36.91% | outside | `99cacfc4b42fd85333df7d769fee249b1aef914313aebaeb96772988dbc22eec` |
+| 0.2028760 | 34.85% | outside | `885ec810e56457c5a4107fd6684b485186e64b7ec97cc2636d2c8380dc7fed92` |
+| 0.2028765 | 35.65% | outside | `1d9cfd333d45fb152d912aec369a9537dcf28a731b75776e9fd36191ecf72a25` |
+| 0.2028770 | 91.78% | outside | `aab2ba669138942d3659f0f26e78efded499835d18a08c01dc000e9762b4a46a` |
+| 0.2028780 | 36.64% | outside | `bd38949266da061da49fc78976f2e6be0a77b1c25fa4fa14f0b7215e4b9f3b3e` |
+
+The four newly archived bundles were committed together at
+`b71bbd26a9b449f975e8453500e3150dce944462`; the 0.2028770 bundle was already
+committed at `43e086b8f53e34cf1d149b94ddf10e86c7b9c995`. Each archive is under
+`artifacts/experiment-evidence/2026-11-18/` and includes resolved config,
+metrics, summary, run summary, diagnostics, attack trace, training log, and an
+internal SHA256SUMS manifest.
+
+The discontinuity is bracketed by 0.2028765 (35.65% error) and 0.2028770
+(91.78% error). A five-point, pre-saved refinement wave was therefore launched
+at 0.20287660, 0.20287670, 0.20287680, 0.20287690, and 0.20287695. Its queue is
+`configs/calibration/recovery_rfa_refine_queue_20261118.tsv` (SHA-256
+`9defee7693c45ce82248160299c6207c2acf224147f8c5265998789f3cf8b2a6`;
+commit `cd025a31904b4413708e8872564bb8467ac2b249`). It started at
+2026-11-18 12:10:15 CST in the five slots released by the completed RFA wave;
+the five FLTrust+PoiSAFL candidates continued uninterrupted.
