@@ -944,3 +944,22 @@ the remaining RFA Krum extension is chained after it.
 - Durable recovery state is preserved in GitHub: queue commit `1d26a7723854f28a6c936309ac800e5ffb63deb4`, 120 lines, SHA-256 `90e1f0279d2906473a2d27ceb07b3ad9e8eb3f8e57c0816d1f852383b12e449e`, plus all validated configs and accepted evidence.
 - On instance recovery, inspect the five Adaptive and five FLTrust logs for `Summary:` first. For incomplete inactive configs, remove only their exact paths from `logs/calibration/queue_state/followup_queue_20261117.tsv.started`, then restart the 10-way queue daemon. Do not power off until both remaining cells are archived/read back and the final audit is empty.
 
+## Replacement-server final-wave recovery (2026-11-18)
+
+Only two Table II(d) cells remain open under the current error-only acceptance
+rule:
+
+- FLTrust+PoiSAFL, paper error interval 52.4--58.0%; running malicious-ratio
+  candidates 0.8875, 0.8890, 0.8900, 0.8910, and 0.8925.
+- RFA+Adaptive, paper error interval 46.0--51.0%; running poison-scale
+  candidates 0.2028755, 0.2028760, 0.2028765, 0.2028770, and 0.2028780.
+
+The ten candidates are fixed in
+`configs/calibration/recovery_queue_20261118.tsv` (SHA-256
+`6c567a36ce259519f195728db88bb98b5913ce021e04c92633ab71befece2048`).
+They were relaunched from a clean replacement-server workspace at
+2026-11-18 10:29:43 CST after the prior server disappeared before complete
+summaries were available. Queue state is **running**; none of these ten entries
+is accepted merely because it started. The selection rule remains
+`final_round_only`, seed 2026, with ASR retained as descriptive metadata and
+error rate controlling acceptance.
