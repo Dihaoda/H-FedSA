@@ -1185,3 +1185,27 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - The remote host closed SSH and three reconnection attempts returned `Connection refused`; this is not recorded as a completed or intentional shutdown.
 - Recovery is backed by queue commit `1d26a7723854f28a6c936309ac800e5ffb63deb4`, 120 lines, SHA-256 `90e1f0279d2906473a2d27ceb07b3ad9e8eb3f8e57c0816d1f852383b12e449e`, plus immutable configs and accepted artifacts. Two cells remain.
 
+## Replacement-server recovery launch (2026-11-18)
+
+The prior AutoDL instance became unreachable before the final ten calibration
+candidates produced complete summaries. No unverified partial metric was carried
+forward. A dedicated recovery queue was committed as
+`configs/calibration/recovery_queue_20261118.tsv` (10 entries; SHA-256
+`6c567a36ce259519f195728db88bb98b5913ce021e04c92633ab71befece2048`;
+queue commit `8a89bf8d3214a7fc7dc92130eaba4f94982bd992`).
+
+The replacement A100 40 GB environment uses Python 3.12.3 and
+PyTorch 2.5.1+cu124. CIFAR-10 was verified at 50,000 training and 10,000 test
+examples. CIFAR-10-C was verified against the official archive MD5
+`56bf5dcef84df0e2308c6dcbcbbd8499`; the Gaussian-noise and shot-noise arrays
+both have shape `(50000, 32, 32, 3)`. All ten configs passed
+`src.main --dry_run`, the recovery queue passed its queue dry run, and the
+test suite passed (127 tests).
+
+At 2026-11-18 10:29:43 CST the recovery queue launched five
+FLTrust+PoiSAFL candidates and five RFA+Adaptive candidates with a hard
+10-config concurrency limit and a 300-second queue poll. All ten processes
+entered CUDA without an exception. This is a running-state record only:
+acceptance remains final-round-only, and no candidate is counted as measured
+evidence until its complete summary and artifact hashes are archived and read
+back from GitHub.
