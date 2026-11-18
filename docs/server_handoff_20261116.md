@@ -1041,3 +1041,8 @@ Configs, queues, evidence bundles, checksums, and the calibration caveat are
 stored on the default branch. The server is ready for the previously
 authorized power-off after this document is read back.
 
+## Power-off confirmation (2026-11-18 21:37 CST)
+
+- Final pre-shutdown audit: `queue_daemons=0`, `unique_trainers=0`, `gpu_processes=0`.
+- `sync` completed and `shutdown -h now` was issued at `2026-11-18 21:37:35 CST`.
+- The SSH session was closed by the remote host immediately after the shutdown command, confirming the server power-off sequence was accepted.
