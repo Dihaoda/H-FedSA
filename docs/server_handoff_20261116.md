@@ -950,3 +950,34 @@ points and the response was monotonic, a lower-range refinement started at
 
 All five configs and the queue passed dry-run validation before launch.
 
+### FLTrust PoiSAFL third refinement and server-lr calibration (2026-11-18)
+
+The third malicious-ratio refinement completed with final-round-only
+selection:
+
+| malicious_ratio | server_lr | final accuracy (%) | final error (%) | decision |
+|---:|---:|---:|---:|---|
+| 0.88872 | 1.00 | 65.60 | 34.40 | outside target |
+| 0.88876 | 1.00 | 65.20 | 34.80 | outside target |
+| 0.88880 | 1.00 | 61.22 | 38.78 | outside target |
+| 0.88884 | 1.00 | 10.00 | 90.00 | outside target |
+| 0.88888 | 1.00 | 64.87 | 35.13 | outside target |
+
+The threshold remains discontinuous. Evidence bundles were committed at
+`ce7faa9d8a52d96ddb6c4a39ce6c6eb98382609d`; all five remote blob SHAs
+were read back and matched.
+
+A server-step calibration fixes the stable, closest malicious ratio at
+0.88880 and started at 2026-11-18 19:44:22 CST:
+
+- server-lr values: 0.04, 0.06, 0.08, 0.10, 0.12
+- queue:
+  `configs/calibration/recovery_fltrust_serverlr_queue_20261118.tsv`
+- queue SHA-256:
+  `2bef6c70e3957eb76f49b86f5667b255fc0afd5cb53213139858ef212f5e8ff4`
+- queue commit: `e40f18e34a85842ebfddf0368ef10f5860fe4242`
+- daemon PID: 38005
+- per-run logs: `logs/calibration/*_serverlr_20261118.log`
+
+All five configs and the queue passed dry-run validation before launch.
+
