@@ -1179,3 +1179,9 @@ Five PoiSAFL compatibility-extension configs and four adjacent interpolation con
 - RFA-Adaptive ps0.202872/0.202875/0.202880 ended at `37.35%`/`36.40%`/`89.95%`; ps0.2028755/0.2028760/0.2028765/0.2028770/0.2028780 are active.
 - Five FLTrust-PoiSAFL candidates remain active. Queue commit `1d26a7723854f28a6c936309ac800e5ffb63deb4`, 120 lines, SHA-256 `90e1f0279d2906473a2d27ceb07b3ad9e8eb3f8e57c0816d1f852383b12e449e`. Two cells remain and 10 candidates are active.
 
+### 2026-11-18 08:51 CST — unexpected AutoDL disconnect
+
+- Last verified state: five RFA-Adaptive candidates at rounds 118–127 and five FLTrust-PoiSAFL candidates at rounds 137–140, all real CIFAR-10 runs and all active.
+- The remote host closed SSH and three reconnection attempts returned `Connection refused`; this is not recorded as a completed or intentional shutdown.
+- Recovery is backed by queue commit `1d26a7723854f28a6c936309ac800e5ffb63deb4`, 120 lines, SHA-256 `90e1f0279d2906473a2d27ceb07b3ad9e8eb3f8e57c0816d1f852383b12e449e`, plus immutable configs and accepted artifacts. Two cells remain.
+
