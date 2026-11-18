@@ -708,3 +708,34 @@ powered on.
 - Durable state: queue commit `1d26a7723854f28a6c936309ac800e5ffb63deb4`, 120 lines, synchronized SHA-256 `90e1f0279d2906473a2d27ceb07b3ad9e8eb3f8e57c0816d1f852383b12e449e`.
 - Recovery: first inspect all 10 logs for `Summary:`. For only the incomplete and inactive configs, remove their exact paths from `logs/calibration/queue_state/followup_queue_20261117.tsv.started`, then restart `scripts/run_calibration_queue.sh` with max parallel 10 and a 300-second poll. Two cells remain; do not issue shutdown until accepted evidence/readback and empty-queue/process audit are complete.
 
+## Replacement AutoDL handoff (2026-11-18)
+
+A fresh clone is running at `/root/autodl-tmp/H-FedSA` on an A100 40 GB
+replacement container. The unrelated pre-existing
+`/root/autodl-tmp/FedSApro` directory was not modified.
+
+Recovery assets:
+
+- queue: `configs/calibration/recovery_queue_20261118.tsv`
+- queue SHA-256:
+  `6c567a36ce259519f195728db88bb98b5913ce021e04c92633ab71befece2048`
+- queue commit: `8a89bf8d3214a7fc7dc92130eaba4f94982bd992`
+- daemon log:
+  `logs/calibration/queue_state/recovery_queue_20261118.daemon.log`
+- daemon PID file:
+  `logs/calibration/queue_state/recovery_queue_20261118.daemon.pid`
+- queue event log:
+  `logs/calibration/queue_state/recovery_queue_20261118.tsv.events.log`
+- per-run logs: `logs/calibration/*_recovery_20261118.log`
+
+Preflight completed with 10/10 config dry runs, a queue dry run, 127 passing
+tests, verified CIFAR-10/CIFAR-10-C inputs, and zero pre-existing trainers.
+The queue started at 2026-11-18 10:29:43 CST with
+`HFEDSA_QUEUE_MAX_PARALLEL=10` and `HFEDSA_QUEUE_POLL_SECONDS=300`;
+all ten requested configs entered CUDA without an initial error.
+
+Do not shut the instance down while the queue is running. Shutdown is permitted
+only after both remaining cells have accepted final-round evidence (or all
+pre-registered candidates have conclusively failed and that state has been
+archived), all logs/configs/evidence are backed up and read back from GitHub,
+and both the queue daemon and every training process are absent.
