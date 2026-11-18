@@ -766,3 +766,29 @@ The refinement queue started at 2026-11-18 12:10:15 CST after 5/5 config dry
 runs and a queue dry run. Together with the five continuing FLTrust+PoiSAFL
 runs, total unique active configs returned to ten. Both queue daemons must be
 stopped during the final empty-process audit.
+
+### FLTrust refinement queue active (2026-11-18 13:29 CST)
+
+The original five FLTrust+PoiSAFL recovery entries completed outside the target
+interval. Their evidence bundles are committed at
+`6ce3520004bafe16c463e2051ceb2e70dbea76db` under
+`artifacts/experiment-evidence/2026-11-18/`.
+
+The waiting refinement queue filled the five freed slots at
+2026-11-18 13:29:09 CST:
+
+- queue: `configs/calibration/recovery_fltrust_refine_queue_20261118.tsv`
+- queue SHA-256:
+  `2e012da4c124f4ad7e810c9d6d99a7f87374c95c1178723abca66df65b954d2e`
+- queue commit: `fabb3eb224180f9b2e6e41bf2c15fc4557a896d4`
+- daemon PID file:
+  `logs/calibration/queue_state/recovery_fltrust_refine_queue_20261118.daemon.pid`
+- daemon log:
+  `logs/calibration/queue_state/recovery_fltrust_refine_queue_20261118.daemon.log`
+- event log:
+  `logs/calibration/queue_state/recovery_fltrust_refine_queue_20261118.tsv.events.log`
+- per-run logs: `logs/calibration/*_refine2_20261118.log`
+
+The five new configs passed individual dry runs and the queue passed its dry
+run before the daemon was armed. They run alongside the still-active RFA
+refinement wave, preserving the global limit of ten unique configurations.
