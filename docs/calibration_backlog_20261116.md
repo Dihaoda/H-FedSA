@@ -1035,3 +1035,25 @@ and 0.8889. Its queue is
 commit `fabb3eb224180f9b2e6e41bf2c15fc4557a896d4`). The queue was prepared
 without preemption and started all five entries at 2026-11-18 13:29:09 CST
 after the original FLTrust processes exited.
+
+### RFA+Adaptive refinement wave 1 result and wave 2 launch (2026-11-18)
+
+The first five-point refinement wave also completed outside the target interval:
+
+| Projection strength | Final error | Target 46.0--51.0% | Evidence SHA-256 |
+| ---: | ---: | --- | --- |
+| 0.20287660 | 35.30% | outside | `409ab95e9359d18bc2d315b0f01716ad2f38fba9a56b3d6d9123294ba116e737` |
+| 0.20287670 | 92.59% | outside | `ec9bed60ab8b98e738322d1e4d400bd72cbc2be7e97b22f906c11ca51f020340` |
+| 0.20287680 | 35.47% | outside | `6936dd677746bec1426de4d03bc59cff39c9f0e89894be64ed8f9263a51c9c6b` |
+| 0.20287690 | 35.31% | outside | `94997e4c3955e58d0c927a8308465807dc26728acee62d5448d6a3915abeb771` |
+| 0.20287695 | 92.02% | outside | `dea76fcd172239ca898c2cbc0b21ae58507cb41ade91c277db1442c47fd29a39` |
+
+The five evidence bundles were committed at
+`a2a9966eb8a306c19de0af2e10d553401cf46fc7` and read back with matching
+blob IDs and byte lengths. The lower discontinuity was narrowed to
+0.20287660--0.20287670. A second refinement wave at 0.20287661, 0.20287663,
+0.20287665, 0.20287667, and 0.20287669 was pre-saved and launched at
+2026-11-18 13:46:44 CST. Its queue is
+`configs/calibration/recovery_rfa_refine2_queue_20261118.tsv` (SHA-256
+`4f000b310f3d6bd9aae90f1b69ef24785dae3cea0b4b9023e8b5d52aa717e98e`;
+commit `dc97cf75d7d4b65640d0ae0f346b179829afc92d`).
