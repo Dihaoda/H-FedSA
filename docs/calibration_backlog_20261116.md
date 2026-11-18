@@ -1224,3 +1224,44 @@ A server-step calibration fixes the stable, closest malicious ratio at
 
 All five configs and the queue passed dry-run validation before launch.
 
+### RFA adaptive accepted; accelerated FLTrust calibration (2026-11-18)
+
+The refined RFA server-step wave completed all 250 rounds. Every candidate is
+inside the 46.0%–51.0% final error-rate target:
+
+| server_lr | final accuracy (%) | final error (%) | decision |
+|---:|---:|---:|---|
+| 0.08 | 50.01 | 49.99 | accepted |
+| 0.10 | 51.35 | 48.65 | accepted |
+| 0.12 | 52.27 | 47.73 | accepted |
+| 0.13 | 52.80 | 47.20 | accepted |
+| 0.14 | 53.27 | 46.73 | accepted |
+
+The fixed attack projection strength is 0.202876672 and seed is 2026.
+Evidence bundles were committed at
+`e81c6eb02621a4353201aa60ee98cffe5aac8aee`; all five remote blob SHAs
+were read back and matched. RFA + Adaptive is therefore complete under the
+error-rate-only acceptance rule.
+
+To shorten time-to-range for the remaining FLTrust + PoiSAFL cell, the
+server-lr=0.08/0.10/0.12 full-250 candidates were deliberately stopped at
+rounds 35/36/35 because their accuracies had already reached
+44.84%/46.19%/47.30% and would continue increasing. Their partial logs are
+retained and are not reported as completed results. The full-250
+server-lr=0.04 and 0.06 candidates remain active.
+
+A separately labelled fast calibration keeps the same seed and attack
+settings but sets `federated.rounds: 80`. It started at
+2026-11-18 20:33:38 CST:
+
+- server-lr values: 0.04, 0.06, 0.08, 0.10, 0.12
+- queue: `configs/calibration/recovery_fltrust_fast80_queue_20261118.tsv`
+- queue SHA-256:
+  `6ac91b3fa92512c279c607eb763f8c3efe4e8ccb91cdbb9d6d0c5a98fa812791`
+- queue commit: `ef8833429e7ec0e3d0383501eca463455a3e61dd`
+- daemon PID: 42146
+- per-run logs: `logs/calibration/*_fast80_20261118.log`
+
+These rounds-80 runs are explicitly calibration results and will not be
+misrepresented as 250-round paper-protocol runs.
+
