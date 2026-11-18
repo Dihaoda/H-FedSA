@@ -792,3 +792,25 @@ The waiting refinement queue filled the five freed slots at
 The five new configs passed individual dry runs and the queue passed its dry
 run before the daemon was armed. They run alongside the still-active RFA
 refinement wave, preserving the global limit of ten unique configurations.
+
+### Second RFA refinement queue active (2026-11-18 13:46 CST)
+
+The first RFA refinement wave completed without a target-range candidate. Its
+five evidence bundles are committed at
+`a2a9966eb8a306c19de0af2e10d553401cf46fc7`.
+
+The second refinement queue started at 2026-11-18 13:46:44 CST:
+
+- queue: `configs/calibration/recovery_rfa_refine2_queue_20261118.tsv`
+- queue SHA-256:
+  `4f000b310f3d6bd9aae90f1b69ef24785dae3cea0b4b9023e8b5d52aa717e98e`
+- queue commit: `dc97cf75d7d4b65640d0ae0f346b179829afc92d`
+- daemon PID file:
+  `logs/calibration/queue_state/recovery_rfa_refine2_queue_20261118.daemon.pid`
+- event log:
+  `logs/calibration/queue_state/recovery_rfa_refine2_queue_20261118.tsv.events.log`
+- per-run logs: `logs/calibration/*_rfa_refine2_20261118.log`
+
+The five configs and queue passed dry-run validation before launch. They run
+alongside the active FLTrust refinement wave, keeping ten unique configurations
+active.
