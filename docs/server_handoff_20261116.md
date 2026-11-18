@@ -739,3 +739,30 @@ only after both remaining cells have accepted final-round evidence (or all
 pre-registered candidates have conclusively failed and that state has been
 archived), all logs/configs/evidence are backed up and read back from GitHub,
 and both the queue daemon and every training process are absent.
+
+### Live refinement queue added (2026-11-18 12:10 CST)
+
+The original five RFA+Adaptive recovery entries completed; none met the
+46.0--51.0% error interval. Their evidence archives are committed under
+`artifacts/experiment-evidence/2026-11-18/` (four-bundle commit
+`b71bbd26a9b449f975e8453500e3150dce944462`, with the 0.2028770 bundle at
+`43e086b8f53e34cf1d149b94ddf10e86c7b9c995`).
+
+A second queue now occupies the five freed slots:
+
+- queue: `configs/calibration/recovery_rfa_refine_queue_20261118.tsv`
+- queue SHA-256:
+  `9defee7693c45ce82248160299c6207c2acf224147f8c5265998789f3cf8b2a6`
+- queue commit: `cd025a31904b4413708e8872564bb8467ac2b249`
+- daemon PID file:
+  `logs/calibration/queue_state/recovery_rfa_refine_queue_20261118.daemon.pid`
+- daemon log:
+  `logs/calibration/queue_state/recovery_rfa_refine_queue_20261118.daemon.log`
+- event log:
+  `logs/calibration/queue_state/recovery_rfa_refine_queue_20261118.tsv.events.log`
+- per-run logs: `logs/calibration/*_refine_20261118.log`
+
+The refinement queue started at 2026-11-18 12:10:15 CST after 5/5 config dry
+runs and a queue dry run. Together with the five continuing FLTrust+PoiSAFL
+runs, total unique active configs returned to ten. Both queue daemons must be
+stopped during the final empty-process audit.
