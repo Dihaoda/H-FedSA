@@ -1,10 +1,9 @@
 # H-FedSA
 
-Implementation of **H-FedSA: A Self-Adaptive Federated Learning Framework with Dynamic Probabilistic Client Security Analysis**.
+PyTorch implementation of **H-FedSA: A Self-Adaptive Federated Learning Framework with Dynamic Probabilistic Client Security Analysis** for federated learning security research.
 
-Paper-aligned CIFAR-10 reproduction configurations are provided in [`configs/reproduction/`](configs/reproduction/).
+## Repository Structure
 
-```bash
-pip install -r requirements.txt
-python -m src.main --config configs/reproduction/cifar10_iid/hfedsa_ddpg/no_attack.yaml
-```
+- `src/`: federated optimization, attack models, and defense algorithms.
+- `configs/reproduction/`: paper-aligned CIFAR-10 IID experiment configurations.
+- `scripts/`: dataset preparation and result aggregation utilities.
