@@ -937,3 +937,10 @@ the remaining RFA Krum extension is chained after it.
 - Five FLTrust + PoiSAFL candidates remain active. Queue commit `1d26a7723854f28a6c936309ac800e5ffb63deb4` has 120 lines; synchronized SHA-256 is `90e1f0279d2906473a2d27ceb07b3ad9e8eb3f8e57c0816d1f852383b12e449e`, with normalized GitHub readback passed.
 - Outstanding count remains **2** and 10 validated configs are active.
 
+### 2026-11-18 08:51 CST — unexpected AutoDL disconnect
+
+- At the last successful check (08:10 CST), all 10 final-wave configs were active: five RFA-Adaptive fine-grid candidates at rounds 118–127 and five FLTrust-PoiSAFL candidates at rounds 137–140.
+- The SSH connection was then closed by the remote host. Three reconnection attempts over the following minutes returned `Connection refused`; this was not the requested final shutdown and no empty-queue/process audit was possible.
+- Durable recovery state is preserved in GitHub: queue commit `1d26a7723854f28a6c936309ac800e5ffb63deb4`, 120 lines, SHA-256 `90e1f0279d2906473a2d27ceb07b3ad9e8eb3f8e57c0816d1f852383b12e449e`, plus all validated configs and accepted evidence.
+- On instance recovery, inspect the five Adaptive and five FLTrust logs for `Summary:` first. For incomplete inactive configs, remove only their exact paths from `logs/calibration/queue_state/followup_queue_20261117.tsv.started`, then restart the 10-way queue daemon. Do not power off until both remaining cells are archived/read back and the final audit is empty.
+
